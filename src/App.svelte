@@ -12,7 +12,7 @@
 
 <style lang="scss">
 	main {
-		margin: 0;
+		margin: auto;
 		max-width: 1024px;
 	}
 </style>
