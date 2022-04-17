@@ -13,7 +13,7 @@
     headerMottoSwitch = (headerMottoSwitch + 1) % 2;
     document.querySelector('#headerRoot__layer-shape').style.opacity = 1 - headerMottoSwitch;
     document.querySelector('#headerRoot__shape-layer').style.opacity = headerMottoSwitch;
-  }, 15000);
+  }, 5000);
 </script>
 
 <headerRoot>
