@@ -1,0 +1,45 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+
+html, body {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	color: #4e4b42;
+	background-color: #f0f0f0;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	line-height: 1.6;
+}
+
+body, header, section, div, span, p, i, a, u, b, s, ul, ol, li {
+	font-family: 'Pretendard', -apple-system, sans-serif;
+}
+
+a {
+	color: #7e755a;
+	text-decoration: underline;
+	transition: .15s ease-in-out;
+}
+
+a:hover, a:focus {
+	background: rgb(78, 75, 66, 0.2);
+	text-decoration: underline;
+	transition: .15s ease-in-out;
+}
+
+label {
+	display: block;
+}
+
+li p {
+	margin: 0;
+}
+
+::selection {
+	background: rgb(78, 75, 66, 0.2);
+}
