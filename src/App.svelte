@@ -1,12 +1,16 @@
 <script lang="ts">
-	import Header from './includes/profile/Header.svelte';
-	import Descriptions from './includes/profile/Descriptions.svelte';
-	import Footer from './includes/profile/Footer.svelte';
+	import Header from './includes/Header.svelte'
+	import Profile from './includes/Profile.svelte'
+	import Careers from './includes/Careers.svelte'
+	import Footer from './includes/Footer.svelte'
 </script>
 
 <main>
 	<Header />
-	<Descriptions />
+	<Profile />
+	<hr class="section-divider">
+	<Careers />
+	<hr class="section-divider">
 	<Footer />
 </main>
 
