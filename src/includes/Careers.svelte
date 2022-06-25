@@ -52,7 +52,8 @@
     <div id="careers__achievements" class="careers__sections">
       <h3 class="subtitle">ACHIEVEMENTS</h3>
       <ul>
-        <li>The 2021 ICPC Asia Seoul Regional Contest 53<sup>th</sup><span class="datetime">2021.11.13</span></li>
+        <li>전남대학교 창업아이템경진대회 입선 <span class="datetime">2021.12</span></li>
+        <li>The 2021 ICPC Asia Seoul Regional Contest 53<sup>th</sup> <span class="datetime">2021.11.13</span></li>
         <li>
           자연스러운 수어 애니메이션을 위한 FBX 파일 결합 알고리즘 <span class="datetime">2021.11</span><br>
           ⇒ 연구과제 논문 // 공동저자<br>
