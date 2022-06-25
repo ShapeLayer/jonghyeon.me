@@ -77,6 +77,15 @@
         <li>전남대학교 소프트웨어 개발동아리 Stolio <span class="datetime">2022.03-</span></li>
       </ul>
     </div>
+    <div id="careers__certificates" class="careers__sections">
+      <h3 class="subtitle">CERTIFICATES</h3>
+      <ul>
+        <li>TOEIC 805 <span class="datetime">2021.08.08</span></li>
+        <li>AWS Certified Cloud Practitioner</li>
+        <li>SQL 개발자</li>
+        <li>YBM Coding Specialist Professional I</li>
+      </ul>
+    </div>
   </div>
 </section>
 
