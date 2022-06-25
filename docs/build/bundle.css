@@ -3,19 +3,6 @@ main.svelte-1ja2pop {
   max-width: 1024px;
 }
 
-.profile.svelte-19h2xjl.svelte-19h2xjl {
-  height: 100vh;
-  align-items: center;
-}
-
-.profile.svelte-19h2xjl div.profile__content div.profile__intro p.svelte-19h2xjl {
-  margin-bottom: 0.5em;
-}
-
-.profile.svelte-19h2xjl div.profile__content div.profile__links a.svelte-19h2xjl {
-  text-decoration: underline 0.8px dashed;
-}
-
 footer.svelte-1qhkztf.svelte-1qhkztf {
   box-sizing: border-box;
   margin: auto;
@@ -29,27 +16,17 @@ footer.svelte-1qhkztf img#unicode-sponser.svelte-1qhkztf {
   width: 8em;
 }
 
-section.careers.svelte-13zdxo0 div.careers__content div.svelte-13zdxo0 {
-  margin: 0 1em;
+.profile.svelte-19h2xjl.svelte-19h2xjl {
+  height: 100vh;
+  align-items: center;
 }
 
-section.careers.svelte-13zdxo0 div.careers__content div.careers__sections.svelte-13zdxo0 {
-  margin-bottom: 2em;
-}
-
-section.careers.svelte-13zdxo0 div.careers__content div.careers__sections h3.subtitle.svelte-13zdxo0 {
+.profile.svelte-19h2xjl div.profile__content div.profile__intro p.svelte-19h2xjl {
   margin-bottom: 0.5em;
 }
 
-section.careers.svelte-13zdxo0 div.careers__content div.careers__sections ul li.svelte-13zdxo0 {
-  margin-bottom: 0.5em;
-}
-
-section.careers.svelte-13zdxo0 div.careers__content div.careers__sections ul li span.datetime.svelte-13zdxo0 {
-  margin-left: 0.2em;
-  font-size: 0.8em;
-  color: var(--base-fg-color-brighter);
-  font-style: italic;
+.profile.svelte-19h2xjl div.profile__content div.profile__links a.svelte-19h2xjl {
+  text-decoration: underline 0.8px dashed;
 }
 
 header.svelte-7fp1qj.svelte-7fp1qj {
@@ -95,4 +72,27 @@ header.svelte-7fp1qj div.hero div.hero__wrapper h1.hero__content a span.highligh
   background-color: var(--base-header-fg-color);
   border-radius: 0.1em;
   box-sizing: inherit;
+}
+
+section.careers.svelte-13zdxo0 div.careers__content div.svelte-13zdxo0 {
+  margin: 0 1em;
+}
+
+section.careers.svelte-13zdxo0 div.careers__content div.careers__sections.svelte-13zdxo0 {
+  margin-bottom: 2em;
+}
+
+section.careers.svelte-13zdxo0 div.careers__content div.careers__sections h3.subtitle.svelte-13zdxo0 {
+  margin-bottom: 0.5em;
+}
+
+section.careers.svelte-13zdxo0 div.careers__content div.careers__sections ul li.svelte-13zdxo0 {
+  margin-bottom: 0.5em;
+}
+
+section.careers.svelte-13zdxo0 div.careers__content div.careers__sections ul li span.datetime.svelte-13zdxo0 {
+  margin-left: 0.2em;
+  font-size: 0.8em;
+  color: var(--base-fg-color-brighter);
+  font-style: italic;
 }

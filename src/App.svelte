@@ -13,10 +13,3 @@
 	<hr class="section-divider">
 	<Footer />
 </main>
-
-<style lang="scss">
-	main {
-		margin: auto;
-		max-width: 1024px;
-	}
-</style>
