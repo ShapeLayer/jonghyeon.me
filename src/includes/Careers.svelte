@@ -9,7 +9,7 @@
     <div id="careers__military" class="careers__sections">
       <ul>
         <li>
-          대한민국 육군 기술행정병 네트워크운용/정비 분과 <span class="datetime">2022.07-</span><br>
+          대한민국 육군 기술행정병 네트워크운용/정비 분과 <span class="datetime">2022.07-2024.01</span><br>
           ⇒ 자대 배치 정보 없음. <MilDDay />
         </li>
       </ul>
@@ -35,7 +35,7 @@
           ⇒ 개인 프로젝트
         </li>
         <li>
-          청각장애인을 위한 지능형 전시해설 문자/한국수어 변환 기술 개발 <span class="datetime">2021.06-2022-07</span><br>
+          청각장애인을 위한 지능형 전시해설 문자/한국수어 변환 기술 개발 <span class="datetime">2021.06-2022.07</span><br>
           ⇒ 연구실 연구과제 // 클라이언트 개발
         </li>
         <li>

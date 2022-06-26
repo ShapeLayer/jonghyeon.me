@@ -6,7 +6,7 @@
       </a>
     </p>
     <p class="copy">&copy; Park Jonghyeon / ShapeLayer.</p>
-    <p><a href="https://github.com/jonghyeon.me" target="_blank">ShapeLayer/jonghyeon.me</a></p>
+    <p><a href="https://github.com/ShapeLayer/jonghyeon.me" target="_blank">ShapeLayer/jonghyeon.me</a></p>
   </div>
 </footer>
 
