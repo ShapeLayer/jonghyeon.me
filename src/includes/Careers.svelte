@@ -10,8 +10,7 @@
       <ul>
         <li>
           대한민국 육군 기술행정병 네트워크운용/정비 분과 <span class="datetime">2022.07-2024.01</span><br>
-          ⇒ <a href="https://pause.jonghyeon.me" target="_blank">자대 배치 정보 없음.</a> <MilDDay /><br>
-          ⇒ <a href="https://shapec61c1c7b46fa43bdb622daa9a14650c3" target="_blank">[회고] 커리어를 잠시 중단하며</a>
+          ⇒ <a href="https://pause.jonghyeon.me" target="_blank">9사단 28여단 1대대 통신소대 (경기도 파주시 소재)</a> <MilDDay /><br>
         </li>
       </ul>
     </div>
