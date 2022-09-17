@@ -11,42 +11,6 @@
   text-decoration: underline 0.8px dashed;
 }
 
-footer.svelte-1qhkztf.svelte-1qhkztf {
-  box-sizing: border-box;
-  margin: auto;
-  width: 100%;
-  max-width: 800px;
-  padding: 1em;
-  display: flex;
-}
-
-footer.svelte-1qhkztf img#unicode-sponser.svelte-1qhkztf {
-  width: 8em;
-}
-
-section.careers.svelte-13zdxo0 div.careers__content div.svelte-13zdxo0 {
-  margin: 0 1em;
-}
-
-section.careers.svelte-13zdxo0 div.careers__content div.careers__sections.svelte-13zdxo0 {
-  margin-bottom: 2em;
-}
-
-section.careers.svelte-13zdxo0 div.careers__content div.careers__sections h3.subtitle.svelte-13zdxo0 {
-  margin-bottom: 0.5em;
-}
-
-section.careers.svelte-13zdxo0 div.careers__content div.careers__sections ul li.svelte-13zdxo0 {
-  margin-bottom: 0.5em;
-}
-
-section.careers.svelte-13zdxo0 div.careers__content div.careers__sections ul li span.datetime.svelte-13zdxo0 {
-  margin-left: 0.2em;
-  font-size: 0.8em;
-  color: var(--base-fg-color-brighter);
-  font-style: italic;
-}
-
 header.svelte-7fp1qj.svelte-7fp1qj {
   display: flex;
   position: relative;
@@ -90,4 +54,40 @@ header.svelte-7fp1qj div.hero div.hero__wrapper h1.hero__content a span.highligh
   background-color: var(--base-header-fg-color);
   border-radius: 0.1em;
   box-sizing: inherit;
+}
+
+footer.svelte-1qhkztf.svelte-1qhkztf {
+  box-sizing: border-box;
+  margin: auto;
+  width: 100%;
+  max-width: 800px;
+  padding: 1em;
+  display: flex;
+}
+
+footer.svelte-1qhkztf img#unicode-sponser.svelte-1qhkztf {
+  width: 8em;
+}
+
+section.careers.svelte-13zdxo0 div.careers__content div.svelte-13zdxo0 {
+  margin: 0 1em;
+}
+
+section.careers.svelte-13zdxo0 div.careers__content div.careers__sections.svelte-13zdxo0 {
+  margin-bottom: 2em;
+}
+
+section.careers.svelte-13zdxo0 div.careers__content div.careers__sections h3.subtitle.svelte-13zdxo0 {
+  margin-bottom: 0.5em;
+}
+
+section.careers.svelte-13zdxo0 div.careers__content div.careers__sections ul li.svelte-13zdxo0 {
+  margin-bottom: 0.5em;
+}
+
+section.careers.svelte-13zdxo0 div.careers__content div.careers__sections ul li span.datetime.svelte-13zdxo0 {
+  margin-left: 0.2em;
+  font-size: 0.8em;
+  color: var(--base-fg-color-brighter);
+  font-style: italic;
 }
