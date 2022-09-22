@@ -10,7 +10,7 @@
       <ul>
         <li>
           대한민국 육군 기술행정병 네트워크운용/정비 분과 <span class="datetime">2022.07-2024.01</span><br>
-          ⇒ 경기도 파주시 소재지 근무 <MilDDay /><br>
+          ⇒ <MilDDay /><br>
         </li>
       </ul>
     </div>
