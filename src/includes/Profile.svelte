@@ -13,7 +13,7 @@
     </div>
     <div class="profile__links">
       <ul class="enums">
-        <li><a href="mailto:belline0124@gmail.com">belline0124@gmail.com</a></li>
+        <li><a href="mailto:me@jonghyeon.me">me@jonghyeon.me</a></li>
         <li><a href="https://www.instagram.com/__jong.hyeon__/" target="_blank">instagram</a></li>
       </ul>
       <ul class="enums">
