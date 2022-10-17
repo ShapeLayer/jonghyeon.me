@@ -81,7 +81,10 @@
       <h3 class="subtitle">CERTIFICATES</h3>
       <ul>
         <li>TOEIC 805 <span class="datetime">2021.08.08</span></li>
-        <li>AWS Certified Cloud Practitioner</li>
+        <li>AWS Certified<br>
+          ⇒ Cloud Practitioner<br>
+          ⇒ Developer - Associate
+        </li>
         <li>SQL 개발자</li>
         <li>YBM Coding Specialist Professional I</li>
       </ul>
