@@ -18,7 +18,7 @@
       </ul>
       <ul class="enums">
         <li><a href="https://github.com/ShapeLayer" target="_blank">github</a></li>
-        <li><a href="https://velog.io/@shapelayer" target="_blank">velog</a></li>
+        <li><a href="https://blog.jonghyeon.me" target="_blank">blog</a></li>
         <li><a href="https://www.credly.com/users/jonghyeon" target="_blank">credly</a></li>
         <li><a href="https://solved.ac/profile/belline0124" target="_blank">solved.ac</a></li>
       </ul>

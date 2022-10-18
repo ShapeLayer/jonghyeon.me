@@ -81,7 +81,7 @@
       <h3 class="subtitle">CERTIFICATES</h3>
       <ul>
         <li>TOEIC 805 <span class="datetime">2021.08.08</span></li>
-        <li>AWS Certified<br>
+        <li><a href="https://www.credly.com/users/jonghyeon/badges" target="_blank">AWS Certified</a><br>
           ⇒ Cloud Practitioner<br>
           ⇒ Developer - Associate
         </li>
