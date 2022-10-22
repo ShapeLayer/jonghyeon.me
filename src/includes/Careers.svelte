@@ -110,7 +110,7 @@
         date='2021.08.08'
       />
       <CareersSectionContent
-        name='AWS Certified'
+        name='AWS Certification'
         url='https://www.credly.com/users/jonghyeon/badges'
       >
         ⇒ Cloud Practitioner<br>
