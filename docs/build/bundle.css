@@ -1,3 +1,16 @@
+.profile.svelte-19h2xjl.svelte-19h2xjl {
+  height: 100vh;
+  align-items: center;
+}
+
+.profile.svelte-19h2xjl div.profile__content div.profile__intro p.svelte-19h2xjl {
+  margin-bottom: 0.5em;
+}
+
+.profile.svelte-19h2xjl div.profile__content div.profile__links a.svelte-19h2xjl {
+  text-decoration: underline 0.8px dashed;
+}
+
 header.svelte-7fp1qj.svelte-7fp1qj {
   display: flex;
   position: relative;
@@ -43,17 +56,8 @@ header.svelte-7fp1qj div.hero div.hero__wrapper h1.hero__content a span.highligh
   box-sizing: inherit;
 }
 
-.profile.svelte-19h2xjl.svelte-19h2xjl {
-  height: 100vh;
-  align-items: center;
-}
-
-.profile.svelte-19h2xjl div.profile__content div.profile__intro p.svelte-19h2xjl {
-  margin-bottom: 0.5em;
-}
-
-.profile.svelte-19h2xjl div.profile__content div.profile__links a.svelte-19h2xjl {
-  text-decoration: underline 0.8px dashed;
+section.careers.svelte-1hsl7ax div.careers__content div.svelte-1hsl7ax {
+  margin: 0 1em;
 }
 
 footer.svelte-1qhkztf.svelte-1qhkztf {
@@ -67,10 +71,6 @@ footer.svelte-1qhkztf.svelte-1qhkztf {
 
 footer.svelte-1qhkztf img#unicode-sponser.svelte-1qhkztf {
   width: 8em;
-}
-
-section.careers.svelte-1hsl7ax div.careers__content div.svelte-1hsl7ax {
-  margin: 0 1em;
 }
 
 div.careers__sections.svelte-1u4nv5d.svelte-1u4nv5d {
