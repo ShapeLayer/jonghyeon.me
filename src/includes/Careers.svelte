@@ -12,7 +12,7 @@
     <h2 class="subtitle">그동안의 발자취_</h2>
     <CareersSection id='careers__military'>
       <CareersSectionContent 
-        name='대한민국 육군 기술행정병 네트워크운용/정비 분과'
+        name='대한민국 육군 통신병 @파주'
         date='2022.07-2024.01'
       >
         ⇒ <MilRank />, <MilLeftServiceDuration starts='2022-07-04' ends='2024-01-03' />
@@ -113,7 +113,7 @@
         date='2021.08.08'
       />
       <CareersSectionContent
-        name='AWS Certified'
+        name='AWS Certification'
         url='https://www.credly.com/users/jonghyeon/badges'
       >
         ⇒ Cloud Practitioner<br>
