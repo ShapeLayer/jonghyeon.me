@@ -1,3 +1,33 @@
+section.careers.svelte-1hsl7ax div.careers__content div.svelte-1hsl7ax {
+  margin: 0 1em;
+}
+
+.profile.svelte-19h2xjl.svelte-19h2xjl {
+  height: 100vh;
+  align-items: center;
+}
+
+.profile.svelte-19h2xjl div.profile__content div.profile__intro p.svelte-19h2xjl {
+  margin-bottom: 0.5em;
+}
+
+.profile.svelte-19h2xjl div.profile__content div.profile__links a.svelte-19h2xjl {
+  text-decoration: underline 0.8px dashed;
+}
+
+footer.svelte-1qhkztf.svelte-1qhkztf {
+  box-sizing: border-box;
+  margin: auto;
+  width: 100%;
+  max-width: 800px;
+  padding: 1em;
+  display: flex;
+}
+
+footer.svelte-1qhkztf img#unicode-sponser.svelte-1qhkztf {
+  width: 8em;
+}
+
 header.svelte-7fp1qj.svelte-7fp1qj {
   display: flex;
   position: relative;
@@ -43,36 +73,6 @@ header.svelte-7fp1qj div.hero div.hero__wrapper h1.hero__content a span.highligh
   box-sizing: inherit;
 }
 
-.profile.svelte-19h2xjl.svelte-19h2xjl {
-  height: 100vh;
-  align-items: center;
-}
-
-.profile.svelte-19h2xjl div.profile__content div.profile__intro p.svelte-19h2xjl {
-  margin-bottom: 0.5em;
-}
-
-.profile.svelte-19h2xjl div.profile__content div.profile__links a.svelte-19h2xjl {
-  text-decoration: underline 0.8px dashed;
-}
-
-footer.svelte-1qhkztf.svelte-1qhkztf {
-  box-sizing: border-box;
-  margin: auto;
-  width: 100%;
-  max-width: 800px;
-  padding: 1em;
-  display: flex;
-}
-
-footer.svelte-1qhkztf img#unicode-sponser.svelte-1qhkztf {
-  width: 8em;
-}
-
-section.careers.svelte-1hsl7ax div.careers__content div.svelte-1hsl7ax {
-  margin: 0 1em;
-}
-
 div.careers__sections.svelte-1u4nv5d.svelte-1u4nv5d {
   margin: 0 1em;
   margin-bottom: 2em;
@@ -91,4 +91,18 @@ li.svelte-hyrn7w span.datetime.svelte-hyrn7w {
   font-size: 0.8em;
   color: var(--base-fg-color-brighter);
   font-style: italic;
+}
+
+#daily-status.svelte-1kt4n6z.svelte-1kt4n6z {
+  display: inline-block;
+}
+
+#daily-status.svelte-1kt4n6z .status-dot.svelte-1kt4n6z {
+  display: inline-block;
+  margin: 0 0.15em 0 0.25em;
+  width: 0.7em;
+  height: 0.7em;
+  background-color: black;
+  vertical-align: baseline;
+  border-radius: 50%;
 }

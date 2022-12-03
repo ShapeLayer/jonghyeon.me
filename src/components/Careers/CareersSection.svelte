@@ -1,5 +1,4 @@
 <script lang="ts">
-  import CareersSectionContent from './CareersSectionContent.svelte'
   export let id: string
 	export let title: string = ''
 </script>

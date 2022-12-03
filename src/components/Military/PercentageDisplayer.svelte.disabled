@@ -1,0 +1,124 @@
+<script lang="ts" context="module">
+  const CONF_INTERVAL_FOLDED: number = 1000
+  const CONF_INTERVAL_UNFOLDED: number = 100
+  const CONF_DISPLAY_POINT_DEFAULT: number = 2
+  const CONF_DISPLAY_POINT_HOVER: number = 10
+  const CONF_UPDATE_METHOD_DEFAULT = 'setTimeout'
+  const CONF_DURATION_FOLDING: number = 3000
+  const CONF_DURATION_UNFOLDING: number = 3000
+  export let value: number
+  export let displayPoint: number = CONF_DISPLAY_POINT_DEFAULT
+  export let updateMethod: string = CONF_UPDATE_METHOD_DEFAULT
+  export let starts: Date = new Date('2022-07-04')
+  export let ends: Date = new Date('2024-01-03')
+</script>
+
+<span
+  id="percentage-displayer"
+  on:mouseover={onMouseOverHandler}
+  on:mouseout={onMouseOutHandler}
+  on:focus={onMouseOverHandler}
+  on:blur={onMouseOutHandler}
+> { displayValue }%</span>
+
+<script lang="ts">
+  import { onMount } from 'svelte'
+  let displayValue
+  let displayUpdateInterval: number = CONF_INTERVAL_FOLDED
+  let displayUpdater: any
+  let isFolded: boolean = true
+  const onMouseOverHandler = () => {
+    invokeUpdateDisplayValueInDuration(CONF_DISPLAY_POINT_HOVER, CONF_DURATION_UNFOLDING, CONF_INTERVAL_UNFOLDED)
+  }
+  const onMouseOutHandler = () => {
+    invokeUpdateDisplayValueInDuration(CONF_DISPLAY_POINT_DEFAULT, CONF_DURATION_FOLDING, CONF_INTERVAL_FOLDED)
+  }
+  const invokeUpdateDisplayValueInDuration = (toFixed, duration, afterFixedInterval) => {
+    __disableDisplayUpdater()
+    let deltaIntervalInCalls = (afterFixedInterval - displayUpdateInterval) / (duration / toFixed)
+    switch (updateMethod) {
+      case 'setTimeout':
+        // Must be fixed
+        processUpdateDisplayValueInDurationSetTimeout(toFixed, displayUpdateInterval + deltaIntervalInCalls, deltaIntervalInCalls)
+        break
+      case 'setInterval':
+        invokeUpdateDisplayValueInDurationSetInterval(toFixed)
+        break
+    }
+  }
+  const processUpdateDisplayValueInDurationSetTimeout = (toFixed, nextInterval, deltaIntervalInCalls) => {
+    setTimeout(() => {
+      if (toFixed == displayPoint) {
+        invokeDisplayValueToSetInterval()
+      } else {
+        //call internal
+        if (deltaIntervalInCalls > 0) isFolded = true
+        else isFolded = false
+        __followDisplayFixedPointUsingTimeout(toFixed)
+        __setDisplayUpdateInterval(nextInterval)
+        processUpdateDisplayValue()
+        processUpdateDisplayValueInDurationSetTimeout(toFixed, nextInterval + deltaIntervalInCalls, deltaIntervalInCalls)
+      }
+    }, nextInterval)
+  }
+  const invokeUpdateDisplayValueInDurationSetInterval = (toFixed) => {
+    __setDisplayUpdateInterval(isFolded ? CONF_INTERVAL_UNFOLDED : CONF_INTERVAL_FOLDED)
+    setInterval(() => {
+      processUpdateDisplayValueInDurationSetInterval(toFixed, isFolded ? 'unfold' : 'fold')
+    }, CONF_INTERVAL_UNFOLDED)
+  }
+  const processUpdateDisplayValueInDurationSetInterval = (toFixed, operation) => {
+    switch (operation) {
+      case 'fold':
+        displayPoint--
+        break
+      case 'unfold':
+        displayPoint++
+        break
+    }
+    if (toFixed == displayPoint) {
+      __disableDisplayUpdater()
+      switch (operation) {
+        case 'fold':
+          isFolded = true
+          break
+        case 'unfold':
+          isFolded = false
+          break
+      }
+      invokeDisplayValueToSetInterval()
+    }
+  }
+  const invokeDisplayValueToSetInterval = () => {
+    displayUpdater = setInterval(() => {
+      processUpdateDisplayValue()
+    }, displayUpdateInterval)
+  }
+  const processUpdateDisplayValue = () => {
+    __updatePercentage()
+    __updateDisplayValue()
+  }
+  const __disableDisplayUpdater = () => {
+    clearInterval(displayUpdater)
+  }
+  const __setDisplayUpdateInterval = (value: number) => {
+    displayUpdateInterval = value
+  }
+  const __followDisplayFixedPointUsingTimeout = (toFixed) => {
+    if (toFixed > displayPoint) { displayPoint++ }
+    else if (toFixed < displayPoint) { displayPoint-- }
+  }
+  const __updatePercentage = () => {
+    let now: any = new Date()
+    let totalRemains: any = ends - starts
+    let nowRemains: any = ends - now
+    value = Math.min(1, 1 - nowRemains / totalRemains) * 100
+  }
+  const __updateDisplayValue = () => {
+    displayValue = value.toFixed(displayPoint)
+  }
+  const init = () => {
+    processUpdateDisplayValue()
+  }
+  onMount(init)
+</script>

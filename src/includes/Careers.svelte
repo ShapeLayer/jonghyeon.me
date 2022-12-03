@@ -1,7 +1,9 @@
 <script lang="ts">
-	import MilDDay from '../components/commons/MilDDay.svelte'
+  import MilDaliy from '../components/Military/Daliy.svelte'
   import CareersSection from '../components/Careers/CareersSection.svelte'
   import CareersSectionContent from '../components/Careers/CareersSectionContent.svelte'
+  import MilLeftServiceDuration from '../components/Military/LeftServiceDuration.svelte'
+  import MilRank from '../components/Military/Rank.svelte'
 </script>
 
 <section class="careers">
@@ -13,7 +15,8 @@
         name='대한민국 육군 기술행정병 네트워크운용/정비 분과'
         date='2022.07-2024.01'
       >
-        ⇒ <MilDDay />
+        ⇒ <MilRank />, <MilLeftServiceDuration starts='2022-07-04' ends='2024-01-03' />
+        <!--<MilDaliy />-->
       </CareersSectionContent>
     </CareersSection>
     <CareersSection id='careers__education' title='EDUCATION'>
