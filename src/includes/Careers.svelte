@@ -15,7 +15,7 @@
         name='대한민국 육군 통신병 @파주'
         date='2022.07-2024.01'
       >
-        ⇒ <MilRank />, <MilLeftServiceDuration starts='2022-07-04' ends='2024-01-03' />
+        ⇒ <MilRank />, <MilLeftServiceDuration starts='2022-07-04' ends='2024-01-03' /><br>
         ⇒ <a href="https://blog.jonghyeon.me/posts/2022-07-04-pausing-carrer/" target="_blank">[포스트] 커리어를 잠시 중단하며</a>
         <!--<MilDaliy />-->
       </CareersSectionContent>
