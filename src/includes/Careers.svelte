@@ -26,7 +26,7 @@
         date='2018.03-2021.02'
       />
       <CareersSectionContent
-        name='전남대학교 컴퓨터정보통신공학과 학부과정 21학번'
+        name='전남대학교 컴퓨터정보통신공학과 학부과정'
         date='2021.03-'
       />
     </CareersSection>
@@ -101,12 +101,14 @@
       </CareersSectionContent>
       <CareersSectionContent
         name='전남대학교 게임개발동아리 PIMM'
-        date='2021.03-'
+        date='2021.03-2022.06'
       />
       <CareersSectionContent
         name='전남대학교 소프트웨어 개발동아리 Stolio'
-        date='2022.03-'
-      />
+        date='2022.03-2022.06'
+      >
+        ⇒ 동아리 개설 참여 // 동아리 활동 자문 및 프로젝트 리딩
+      </CareersSectionContent>
     </CareersSection>
     <CareersSection id='careers__certificates' title='CERTIFICATES'>
       <CareersSectionContent
