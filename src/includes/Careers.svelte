@@ -107,7 +107,7 @@
         name='전남대학교 소프트웨어 개발동아리 Stolio'
         date='2022.03-2022.06'
       >
-        ⇒ 동아리 개설 참여 // 동아리 활동 자문 및 프로젝트 리딩
+        ⇒ 동아리 개설 참여 // 동아리 운영 집행 및 프로젝트 리딩
       </CareersSectionContent>
     </CareersSection>
     <CareersSection id='careers__certificates' title='CERTIFICATES'>
