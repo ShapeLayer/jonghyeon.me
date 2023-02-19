@@ -15,6 +15,19 @@ section.careers.svelte-1hsl7ax div.careers__content div.svelte-1hsl7ax {
   text-decoration: underline 0.8px dashed;
 }
 
+footer.svelte-1qhkztf.svelte-1qhkztf {
+  box-sizing: border-box;
+  margin: auto;
+  width: 100%;
+  max-width: 800px;
+  padding: 1em;
+  display: flex;
+}
+
+footer.svelte-1qhkztf img#unicode-sponser.svelte-1qhkztf {
+  width: 8em;
+}
+
 header.svelte-1g82mf5.svelte-1g82mf5 {
   display: flex;
   position: relative;
@@ -66,33 +79,6 @@ header.svelte-1g82mf5 .scroll-guide.svelte-1g82mf5 {
   width: 2rem;
 }
 
-footer.svelte-1qhkztf.svelte-1qhkztf {
-  box-sizing: border-box;
-  margin: auto;
-  width: 100%;
-  max-width: 800px;
-  padding: 1em;
-  display: flex;
-}
-
-footer.svelte-1qhkztf img#unicode-sponser.svelte-1qhkztf {
-  width: 8em;
-}
-
-#daily-status.svelte-1kt4n6z.svelte-1kt4n6z {
-  display: inline-block;
-}
-
-#daily-status.svelte-1kt4n6z .status-dot.svelte-1kt4n6z {
-  display: inline-block;
-  margin: 0 0.15em 0 0.25em;
-  width: 0.7em;
-  height: 0.7em;
-  background-color: black;
-  vertical-align: baseline;
-  border-radius: 50%;
-}
-
 div.careers__sections.svelte-1u4nv5d.svelte-1u4nv5d {
   margin: 0 1em;
   margin-bottom: 2em;
@@ -111,6 +97,20 @@ li.svelte-hyrn7w span.datetime.svelte-hyrn7w {
   font-size: 0.8em;
   color: var(--base-fg-color-brighter);
   font-style: italic;
+}
+
+#daily-status.svelte-1kt4n6z.svelte-1kt4n6z {
+  display: inline-block;
+}
+
+#daily-status.svelte-1kt4n6z .status-dot.svelte-1kt4n6z {
+  display: inline-block;
+  margin: 0 0.15em 0 0.25em;
+  width: 0.7em;
+  height: 0.7em;
+  background-color: black;
+  vertical-align: baseline;
+  border-radius: 50%;
 }
 
 @keyframes svelte-9u8yu7-circle-animation {
