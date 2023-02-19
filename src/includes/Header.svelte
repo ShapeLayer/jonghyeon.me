@@ -17,7 +17,7 @@ header {
   display: flex;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   background: var(--base-header-bg-color);
   text-align: center;
   justify-content: center;
