@@ -1,3 +1,7 @@
+<script lang="ts" context="module">
+  import ScrollGuide from '../components/Symbols/ScrollGuide.svelte'
+</script>
+
 <header>
   <div class="hero">
     <div class="hero__wrapper">
@@ -9,6 +13,9 @@
       <h1 id="hero__layer-shape" class="hero__content"><a class="no-hover" href="#profile">CREATES A WORLD<br>BY <span id="hero__trans-target-1" class="highlight">LAYERING</span><br>VARIOUS <span id="hero__trans-target-2" class="highlight">SHAPES.</span></a></h1>
       <h1 id="hero__shape-layer" class="hero__content"><a class="no-hover"  href="#profile">CREATES A WORLD<br>BY <span id="hero__trans-target-1" class="highlight">SHAPING</span><br>VARIOUS <span id="hero__trans-target-2" class="highlight">LAYERS.</span></a></h1>
     </div>
+  </div>
+  <div class="scroll-guide">
+    <ScrollGuide />
   </div>
 </header>
 
@@ -24,7 +31,6 @@ header {
   align-items: center;
 
   div.hero {
-
     /* Media query needed */
     div.hero__wrapper {
       position: relative;
@@ -57,6 +63,11 @@ header {
         }
       }
     }
+  }
+  .scroll-guide {
+    position: absolute;
+    bottom: 1rem;
+    width: 2rem;
   }
 }
 </style>
