@@ -14,13 +14,13 @@
     <div class="profile__links">
       <ul class="enums">
         <li><a href="mailto:me@jonghyeon.me">me@jonghyeon.me</a></li>
-        <li><a href="https://www.instagram.com/__jong.hyeon__/" target="_blank">instagram</a></li>
+        <li><a href="https://www.instagram.com/__jong.hyeon__/" target="_blank" rel="noreferrer">instagram</a></li>
       </ul>
       <ul class="enums">
-        <li><a href="https://github.com/ShapeLayer" target="_blank">github</a></li>
-        <li><a href="https://blog.jonghyeon.me" target="_blank">blog</a></li>
-        <li><a href="https://www.credly.com/users/jonghyeon" target="_blank">credly</a></li>
-        <li><a href="https://solved.ac/profile/belline0124" target="_blank">solved.ac</a></li>
+        <li><a href="https://github.com/ShapeLayer" target="_blank" rel="noreferrer">github</a></li>
+        <li><a href="https://blog.jonghyeon.me" target="_blank" rel="noreferrer">blog</a></li>
+        <li><a href="https://www.credly.com/users/jonghyeon" target="_blank" rel="noreferrer">credly</a></li>
+        <li><a href="https://solved.ac/profile/belline0124" target="_blank" rel="noreferrer">solved.ac</a></li>
       </ul>
     </div>
   </div>

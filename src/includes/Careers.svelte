@@ -4,6 +4,7 @@
   import CareersSectionContent from '../components/Careers/CareersSectionContent.svelte'
   import MilLeftServiceDuration from '../components/Military/LeftServiceDuration.svelte'
   import MilRank from '../components/Military/Rank.svelte'
+  import BlogFeedList from '../components/RecentActivities/BlogFeedList.svelte'
 </script>
 
 <section class="careers">
@@ -16,7 +17,7 @@
         date='2022.07-2024.01'
       >
         ⇒ <MilRank />, <MilLeftServiceDuration starts='2022-07-04' ends='2024-01-03' /><br>
-        ⇒ <a href="https://blog.jonghyeon.me/posts/2022-07-04-pausing-carrer/" target="_blank">[포스트] 커리어를 잠시 중단하며</a>
+        ⇒ <a href="https://blog.jonghyeon.me/posts/2022-07-04-pausing-carrer/" target="_blank" rel="noreferrer">[포스트] 커리어를 잠시 중단하며</a>
         <!--<MilDaliy />-->
       </CareersSectionContent>
     </CareersSection>
@@ -65,7 +66,7 @@
         ⇒ 아웃소싱 // 초기 프론트엔드 디자인 및 개발
       </CareersSectionContent>
       <CareersSectionContent>
-        그 외 프로젝트들은 <a href="https://github.com/ShapeLayer" target="_blank">Github</a>를 참조하세요.
+        그 외 프로젝트들은 <a href="https://github.com/ShapeLayer" target="_blank" rel="noreferrer">Github</a>를 참조하세요.
       </CareersSectionContent>
     </CareersSection>
     <CareersSection id='careers__achievements' title='ACHIEVEMENTS'>
@@ -129,6 +130,10 @@
         name='YBM Coding Specialist Professional I'
       />
     </CareersSection>
+    <!--<CareersSection id='careers__recent_activities' title='RECENT'>
+      <BlogFeedList />
+    </CareersSection>-->
+    
   </div>
 </section>
 

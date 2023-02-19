@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
-  export const starts = '2022-07-04'
-  export const ends = '2024-01-03'
+  export const starts: string = '2022-07-04'
+  export const ends: string = '2024-01-03'
   
   const CONF_INTERVAL_FOLDED: number = 1000 * 60
   const CONF_INTERVAL_UNFOLDED: number = 30
