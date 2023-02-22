@@ -19,9 +19,13 @@
       </ul>
       <ul class="enums">
         <li><a href="https://github.com/ShapeLayer" target="_blank" rel="noreferrer">github</a></li>
-        <li><a href="https://blog.jonghyeon.me" target="_blank" rel="noreferrer">blog</a></li>
         <li><a href="https://www.credly.com/users/jonghyeon" target="_blank" rel="noreferrer">credly</a></li>
         <li><a href="https://solved.ac/profile/belline0124" target="_blank" rel="noreferrer">solved.ac</a></li>
+      </ul>
+      <br>
+      <ul class="enums">
+        <li><a href="https://blog.jonghyeon.me" target="_blank" rel="noreferrer">blog</a></li>
+        <li><a href="https://books.jonghyeon.me" target="_blank" rel="noreferrer">bookshelf</a></li>
       </ul>
     </div>
   </div>
