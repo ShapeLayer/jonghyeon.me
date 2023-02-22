@@ -20,6 +20,12 @@
     opacity: 0;
     transform: translateY(18px);
   }
+  @media (pointer:none), (pointer:coarse) {
+    0% { transform: translateY(20px); }
+    30% { transform: translateY(20px); }
+    70% { transform: translateY(2px); }
+    100% { transform: translateY(2px); }
+  }
 }
 rect {
   stroke: white;
