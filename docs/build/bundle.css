@@ -1,3 +1,7 @@
+section.careers.svelte-1hsl7ax div.careers__content div.svelte-1hsl7ax {
+  margin: 0 1em;
+}
+
 .profile.svelte-19h2xjl.svelte-19h2xjl {
   height: 100vh;
   align-items: center;
@@ -9,6 +13,19 @@
 
 .profile.svelte-19h2xjl div.profile__content div.profile__links a.svelte-19h2xjl {
   text-decoration: underline 0.8px dashed;
+}
+
+footer.svelte-1qhkztf.svelte-1qhkztf {
+  box-sizing: border-box;
+  margin: auto;
+  width: 100%;
+  max-width: 800px;
+  padding: 1em;
+  display: flex;
+}
+
+footer.svelte-1qhkztf img#unicode-sponser.svelte-1qhkztf {
+  width: 8em;
 }
 
 header.svelte-1gc3qd7.svelte-1gc3qd7 {
@@ -62,21 +79,24 @@ header.svelte-1gc3qd7 .scroll-guide.svelte-1gc3qd7 {
   width: 2rem;
 }
 
-section.careers.svelte-1hsl7ax div.careers__content div.svelte-1hsl7ax {
+div.careers__sections.svelte-1u4nv5d.svelte-1u4nv5d {
   margin: 0 1em;
+  margin-bottom: 2em;
 }
 
-footer.svelte-1qhkztf.svelte-1qhkztf {
-  box-sizing: border-box;
-  margin: auto;
-  width: 100%;
-  max-width: 800px;
-  padding: 1em;
-  display: flex;
+div.careers__sections.svelte-1u4nv5d h3.subtitle.svelte-1u4nv5d {
+  margin-bottom: 0.5em;
 }
 
-footer.svelte-1qhkztf img#unicode-sponser.svelte-1qhkztf {
-  width: 8em;
+li.svelte-hyrn7w.svelte-hyrn7w {
+  margin-bottom: 0.5em;
+}
+
+li.svelte-hyrn7w span.datetime.svelte-hyrn7w {
+  margin-left: 0.2em;
+  font-size: 0.8em;
+  color: var(--base-fg-color-brighter);
+  font-style: italic;
 }
 
 #daily-status.svelte-1kt4n6z.svelte-1kt4n6z {
@@ -148,23 +168,4 @@ circle.svelte-1hotnjo {
   circle.svelte-1hotnjo {
     animation-name: svelte-1hotnjo-circle-animation-up;
   }
-}
-div.careers__sections.svelte-1u4nv5d.svelte-1u4nv5d {
-  margin: 0 1em;
-  margin-bottom: 2em;
-}
-
-div.careers__sections.svelte-1u4nv5d h3.subtitle.svelte-1u4nv5d {
-  margin-bottom: 0.5em;
-}
-
-li.svelte-hyrn7w.svelte-hyrn7w {
-  margin-bottom: 0.5em;
-}
-
-li.svelte-hyrn7w span.datetime.svelte-hyrn7w {
-  margin-left: 0.2em;
-  font-size: 0.8em;
-  color: var(--base-fg-color-brighter);
-  font-style: italic;
 }
