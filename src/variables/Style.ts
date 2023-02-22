@@ -1,0 +1,4 @@
+const HeaderTextColor = ''
+export {
+  HeaderTextColor
+}

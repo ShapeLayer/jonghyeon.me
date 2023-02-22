@@ -1,5 +1,5 @@
 <style lang="scss">
-@keyframes circle-animation {
+@keyframes circle-animation-down {
   0% {
     opacity: 0;
     transform: translateY(0px);
@@ -20,19 +20,38 @@
     opacity: 0;
     transform: translateY(18px);
   }
-  @media (pointer:none), (pointer:coarse) {
-    0% { transform: translateY(20px); }
-    30% { transform: translateY(20px); }
-    70% { transform: translateY(2px); }
-    100% { transform: translateY(2px); }
+}
+@keyframes circle-animation-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  30% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(2px);
   }
 }
 rect {
-  stroke: white;
+  stroke: var(--base-header-fg-color);
 }
 circle {
-  fill: white;
-  animation: 2.5s ease 0s infinite normal none running circle-animation;
+  fill: var(--base-header-fg-color);
+  animation: 2.5s ease 0s infinite normal none running circle-animation-down;
+  @media (pointer: none), (pointer: coarse) {
+    animation-name: circle-animation-up;
+  }
 }
 </style>
 
