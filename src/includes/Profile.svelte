@@ -9,7 +9,6 @@
       <p>웹 프로그래밍이 고된 수험의 쉼표였던 20년,<br>친구들에 둘러싸여 무언가를 만들었던 학생</p>
       <p>낯선 장소에서 나라를 지키는 23년,<br>개인 정비 시간만 되면 사지방에 달려가는 군인</p>
       <p>그리고 오늘에 이르른.</p>
-      <p><br></p>
       <p>안녕하세요. 학생과 개발자 사이, 박종현입니다.</p>
     </div>
     <div class="profile__links">
@@ -39,7 +38,8 @@
   div.profile__content {
 
     div.profile__intro {
-      p { margin-bottom: .5em; }
+      margin-bottom: 1.5em;
+      p { margin-bottom: .3em; }
     }
     div.profile__links {
       a { text-decoration: underline .8px dashed; }

@@ -1,4 +1,5 @@
 import svelte from 'rollup-plugin-svelte';
+import { babel } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
@@ -7,6 +8,7 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import scss from 'rollup-plugin-scss';
 import json from '@rollup/plugin-json';
+import { spawn } from 'child_process';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -20,7 +22,7 @@ function serve() {
 	return {
 		writeBundle() {
 			if (server) return;
-			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
+			server = spawn('npm', ['run', 'start', '--', '--dev --host'], {
 				stdio: ['ignore', 'inherit', 'inherit'],
 				shell: true
 			});
@@ -35,7 +37,7 @@ export default {
 	input: 'src/main.ts',
 	output: {
 		sourcemap: true,
-		format: 'iife',
+		format: 'esm',
 		name: 'app',
 		file: 'docs/build/bundle.js'
 	},
@@ -52,7 +54,7 @@ export default {
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
 		scss({
-			output: 'docs/build/bundle.css'
+			fileName: 'bundle.css'
 		}),
 
 		// If you have external dependencies installed from
@@ -64,12 +66,13 @@ export default {
 			browser: true,
 			dedupe: ['svelte']
 		}),
-		commonjs(),
 		json(),
 		typescript({
 			sourceMap: !production,
 			inlineSources: !production
 		}),
+		commonjs(),
+		babel(),
 
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
