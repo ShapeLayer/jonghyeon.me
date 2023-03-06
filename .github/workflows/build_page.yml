@@ -19,10 +19,11 @@ jobs:
     - name: Install dependencies
       run: yarn install
     - run: yarn run build --if-present
-    - name: Commit build
+    - name: Commit build to deploy branch
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
+        git checkout -b deploy
         git add .
-        git commit -m "Build Page"
-        git push
+        git commit -m "Build page" -m "`date`"
+        git push -f origin deploy
