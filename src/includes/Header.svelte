@@ -98,6 +98,6 @@ header {
   const EventHandler__OnResize = (e: Event) => {
     smoothscroll.polyfill();
   }
-  
-  onMount(() => startHeaderTransition())
+
+  onMount(() => startHeaderTransition());
 </script>
