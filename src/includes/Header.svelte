@@ -1,5 +1,7 @@
 <script lang="ts" context="module">
   import ScrollGuide from '../components/Symbols/ScrollGuide.svelte'
+  import smoothscroll from 'smoothscroll-polyfill';
+  smoothscroll.polyfill();
 </script>
 
 <header>
@@ -10,14 +12,18 @@
         BY <span id="hero__trans-target-1" class="highlight">LAYERING</span><br>
         VARIOUS <span id="hero__trans-target-2" class="highlight">SHAPES.</span>
       </h1>
-      <h1 id="hero__layer-shape" class="hero__content"><a class="no-hover" href="#profile">CREATES A WORLD<br>BY <span id="hero__trans-target-1" class="highlight">LAYERING</span><br>VARIOUS <span id="hero__trans-target-2" class="highlight">SHAPES.</span></a></h1>
-      <h1 id="hero__shape-layer" class="hero__content"><a class="no-hover"  href="#profile">CREATES A WORLD<br>BY <span id="hero__trans-target-1" class="highlight">SHAPING</span><br>VARIOUS <span id="hero__trans-target-2" class="highlight">LAYERS.</span></a></h1>
+      <h1 id="hero__layer-shape" class="hero__content"><span on:click={ HeaderOnClickHandler } class="hero__content-wrapper no-hover">CREATES A WORLD<br>BY <span id="hero__trans-target-1" class="highlight">LAYERING</span><br>VARIOUS <span id="hero__trans-target-2" class="highlight">SHAPES.</span></span></h1>
+      <h1 id="hero__shape-layer" class="hero__content"><span on:click={ HeaderOnClickHandler } class="hero__content-wrapper no-hover">CREATES A WORLD<br>BY <span id="hero__trans-target-1" class="highlight">SHAPING</span><br>VARIOUS <span id="hero__trans-target-2" class="highlight">LAYERS.</span></span></h1>
     </div>
   </div>
   <div class="scroll-guide">
     <ScrollGuide />
   </div>
 </header>
+
+<svelte:window
+  on:resize={ EventHandler__OnResize }
+/>
 
 <style lang="scss">
 header {
@@ -48,10 +54,11 @@ header {
         &#hero__shape-layer {
           opacity: 0;
         }
-        a {
+        span.hero__content-wrapper {
           color: var(--base-header-fg-color);
           text-decoration: none;
           box-sizing: inherit;
+          cursor: pointer;
 
           span.highlight {
             padding: .05em .2em;
@@ -75,7 +82,11 @@ header {
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  function startHeaderTransition() {
+  const HeaderOnClickHandler = () => {
+    document.querySelector('#profile').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  const startHeaderTransition = () => {
     let headerMottoSwitch = 0;
     setInterval(() => {
       headerMottoSwitch = (headerMottoSwitch + 1) % 2;
@@ -84,5 +95,9 @@ header {
     }, 2500);
   }
 
+  const EventHandler__OnResize = (e: Event) => {
+    smoothscroll.polyfill();
+  }
+  
   onMount(() => startHeaderTransition())
 </script>
