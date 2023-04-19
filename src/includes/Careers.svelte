@@ -36,7 +36,7 @@
         name='전남대학교 지능영상미디어인터페이스 연구실'
         date='2021.06-2022.07'
       >
-        ⇒ 지도교수: 이칠우
+        ⇒ 지도교수: 이칠우 <a href="https://ieeexplore.ieee.org/author/37292814300" target="_blank" rel="noreferrer">(IEEE author information)</a>
       </CareersSectionContent>
     </CareersSection>
     <CareersSection id='careers__projects' title='PROJECTS'>
