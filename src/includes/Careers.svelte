@@ -35,7 +35,9 @@
       <CareersSectionContent 
         name='전남대학교 지능영상미디어인터페이스 연구실'
         date='2021.06-2022.07'
-      />
+      >
+        ⇒ 지도교수: 이칠우
+      </CareersSectionContent>
     </CareersSection>
     <CareersSection id='careers__projects' title='PROJECTS'>
       <CareersSectionContent 
