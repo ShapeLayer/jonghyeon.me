@@ -100,7 +100,7 @@
         name='2019 광주SW체험축전 "한글코드로 만드는 디스코드 챗봇" 체험 부스 운영'
         date='2019.05'
       >
-        ⇒ 체험 축전 // 기획, 운영 및 개발
+        ⇒ 체험 축전 // 총괄
       </CareersSectionContent>
       <CareersSectionContent
         name='전남대학교 게임개발동아리 PIMM'
@@ -111,6 +111,12 @@
         date='2022.03-2022.06'
       >
         ⇒ 동아리 개설 참여 // 동아리 운영 집행 및 프로젝트 리딩
+      </CareersSectionContent>
+      <CareersSectionContent
+        name='"2023 전남대학교 PIMM 알고리즘 파티" 대회 개최'
+        date='2023.09'
+      >
+        ⇒ 커뮤니티 오픈 컨테스트 // 총괄
       </CareersSectionContent>
     </CareersSection>
     <CareersSection id='careers__certificates' title='CERTIFICATES'>
