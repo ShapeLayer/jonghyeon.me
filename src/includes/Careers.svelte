@@ -104,7 +104,7 @@
       </CareersSectionContent>
       <CareersSectionContent
         name='전남대학교 게임개발동아리 PIMM'
-        date='2021.03-2022.06'
+        date='2021.03-'
       />
       <CareersSectionContent
         name='전남대학교 소프트웨어 개발동아리 Stolio'
