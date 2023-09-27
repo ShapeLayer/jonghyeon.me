@@ -19,7 +19,7 @@
     else if (elapsedMonths < 9) nowRank = ranks[1]
     else if (elapsedMonths < 15) nowRank = ranks[2]
     else nowRank = ranks[3]
-    nowRank = '상병'
+    nowRank = '병장'
   }
   const init = updateRank
   onMount(init)
