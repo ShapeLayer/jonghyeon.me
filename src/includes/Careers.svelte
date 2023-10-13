@@ -135,6 +135,9 @@
         name='SQL 개발자'
       />
       <CareersSectionContent
+        name='네트워크관리사 2급'
+      />
+      <CareersSectionContent
         name='YBM Coding Specialist Professional I'
       />
     </CareersSection>
