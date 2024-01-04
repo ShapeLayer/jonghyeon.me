@@ -11,16 +11,6 @@
   <div class="careers__content">
     <h3 class="subsubtitle">CAREERS</h3>
     <h2 class="subtitle">그동안의 발자취_</h2>
-    <CareersSection id='careers__military'>
-      <CareersSectionContent 
-        name='대한민국 육군 통신병 @파주'
-        date='2022.07-2024.01'
-      >
-        ⇒ <MilRank />, <MilLeftServiceDuration starts='2022-07-04' ends='2024-01-03' /><br>
-        ⇒ <a href="https://blog.jonghyeon.me/posts/2022-07-04-pausing-carrer/" target="_blank" rel="noreferrer">[포스트] 커리어를 잠시 중단하며</a>
-        <!--<MilDaliy />-->
-      </CareersSectionContent>
-    </CareersSection>
     <CareersSection id='careers__education' title='EDUCATION'>
       <CareersSectionContent 
         name='숭덕고등학교'
@@ -38,6 +28,10 @@
       >
         ⇒ 지도교수: 이칠우 <a href="https://ieeexplore.ieee.org/author/37292814300" target="_blank" rel="noreferrer">(IEEE author information)</a>
       </CareersSectionContent>
+      <CareersSectionContent
+        name='대한민국 육군 병장 만기전역'
+        date='2022.07-2024.01'
+      />
     </CareersSection>
     <CareersSection id='careers__projects' title='PROJECTS'>
       <CareersSectionContent 
