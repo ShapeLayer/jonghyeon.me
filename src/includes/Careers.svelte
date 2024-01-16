@@ -29,7 +29,7 @@
         date='2021.03-'
       />
     </CareersSection>
-    <CareersSection id='careers__education' title='WORK'>
+    <CareersSection id='careers__work' title='WORK'>
       <CareersSectionContent 
         name='전남대학교 지능영상미디어인터페이스 연구실'
         date='2021.06-2022.07'
