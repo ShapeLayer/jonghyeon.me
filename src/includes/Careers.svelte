@@ -11,6 +11,14 @@
   <div class="careers__content">
     <h3 class="subsubtitle">CAREERS</h3>
     <h2 class="subtitle">그동안의 발자취_</h2>
+    <CareersSection id='careers__now'>
+      <CareersSectionContent 
+        name='잼코딩 광주캠퍼스 파트타임 강사'
+        date='2024.01-'
+      >
+        ⇒ 광주봉선/광주수완: 강사/보조강사
+      </CareersSectionContent>
+    </CareersSection>
     <CareersSection id='careers__education' title='EDUCATION'>
       <CareersSectionContent 
         name='숭덕고등학교'
