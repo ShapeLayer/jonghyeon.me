@@ -116,7 +116,10 @@
     <CareersSection id='careers__certificates' title='CERTIFICATES'>
       <CareersSectionContent
         name='TOEIC 805'
-        date='2021.08.08'
+        date='2021.08.08 (expired)'
+      />
+      <CareersSectionContent
+        name='JLPT N3'
       />
       <CareersSectionContent
         name='AWS Certification'
