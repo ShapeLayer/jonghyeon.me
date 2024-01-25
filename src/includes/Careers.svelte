@@ -106,8 +106,9 @@
       </CareersSectionContent>
       <CareersSectionContent
         name='전남대학교 게임개발동아리 PIMM'
-        date='2021.03-'
-      />
+        date='2021.03-'>
+        ⇒ 회장 // 2024.01-
+      </CareersSectionContent>
       <CareersSectionContent
         name='전남대학교 소프트웨어 개발동아리 Stolio'
         date='2022.03-2022.06'
