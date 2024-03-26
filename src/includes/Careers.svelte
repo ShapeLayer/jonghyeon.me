@@ -13,11 +13,9 @@
     <h2 class="subtitle">그동안의 발자취_</h2>
     <CareersSection id='careers__now'>
       <CareersSectionContent 
-        name='잼코딩학원 광주캠퍼스 파트타임 강사'
-        date='2024.01-'
-      >
-        ⇒ 광주봉선/광주수완: 강사/보조강사
-      </CareersSectionContent>
+        name='전남대학교 지능전자연구실'
+        date='2024.03-'
+      />
     </CareersSection>
     <CareersSection id='careers__education' title='EDUCATION'>
       <CareersSectionContent 
@@ -31,7 +29,7 @@
     </CareersSection>
     <CareersSection id='careers__work' title='WORK'>
       <CareersSectionContent 
-        name='전남대학교 지능영상미디어인터페이스 연구실'
+        name='전남대학교 지능영상미디어인터페이스연구실'
         date='2021.06-2022.07'
       >
         ⇒ 지도교수: 이칠우 <a href="https://ieeexplore.ieee.org/author/37292814300" target="_blank" rel="noreferrer">(IEEE author information)</a>
@@ -39,6 +37,10 @@
       <CareersSectionContent
         name='대한민국 육군 병장 만기전역'
         date='2022.07-2024.01'
+      />
+      <CareersSectionContent 
+        name='잼코딩학원 광주캠퍼스 파트타임 강사'
+        date='2024.01-2024.02'
       />
     </CareersSection>
     <CareersSection id='careers__projects' title='PROJECTS'>
