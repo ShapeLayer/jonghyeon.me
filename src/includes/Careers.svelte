@@ -16,6 +16,10 @@
         name='전남대학교 지능전자연구실'
         date='2024.03-'
       />
+      <CareersSectionContent 
+        name='잼코딩학원 광주캠퍼스 파트타임 강사'
+        date='2024.01-2024.02, 2024.06-'
+      />
     </CareersSection>
     <CareersSection id='careers__education' title='EDUCATION'>
       <CareersSectionContent 
@@ -37,10 +41,6 @@
       <CareersSectionContent
         name='대한민국 육군 병장 만기전역'
         date='2022.07-2024.01'
-      />
-      <CareersSectionContent 
-        name='잼코딩학원 광주캠퍼스 파트타임 강사'
-        date='2024.01-2024.02'
       />
     </CareersSection>
     <CareersSection id='careers__projects' title='PROJECTS'>
@@ -118,10 +118,11 @@
         ⇒ 동아리 개설 참여 // 동아리 운영 집행 및 프로젝트 리딩
       </CareersSectionContent>
       <CareersSectionContent
-        name='"2023 전남대학교 PIMM 알고리즘 파티" 대회 개최'
-        date='2023.09'
+        name='알고리즘 대회 개최'
       >
-        ⇒ 커뮤니티 오픈 컨테스트 // 총괄
+        ⇒ 커뮤니티 오픈 콘테스트 &lt;2023 전남대학교 PIMM 알고리즘 파티&gt; // 총괄, 2023.09 <br>
+        ⇒ 커뮤니티 오픈 콘테스트 &lt;2024 상반기 전남대학교 PIMM 알고리즘 파티&gt; // 총괄, 2024.03
+        ⇒ &lt;2024 GIST 알고리즘 마스터즈&gt; // 출제 및 현장 운영, 2024.05
       </CareersSectionContent>
     </CareersSection>
     <CareersSection id='careers__certificates' title='CERTIFICATES'>
