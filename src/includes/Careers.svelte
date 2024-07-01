@@ -15,7 +15,9 @@
       <CareersSectionContent 
         name='전남대학교 지능전자연구실'
         date='2024.03-'
-      />
+      >
+        ⇒ 지도교수: 김진영 <a href="https://ieeexplore.ieee.org/author/38185528600" target="_blank" rel="noreferrer">(IEEE author information)</a>
+      </CareersSectionContent>
       <CareersSectionContent 
         name='잼코딩학원 광주캠퍼스 파트타임 강사'
         date='2024.01-2024.02, 2024.06-'
