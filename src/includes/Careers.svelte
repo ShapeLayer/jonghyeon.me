@@ -13,14 +13,8 @@
     <h2 class="subtitle">그동안의 발자취_</h2>
     <CareersSection id='careers__now'>
       <CareersSectionContent 
-        name='전남대학교 지능전자연구실'
-        date='2024.03-'
-      >
-        ⇒ 지도교수: 김진영 <a href="https://ieeexplore.ieee.org/author/38185528600" target="_blank" rel="noreferrer">(IEEE author information)</a>
-      </CareersSectionContent>
-      <CareersSectionContent 
         name='잼코딩학원 광주캠퍼스 파트타임 강사'
-        date='2024.01-2024.02, 2024.06-'
+        date='2024.01-'
       />
     </CareersSection>
     <CareersSection id='careers__education' title='EDUCATION'>
@@ -44,6 +38,12 @@
         name='대한민국 육군 병장 만기전역'
         date='2022.07-2024.01'
       />
+      <CareersSectionContent 
+        name='전남대학교 지능전자연구실'
+        date='2024.03-2025.02'
+      >
+        ⇒ 지도교수: 김진영 <a href="https://ieeexplore.ieee.org/author/38185528600" target="_blank" rel="noreferrer">(IEEE author information)</a>
+      </CareersSectionContent>
     </CareersSection>
     <CareersSection id='careers__projects' title='PROJECTS'>
       <CareersSectionContent 
@@ -111,7 +111,7 @@
       <CareersSectionContent
         name='전남대학교 게임개발동아리 PIMM'
         date='2021.03-'>
-        ⇒ 회장 // 2024.01-
+        ⇒ 회장 // 2024.01-2025.01
       </CareersSectionContent>
       <CareersSectionContent
         name='전남대학교 소프트웨어 개발동아리 Stolio'
@@ -124,7 +124,9 @@
       >
         ⇒ 커뮤니티 오픈 콘테스트 &lt;2023 전남대학교 PIMM 알고리즘 파티&gt; // 총괄, 2023.09 <br>
         ⇒ 커뮤니티 오픈 콘테스트 &lt;2024 상반기 전남대학교 PIMM 알고리즘 파티&gt; // 총괄, 2024.03 <br>
-        ⇒ &lt;2024 GIST 알고리즘 마스터즈&gt; // 출제 및 현장 운영, 2024.05
+        ⇒ &lt;2024 GIST 알고리즘 마스터즈&gt; // 출제 및 현장 운영, 2024.05 <br>
+        ⇒ 커뮤니티 오픈 콘테스트 &lt;2024 하반기 전남대학교 PIMM 알고리즘 파티&gt; // 총괄, 2024.09 <br>
+        ⇒ 커뮤니티 오픈 콘테스트 &lt;2025 상반기 전남대학교 PIMM 알고리즘 파티&gt; // 총괄, 2025.03
       </CareersSectionContent>
     </CareersSection>
     <CareersSection id='careers__certificates' title='CERTIFICATES'>
