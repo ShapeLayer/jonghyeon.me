@@ -133,7 +133,7 @@
         date='2021.08.08 (expired)'
       />
       <CareersSectionContent
-        name='JLPT N3'
+        name='JLPT N2'
       />
       <CareersSectionContent
         name='AWS Certification'
