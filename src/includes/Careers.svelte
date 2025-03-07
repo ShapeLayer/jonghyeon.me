@@ -21,7 +21,7 @@
         date='2024.01-'
       />
       <CareersSectionContent 
-        name='SAGA UNIVERSITY as an exchange student program'
+        name='Saga University as an exchange student program'
         date='2025.09-'
       />
     </CareersSection>
