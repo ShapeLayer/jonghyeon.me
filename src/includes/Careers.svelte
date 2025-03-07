@@ -118,7 +118,7 @@
         ⇒ 회장 // 2024.01-2025.01
       </CareersSectionContent>
       <CareersSectionContent
-        name='전남대학교 소프트웨어 개발동아리 Stolio'
+        name='전남대학교 AI융합대학 인공지능학부 과동아리 Stolio'
         date='2022.03-2022.06'
       >
         ⇒ 동아리 개설 참여 // 동아리 운영 집행 및 프로젝트 리딩
