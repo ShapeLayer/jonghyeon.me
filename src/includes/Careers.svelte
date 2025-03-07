@@ -22,7 +22,7 @@
       />
       <CareersSectionContent 
         name='SAGA UNIVERSITY as an exchange student program'
-        date='2024.09-'
+        date='2025.09-'
       />
     </CareersSection>
     <CareersSection id='careers__education' title='EDUCATION'>
