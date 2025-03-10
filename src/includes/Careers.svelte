@@ -30,6 +30,10 @@
         name='숭덕고등학교'
         date='2018.03-2021.02'
       />
+      <CareersSectionContent 
+        name='University of Nevada, Las Vegas as a short-term study abroad program'
+        date='2024.08'
+      />
     </CareersSection>
     <CareersSection id='careers__work' title='WORK'>
       <CareersSectionContent 
