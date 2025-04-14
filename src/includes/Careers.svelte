@@ -20,10 +20,10 @@
         name='잼코딩학원 광주캠퍼스 파트타임 강사'
         date='2024.01-'
       />
-      <CareersSectionContent 
+      {/*<CareersSectionContent 
         name='Saga University as an exchange student program'
         date='2025.09-'
-      />
+      />*/}
     </CareersSection>
     <CareersSection id='careers__education' title='EDUCATION'>
       <CareersSectionContent 
