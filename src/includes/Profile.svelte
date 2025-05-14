@@ -24,7 +24,7 @@
       <br>
       <ul class="enums">
         <li><a href="https://blog.jonghyeon.me" target="_blank" rel="noreferrer">blog</a></li>
-        <li><a href="https://books.jonghyeon.me" target="_blank" rel="noreferrer">bookshelf</a></li>
+        
       </ul>
     </div>
   </div>
