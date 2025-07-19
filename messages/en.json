@@ -1,0 +1,13 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"hello_world": "Hello, {name} from en!",
+	"present": "Present",
+	"lee_chil_woo": "이칠우",
+	"kim_jin_young": "김진영",
+	"career_title_edu_highschool_sdok": "숭덕고등학교",
+	"career_title_edu_bachelor_cnu_ce": "전남대학교 컴퓨터정보통신공학과 학부과정",
+	"career_title_edu_bachelor_unlv_short_term_study": "University of Nevada, Las Vegas as a short-term study program",
+	"career_title_work_imagelab": "전남대학교 지능영상미디어인터페이스연구실",
+	"career_title_work_ielab": "전남대학교 지능전자연구실",
+	"career_title_work_jamcoding_lecturer": "잼코딩학원 광주캠퍼스 파트타임 강사"
+}
