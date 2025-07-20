@@ -21,8 +21,8 @@
   }: Props = $props();
 
   let datetime: string = $derived(
-    `${startsAt?.year}${startsAt?.month ? `.${String(startsAt.month).padStart(2, '0')}` : ''}${startsAt?.day ? `.${String(startsAt.day).padStart(2, '0')}` : ''}` + 
-    `${endsAt || current ? '-' : ''}`+ 
+    `${startsAt?.year ?? ''}${startsAt?.month ? `.${String(startsAt.month).padStart(2, '0')}` : ''}${startsAt?.day ? `.${String(startsAt.day).padStart(2, '0')}` : ''}` + 
+    `${(endsAt || current) ? '-' : ''}`+ 
     `${endsAt ? `${endsAt.year}${endsAt.month ? `.${String(endsAt.month).padStart(2, '0')}` : ''}${endsAt.day ? `.${String(endsAt.day).padStart(2, '0')}` : ''}` : current ? m.present() : ''}`
   );
 </script>
