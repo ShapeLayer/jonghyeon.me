@@ -6,7 +6,7 @@
 
 <CareerItem
   id='work-imagelab'
-  title={m.career_title_work_imagelab()}
+  title={m.career_title_work_ielab()}
   startsAt={{ year: 2024, month: 3 }}
   endsAt={{ year: 2025, month: 2 }}
 >
