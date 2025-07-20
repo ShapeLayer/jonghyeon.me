@@ -1,0 +1,83 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "careers": "커리어",
+  "careers_page_link": "이 페이지에서는 커리어 전체 내용을 특정 직군이나 주제와 관계없이 나열합니다. 사전에 적절한 방법을 통해 전달해드린 링크를 가지고 계시다면, 해당 편을 우선해주십시오.",
+  "last_update": "{date} 마지막 업데이트.",
+  "present": "현재",
+  
+  "socials": "소셜",
+
+  "advisor_prof": "지도교수",
+  "lee_chil_woo": "이칠우",
+  "kim_jin_young": "김진영",
+  "ieee_author_data": "IEEE 저자 정보",
+
+  "career_title_edu_highschool_sdok": "숭덕고등학교",
+  "career_title_edu_bachelor_cnu_ce": "전남대학교 공과대학 컴퓨터정보통신공학과 학부과정",
+  "career_title_edu_bachelor_unlv_short_term_study": "네바다대학교 라스베이거스 단기 파견 프로그램",
+  "career_title_edu_bachelor_exchange_sage": "사가대학 해외파견 교환학생",
+  "career_details_edu_bachelor_exchange_sage": "모교 내부 선발 절차 완료. 입학 절차 중",
+
+  "career_title_work_imagelab": "전남대학교 지능영상미디어인터페이스연구실",
+  "career_title_work_ielab": "전남대학교 지능전자연구실",
+  "career_title_work_roka": "대한민국 육군 만기전역",
+  "career_details_work_roka": "통신 주특기 // 최종 계급 병장",
+  "career_title_work_jamcoding_lecturer": "잼코딩학원 광주캠퍼스 파트타임 강사",
+  "career_title_work_cnu_ucc_working_scholarship": "전남대학교 정보화본부 국가근로장학생 행정업무보조",
+  "career_details_work_cnu_ucc_working_scholarship": "PC 실습실 기자재 및 소프트웨어 유지보수",
+
+  "career_title_project_prefix_generator": "악질이름생성기",
+  "career_details_project_prefix_generator": "네이버 실시간 검색어 최고 10대/20대 부분 1위",
+  "career_title_project_sign_language_client": "청각장애인을 위한 지능형 전시해설 문자/한국수어 변환 기술 개발",
+  "career_details_project_sign_language_client": "연구실 연구과제 // 클라이언트 개발",
+  "career_title_project_hccc22_page": "2022 호남 대학간 침해 대응 대회 2022 대회 사이트",
+  "career_details_project_hccc22_page": "아웃소싱 // 프론트엔드 디자인 및 개발",
+  "career_title_project_iwfcv22_page": "IW-FCV 2023 학회 정보 사이트",
+  "career_details_project_iwfcv22_page": "아웃소싱 // 초기 프론트엔드 디자인 및 개발",
+  "career_more_projects_github": "그 외의 프로젝트들은 GitHub를 참조해주십시오.",
+
+  "career_title_achievement_cnu_startup21": "제19회 2021 전남대학교 창업아이템 경진대회 입선",
+  "career_title_achievement_icpc21": "국제 대학생 프로그래밍 대회 아시아 서울 지역 본선 53위",
+  "career_title_achievement_cnu_algorithm_contest_6th": "전남대학교 제6회 교내SW프로그래밍경진대회 장려상",
+  "career_title_achievement_cnu_sw_club24": "전남대학교 소프트웨어중심대학사업단 2024 SW동아리 발굴 및 지원 프로그램 최종결과발표회 대상",
+  "career_title_achievement_scholarship_mirae_asset_33th": "미래에셋 해외교환 장학생 33기",
+
+  "career_title_paper_smartmedia21": "\"자연스러운 수어 애니메이션을 위한 FBX 파일 결합 알고리즘\"",
+  "career_authors_paper_smartmedia21": "정종호, 고영민, 박종현, 이칠우, 김대진.",
+  "career_details_paper_smartmedia21": "연구과제 논문 공동저자 // 한국스마트미디어학회 2021 춘계 학술대회",
+  "career_title_paper_smartmedia22": "\"자연스러운 애니메이션을 위한 수어 애니메이션 생성 알고리즘 고도화\"",
+  "career_authors_paper_smartmedia22": "정종호, 박종현, 나광일, 성홍념, 황희재, 이칠우.",
+  "career_details_paper_smartmedia22": "연구과제 논문 공동저자 // 한국스마트미디어학회 2022 종합학술대회",
+
+  "career_title_activity_gwangju_sw_festival19": "2019 광주SW체험축전 <한글코드로 만드는 디스코드 챗봇> 체험 부스",
+  "career_details_activity_gwangju_sw_festival19": "체험 프로그램 // SW개발 및 총괄",
+  "career_title_activity_cnu_club_pimm": "전남대학교 게임개발동아리 PIMM",
+  "career_details_activity_cnu_club_pimm_lead": "회장 // 2024.01-2025.01",
+  "career_title_activity_cnu_club_stolio": "전남대학교 AI융합대학 인공지능학부 과동아리 Stolio",
+  "career_details_activity_cnu_club_stolio_lead": "동아리 개설 참여 // 동아리 운영 집행 및 프로젝트 리딩",
+  "career_title_activity_algorithm_contest": "알고리즘 대회 개최",
+
+  "career_title_algorithm_contest_pimm23": "커뮤니티 오픈 콘테스트 <2023 전남대학교 PIMM 알고리즘 파티>",
+  "career_details_algorithm_contest_pimm23": "출제 및 총괄",
+  "career_title_algorithm_contest_pimm24a": "커뮤니티 오픈 콘테스트 <2024 상반기 전남대학교 PIMM 알고리즘 파티>",
+  "career_details_algorithm_contest_pimm24a": "출제 및 총괄",
+  "career_title_algorithm_contest_gist": "<2024 GIST 알고리즘 마스터즈>",
+  "career_details_algorithm_contest_gist": "출제 및 현장 운영",
+  "career_title_algorithm_contest_pimm24b": "커뮤니티 오픈 콘테스트 <2024 하반기 전남대학교 PIMM 알고리즘 파티>",
+  "career_details_algorithm_contest_pimm24b": "총괄",
+  "career_title_algorithm_contest_pimm25a": "커뮤니티 오픈 콘테스트 <2025 상반기 전남대학교 PIMM 알고리즘 파티>",
+  "career_details_algorithm_contest_pimm25a": "총괄",
+
+  "career_title_certification_toeic": "토익 805점",
+  "career_title_certification_jlpt": "JLPT N2",
+  "career_title_certification_aws": "AWS Certification",
+  "career_details_certification_aws_ccp": "AWS Certified Cloud Practitioner",
+  "career_details_certification_aws_da": "AWS Certified Developer - Associate",
+  "career_title_certification_sqld": "SQL 개발자",
+  "career_title_certification_network_manager": "네트워크관리사 2급",
+  "career_title_certification_cos_pro": "YBM Coding Specialist Professional I",
+  "career_title_certification_topcit": "TOPCIT 747",
+
+  "career_details_certifications_experied": "유효기간 만료됨"
+}

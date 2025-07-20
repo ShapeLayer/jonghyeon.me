@@ -1,0 +1,136 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+@import 'tailwindcss';
+
+:root {
+  --base: 232;
+  --base-fg-color: hsla(var(--base), 15%, 20%, 1);
+  --base-fg-color-bright: hsla(var(--base), 10%, 30%, 1);
+  --base-fg-color-brighter: hsla(var(--base), 10%, 40%, 1);
+  --base-bg-color: hsla(var(--base), 0%, 99%, 1);
+  --base-bg-color-dark: hsla(var(--base), 2.5%, 80%, 1);
+  --base-bg-color-darker: hsla(var(--base), 5%, 70%, 1);
+  --base-hero-fg-color: hsla(var(--base), 80%, 95%, 1);
+  --base-hero-bg-color: hsla(var(--base), 15%, 12%, 0.87);
+  --common-text: var(--base-fg-color);
+}
+
+.reenie-beanie-regular {
+  font-family: "Reenie Beanie", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+::selection {
+  color: var(--base-bg-color);
+  background-color: var(--base-fg-color-brighter);
+}
+
+html {
+  font-family: 'Pretendard', 'Noto Sans KR', -apple-system, sans-serif !important;
+  color: var(--base-fg-color);
+  background: var(--base-bg-color) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAFVJREFUSEtjfPn+238GJMDBxozMJZn949dfuB5GkOHiglyMJJtChIYhbPjHrz//83Oz0yZYRg3HlngYR4NlNFiIKFUgSkZTC9agGg0W7MEyWs1hCxcAF5pe5Ya82ZoAAAAASUVORK5CYII=) repeat center center/0.7rem 0.7rem;
+  overflow-x: hidden;
+  scroll-behavior: smooth !important;
+  --scroll-behavior: smooth !important;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  color: var(--common-text);
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+h1 { font-size: 2em; }
+h2 { font-size: 1.7em; }
+
+h2.subtitle {
+  position: relative;
+  display: inline-block;
+  margin: .5em 0;
+  padding: .3em .2em .3em .5em;
+  border-radius: .2em;
+  color: var(--base-bg-color);
+  background-color: var(--base-fg-color);
+  box-sizing: border-box;
+}
+/*h2.subtitle::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: .1em;
+  width: .2em;
+  height: 100%;
+  content: ' ';
+  background: var(--base-bg-color);
+}*/
+h3.subtitle,
+h3.subsubtitle {
+  display: block;
+  font-weight: 700;
+}
+h3.subtitle {
+  font-size: 1.1em;
+}
+h3.subsubtitle {
+  font-size: .9em;
+}
+a {
+  color: var(--base-fg-color);
+  text-decoration: underline 1.2px dashed;
+  transition: .1s ease-in-out;
+}
+a:hover,
+a:focus {
+  color: var(--base-bg-color);
+  background-color: var(--base-fg-color-brighter);
+  transition: .1s ease-in-out;
+}
+a.no-hover:hover,
+a.no-hover:focus {
+  color: inherit;
+  background-color: inherit;
+}
+b {
+  font-weight: 700;
+}
+hr {
+  margin: 4em auto;
+  width: 10%;
+  max-width: 200px;
+  border: 1px solid var(--base-bg-color-darker);
+}
+sup {
+  font-size: .6em;
+  vertical-align: super;
+}
+
+li {
+  list-style-type: "·";
+  padding-left: .5em;
+}
+li::marker {
+  font-weight: 900;
+}
+li.arrow-header {
+  list-style-type: "⇒";
+}
+ul.enums li {
+  display: inline-block;
+  padding: 0;
+  gap: .4em;
+  list-style-type: none;
+}
+section {
+  box-sizing: border-box;
+  margin: auto;
+  width: 100%;
+  max-width: 800px;
+  padding: 1em;
+  display: flex;
+}
