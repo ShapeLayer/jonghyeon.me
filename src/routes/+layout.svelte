@@ -12,14 +12,14 @@
   /* start i18n support */
   const initLocale = () => {
     if (browser) {
-      switch (window.navigator.language) {
-        case 'ko':
-          setLocale('ko');
-          break;
-        case 'en':
-        default:
-          setLocale('en');
-          break;
+      let language = window.navigator.language;
+      if (language.includes('ko')) {
+        setLocale('ko');
+      } else if (language.includes('en')) {
+        setLocale('en');
+      } else {
+        // Default to English if no specific locale is detected
+        setLocale('en');
       }
     }
   }
