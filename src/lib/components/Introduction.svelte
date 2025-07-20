@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-	import ExternalLink from './ExternalLink.svelte';
+  import ExternalLink from './ExternalLink.svelte';
   let scrollY: number = 0;
   let introductionElement: HTMLDivElement | null = null;
   let descriptionElement: HTMLDivElement | null = null;
@@ -63,6 +63,9 @@ h2 {
         <ExternalLink href="https://github.com/shapelayer" target="_blank" rel="noopener noreferrer">GitHub</ExternalLink>
         <ExternalLink href="https://blog.jonghyeon.me" target="_blank" rel="noopener noreferrer">Blog</ExternalLink>
         <ExternalLink href="https://note.jonghyeon.me" target="_blank" rel="noopener noreferrer">Note</ExternalLink>
+      </div>
+      <div>
+        <ExternalLink href="https://www.instagram.com/__jong.hyeon__/" target="_blank" rel="noopener noreferrer">Instagram</ExternalLink>
       </div>
     </div>  
   </div>

@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-	import { m } from '$lib/paraglide/messages.js';
-	import type { Date } from '$lib/models/date';
+  import { m } from '$lib/paraglide/messages';
+  import type { Date } from '$lib/models/date';
 
   interface Props {
     children: Snippet;
@@ -19,6 +19,12 @@
     endsAt,
     current = false
   }: Props = $props();
+
+  let datetime: string = $derived(
+    `${startsAt?.year}${startsAt?.month ? `.${String(startsAt.month).padStart(2, '0')}` : ''}${startsAt?.day ? `.${String(startsAt.day).padStart(2, '0')}` : ''}` + 
+    `${endsAt || current ? '-' : ''}`+ 
+    `${endsAt ? `${endsAt.year}${endsAt.month ? `.${String(endsAt.month).padStart(2, '0')}` : ''}${endsAt.day ? `.${String(endsAt.day).padStart(2, '0')}` : ''}` : current ? m.present() : ''}`
+  );
 </script>
 
 <style>
@@ -41,15 +47,21 @@
     font-size: 1.1em;
   }
   .career-summary {
-    display: flex;
-    gap: .5em;
+    display: inline-block;
   }
   .career-datetime {
-    display: flex;
+    display: inline-block;
+    color: var(--base-fg-color-brighter);
     font-size: .7em;
     font-style: italic;
-    align-items: center;
-    color: var(--base-fg-color-brighter);
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  .career-datetime span {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    vertical-align: bottom;
   }
   .career-detail {
     font-size: .8em;
@@ -57,32 +69,10 @@
 </style>
 
 <div id={id} class="career-item">
-  <p class="career-summary">
+  <div class="career-summary">
     <span class="career-title">{title}</span>
-    <span class="career-datetime">
-      {#if startsAt}
-      <span><!-- starts at -->
-        {startsAt.year}.{String(startsAt.month).padStart(2, '0')}{#if startsAt.day !== undefined}.{String(startsAt.day).padStart(2, '0')}{/if}
-      </span>
-      {#if current || endsAt}
-      <span>-</span>
-      {/if}
-      
-      
-      <span><!-- ends at -->
-        {#if endsAt}
-          {endsAt.year}.{String(endsAt.month).padStart(2, '0')}
-          {#if endsAt.day !== undefined}
-          .{String(endsAt.day).padStart(2, '0')}
-          {/if}
-        {:else if current}
-          {m.present()}
-        {:else}
-        {/if}
-      </span>
-      {/if}
-    </span>
-  </p>
+    <div class="career-datetime">{datetime}</div>
+  </div>
   <p class="career-detail">
     {@render children?.()}
   </p>

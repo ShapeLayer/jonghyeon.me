@@ -1,7 +1,7 @@
 <script>
-	import SectionHeader from "$lib/components/SectionHeader.svelte";
-
+  import SectionHeader from '$lib/components/SectionHeader.svelte';
+  import { m } from '$lib/paraglide/messages';
 </script>
 <section class="socials">
-  <SectionHeader>소셜</SectionHeader>
+  <SectionHeader>{m.socials()}</SectionHeader>
 </section>

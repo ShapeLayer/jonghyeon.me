@@ -1,6 +1,6 @@
 export type Date = {
   year: number;
-  month: number;
+  month?: number;
   day?: number;
   hour?: number;
   minute?: number;

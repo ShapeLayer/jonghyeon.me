@@ -19,7 +19,7 @@ footer img#unicode-sponser {
 
 </style>
 <footer>
-  <div class="footer__content">
+  <div class="footer-content">
     <p class="badges">
       <a class="no-hover" href="http://unicode.org/consortium/adopted-characters.html#b1F30C" target="_blank" rel="noreferrer">
         <img id="unicode-sponser" src="https://www.unicode.org/consortium/aacimg/badges/bronze-1F30C.png" alt="Unicode Consortium Official Bronze Sponser">

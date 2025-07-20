@@ -1,5 +1,18 @@
 <script lang="ts">
-  import ScrollGuide from "$lib/components/ScrollGuide.svelte";
+  import smoothscroll from 'smoothscroll-polyfill';
+  import ScrollGuide from '$lib/components/ScrollGuide.svelte';
+
+  let scrollTarget: HTMLElement | null = null;
+
+  const onHeaderClick = () => {
+    if (scrollTarget) {
+      scrollTarget.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  const onResizeHandler = () => {
+    smoothscroll.polyfill();
+  }
 </script>
 
 <style>
@@ -81,34 +94,64 @@
       background-position: 100% 50%;
     }
   }
+  @font-face {
+    font-family: 'SangSangFlowerRoad';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/SangSangFlowerRoad.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'MYYeongnamnu';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/MYYeongnamnu.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
   .vivid {
     overflow: hidden;
-    animation: vivid-font 2s linear infinite;
+    animation: vivid-font .75s linear infinite;
+    overflow: visible;
   }
   @keyframes vivid-font {
-    0% {
-      font-family: 'Reenie Beanie', cursive;
-    }
-    50% {
+    0%, 100% {
       font-family: 'Sue Ellen Francisco', cursive;
     }
+    20% {
+      font-family: 'SangSangFlowerRoad', cursive;
+    }
+    40% {
+      font-family: 'Yesteryear', cursive;
+    }
+    60% {
+      font-family: 'MYYeongnamnu', cursive;
+    }
+    80% {
+      font-family: 'Cabin Sketch', cursive;
+    }
+  }
+
+  .hint-smooth-scroll {
+    cursor: pointer;
   }
 </style>
 
 <svelte:head>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Reenie+Beanie&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Yesteryear&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap" rel="stylesheet">
 </svelte:head>
 
 <div class="catchphrase">
   <div class="content">
-    <h1>
+    <h1 class="hint-smooth-scroll" on:click={onHeaderClick}>
       <span>Shaping <span class="colorful">colorful</span> Layers,</span>
       <span class="catchphrase-vivid">Layering <span class="vivid">vivid</span> Shapes.</span>
     </h1>
   </div>
-  <div class="scroll-guide">
+  <div class="scroll-guide hint-smooth-scroll" on:click={onHeaderClick}>
     <ScrollGuide />
   </div>
 </div>
+
+<div id="profile" bind:this={scrollTarget} />
+<svelte:window on:resize={onResizeHandler} />
