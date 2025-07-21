@@ -5,11 +5,11 @@
 
   let localeSelectorButton: HTMLButtonElement | undefined;
   let localeSelectorButtonAriaExpanded: boolean = $state(false);
-  const localeSelections: {bind: HTMLLIElement | undefined, value: ListContent & {locale: Locale}}[] = [
+  const localeSelections: {bind: HTMLLIElement | undefined, value: ListContent & {locale: Locale}}[] = $state([
     // { bind: undefined, value: { id: 'locale-selection-global', content: '🌐', role: 'option', ariaSelected: false , locale: 'en'}},
-    { bind: undefined, value: { id: 'locale-selection-en', content: '🇺🇸 English', role: 'option', ariaSelected: true, locale: 'en' }},
-    { bind: undefined, value: { id: 'locale-selection-ko', content: '🇰🇷 한국어', role: 'option', ariaSelected: true, locale: 'ko' }},
-  ];
+    { bind: undefined, value: { id: 'locale-selection-en', content: '🇺🇸 English', role: 'option', ariaSelected: false, locale: 'en' }},
+    { bind: undefined, value: { id: 'locale-selection-ko', content: '🇰🇷 한국어', role: 'option', ariaSelected: false, locale: 'ko' }},
+  ]);
 
   const renderCurrentLocale = () => {
     const locale: Locale = getLocale();
@@ -27,8 +27,9 @@
     if (!localeSelectorButtonAriaExpanded) localeSelections[0].bind?.focus();
   }
 
-  const onSelectorOptionClick = (locale: Locale) => {
+  const onSelectorOptionClick = (e: HTMLLIElement | undefined, locale: Locale) => {
     localeSelections.forEach(each => each.bind?.setAttribute('aria-selected', 'false'));
+    e?.setAttribute('aria-selected', 'true');
 
     setLocale(locale);
 
@@ -39,8 +40,18 @@
     localeSelectorButtonAriaExpanded = false;
   }
 
-  const init = () => {
+  const initSelectorHighLight = () => {
+    let currentLocale: Locale = getLocale();
+    localeSelections.forEach(each => {
+      console.log(each.value.locale, currentLocale, each.value.locale === currentLocale);
+      if (each.value.locale === currentLocale) {
+        each.value.ariaSelected = true;
+      }
+    });
+  }
 
+  const init = () => {
+    initSelectorHighLight();
   }
 
   let locale = $derived(renderCurrentLocale());
@@ -136,8 +147,8 @@
     <li
       id={eachLocale.value.id ?? ''}
       role={eachLocale.value.role ?? ''}
-      aria-selected={eachLocale.value.ariaSelected ?? false}
-      onclick={() => onSelectorOptionClick(eachLocale.value.locale)}
+      aria-selected={`${eachLocale.value.ariaSelected ?? false}`}
+      onclick={() => onSelectorOptionClick(eachLocale.bind, eachLocale.value.locale)}
       bind:this={eachLocale.bind}
     >{eachLocale.value.content}</li>
     {/each}
