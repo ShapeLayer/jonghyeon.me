@@ -9,9 +9,14 @@
   "socials": "소셜",
 
   "advisor_prof": "지도교수",
+  "park_jong_hyeon": "박종현",
   "lee_chil_woo": "이칠우",
   "kim_jin_young": "김진영",
   "ieee_author_data": "IEEE 저자 정보",
+
+  "profile_intro_description_1": "안녕하세요! 저는 컴퓨터공학을 전공하고 있는 박종현입니다. 영문 별칭으로는 주로 ShapeLayer라는 이름을 사용합니다.",
+  "profile_intro_description_2": "크게 다쳐 병원에서 생활했던 어린 시절, 옆 자리의 컴퓨터공학 전공 대학원생을 흉내내며 컴퓨터를 시작하게 되었습니다. 이어서는 \"멋진 사람들\"을 따라잡겠다는 열망으로 Visual Basic, C, Java를 무작정 따라하며 컴퓨터공학자의 꿈을 키웠습니다.",
+  "profile_intro_description_3": "2019년 재학 중이었던 고등학교의 학생회로부터 <숭덕고 청원페이지> 개발 수주, 2019광주SW체험축전에서의 <한글코드로 만드는 디스코드 챗봇> 체험 소프트웨어 개발, 2020년 <악질이름생성기>를 계기로 본격적으로 프로그래밍을 시작하게 되었습니다.",
 
   "career_title_edu_highschool_sdok": "숭덕고등학교",
   "career_title_edu_bachelor_cnu_ce": "전남대학교 공과대학 컴퓨터정보통신공학과 학부과정",
@@ -69,7 +74,7 @@
   "career_title_algorithm_contest_pimm25a": "커뮤니티 오픈 콘테스트 <2025 상반기 전남대학교 PIMM 알고리즘 파티>",
   "career_details_algorithm_contest_pimm25a": "총괄",
 
-  "career_title_certification_toeic": "토익 805점",
+  "career_title_certification_toeic": "TOEIC 805",
   "career_title_certification_jlpt": "JLPT N2",
   "career_title_certification_aws": "AWS Certification",
   "career_details_certification_aws_ccp": "AWS Certified Cloud Practitioner",

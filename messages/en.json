@@ -9,9 +9,14 @@
   "socials": "Socials",
 
   "advisor_prof": "Supervise Professor",
+  "park_jong_hyeon": "Park, Jonghyeon",
   "lee_chil_woo": "Lee, Chil-Woo",
   "kim_jin_young": "Kim, Jin-Young",
   "ieee_author_data": "IEEE author information",
+
+  "profile_intro_description_1": "Hello! I'm Jonghyeon Park, studying Computer Engineering now. I'm also active with the username ShapeLayer.",
+  "profile_intro_description_2": "I began computer science by imitating the graduate student in CS who had the bed next to mine when I spent time in the hospital as a child. Fueled by the desire to \"be great people\", I dove head-first into Visual Basic, C, and Java—copying code line by line and nurturing the dream of becoming a computer engineer.",
+  "profile_intro_description_3": "I got down to start programming when I was a high schooler with the development of the \"Sungdeok Gallery\" website commissioned by the student council, and an education software for a hands-on session at <2019 Gwangju Software Festival>.",
 
   "career_title_edu_highschool_sdok": "Sungdeok High School",
   "career_title_edu_bachelor_cnu_ce": "Chonnam National University, Department of Computer Engineering, Bachelor's Program",
