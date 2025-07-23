@@ -43,7 +43,6 @@
   const initSelectorHighLight = () => {
     let currentLocale: Locale = getLocale();
     localeSelections.forEach(each => {
-      console.log(each.value.locale, currentLocale, each.value.locale === currentLocale);
       if (each.value.locale === currentLocale) {
         each.value.ariaSelected = true;
       }
