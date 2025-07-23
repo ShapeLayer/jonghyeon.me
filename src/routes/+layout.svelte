@@ -6,6 +6,8 @@
   import { setLocale } from '$lib/paraglide/runtime';
   import { m } from '$lib/paraglide/messages';
 
+  import GoogleAnalytics from '$lib/includes/GoogleAnalytics.svelte';
+
   let { children } = $props();
   
   /* start i18n support */
@@ -46,5 +48,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
 </svelte:head>
+
+<GoogleAnalytics />
 
 {@render children()}
