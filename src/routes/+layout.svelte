@@ -22,7 +22,7 @@
       } else {
         // No saved preference, auto-detect from browser
         let language = window.navigator.language;
-        if (language.includes('ko')) {
+        if (language.includes('ko') || language.includes('kr')) {
           setLocale('ko');
         } else if (language.includes('en')) {
           setLocale('en');
