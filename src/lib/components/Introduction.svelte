@@ -63,7 +63,7 @@ h2 {
       <div class="contacts-row">
         <ExternalLink href="https://github.com/shapelayer" target="_blank" rel="noopener noreferrer">GitHub</ExternalLink>
         <ExternalLink href="https://blog.jonghyeon.me" target="_blank" rel="noopener noreferrer">Diary<sup>Blog</sup></ExternalLink>
-        <ExternalLink href="https://note.jonghyeon.me" target="_blank" rel="noopener noreferrer">Study Note<sup>Blog</sup></ExternalLink>
+        <ExternalLink href="https://note.jonghyeon.me" target="_blank" rel="noopener noreferrer">Studies<sup>Blog</sup></ExternalLink>
       </div>
       <div>
         <ExternalLink href="https://www.instagram.com/__jong.hyeon__/" target="_blank" rel="noopener noreferrer">Instagram</ExternalLink>
