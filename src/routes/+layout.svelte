@@ -24,6 +24,8 @@
         let language = window.navigator.language;
         if (language.includes('ko') || language.includes('kr')) {
           setLocale('ko');
+        } else if (language.includes('ja') || language.includes('jp')) {
+          setLocale('ja');
         } else if (language.includes('en')) {
           setLocale('en');
         } else {

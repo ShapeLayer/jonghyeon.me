@@ -9,6 +9,7 @@
     // { bind: undefined, value: { id: 'locale-selection-global', content: '🌐', role: 'option', ariaSelected: false , locale: 'en'}},
     { bind: undefined, value: { id: 'locale-selection-en', content: '🇺🇸 English', role: 'option', ariaSelected: false, locale: 'en' }},
     { bind: undefined, value: { id: 'locale-selection-ko', content: '🇰🇷 한국어', role: 'option', ariaSelected: false, locale: 'ko' }},
+    { bind: undefined, value: { id: 'locale-selection-ja', content: '🇯🇵 日本語', role: 'option', ariaSelected: false, locale: 'ja' }},
   ]);
 
   const renderCurrentLocale = () => {
@@ -18,6 +19,8 @@
         return '🌐  English';
       case 'ko':
         return '🌐  한국어';
+      case 'ja':
+        return '🌐  日本語';
     }
   }
   
