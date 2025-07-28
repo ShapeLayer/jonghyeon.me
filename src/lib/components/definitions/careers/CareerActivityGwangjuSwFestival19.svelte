@@ -3,6 +3,7 @@
   import CareerItem from '$lib/components/CareerItem.svelte';
 	import ExternalLink from '$lib/components/ExternalLink.svelte';
 	import CareerItemDetailContent from '$lib/components/CareerItemDetailContent.svelte';
+  import CareerActivityGwangjuSwFestival19Cover from '$lib/assets/CareerActivityGwangjuSwFestival19-cover.webp';
 </script>
 
 <CareerItem
@@ -16,6 +17,20 @@
       title='2019광주SW체험축전 참여'
       subtitle='<한글코드로 만드는 디스코드 챗봇> 체험 프로그램 운영'
     >
+      <style>
+        .career-activity-gwangju-sw-festival19-cover {
+          display: flex;
+          justify-content: center;
+          margin: 1em 0;
+        }
+        .career-activity-gwangju-sw-festival19-cover img {
+          max-width: 100%;
+          height: auto;
+        }
+      </style>
+      <div class="career-activity-gwangju-sw-festival19-cover">
+        <img src={CareerActivityGwangjuSwFestival19Cover} alt=""/>
+      </div>
       <div>
         <p>
           2019년 광주광역시에서 열린 &lt;2019광주SW체험축전&gt;에서 &lt;한글코드로 만드는 디스코드 챗봇&gt; 체험 프로그램을 기획하고, 소프트웨어를 개발하여, 운영하였습니다.<br />
