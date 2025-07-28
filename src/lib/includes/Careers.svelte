@@ -64,6 +64,7 @@
     <p class="last-update">{m.last_update({ date: '2025-07-19' })}</p>
     <ul>
       <li>{m.careers_page_link()}</li>
+      <li>음영 처리된 항목을 선택하면 더 자세한 정보를 확인할 수 있습니다.</li>
     </ul>
   </div>
   <div class="careers-content">

@@ -135,3 +135,22 @@ section {
   padding: 1em;
   display: flex;
 }
+
+table {
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+  border-collapse: collapse;
+  border-color: currentcolor;
+  overflow-x: auto;
+  display: block;
+  white-space: nowrap;
+}
+th, thead :is(tr, td), tfoot tr {
+  background-color: var(--base-bg-color-dark);
+  color: var(--base-fg-color-brighter);
+}
+th, td {
+  text-align: center;
+  padding: .5em;
+  border: 1px solid var(--base-bg-color-darker);
+}

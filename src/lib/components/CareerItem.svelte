@@ -1,10 +1,12 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
+  import { type Snippet, onMount } from 'svelte';
   import { m } from '$lib/paraglide/messages';
   import type { Date } from '$lib/models/date';
+  import Popup from '$lib/components/Popup.svelte';
 
   interface Props {
     children: Snippet;
+    detailContent?: Snippet;
     id: string;
     title: string;
     startsAt?: Date;
@@ -13,6 +15,7 @@
   }
   let {
     children,
+    detailContent,
     id,
     title,
     startsAt,
@@ -25,15 +28,45 @@
     `${(endsAt || current) ? '-' : ''}`+ 
     `${endsAt ? `${endsAt.year}${endsAt.month ? `.${String(endsAt.month).padStart(2, '0')}` : ''}${endsAt.day ? `.${String(endsAt.day).padStart(2, '0')}` : ''}` : current ? m.present() : ''}`
   );
+
+  let rootElement: HTMLDivElement | null = $state(null);
+  let popupComponent: Popup | null = $state(null);
+
+  const mountDetailContent = () => {
+    if (!detailContent || !rootElement) return;
+    rootElement?.classList.add('details-contained');
+  }
+  const onClickHandler = () => {
+    popupComponent?.open();
+  }
+
+  const init = () => {
+    mountDetailContent();
+  }
+
+  onMount(init);
 </script>
 
 <style>
   .career-item {
+    padding: .2em .3em;
+    border-radius: 4px;
+    margin: .3em 0;
+  }
+  :global(.career-item.details-contained) {
+    background-color: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: background-color .2s;
+  }
+  :global(.career-item.details-contained:hover) {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .career-item-wrapper {
     position: relative;
     padding-left: 1em;
     margin: .1em 0;
   }
-  .career-item::before {
+  .career-item-wrapper::before {
     content: "»";
     display: flex;
     position: absolute;
@@ -68,12 +101,26 @@
   }
 </style>
 
-<div id={id} class="career-item">
-  <div class="career-summary">
-    <span class="career-title">{title}</span>
-    <div class="career-datetime">{datetime}</div>
+<div
+  id={id}
+  class="career-item"
+  bind:this={rootElement}
+  onclick={onClickHandler}
+>
+  <div class="career-item-wrapper">
+    <div class="career-summary">
+      <span class="career-title">{title}</span>
+      <div class="career-datetime">{datetime}</div>
+    </div>
+    <p class="career-detail">
+      {@render children?.()}
+    </p>
   </div>
-  <p class="career-detail">
-    {@render children?.()}
-  </p>
 </div>
+{#if detailContent}
+  <div id={`${id}-detail`}>
+    <Popup bind:this={popupComponent}>
+      {@render detailContent()}
+    </Popup>
+  </div>
+{/if}
