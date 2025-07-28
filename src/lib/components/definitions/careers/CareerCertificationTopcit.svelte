@@ -15,30 +15,35 @@
     title='TOPCIT'
     subtitle='Scored 747, Level 4'
   >
-    <table>
-      <thead>
-        <tr>
-          <th>점수/만점</th>
-          <th>득점율</th>
-          <th>전체 평균</th>
-          <th>상위 30%</th>
-          <th>상위 10%</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>747/1000</td>
-          <td>74.7%</td>
-          <td>352.5/1000</td>
-          <td>575.3/1000</td>
-          <td>675.1/1000</td>
-        </tr>
-      </tbody>
-    </table>
     <style>
+      .topcit-table-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 1em 0;
+      }
       #topcit-description ul { list-style-type: disc; padding-left: 1em; }
       #topcit-description li { margin: .5em 0; }
     </style>
+    <div class="topcit-table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>점수/만점</th>
+            <th>전체 평균</th>
+            <th>상위 30%</th>
+            <th>상위 10%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>747/1000</td>
+            <td>352.5/1000</td>
+            <td>575.3/1000</td>
+            <td>675.1/1000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div id="topcit-description">
       <p>TOPCIT(Test Of Practical Competency in IT)은 정보통신기획평가원에서 주관하는 소프트웨어 역량 검정입니다.</p>
       <p>기술 영역(소프트웨어, 데이터, 시스템 아키텍처, 정보보안), 비즈니스 영역(IT비즈니스와 윤리, TC와 PM), 통합 영역(통합 역량)에 걸쳐 ICT 분야에서 요구되는 창의적 문제 해결력, 실무 능력 중심으로 평가합니다.</p>

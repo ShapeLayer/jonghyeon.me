@@ -46,6 +46,7 @@
 
 <svelte:head>
   <title>{m.park_jong_hyeon()} (@ShapeLayer)</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
@@ -56,6 +57,9 @@
     close: Popup.svelte
   -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close,open_in_new" />
+
+  <!-- Kakao Map -->
+  <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
 </svelte:head>
 
 <GoogleAnalytics />
