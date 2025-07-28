@@ -31,6 +31,17 @@
     contentWrapperElement.style.left = '-100vw';
   }
 
+  const onKeyDownHandler = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      if (isOpen) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        close();
+      }
+    }
+  }
+
   export { open, close };
 </script>
 
@@ -100,6 +111,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
 </svelte:head>
 -->
+
+<svelte:window on:keydown={onKeyDownHandler} />
 
 <div class="popup">
   <dim bind:this={dimElement} onclick={close}></dim>
