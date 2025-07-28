@@ -45,7 +45,7 @@
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 7;
+    z-index: 11;
     transition: opacity .2s;
     pointer-events: none;
     opacity: 0;
@@ -60,7 +60,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    z-index: 10;
+    z-index: 12;
     transition: left .5s;
     background-color: white;
   }

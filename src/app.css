@@ -2,6 +2,19 @@
 @import url('$lib/assets/reset.css');
 @import 'tailwindcss';
 
+/**
+ * Z Index in Global Area
+ *
+ * 0:
+ *  - 5: LocaleSelector ul
+ *      /src/lib/components/LocaleSelector.svelte
+ * 10:
+ *  - 11: Popup Component dimmed background
+ *      /src/lib/components/Popup.svelte
+ *  - 12: Popup Component content
+ *      /src/lib/components/Popup.svelte
+ */
+
 :root {
   --base: 232;
   --base-fg-color: hsla(var(--base), 15%, 20%, 1);

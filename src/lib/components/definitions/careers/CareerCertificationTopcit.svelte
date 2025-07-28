@@ -36,10 +36,10 @@
       </tbody>
     </table>
     <style>
-      ul { list-style-type: disc; padding-left: 1em; }
-      li { margin: .5em 0; }
+      #topcit-description ul { list-style-type: disc; padding-left: 1em; }
+      #topcit-description li { margin: .5em 0; }
     </style>
-    <div>
+    <div id="topcit-description">
       <p>TOPCIT(Test Of Practical Competency in IT)은 정보통신기획평가원에서 주관하는 소프트웨어 역량 검정입니다.</p>
       <p>기술 영역(소프트웨어, 데이터, 시스템 아키텍처, 정보보안), 비즈니스 영역(IT비즈니스와 윤리, TC와 PM), 통합 영역(통합 역량)에 걸쳐 ICT 분야에서 요구되는 창의적 문제 해결력, 실무 능력 중심으로 평가합니다.</p>
       <p><br /></p>

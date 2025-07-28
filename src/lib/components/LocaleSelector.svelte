@@ -105,7 +105,7 @@
     box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);
     list-style: none;
     font-size: 14px;
-    z-index: 50;
+    z-index: 5;
     display: none;  /* hidden by default */
   }
   .locale-selector button[aria-expanded="true"] + ul {
