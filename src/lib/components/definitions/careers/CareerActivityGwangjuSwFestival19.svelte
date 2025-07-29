@@ -40,7 +40,7 @@
           이 체험은 일반인이 간단한 스크립팅을 하지 못하는 이유를 "프로그래밍 언어가 모국어가 아니기 때문"으로 가정하고 기획하였습니다.<br />
           주최 관계자들에게 참신성 면에서 호평을 받았으나, 체험 프로그램을 운영하면서 위 가정이 틀렸음을 확인할 수 있었습니다.
         </p>
-        <p>자세히 알아보기: <ExternalLink href="https://blog.jonghyeon.me/posts/2019-05-28-reviewing-gwangju-sw-festival/">&lt;2019 광주SW체험축전을 되돌아보며&gt;</ExternalLink></p>
+        <p>자세히 알아보기: <ExternalLink href='https://blog.jonghyeon.me/posts/2019-05-28-reviewing-gwangju-sw-festival/'>&lt;2019 광주SW체험축전을 되돌아보며&gt;</ExternalLink></p>
       </div>
   </CareerItemDetailContent>
   {/snippet}

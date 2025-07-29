@@ -15,7 +15,7 @@
       title='잼코딩학원 광주캠퍼스 파트타임 강사'
     >
       <style>
-        .jamcoding-map {
+        #jamcoding-map {
           display: flex;
           justify-content: center;
           margin: 1em 0;
@@ -23,7 +23,7 @@
         #jamcoding-description ul { list-style-type: disc; padding-left: 1em; margin-top: -1em; }
         #jamcoding-description li { margin: .2em 0; }
       </style>
-      <div class="jamcoding-map">
+      <div id="jamcoding-map">
         <!-- * 카카오맵 - 지도퍼가기 -->
         <!-- 1. 지도 노드 -->
         <div id="daumRoughmapContainer1753716027568" class="root_daum_roughmap root_daum_roughmap_landing"></div>
