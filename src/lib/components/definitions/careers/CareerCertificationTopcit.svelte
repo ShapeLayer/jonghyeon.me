@@ -3,6 +3,7 @@
   import CareerItem from '$lib/components/CareerItem.svelte';
   import CareerItemDetailContent from '$lib/components/CareerItemDetailContent.svelte';
 	import ExternalLink from '$lib/components/ExternalLink.svelte';
+	import TopcitGradeGraph from '$lib/components/TopcitGradeGraph.svelte';
 </script>
 
 <CareerItem
@@ -43,6 +44,28 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div id="topcit-score-dist">
+      <!--
+      <TopcitGradeGraph
+        renderSize={{ width: 1500, height: 600 }}
+        screenSize={{ width: 500, height: 200 }}
+        padding={{ top: 20, right: 20, bottom: 20, left: 50 }}
+        scores={{
+          sigma: 100,
+          mean: 352.5,
+          myScore: 747,
+          top30: 575.3,
+          top10: 675.1,
+          targetPeakHeightPercentage: 0.12
+        }}
+        graphRange={{
+          xMin: 150,
+          xMax: 850,
+          yMin: 0,
+          yMax: 0.25
+        }}
+      />-->
     </div>
     <div id="topcit-description">
       <p>TOPCIT(Test Of Practical Competency in IT)은 정보통신기획평가원에서 주관하는 소프트웨어 역량 검정입니다.</p>
