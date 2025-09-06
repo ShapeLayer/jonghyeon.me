@@ -14,9 +14,13 @@
   "kim_jin_young": "Kim, Jin-Young",
   "ieee_author_data": "IEEE author information",
 
+  "etnews": "[KO] Electronic Times Internet",
+
   "profile_intro_description_1": "Hello! I'm Jonghyeon Park, studying Computer Engineering now. I'm also active with the username ShapeLayer.",
   "profile_intro_description_2": "I began computer science by imitating the graduate student in CS who had the bed next to mine when I spent time in the hospital as a child. Fueled by the desire to \"be great people\", I dove head-first into Visual Basic, C, and Java—copying code line by line and nurturing the dream of becoming a computer engineer.",
   "profile_intro_description_3": "I got down to start programming when I was a high schooler with the development of the \"Sungdeok Gallery\" website commissioned by the student council, and an education software for a hands-on session at <2019 Gwangju Software Festival>.",
+
+  "career_detail_popup_guide": "음영 처리된 항목을 선택하면 더 자세한 정보를 확인할 수 있습니다.",
 
   "career_title_edu_highschool_sdok": "Sungdeok High School",
   "career_title_edu_bachelor_cnu_ce": "Chonnam National University, Department of Computer Engineering, Bachelor's Program",
@@ -49,6 +53,8 @@
   "career_title_achievement_cnu_algorithm_contest_6th": "Chonnam Nat'l Univ. 6th Internal SW Programming Contest, Encouragement Award",
   "career_title_achievement_cnu_sw_club24": "Chonnam Nat'l Univ. Software Centered University Project Group 2024 SW Club Award and Best Program Award",
   "career_title_achievement_scholarship_mirae_asset_33th": "Mirae Asset Overseas Exchange Scholarship, 33rd Term",
+  "mirae_asset_foundation_press_release": "[KO] Press Release of Mirae Asset Park Hyeon-Joo Foundation",
+  "scholarship_certificate": "Scholarship Certificate",
 
   "career_title_paper_smartmedia21": "\"FBX File Merging Algorithm for Natural Sign Language Animation\"",
   "career_authors_paper_smartmedia21": "Jong-Hyeon Jeong, Young-Min Ko, Jong-Hyun Park, Chil-Woo Lee, Dae-Jin Kim.",
@@ -59,6 +65,13 @@
 
   "career_title_activity_gwangju_sw_festival19": "2019 Gwangju SW Experience Festival <Discord Chatbot using HangulCord> Experience Booth",
   "career_details_activity_gwangju_sw_festival19": "Experience program // SW development and management",
+  "career_contents_activity_gwangju_sw_festival19_title": "Participated in 2019 Gwangju SW Experience Festival",
+  "career_contents_activity_gwangju_sw_festival19_subtitle": "Operated the experience program <Making Discord Chatbot with HangulCord>",
+  "career_contents_activity_gwangju_sw_festival19_body_1a": "2019년 광주광역시에서 열린 <2019광주SW체험축전>에서 <한글코드로 만드는 디스코드 챗봇> 체험 프로그램을 기획하고, 소프트웨어를 개발하여, 운영하였습니다.",
+  "career_contents_activity_gwangju_sw_festival19_body_1b": "체험자는 한국어로 정의된 프로그램 스크립트를 사용해 디스코드 챗봇을 만들 수 있었습니다.",
+  "career_contents_activity_gwangju_sw_festival19_body_2a": "이 체험은 일반인이 간단한 스크립팅을 하지 못하는 이유를 \"프로그래밍 언어가 모국어가 아니기 때문\"으로 가정하고 기획하였습니다.",
+  "career_contents_activity_gwangju_sw_festival19_body_2b": "주최 관계자들에게 참신성 면에서 호평을 받았으나, 체험 프로그램을 운영하면서 위 가정이 틀렸음을 확인할 수 있었습니다.",
+  "extlink_post_title_reviewing_gwangju_sw_festival": "[KO] <Rewinding the 2019 Gwangju SW Experience Festival>",
   "career_title_activity_cnu_club_pimm": "Chonnam Nat'l Univ. Game Development Club PIMM",
   "career_details_activity_cnu_club_pimm_lead": "Lead // 2024.01-2025.01",
   "career_title_activity_cnu_club_stolio": "Chonnam Nat'l Univ. AI Convergence College, AI Department Club Stolio",
@@ -67,10 +80,18 @@
 
   "career_title_algorithm_contest_pimm23": "Community Open Contest <2023 Chonnam Nat'l Univ. PIMM Algorithm Party>",
   "career_details_algorithm_contest_pimm23": "Writting exam questions and management",
+  "career_contents_algorithm_contest_pimm23_title": "<2023 전남대학교 PIMM 알고리즘 파티> 대회",
+  "career_contents_algorithm_contest_pimm23_subtitle": "백준 온라인 저지, 오픈 콘테스트",
+  "extlink_post_title_rewinding_2023_pimm_party": "<2023 전남대학교 PIMM 알고리즘 파티를 되돌아보며>",
+  "contest_page": "대회 페이지",
   "career_title_algorithm_contest_pimm24a": "Community Open Contest <2024 First Half Chonnam Nat'l Univ. PIMM Algorithm Party>",
   "career_details_algorithm_contest_pimm24a": "Writting exam questions and management",
   "career_title_algorithm_contest_gist": "<2024 GIST Algorithm Masters>",
   "career_details_algorithm_contest_gist": "Writting exam questions and on-site staff",
+  "career_contents_algorithm_contest_gist_title": "<2024 GIST 알고리즘 마스터즈> 대회",
+  "career_contents_algorithm_contest_gist_subtitle": "광주지역 대학생 연합 프로그래밍 대회",
+  "career_contents_algorithm_contest_gist_body_1": "광주지역 대학생을 대상으로 <2024 GIST 알고리즘 마스터즈> 대회를 개최하고 운영했습니다.",
+  "career_contents_algorithm_contest_gist_body_2": "문제 출제와 검수에 저를 포함하여, 광주과학기술원, 전남대학교, 한양대학교 재학생이 참여하였고, 온사이트 대회 현장에서도 진행 스태프로서 대회 진행, 현장 소요 대응, 참가자 감독 등의 역할을 수행했습니다.",
   "career_title_algorithm_contest_pimm24b": "Community Open Contest <2024 Second Half Chonnam Nat'l Univ. PIMM Algorithm Party>",
   "career_details_algorithm_contest_pimm24b": "Management",
   "career_title_algorithm_contest_pimm25a": "Community Open Contest <2025 First Half Chonnam Nat'l Univ. PIMM Algorithm Party>",

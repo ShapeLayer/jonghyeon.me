@@ -65,14 +65,13 @@
     <p class="last-update">{m.last_update({ date: '2025-09-06' })}</p>
     <ul>
       <li>{m.careers_page_link()}</li>
-      <li>음영 처리된 항목을 선택하면 더 자세한 정보를 확인할 수 있습니다.</li>
+      <li>{m.career_detail_popup_guide()}</li>
     </ul>
   </div>
   <div class="careers-content">
     <h3>CURRENT</h3>
     <CareerEduBachelorCnuCe />
     <CareerWorkJamcodingLecturer />
-    <CareerWorkCnuUccWorkingScholarship />
     <CareerEduBachelorExchangeSaga />
     <CareerAchievementScholarshipMiraeAsset33 />
   </div>
@@ -86,6 +85,7 @@
     <CareerWorkImageLab />
     <CareerWorkRoka />
     <CareerWorkIeLab />
+    <CareerWorkCnuUccWorkingScholarship />
   </div>
   <div class="careers-content">
     <h3>PROJECTS</h3>

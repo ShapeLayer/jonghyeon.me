@@ -14,9 +14,13 @@
   "kim_jin_young": "Kim, Jin-Young",
   "ieee_author_data": "IEEE 著者情報",
 
+  "etnews": "[KO] 電子新聞",
+
   "profile_intro_description_1": "こんにちは！私はコンピュータ工学を専攻している朴鍾賢(パク・ジョンヒョン)です。英語のニックネームとしては主にShapeLayerという名前を使っています。",
   "profile_intro_description_2": "大きなけがをして病院で過ごしていた子供の頃、隣のベッドにいたコンピュータ工学専攻の大学院生の真似をしてコンピュータを始めました。その後は「素晴らしい人たち」に追いつきたいという思いから、Visual Basic、C、Javaを無我夢中で真似しながら、コンピュータエンジニアになる夢を育てました。",
   "profile_intro_description_3": "2019年、在学中だった高校の生徒会から〈崇德高等學校請願ページ〉の開発を受注、2019年の光州SW体験フェスティバルで〈ハングルコードで作るDiscordチャットボット〉体験SWを開発がきっかけになって、プログラミングを始めました。",
+
+  "career_detail_popup_guide": "음영 처리된 항목을 선택하면 더 자세한 정보를 확인할 수 있습니다.",
 
   "career_title_edu_highschool_sdok": "崇德高等學校",
   "career_title_edu_bachelor_cnu_ce": "全南大學校 工科大學 コンピュータ情報通信工学科 学部課程",
@@ -49,6 +53,8 @@
   "career_title_achievement_cnu_algorithm_contest_6th": "全南大学第6回校内SWプログラミング競技大会奨励賞",
   "career_title_achievement_cnu_sw_club24": "全南大学ソフトウェア中心大学事業団2024SWドンアリ発掘及び支援プログラム最優秀賞",
   "career_title_achievement_scholarship_mirae_asset_33th": "未来アセット海外交換奨学生33期",
+  "mirae_asset_foundation_press_release": "[KO] 未来アセット朴賢珠(パク・ヒョンジュ)財団プレスリリース",
+  "scholarship_certificate": "奨学金証明書",
 
   "career_title_paper_smartmedia21": "\"自然な手話アニメーションのためのFBXファイル結合アルゴリズム\"",
   "career_authors_paper_smartmedia21": "Jeong Jongho, et al.",
@@ -59,6 +65,13 @@
 
   "career_title_activity_gwangju_sw_festival19": "2019光州SW体験祝典〈ハングルコードで作るDiscordチャットボット〉体験ブース",
   "career_details_activity_gwangju_sw_festival19": "体験プログラム // SW開発及び総括",
+  "career_contents_activity_gwangju_sw_festival19_title": "2019光州SW体験祝典参加",
+  "career_contents_activity_gwangju_sw_festival19_subtitle": "<ハングルコードで作るDiscordチャットボット> 体験プログラム運営",
+  "career_contents_activity_gwangju_sw_festival19_body_1a": "2019년 광주광역시에서 열린 <2019광주SW체험축전>에서 <한글코드로 만드는 디스코드 챗봇> 체험 프로그램을 기획하고, 소프트웨어를 개발하여, 운영하였습니다.",
+  "career_contents_activity_gwangju_sw_festival19_body_1b": "체험자는 한국어로 정의된 프로그램 스크립트를 사용해 디스코드 챗봇을 만들 수 있었습니다.",
+  "career_contents_activity_gwangju_sw_festival19_body_2a": "이 체험은 일반인이 간단한 스크립팅을 하지 못하는 이유를 \"프로그래밍 언어가 모국어가 아니기 때문\"으로 가정하고 기획하였습니다.",
+  "career_contents_activity_gwangju_sw_festival19_body_2b": "주최 관계자들에게 참신성 면에서 호평을 받았으나, 체험 프로그램을 운영하면서 위 가정이 틀렸음을 확인할 수 있었습니다.",
+  "extlink_post_title_reviewing_gwangju_sw_festival": "[KO] <2019光州SW体験祝典を振り返って>",
   "career_title_activity_cnu_club_pimm": "全南大学ゲーム開発サークルPIMM",
   "career_details_activity_cnu_club_pimm_lead": "会長 // 2024.01-2025.01",
   "career_title_activity_cnu_club_stolio": "全南大学AI融合大学人工知能学部サークルStolio",
@@ -67,10 +80,18 @@
 
   "career_title_algorithm_contest_pimm23": "コミュニティオープンコンテスト〈2023全南大学PIMMアルゴリズムパーティ〉",
   "career_details_algorithm_contest_pimm23": "出題及び総括",
+  "career_contents_algorithm_contest_pimm23_title": "<2023 전남대학교 PIMM 알고리즘 파티> 대회",
+  "career_contents_algorithm_contest_pimm23_subtitle": "백준 온라인 저지, 오픈 콘테스트",
+  "extlink_post_title_rewinding_2023_pimm_party": "<2023 전남대학교 PIMM 알고리즘 파티를 되돌아보며>",
+  "contest_page": "대회 페이지",
   "career_title_algorithm_contest_pimm24a": "コミュニティオープンコンテスト〈2024上半期全南大学PIMMアルゴリズムパーティ〉",
   "career_details_algorithm_contest_pimm24a": "出題及び総括",
   "career_title_algorithm_contest_gist": "<2024 GISTアルゴリズムマスターズ>",
   "career_details_algorithm_contest_gist": "出題及び現場運営",
+  "career_contents_algorithm_contest_gist_title": "<2024 GIST 알고리즘 마스터즈> 대회",
+  "career_contents_algorithm_contest_gist_subtitle": "광주지역 대학생 연합 프로그래밍 대회",
+  "career_contents_algorithm_contest_gist_body_1": "광주지역 대학생을 대상으로 <2024 GIST 알고리즘 마스터즈> 대회를 개최하고 운영했습니다.",
+  "career_contents_algorithm_contest_gist_body_2": "문제 출제와 검수에 저를 포함하여, 광주과학기술원, 전남대학교, 한양대학교 재학생이 참여하였고, 온사이트 대회 현장에서도 진행 스태프로서 대회 진행, 현장 소요 대응, 참가자 감독 등의 역할을 수행했습니다.",
   "career_title_algorithm_contest_pimm24b": "コミュニティオープンコンテスト〈2024下半期全南大学PIMMアルゴリズムパーティ〉",
   "career_details_algorithm_contest_pimm24b": "総括",
   "career_title_algorithm_contest_pimm25a": "コミュニティオープンコンテスト〈2025上半期全南大学PIMMアルゴリズムパーティ〉",

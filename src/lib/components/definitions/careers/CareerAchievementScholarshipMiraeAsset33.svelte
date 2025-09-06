@@ -30,11 +30,11 @@
       <div id="career-achievement-mirae-asset-33-cover">
         <p>
           <img src="https://foundation.miraeasset.com/upload/editor/20250707044544003771.png" alt=""/><br />
-          Source: <ExternalLink href='https://foundation.miraeasset.com/ko/news/press/view.do?listCnt=6&pageIndex=1&detailsKey=188&tq=&q='>미래에셋박현주재단 보도자료</ExternalLink>
+          Source: <ExternalLink href='https://foundation.miraeasset.com/ko/news/press/view.do?listCnt=6&pageIndex=1&detailsKey=188&tq=&q='>{m.mirae_asset_foundation_press_release()}</ExternalLink>
         </p>
       </div>
       <div class="content">
-        더 알아보기: <ExternalLink href='https://foundation.miraeasset.com/ko/news/press/view.do?listCnt=6&pageIndex=1&detailsKey=188&tq=&q='>미래에셋박현주재단 보도자료</ExternalLink> <ExternalLink href='https://www.broof.io/search/8babbd71'>장학증서<sup>broof.io</sup></ExternalLink>
+        {m.see_more()}: <ExternalLink href='https://foundation.miraeasset.com/ko/news/press/view.do?listCnt=6&pageIndex=1&detailsKey=188&tq=&q='>{m.mirae_asset_foundation_press_release()}</ExternalLink> <ExternalLink href='https://www.broof.io/search/8babbd71'>{m.scholarship_certificate()}<sup>broof.io</sup></ExternalLink>
       </div>
     </CareerItemDetailContent>
   {/snippet}

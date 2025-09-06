@@ -5,7 +5,8 @@
   "careers_page_link": "이 페이지에서는 커리어 전체 내용을 특정 직군이나 주제와 관계없이 나열합니다. 사전에 적절한 방법을 통해 전달해드린 링크를 가지고 계시다면, 해당 편을 우선해주십시오.",
   "last_update": "{date} 마지막 업데이트.",
   "present": "현재",
-  
+  "see_more": "더 알아보기",
+
   "socials": "소셜",
 
   "advisor_prof": "지도교수",
@@ -14,9 +15,13 @@
   "kim_jin_young": "김진영",
   "ieee_author_data": "IEEE 저자 정보",
 
+  "etnews": "전자신문",
+
   "profile_intro_description_1": "안녕하세요! 저는 컴퓨터공학을 전공하고 있는 박종현입니다. 영문 별칭으로는 주로 ShapeLayer라는 이름을 사용합니다.",
   "profile_intro_description_2": "크게 다쳐 병원에서 생활했던 어린 시절, 옆 자리의 컴퓨터공학 전공 대학원생을 흉내내며 컴퓨터를 시작하게 되었습니다. 이어서는 \"멋진 사람들\"을 따라잡겠다는 열망으로 Visual Basic, C, Java를 무작정 따라하며 컴퓨터공학자의 꿈을 키웠습니다.",
   "profile_intro_description_3": "2019년 재학 중이었던 고등학교의 학생회로부터 <숭덕고 청원페이지> 개발 수주, 2019광주SW체험축전에서의 <한글코드로 만드는 디스코드 챗봇> 체험 소프트웨어 개발, 2020년 <악질이름생성기>를 계기로 본격적으로 프로그래밍을 시작하게 되었습니다.",
+
+  "career_detail_popup_guide": "음영 처리된 항목을 선택하면 더 자세한 정보를 확인할 수 있습니다.",
 
   "career_title_edu_highschool_sdok": "숭덕고등학교",
   "career_title_edu_bachelor_cnu_ce": "전남대학교 공과대학 컴퓨터정보통신공학과 학부과정",
@@ -49,6 +54,8 @@
   "career_title_achievement_cnu_algorithm_contest_6th": "전남대학교 제6회 교내SW프로그래밍경진대회 장려상",
   "career_title_achievement_cnu_sw_club24": "전남대학교 소프트웨어중심대학사업단 2024 SW동아리 발굴 및 지원 프로그램 최종결과발표회 대상",
   "career_title_achievement_scholarship_mirae_asset_33th": "미래에셋 해외교환 장학생 33기",
+  "mirae_asset_foundation_press_release": "미래에셋박현주재단 보도자료",
+  "scholarship_certificate": "장학증서",
 
   "career_title_paper_smartmedia21": "\"자연스러운 수어 애니메이션을 위한 FBX 파일 결합 알고리즘\"",
   "career_authors_paper_smartmedia21": "정종호, 고영민, 박종현, 이칠우, 김대진.",
@@ -59,6 +66,13 @@
 
   "career_title_activity_gwangju_sw_festival19": "2019 광주SW체험축전 <한글코드로 만드는 디스코드 챗봇> 체험 부스",
   "career_details_activity_gwangju_sw_festival19": "체험 프로그램 // SW개발 및 총괄",
+  "career_contents_activity_gwangju_sw_festival19_title": "2019광주SW체험축전 참여",
+  "career_contents_activity_gwangju_sw_festival19_subtitle": "<한글코드로 만드는 디스코드 챗봇> 체험 프로그램 운영",
+  "career_contents_activity_gwangju_sw_festival19_body_1a": "2019년 광주광역시에서 열린 <2019광주SW체험축전>에서 <한글코드로 만드는 디스코드 챗봇> 체험 프로그램을 기획하고, 소프트웨어를 개발하여, 운영하였습니다.",
+  "career_contents_activity_gwangju_sw_festival19_body_1b": "체험자는 한국어로 정의된 프로그램 스크립트를 사용해 디스코드 챗봇을 만들 수 있었습니다.",
+  "career_contents_activity_gwangju_sw_festival19_body_2a": "이 체험은 일반인이 간단한 스크립팅을 하지 못하는 이유를 \"프로그래밍 언어가 모국어가 아니기 때문\"으로 가정하고 기획하였습니다.",
+  "career_contents_activity_gwangju_sw_festival19_body_2b": "주최 관계자들에게 참신성 면에서 호평을 받았으나, 체험 프로그램을 운영하면서 위 가정이 틀렸음을 확인할 수 있었습니다.",
+  "extlink_post_title_reviewing_gwangju_sw_festival": "<2019 광주SW체험축전을 되돌아보며>",
   "career_title_activity_cnu_club_pimm": "전남대학교 게임개발동아리 PIMM",
   "career_details_activity_cnu_club_pimm_lead": "회장 // 2024.01-2025.01",
   "career_title_activity_cnu_club_stolio": "전남대학교 AI융합대학 인공지능학부 과동아리 Stolio",
@@ -67,10 +81,18 @@
 
   "career_title_algorithm_contest_pimm23": "커뮤니티 오픈 콘테스트 <2023 전남대학교 PIMM 알고리즘 파티>",
   "career_details_algorithm_contest_pimm23": "출제 및 총괄",
+  "career_contents_algorithm_contest_pimm23_title": "<2023 전남대학교 PIMM 알고리즘 파티> 대회",
+  "career_contents_algorithm_contest_pimm23_subtitle": "백준 온라인 저지, 오픈 콘테스트",
+  "extlink_post_title_rewinding_2023_pimm_party": "<2023 전남대학교 PIMM 알고리즘 파티를 되돌아보며>",
+  "contest_page": "대회 페이지",
   "career_title_algorithm_contest_pimm24a": "커뮤니티 오픈 콘테스트 <2024 상반기 전남대학교 PIMM 알고리즘 파티>",
   "career_details_algorithm_contest_pimm24a": "출제 및 총괄",
   "career_title_algorithm_contest_gist": "<2024 GIST 알고리즘 마스터즈>",
   "career_details_algorithm_contest_gist": "출제 및 현장 운영",
+  "career_contents_algorithm_contest_gist_title": "<2024 GIST 알고리즘 마스터즈> 대회",
+  "career_contents_algorithm_contest_gist_subtitle": "광주지역 대학생 연합 프로그래밍 대회",
+  "career_contents_algorithm_contest_gist_body_1": "광주지역 대학생을 대상으로 <2024 GIST 알고리즘 마스터즈> 대회를 개최하고 운영했습니다.",
+  "career_contents_algorithm_contest_gist_body_2": "문제 출제와 검수에 저를 포함하여, 광주과학기술원, 전남대학교, 한양대학교 재학생이 참여하였고, 온사이트 대회 현장에서도 진행 스태프로서 대회 진행, 현장 소요 대응, 참가자 감독 등의 역할을 수행했습니다.",
   "career_title_algorithm_contest_pimm24b": "커뮤니티 오픈 콘테스트 <2024 하반기 전남대학교 PIMM 알고리즘 파티>",
   "career_details_algorithm_contest_pimm24b": "총괄",
   "career_title_algorithm_contest_pimm25a": "커뮤니티 오픈 콘테스트 <2025 상반기 전남대학교 PIMM 알고리즘 파티>",
