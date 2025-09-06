@@ -30,6 +30,7 @@
   import CareerProjectIwfcv22Page from '$lib/components/definitions/careers/CareerProjectIwfcv22Page.svelte';
   import CareerProjectPrefixGenerator from '$lib/components/definitions/careers/CareerProjectPrefixGenerator.svelte';
   import CareerProjectSignLanguageClient from '$lib/components/definitions/careers/CareerProjectSignLanguageClient.svelte';
+  import CareerProjectZodiacComplex from '$lib/components/definitions/careers/CareerProjectZodiacComplex.svelte';
   import CareerWorkCnuUccWorkingScholarship from '$lib/components/definitions/careers/CareerWorkCnuUccWorkingScholarship.svelte';
   import CareerWorkIeLab from '$lib/components/definitions/careers/CareerWorkIeLab.svelte';
   import CareerWorkImageLab from '$lib/components/definitions/careers/CareerWorkImageLab.svelte';
@@ -92,6 +93,7 @@
     <CareerProjectSignLanguageClient />
     <CareerProjectHccc22Page />
     <CareerProjectIwfcv22Page />
+    <CareerProjectZodiacComplex />
     <ul class="note">
       <li>
         {m.career_more_projects_github()}
