@@ -29,10 +29,10 @@
       <table>
         <thead>
           <tr>
-            <th>점수/만점</th>
-            <th>전체 평균</th>
-            <th>상위 30%</th>
-            <th>상위 10%</th>
+            <th>{m.career_contents_certification_topcit_table_header_0()}</th>
+            <th>{m.career_contents_certification_topcit_table_header_1()}</th>
+            <th>{m.career_contents_certification_topcit_table_header_2()}</th>
+            <th>{m.career_contents_certification_topcit_table_header_3()}</th>
           </tr>
         </thead>
         <tbody>
@@ -68,36 +68,36 @@
       />-->
     </div>
     <div id="topcit-description">
-      <p>TOPCIT(Test Of Practical Competency in IT)은 정보통신기획평가원에서 주관하는 소프트웨어 역량 검정입니다.</p>
-      <p>기술 영역(소프트웨어, 데이터, 시스템 아키텍처, 정보보안), 비즈니스 영역(IT비즈니스와 윤리, TC와 PM), 통합 영역(통합 역량)에 걸쳐 ICT 분야에서 요구되는 창의적 문제 해결력, 실무 능력 중심으로 평가합니다.</p>
+      <p>{m.career_contents_certification_topcit_body_1a()}</p>
+      <p>{m.career_contents_certification_topcit_body_1b()}</p>
       <p><br /></p>
-      <p>역량수준 점수기준(1000점 만점)</p>
+      <p>{m.career_contents_certification_topcit_body_2()}</p>
       <ul>
         <li>
-          수준 1: 입문형 (0 ~ 149점)<br />
-          기술 및 비즈니스 영역 관련 지식 및 스킬에 대한 이해가 미흡한 수준
+          {m.career_contents_certification_topcit_li_1a()}<br />
+          {m.career_contents_certification_topcit_li_1b()}
         </li>
         <li>
-          수준 2: 도전형 (150 ~ 399점)<br />
-          기술 및 비즈니스 영역에 대한 지식과 스킬을 이해하는 수준
+          {m.career_contents_certification_topcit_li_2a()}<br />
+          {m.career_contents_certification_topcit_li_2b()}
         </li>
         <li>
-          수준 3: 능숙형 (400 ~ 649점)<br />
-          기술 및 비즈니스 영역에 대한 지식과 스킬을 적용하여 과제를 해결할 수 있는 수준
+          {m.career_contents_certification_topcit_li_3a()}<br />
+          {m.career_contents_certification_topcit_li_3b()}
         </li>
         <li>
-          수준 4: 문제해결형 (650 ~ 849점)<br />
-          기술 및 비즈니스 영역에 대한 지식과 스킬을 응용하여 과제를 해결할 수 있는 수준
+          {m.career_contents_certification_topcit_li_4a()}<br />
+          {m.career_contents_certification_topcit_li_4b()}
         </li>
         <li>
-          수준 5: 창의융합형 (850 ~ 1,000점)<br />
-          기술 및 비즈니스 영역에 대한 지식과 스킬을 응용하여 주도적으로 과제를 해결할 수 있는 수준
+          {m.career_contents_certification_topcit_li_5a()}<br />
+          {m.career_contents_certification_topcit_li_5b()}
         </li>
       </ul>
       <p><br /></p>
       <p style="text-align: right; text-decoration: italic;">source:
         <ExternalLink href='https://www.topcit.or.kr/introduction/topcit.do'>
-          TOPCIT
+          {m.extlink_site_name_topcit()}
         </ExternalLink>
       </p>
     </div>

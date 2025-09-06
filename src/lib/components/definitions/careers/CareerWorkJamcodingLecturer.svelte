@@ -12,7 +12,7 @@
 >
   {#snippet detailContent()}
     <CareerItemDetailContent
-      title='잼코딩학원 광주캠퍼스 파트타임 강사'
+      title={m.career_contents_work_jamcoding_lecturer_title()}
     >
       <style>
         #jamcoding-map {
@@ -45,17 +45,17 @@
         </script>
       </div>
       <div id="jamcoding-description">
-        <p>광주광역시 소재 코딩 학원, 잼코딩학원 광주봉선캠퍼스, <del>광주수완캠퍼스</del><sup>영업 종료</sup>에서 컴퓨터와 프로그래밍을 가르치고 있습니다. 주로 프로그래밍 언어 문법과 알고리즘 문제해결 수업을 진행합니다.</p>
+        <p>{@html m.career_contents_work_jamcoding_lecturer_body_1_html()}</p>
         <p><br /></p>
-        <p>주요 출강 수업 목록</p>
+        <p>{m.career_contents_work_jamcoding_lecturer_body_2_title()}</p>
         <ul>
-          <li>C 프로그래밍 문법</li>
-          <li>Java 프로그래밍 문법</li>
-          <li>C# 프로그래밍 문법</li>
-          <li>Python 프로그래밍 문법</li>
-          <li>게임제작 로블록스 + Lua 프로그래밍</li>
-          <li>게임제작 유니티 + C#</li>
-          <li>알고리즘 문제해결(C++, Python)</li>
+          <li>{m.career_contents_work_jamcoding_lecturer_body_2_li_0()}</li>
+          <li>{m.career_contents_work_jamcoding_lecturer_body_2_li_1()}</li>
+          <li>{m.career_contents_work_jamcoding_lecturer_body_2_li_2()}</li>
+          <li>{m.career_contents_work_jamcoding_lecturer_body_2_li_3()}</li>
+          <li>{m.career_contents_work_jamcoding_lecturer_body_2_li_4()}</li>
+          <li>{m.career_contents_work_jamcoding_lecturer_body_2_li_5()}</li>
+          <li>{m.career_contents_work_jamcoding_lecturer_body_2_li_6()}</li>
         </ul>
       </div>
     </CareerItemDetailContent>

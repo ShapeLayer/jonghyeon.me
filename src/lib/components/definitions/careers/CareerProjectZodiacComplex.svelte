@@ -24,11 +24,11 @@
         </p>
       </div>
       <div class="content" id="zodiac-complex">
-        <p>비주얼 노벨 게임 &lt;별자리 콤플렉스&gt; 개발 마지막 단계에 투입되어 품질 관리 및 핫픽스 작업 중의 기술 지원에 투입되었습니다.</p>
-        <p>최종 납기일에 가깝게 투입되어 많은 내용을 작업한 것은 아니나, 주요 시스템의 치명적인 버그들을 추적하여 이를 수정하는 데 기술지원하였습니다.</p>
+        <p>{m.career_contents_project_zodiac_complex_body_1()}</p>
+        <p>{m.career_contents_project_zodiac_complex_body_2()}</p>
       </div>
       <div class="content">
-        더 알아보기: <ExternalLink href='https://store.onstove.com/ko/games/102108'>Stove Store</ExternalLink>
+        {m.see_more()}: <ExternalLink href='https://store.onstove.com/ko/games/102108'>Stove Store</ExternalLink>
     </CareerItemDetailContent>
   {/snippet}
 </CareerItem>
