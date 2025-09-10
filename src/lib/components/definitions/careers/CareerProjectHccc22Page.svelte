@@ -12,7 +12,7 @@
   {m.career_details_project_hccc22_page()}
   {#snippet detailContent()}
   <CareerItemDetailContent
-    title="2022 호남 대학간 침해 대응 대회 2022 대회 사이트"
+    title="2022 호남 대학간 침해 대응 대회 사이트"
     subtitle="Jekyll"
   ></CareerItemDetailContent>
   {/snippet}
