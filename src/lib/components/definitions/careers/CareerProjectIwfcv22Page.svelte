@@ -12,8 +12,8 @@
   {m.career_details_project_iwfcv22_page()}
   {#snippet detailContent()}
   <CareerItemDetailContent
-    title="International Workshop on Frontiers of Computer Vision 2023 학회 정보 사이트"
-    subtitle="Jekyll"
+    title={m.career_content_project_iwfcv22_page_title()}
+    subtitle="{m.jekyll()}"
   ></CareerItemDetailContent>
   {/snippet}
 </CareerItem>

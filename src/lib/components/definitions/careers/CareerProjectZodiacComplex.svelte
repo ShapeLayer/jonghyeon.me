@@ -28,7 +28,7 @@
         <p>{m.career_contents_project_zodiac_complex_body_2()}</p>
       </div>
       <div class="content">
-        {m.see_more()}: <ExternalLink href='https://store.onstove.com/ko/games/102108'>Stove Store</ExternalLink>
+        {m.see_more()}: <ExternalLink href='https://store.onstove.com/ko/games/102108'>{m.stove_store()}</ExternalLink>
     </CareerItemDetailContent>
   {/snippet}
 </CareerItem>

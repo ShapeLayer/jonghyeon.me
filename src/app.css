@@ -168,3 +168,7 @@ th, td {
   padding: .5em;
   border: 1px solid var(--base-bg-color-darker);
 }
+
+ruby {
+  ruby-align: center;
+}

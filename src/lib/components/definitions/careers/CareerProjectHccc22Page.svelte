@@ -2,6 +2,8 @@
   import { m } from '$lib/paraglide/messages';
   import CareerItem from '$lib/components/CareerItem.svelte';
 	import CareerItemDetailContent from '$lib/components/CareerItemDetailContent.svelte';
+  import CareerProjectHccc22PageCover from '$lib/assets/CareerProjectHccc22Page-cover.png';
+	import ExternalLink from '$lib/components/ExternalLink.svelte';
 </script>
 
 <CareerItem
@@ -11,9 +13,18 @@
 >
   {m.career_details_project_hccc22_page()}
   {#snippet detailContent()}
-  <CareerItemDetailContent
-    title="2022 호남 대학간 침해 대응 대회 사이트"
-    subtitle="Jekyll"
-  ></CareerItemDetailContent>
+    <CareerItemDetailContent
+      title={m.career_content_project_hccc22_page_title()}
+      subtitle="{m.jekyll()}"
+    >
+      <div class="content">
+        <ExternalLink href='https://hccc2022.github.io'>{@html m.extlink_site_name_hccc22_html()}</ExternalLink><br />
+      </div>
+      <div class="content">
+        <p>
+          <img src={CareerProjectHccc22PageCover} />
+        </p>
+      </div>
+    </CareerItemDetailContent>
   {/snippet}
 </CareerItem>

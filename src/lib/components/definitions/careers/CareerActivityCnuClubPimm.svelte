@@ -25,17 +25,20 @@
         margin: .25em 0;
       }
     </style>
-    <div style="content">
-      <p>전남대학교 입학과 함께 전남대학교 공과대학 전자컴퓨터공학부 소속의 게임개발동아리, PIMM에 가입하여 활동했습니다.</p>
-      <p>전역 직후의 2024년에는 동아리의 회장을 맡아 1년간 동아리를 운영하였습니다. 회장을 맡은 1년간, 신규 가입한 이래 계속해서 동아리에서 확인했던 문제점들을 수정해내고자 노력했습니다.</p>
+    <div class="content">
+      <ExternalLink href="https://github.com/pimm-dev">{m.extlink_site_pimm_github()}</ExternalLink>
+    </div>
+    <div class="content">
+      <p>{m.career_contents_activity_cnu_club_pimm_body_1a()}</p>
+      <p>{m.career_contents_activity_cnu_club_pimm_body_1b()}</p>
     </div>
     <div id="pimm-see-more" class="content">
       {m.see_more()}
       <ul>
-        <li><ExternalLink href="https://blog.jonghyeon.me/posts/2024-08-28-has-onboarding-study-been-succeed/">&lt;동아리 신규 회원을 대상으로 한 온보딩 스터디는 성공했는가&gt;</ExternalLink></li>
-        <li><ExternalLink href="https://blog.jonghyeon.me/posts/2024-08-28-why-i-applied-agreement-about-religion/">&lt;왜 그리고 어떻게 나는 동아리에 "종교에 관한 서약서"를 도입하였는가&gt;</ExternalLink></li>
-        <li><ExternalLink href="https://blog.jonghyeon.me/posts/2024-11-14-granting-legal-personality-to-undergraduate-club/">&lt;동아리에 법인격 부여하기&gt;</ExternalLink></li>
-        <li><ExternalLink href="https://blog.jonghyeon.me/posts/2024-11-29-i-worked-in-undergraduate-club/">&lt;게임개발동아리를 1년간 운영하다&gt;</ExternalLink></li>
+        <li><ExternalLink href="https://blog.jonghyeon.me/posts/2024-08-28-has-onboarding-study-been-succeed/">{m.extlink_post_title_has_onboarding_study_been_succeed()}</ExternalLink></li>
+        <li><ExternalLink href="https://blog.jonghyeon.me/posts/2024-08-28-why-i-applied-agreement-about-religion/">{m.extlink_post_title_why_i_applied_agreement_about_religion()}</ExternalLink></li>
+        <li><ExternalLink href="https://blog.jonghyeon.me/posts/2024-11-14-granting-legal-personality-to-undergraduate-club/">{m.extlink_post_title_granting_legal_personality_to_undergraduate_club()}</ExternalLink></li>
+        <li><ExternalLink href="https://blog.jonghyeon.me/posts/2024-11-29-i-worked-in-undergraduate-club/">{m.extlink_post_title_i_worked_in_undergraduate_club()}</ExternalLink></li>
       </ul>
     </div>
   </CareerItemDetailContent>

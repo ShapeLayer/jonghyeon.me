@@ -71,8 +71,8 @@ h2 {
     </div>  
   </div>
   <div class="description" bind:this={descriptionElement}>
-    <p>{m.profile_intro_description_1()}</p>
-    <p>{m.profile_intro_description_2()}</p>
-    <p>{m.profile_intro_description_3()}</p>
+    <p>{@html m.profile_intro_description_1_html()}</p>
+    <p>{@html m.profile_intro_description_2_html()}</p>
+    <p>{@html m.profile_intro_description_3_html()}</p>
   </div>
 </div>

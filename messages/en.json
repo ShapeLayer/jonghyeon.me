@@ -1,8 +1,6 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
 
-  "careers": "Careers",
-  "careers_page_link": "This page does not classify by occupation and subject. Please use the link provided if you received the link.",
   "last_update": "Last Updated in {date}.",
   "present": "present",
   "see_more": "See More",
@@ -17,11 +15,13 @@
 
   "etnews": "[KO] Electronic Times Internet",
 
-  "profile_intro_description_1": "Hello! I'm Jonghyeon Park, studying Computer Engineering now. I'm also active with the username ShapeLayer.",
-  "profile_intro_description_2": "I began computer science by imitating the graduate student in CS who had the bed next to mine when I spent time in the hospital as a child. Fueled by the desire to \"be great people\", I dove head-first into Visual Basic, C, and Java—copying code line by line and nurturing the dream of becoming a computer engineer.",
-  "profile_intro_description_3": "I got down to start programming when I was a high schooler with the development of the \"Sungdeok Gallery\" website commissioned by the student council, and an education software for a hands-on session at <2019 Gwangju Software Festival>.",
+  "profile_intro_description_1_html": "Hello! I'm Jonghyeon Park, studying Computer Engineering now. I'm also active with the username ShapeLayer.",
+  "profile_intro_description_2_html": "I began computer science by imitating the graduate student in CS who had the bed next to mine when I spent time in the hospital as a child. Fueled by the desire to \"be great people\", I dove head-first into Visual Basic, C, and Java—copying code line by line and nurturing the dream of becoming a computer engineer.",
+  "profile_intro_description_3_html": "I got down to start programming when I was a high schooler with the development of the \"Sungdeok Gallery\" website commissioned by the student council, and an education software for a hands-on session at <2019 Gwangju Software Festival>.",
 
-  "career_detail_popup_guide": "음영 처리된 항목을 선택하면 더 자세한 정보를 확인할 수 있습니다.",
+  "careers": "Careers",
+  "careers_page_link": "This page does not classify by occupation and subject. Please use the link provided if you received the link.",
+  "career_detail_popup_guide_html": "음영 처리된 항목을 선택하면 더 자세한 정보를 확인할 수 있습니다.",
 
   "career_title_edu_highschool_sdok": "Sungdeok High School",
   "career_title_edu_bachelor_cnu_ce": "Chonnam National University, Department of Computer Engineering, Bachelor's Program",
@@ -45,6 +45,8 @@
   "career_title_work_ielab": "Chonnam National University, Intelligent Electronics Lab",
   "career_title_work_roka": "Republic of Korea Army, Discharged",
   "career_details_work_roka": "Communications specialist; Signaller // Final rank: Corporal",
+  "career_contents_work_roka_title": "대한민국 육군",
+  "career_contents_work_roka_subtitle": "예비역: 기간요원 만기전역, 정보통신 병과, 최종 계급 병장",
   "career_title_work_jamcoding_lecturer": "JamCoding Academy, Gwangju Campus, Part-time Lecturer",
   "career_contents_work_jamcoding_lecturer_title": "잼코딩학원 광주캠퍼스 파트타임 강사",
   "career_contents_work_jamcoding_lecturer_body_1_html": "광주광역시 소재 코딩 학원, 잼코딩학원 광주봉선캠퍼스, <del>광주수완캠퍼스</del><sup>영업 종료</sup>에서 컴퓨터와 프로그래밍을 가르치고 있습니다. 주로 프로그래밍 언어 문법과 알고리즘 문제해결 수업을 진행합니다.",

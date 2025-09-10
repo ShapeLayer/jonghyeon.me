@@ -10,7 +10,6 @@
   startsAt={{ year: 2025, month: 9 }}
   endsAt={{ year: 2026, month: 2 }}
 >
-  {m.career_details_edu_bachelor_exchange_sage()}
   {#snippet detailContent()}
     <CareerItemDetailContent
       title={m.career_contents_edu_bachelor_exchange_saga_title()}
