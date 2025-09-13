@@ -14,7 +14,7 @@
 >
   {#snippet detailContent()}
     <CareerItemDetailContent
-      title='미래에셋박현주재단 해외교환 장학생 33기'
+      title={m.career_content_achievement_scholarship_mirae_asset_33th_title()}
     >
       <style>
         #career-achievement-mirae-asset-33-cover {

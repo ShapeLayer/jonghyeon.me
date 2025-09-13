@@ -45,7 +45,7 @@
         </script>
       </div>
       <div id="jamcoding-description">
-        <p>{@html m.career_contents_work_jamcoding_lecturer_body_1_html()}</p>
+        <p>{m.career_contents_work_jamcoding_lecturer_body_1()}</p>
         <p><br /></p>
         <p>{m.career_contents_work_jamcoding_lecturer_body_2_title()}</p>
         <ul>

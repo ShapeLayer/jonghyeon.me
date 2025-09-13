@@ -29,11 +29,11 @@
   "careers": "커리어",
   "careers_page_link": "이 페이지에서는 커리어 전체 내용을 특정 직군이나 주제와 관계없이 나열합니다. 사전에 적절한 방법을 통해 전달해드린 링크를 가지고 계시다면, 해당 편을 우선해주십시오.",
 
-  "profile_intro_description_1_html": "안녕하세요! 저는 컴퓨터공학을 전공하고 있는 박종현입니다. 영문 별칭으로는 주로 ShapeLayer라는 이름을 사용합니다.",
-  "profile_intro_description_2_html": "크게 다쳐 병원에서 생활했던 어린 시절, 옆 자리의 컴퓨터공학 전공 대학원생을 흉내내며 컴퓨터를 시작하게 되었습니다. 이어서는 \"멋진 사람들\"을 따라잡겠다는 열망으로 Visual Basic, C, Java를 무작정 따라하며 컴퓨터공학자의 꿈을 키웠습니다.",
-  "profile_intro_description_3_html": "2019년 재학 중이었던 고등학교의 학생회로부터 <숭덕고 청원페이지> 개발 수주, 2019광주SW체험축전에서의 <한글코드로 만드는 디스코드 챗봇> 체험 소프트웨어 개발, 2020년 <악질이름생성기>를 계기로 본격적으로 프로그래밍을 시작하게 되었습니다.",
+  "profile_intro_description_1": "안녕하세요! 저는 컴퓨터공학을 전공하고 있는 박종현입니다. 영문 별칭으로는 주로 ShapeLayer라는 이름을 사용합니다.",
+  "profile_intro_description_2": "크게 다쳐 병원에서 생활했던 어린 시절, 옆 자리의 컴퓨터공학 전공 대학원생을 흉내내며 컴퓨터를 시작하게 되었습니다. 이어서는 \"멋진 사람들\"을 따라잡겠다는 열망으로 Visual Basic, C, Java를 무작정 따라하며 컴퓨터공학자의 꿈을 키웠습니다.",
+  "profile_intro_description_3": "2019년 재학 중이었던 고등학교의 학생회로부터 <숭덕고 청원페이지> 개발 수주, 2019광주SW체험축전에서의 <한글코드로 만드는 디스코드 챗봇> 체험 소프트웨어 개발, 2020년 <악질이름생성기>를 계기로 본격적으로 프로그래밍을 시작하게 되었습니다.",
 
-  "career_detail_popup_guide_html": "음영 처리된 항목을 선택하면 더 자세한 정보를 확인할 수 있습니다.",
+  "career_detail_popup_guide": "음영 처리된 항목을 선택하면 더 자세한 정보를 확인할 수 있습니다.",
 
   "career_title_edu_highschool_sdok": "숭덕고등학교",
   "career_title_edu_bachelor_cnu_ce": "전남대학교 공과대학 컴퓨터정보통신공학과 학부과정",
@@ -61,7 +61,7 @@
   "career_contents_work_roka_subtitle": "예비역: 기간요원 만기전역, 정보통신 병과, 최종 계급 병장",
   "career_title_work_jamcoding_lecturer": "잼코딩학원 광주캠퍼스 파트타임 강사",
   "career_contents_work_jamcoding_lecturer_title": "잼코딩학원 광주캠퍼스 파트타임 강사",
-  "career_contents_work_jamcoding_lecturer_body_1_html": "광주광역시 소재 코딩 학원, 잼코딩학원 광주봉선캠퍼스, <del>광주수완캠퍼스</del><sup>영업 종료</sup>에서 컴퓨터와 프로그래밍을 가르치고 있습니다. 주로 프로그래밍 언어 문법과 알고리즘 문제해결 수업을 진행합니다.",
+  "career_contents_work_jamcoding_lecturer_body_1": "광주광역시 소재 코딩 학원, 잼코딩학원 광주봉선캠퍼스, 광주수완캠퍼스에서 컴퓨터와 프로그래밍을 가르치고 있습니다. 주로 프로그래밍 언어 문법과 알고리즘 문제해결 수업을 진행합니다.",
   "career_contents_work_jamcoding_lecturer_body_2_title": "주요 출강 수업 목록",
   "career_contents_work_jamcoding_lecturer_body_2_li_0": "C 프로그래밍 언어 문법",
   "career_contents_work_jamcoding_lecturer_body_2_li_1": "Java 프로그래밍 언어 문법",
@@ -88,7 +88,7 @@
   "career_title_project_hccc22_page": "호남 대학간 침해 대응 대회 2022 사이트",
   "career_details_project_hccc22_page": "아웃소싱 // 프론트엔드 디자인 및 개발",
   "career_content_project_hccc22_page_title": "호남 대학간 침해 대응 대회 2022 사이트",
-  "extlink_site_name_hccc22_html": "호남 대학간 침해 대응 대회 2022",
+  "extlink_site_name_hccc22": "호남 대학간 침해 대응 대회 2022",
   "career_title_project_iwfcv22_page": "IW-FCV 2023 학회 정보 사이트",
   "career_details_project_iwfcv22_page": "아웃소싱 // 초기 프론트엔드 디자인 및 개발",
   "career_content_project_iwfcv22_page_title": "International Workshop on Frontiers of Computer Vision 2023 학회 정보 사이트",
@@ -103,6 +103,7 @@
   "career_title_achievement_cnu_algorithm_contest_6th": "전남대학교 제6회 교내SW프로그래밍경진대회 장려상",
   "career_title_achievement_cnu_sw_club24": "전남대학교 소프트웨어중심대학사업단 2024 SW동아리 발굴 및 지원 프로그램 최종결과발표회 대상",
   "career_title_achievement_scholarship_mirae_asset_33th": "미래에셋 해외교환 장학생 33기",
+  "career_content_achievement_scholarship_mirae_asset_33th_title": "미래에셋 해외교환 장학생 33기",
   "mirae_asset_foundation_press_release": "미래에셋박현주재단 보도자료",
   "scholarship_certificate": "장학증서",
 

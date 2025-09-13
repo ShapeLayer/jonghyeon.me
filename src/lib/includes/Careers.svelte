@@ -65,7 +65,7 @@
     <p class="last-update">{m.last_update({ date: '2025-09-06' })}</p>
     <ul>
       <li>{m.careers_page_link()}</li>
-      <li>{@html m.career_detail_popup_guide_html()}</li>
+      <li>{m.career_detail_popup_guide()}</li>
     </ul>
   </div>
   <div class="careers-content">

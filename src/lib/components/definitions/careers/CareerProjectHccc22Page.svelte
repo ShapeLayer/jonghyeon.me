@@ -18,7 +18,7 @@
       subtitle="{m.jekyll()}"
     >
       <div class="content">
-        <ExternalLink href='https://hccc2022.github.io'>{@html m.extlink_site_name_hccc22_html()}</ExternalLink><br />
+        <ExternalLink href='https://hccc2022.github.io'>{m.extlink_site_name_hccc22()}</ExternalLink><br />
       </div>
       <div class="content">
         <p>
