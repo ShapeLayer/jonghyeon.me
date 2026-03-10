@@ -21,6 +21,7 @@
   import CareerCertificationToeic from '$lib/components/definitions/careers/CareerCertificationToeic.svelte';
   import CareerCertificationTopcit from '$lib/components/definitions/careers/CareerCertificationTopcit.svelte';
   import CareerEduBachelorCnuCe from '$lib/components/definitions/careers/CareerEduBachelorCnuCe.svelte';
+	import CareerEduBachelorCnuJP from '$lib/components/definitions/careers/CareerEduBachelorCnuJP.svelte';
   import CareerEduBachelorExchangeSaga from '$lib/components/definitions/careers/CareerEduBachelorExchangeSaga.svelte';
   import CareerEduBachelorUnlvShortTerm from '$lib/components/definitions/careers/CareerEduBachelorUnlvShortTerm.svelte';
   import CareerEduHighSchoolSdok from '$lib/components/definitions/careers/CareerEduHighSchoolSdok.svelte';
@@ -62,7 +63,7 @@
 <section class="careers">
   <div class="careers-header">
     <SectionHeader>{m.careers()}</SectionHeader>
-    <p class="last-update">{m.last_update({ date: '2025-09-06' })}</p>
+    <p class="last-update">{m.last_update({ date: '2026-03-11' })}</p>
     <ul>
       <li>{m.careers_page_link()}</li>
       <li>{m.career_detail_popup_guide()}</li>
@@ -71,14 +72,14 @@
   <div class="careers-content">
     <h3>CURRENT</h3>
     <CareerEduBachelorCnuCe />
+    <CareerEduBachelorCnuJP />
     <CareerWorkJamcodingLecturer />
-    <CareerEduBachelorExchangeSaga />
-    <CareerAchievementScholarshipMiraeAsset33 />
   </div>
   <div class="careers-content">
     <h3>EDUCATION</h3>
     <CareerEduHighSchoolSdok />
     <CareerEduBachelorUnlvShortTerm />
+    <CareerEduBachelorExchangeSaga />
   </div>
   <div class="careers-content">
     <h3>WORK</h3>
@@ -109,6 +110,7 @@
     <CareerPaperSmartMedia22 />
     <CareerAchievementCnuAlgorithmContest6th />
     <CareerAchievementCnuSwClub24 />
+    <CareerAchievementScholarshipMiraeAsset33 />
   </div>
   <div class="careers-content">
     <h3>ACTIVITIES</h3>
