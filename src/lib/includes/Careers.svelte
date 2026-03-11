@@ -73,7 +73,6 @@
     <h3>CURRENT</h3>
     <CareerEduBachelorCnuCe />
     <CareerEduBachelorCnuJP />
-    <CareerWorkJamcodingLecturer />
   </div>
   <div class="careers-content">
     <h3>EDUCATION</h3>
@@ -87,6 +86,7 @@
     <CareerWorkRoka />
     <CareerWorkIeLab />
     <CareerWorkCnuUccWorkingScholarship />
+    <CareerWorkJamcodingLecturer />
   </div>
   <div class="careers-content">
     <h3>PROJECTS</h3>
