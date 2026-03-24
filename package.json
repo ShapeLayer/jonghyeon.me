@@ -9,16 +9,16 @@
     "build:gh": "vite build",
     "build:cf": "DEPLOY_TARGET=cloudflare vite build",
     "preview": "vite preview",
-    "preview:cf": "pnpm run build:cf && wrangler dev --config wrangler.jsonc",
+    "preview:cf": "pnpm run build:cf && wrangler dev",
     "prepare": "svelte-kit sync || echo ''",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint .",
-    "gen": "wrangler types --config wrangler.jsonc",
+    "gen": "wrangler types",
     "deploy": "pnpm run deploy:cf",
-    "deploy:cf": "pnpm run build:cf && wrangler deploy --config wrangler.jsonc",
-    "cf-typegen": "wrangler types --config wrangler.jsonc"
+    "deploy:cf": "pnpm run build:cf && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "devDependencies": {
     "@eslint/compat": "^1.4.1",
