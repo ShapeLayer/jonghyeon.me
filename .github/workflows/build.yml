@@ -17,7 +17,7 @@ jobs:
         node-version: '24'
         cache: 'pnpm'
     - run: pnpm install
-    - run: pnpm build
+    - run: pnpm run build:gh
     - uses: actions/upload-pages-artifact@v3
       with:
         path: build/
