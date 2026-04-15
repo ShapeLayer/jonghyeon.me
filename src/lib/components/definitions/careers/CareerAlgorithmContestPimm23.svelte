@@ -23,6 +23,9 @@
       <ExternalLink href="https://www.acmicpc.net/contest/view/1095">
         {m.contest_page()}
       </ExternalLink>
+      <ExternalLink href="https://archive.is/16FCI">
+        (archive.is)
+      </ExternalLink>
     </p>
   </CareerItemDetailContent>
   {/snippet}

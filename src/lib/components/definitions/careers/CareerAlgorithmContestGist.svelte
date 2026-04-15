@@ -29,11 +29,42 @@
         Source: <ExternalLink href='https://m.etnews.com/20240719000005'>{m.etnews()}</ExternalLink>
       </p>
     </div>
-    <div class="content">
+    <style>
+      #gist-masters-see-more ul {
+        list-style: disc;
+        padding-left: 1em;
+      }
+      #gist-masters-see-more li {
+        margin: .25em 0;
+      }
+    </style>
+    <div id="gist-masters-see-more" class="content">
       <p>{m.career_contents_algorithm_contest_gist_body_1()}</p>
       <p>{m.career_contents_algorithm_contest_gist_body_2()}</p>
+      <span>문제 일람</span>
+      <ul>
+        <li><ExternalLink href='https://archive.is/TaEdZ'>{m.career_contents_algorithm_contest_gist_prob_a()}</ExternalLink></li>
+        <li><ExternalLink href='https://archive.is/VfYfn'>{m.career_contents_algorithm_contest_gist_prob_b()} ({m.set_problem()})</ExternalLink></li>
+        <li><ExternalLink href='https://archive.is/WiDf4'>{m.career_contents_algorithm_contest_gist_prob_c()}</ExternalLink></li>
+        <li><ExternalLink href='https://archive.is/YnXhs'>{m.career_contents_algorithm_contest_gist_prob_d()}</ExternalLink></li>
+        <li><ExternalLink href='https://archive.is/0thiQ'>{m.career_contents_algorithm_contest_gist_prob_e()}</ExternalLink></li>
+        <li><ExternalLink href='https://archive.is/DXVVz'>{m.career_contents_algorithm_contest_gist_prob_f()}</ExternalLink></li>
+        <li><ExternalLink href='https://archive.is/gpVxB'>{m.career_contents_algorithm_contest_gist_prob_g()}</ExternalLink></li>
+        <li><ExternalLink href='https://archive.is/wmzMm'>{m.career_contents_algorithm_contest_gist_prob_h()}</ExternalLink></li>
+        <li><ExternalLink href='https://archive.is/2fSfS'>{m.career_contents_algorithm_contest_gist_prob_i()}</ExternalLink></li>
+      </ul>
       <p><br /></p>
-      <p>{m.see_more()}: <ExternalLink href='https://m.etnews.com/20240719000005'>{m.etnews()}</ExternalLink></p>
+      <p>
+        <ExternalLink href='https://m.etnews.com/20240719000005'>
+          {m.see_more()}: {m.etnews()}
+        </ExternalLink>
+        <ExternalLink href='https://www.acmicpc.net/category/detail/4225'>
+          {m.contest_page()}
+        </ExternalLink>
+        <ExternalLink href='https://archive.is/suENW'>
+          (archive.is)
+        </ExternalLink>
+      </p>
     </div>
   </CareerItemDetailContent>
   {/snippet}
