@@ -41,7 +41,7 @@
     <div id="gist-masters-see-more" class="content">
       <p>{m.career_contents_algorithm_contest_gist_body_1()}</p>
       <p>{m.career_contents_algorithm_contest_gist_body_2()}</p>
-      <span>문제 일람</span>
+      <span>{m.problems()}</span>
       <ul>
         <li><ExternalLink href='https://archive.is/TaEdZ'>{m.career_contents_algorithm_contest_gist_prob_a()}</ExternalLink></li>
         <li><ExternalLink href='https://archive.is/VfYfn'>{m.career_contents_algorithm_contest_gist_prob_b()} ({m.set_problem()})</ExternalLink></li>

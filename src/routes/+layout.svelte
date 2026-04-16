@@ -26,11 +26,18 @@
           setLocale('ko');
         } else if (language.includes('ja') || language.includes('jp')) {
           setLocale('ja');
-        } else if (language.includes('en')) {
+        } else if (
+          language.includes('en') ||
+          language.includes('us') ||
+          language.includes('gb') ||
+          language.includes('au') ||
+          language.includes('ca') ||
+          language.includes('nz')
+        ) {
           setLocale('en');
         } else {
-          // Default to English if no specific locale is detected
-          setLocale('en');
+          // Default to Korean if no specific locale is detected
+          setLocale('ko');
         }
       }
     }
