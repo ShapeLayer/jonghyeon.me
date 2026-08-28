@@ -1,50 +1,53 @@
 <script lang="ts">
-  import { type Snippet, onMount } from 'svelte';
+  import { type Snippet, getContext, setContext } from 'svelte';
   import { m } from '$lib/paraglide/messages';
-  import type { Date } from '$lib/models/date';
   import Popup from '$lib/components/Popup.svelte';
+  import { getCareerItem, getCareerTags, matchesCareerTags } from '$lib/models/careers';
+
+  interface CareerListControls {
+    selectedTagIdentifiers: string[];
+    isFiltered: boolean;
+    orderOf: (id: string) => number;
+  }
 
   interface Props {
-    children: Snippet;
+    children?: Snippet;
     detailContent?: Snippet;
     id: string;
     title: string;
-    startsAt?: Date;
-    endsAt?: Date;
-    current?: boolean;
   }
   let {
     children,
     detailContent,
     id,
-    title,
-    startsAt,
-    endsAt,
-    current = false
+    title
   }: Props = $props();
+
+  /** Dates and tags of the item live in the career model, keyed by id. */
+  const { startsAt, endsAt, current = false } = getCareerItem(id) ?? {};
 
   let datetime: string = $derived(
     `${startsAt?.year ?? ''}${startsAt?.month ? `.${String(startsAt.month).padStart(2, '0')}` : ''}${startsAt?.day ? `.${String(startsAt.day).padStart(2, '0')}` : ''}` + 
     `${(endsAt || current) ? '-' : ''}`+ 
     `${endsAt ? `${endsAt.year}${endsAt.month ? `.${String(endsAt.month).padStart(2, '0')}` : ''}${endsAt.day ? `.${String(endsAt.day).padStart(2, '0')}` : ''}` : current ? m.present() : ''}`
   );
+  const tags = getCareerTags(id);
+  let isExpanded = $state(false);
+  const listControls = getContext<CareerListControls | undefined>('career-list-controls');
+  let isVisible = $derived(matchesCareerTags(id, listControls?.selectedTagIdentifiers ?? []));
+  let listOrder = $derived(listControls?.orderOf(id) ?? 0);
+  /** Without the section headings the tags are what tells the items apart. */
+  let showTags = $derived(tags.length > 0 && (isExpanded || Boolean(listControls?.isFiltered)));
+
+  setContext('career-tags', tags);
 
   let rootElement: HTMLDivElement | null = $state(null);
   let popupComponent: Popup | null = $state(null);
 
-  const mountDetailContent = () => {
-    if (!detailContent || !rootElement) return;
-    rootElement?.classList.add('details-contained');
-  }
   const onClickHandler = () => {
-    popupComponent?.open();
-  }
-
-  const init = () => {
-    mountDetailContent();
-  }
-
-  onMount(init);
+    if (detailContent) popupComponent?.open();
+    else isExpanded = !isExpanded;
+  };
 </script>
 
 <style>
@@ -53,12 +56,12 @@
     border-radius: 4px;
     margin: .3em 0;
   }
-  :global(.career-item.details-contained) {
+  :global(.career-item.interactive) {
     background-color: rgba(0, 0, 0, 0.05);
     cursor: pointer;
     transition: background-color .2s;
   }
-  :global(.career-item.details-contained:hover) {
+  :global(.career-item.interactive:hover) {
     background-color: rgba(0, 0, 0, 0.1);
   }
   .career-item-wrapper {
@@ -99,14 +102,23 @@
   .career-detail {
     font-size: .8em;
   }
+  .career-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35em;
+    margin: .35em 0 0;
+  }
+  .career-tag {
+    border-radius: 999px;
+    font-size: .7em;
+    font-style: normal;
+    line-height: 1;
+    padding: .4em .55em;
+  }
 </style>
 
-<div
-  id={id}
-  class="career-item"
-  bind:this={rootElement}
-  onclick={onClickHandler}
->
+<div class="career-entry" data-tags={tags.map((tag) => tag.identifier).join(' ')} style:order={listOrder} hidden={!isVisible}>
+<div id={id} class:interactive={Boolean(detailContent) || tags.length > 0} class="career-item" bind:this={rootElement} onclick={onClickHandler} role="button" tabindex="0" onkeydown={(event) => (event.key === 'Enter' || event.key === ' ') && onClickHandler()}>
   <div class="career-item-wrapper">
     <div class="career-summary">
       <span class="career-title">{title}</span>
@@ -115,6 +127,13 @@
     <p class="career-detail">
       {@render children?.()}
     </p>
+    {#if showTags}
+      <div class="career-tags" aria-label="Career tags">
+        {#each tags as tag (tag.identifier)}
+          <span class="career-tag" style:background-color={tag.backgroundColor} style:color={tag.foregroundColor} title={tag.description()}>{tag.displayName()}</span>
+        {/each}
+      </div>
+    {/if}
   </div>
 </div>
 {#if detailContent}
@@ -124,3 +143,4 @@
     </Popup>
   </div>
 {/if}
+</div>

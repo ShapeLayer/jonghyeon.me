@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { type Snippet } from 'svelte';
+  import { type Snippet, getContext } from 'svelte';
+  import type { CareerTag } from '$lib/models/careers';
 
   let {
     title,
@@ -10,6 +11,7 @@
     subtitle?: string;
     children?: Snippet;
   } = $props();
+  const tags = getContext<CareerTag[]>('career-tags') ?? [];
 </script>
 
 <style>
@@ -32,6 +34,18 @@
     margin: 1em 0;
     overflow: hidden;
   }
+  .career-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45em;
+    margin: .8em 0 0;
+  }
+  .career-tag {
+    border-radius: 999px;
+    font-size: .75em;
+    line-height: 1;
+    padding: .45em .65em;
+  }
   :global(.content p) {
     line-height: 1.6;
     margin-bottom: 1.2em;
@@ -42,6 +56,13 @@
   <h2>{title}</h2>
   {#if subtitle}
     <h3>{subtitle}</h3>
+  {/if}
+  {#if tags.length}
+    <div class="career-tags" aria-label="Career tags">
+      {#each tags as tag (tag.identifier)}
+        <span class="career-tag" style:background-color={tag.backgroundColor} style:color={tag.foregroundColor} title={tag.description()}>{tag.displayName()}</span>
+      {/each}
+    </div>
   {/if}
   <div class="content">
   {#if children}

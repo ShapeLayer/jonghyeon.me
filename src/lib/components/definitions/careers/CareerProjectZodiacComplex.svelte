@@ -9,8 +9,6 @@
 <CareerItem
   id='project-zodiac-complex'
   title={m.career_title_project_zodiac_complex()}
-  startsAt={{ year: 2025, month: 7 }}
-  endsAt={{ year: 2025, month: 8 }}
 >
   {m.career_details_project_zodiac_complex()}
   {#snippet detailContent()}

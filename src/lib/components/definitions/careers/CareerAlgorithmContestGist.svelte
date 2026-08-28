@@ -9,7 +9,6 @@
 <CareerItem
   id='algorithm-contest-gist'
   title={m.career_title_algorithm_contest_gist()}
-  startsAt={{ year: 2024, month: 5 }}
 >
   {m.career_details_algorithm_contest_gist()}
   {#snippet detailContent()}

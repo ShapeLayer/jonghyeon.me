@@ -6,6 +6,4 @@
 <CareerItem
   id='edu-bachelor-chonnam-natl-univ-jp'
   title={m.career_title_edu_bachelor_cnu_jp()}
-  startsAt={{ year: 2026, month: 3 }}
-  current={true}
 />

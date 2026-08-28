@@ -5,10 +5,8 @@
 </script>
 
 <CareerItem
-  id='work-imagelab'
+  id='work-ielab'
   title={m.career_title_work_ielab()}
-  startsAt={{ year: 2024, month: 3 }}
-  endsAt={{ year: 2025, month: 2 }}
 >
   {m.advisor_prof()}: {m.kim_jin_young()}
   <ExternalLink href="https://ieeexplore.ieee.org/author/38185528600">({m.ieee_author_data()})</ExternalLink>

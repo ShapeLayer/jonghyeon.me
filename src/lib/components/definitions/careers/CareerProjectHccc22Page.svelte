@@ -9,7 +9,6 @@
 <CareerItem
   id='project-hccc22-page'
   title={m.career_title_project_hccc22_page()}
-  startsAt={{ year: 2022, month: 6 }}
 >
   {m.career_details_project_hccc22_page()}
   {#snippet detailContent()}

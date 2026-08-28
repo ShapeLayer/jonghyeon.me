@@ -8,7 +8,6 @@
 <CareerItem
   id='edu-bachelor-unlv-short-term'
   title={m.career_title_edu_bachelor_unlv_short_term_study()}
-  startsAt={{ year: 2024, month: 8 }}
 >
   {#snippet detailContent()}
     <CareerItemDetailContent

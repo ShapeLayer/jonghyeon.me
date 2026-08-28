@@ -6,5 +6,4 @@
 <CareerItem
   id='certification-aws-ccp'
   title={m.career_details_certification_aws_ccp()}
-  startsAt={{ year: 2022, month: 1, day: 25 }}
 />

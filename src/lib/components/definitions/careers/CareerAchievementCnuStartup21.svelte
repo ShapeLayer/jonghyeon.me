@@ -4,7 +4,6 @@
 </script>
 
 <CareerItem
-  id='work-cnu-ucc-working-scholarship'
+  id='achievement-cnu-startup21'
   title={m.career_title_achievement_cnu_startup21()}
-  startsAt={{ year: 2021, month: 12 }}
 />
