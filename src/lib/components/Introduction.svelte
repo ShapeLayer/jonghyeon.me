@@ -117,7 +117,7 @@ h2 {
   </div>
   <div class="description" bind:this={descriptionElement}>
     <p>{m.profile_intro_description_1()}</p>
-    <p>{m.profile_intro_description_2()}</p>
+    <p>{m.profile_intro_description_2_1()}<br />{m.profile_intro_description_2_2()}</p>
     <p>{m.profile_intro_description_3()}</p>
     <div class="embed-feed">
       <iframe
