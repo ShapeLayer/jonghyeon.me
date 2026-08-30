@@ -199,14 +199,14 @@
     allItemIds.filter((id) => matchesCareerTags(id, selectedTagIdentifiers) && matchesCareerPeriod(id, periodFilter?.periodStart, periodFilter?.periodEnd)).length
   );
 
-  /** Sections whose show-more toggle has been opened, revealing their hidden items. */
-  let expandedSectionIds: Set<string> = $state(new Set());
-  const toggleSectionExpanded = (sectionId: string) => {
-    const next = new Set(expandedSectionIds);
-    if (next.has(sectionId)) next.delete(sectionId);
-    else next.add(sectionId);
-    expandedSectionIds = next;
+  /** Hidden entries are collected below the active tab until the visitor asks to see them. */
+  let hiddenItemsExpandedByTab: Record<CareerTabIdentifier, boolean> = $state({ history: false, works: false });
+  let hiddenItemsExpanded = $derived(hiddenItemsExpandedByTab[activeTab]);
+  const toggleHiddenItems = () => {
+    hiddenItemsExpandedByTab = { ...hiddenItemsExpandedByTab, [activeTab]: !hiddenItemsExpanded };
   };
+  let hiddenItems = $derived(tabSections.flatMap((section) => section.items.filter((item) => item.hidden)));
+  let hiddenSections = $derived(tabSections.filter((section) => section.items.some((item) => item.hidden)));
 
   /** A condition only becomes a real filter once it has a value; a bare category pick doesn't count yet. */
   const isConditionComplete = (condition: Condition) =>
@@ -333,8 +333,7 @@
     get selectedTagIdentifiers() { return selectedTagIdentifiers; },
     get periodFilter() { return periodFilter ? { start: periodFilter.periodStart, end: periodFilter.periodEnd } : undefined; },
     get isFiltered() { return isFiltered; },
-    orderOf: (id: string) => orderById.get(id) ?? 0,
-    isSectionExpanded: (sectionId: string) => expandedSectionIds.has(sectionId)
+    orderOf: (id: string) => orderById.get(id) ?? 0
   });
 
   /** A project tag's click asks to open its target item's popup; if that item lives on the other tab,
@@ -698,6 +697,8 @@
     cursor: pointer;
     transition: border-color .15s, color .15s;
   }
+  .hidden-sections { margin-top: 1.2em; }
+  .hidden-sections .careers-content + .careers-content { margin-top: 1.2em; }
   .section-toggle:hover, .section-toggle:focus-visible {
     border-color: var(--base-fg-color-brighter);
     color: var(--base-fg-color);
@@ -875,13 +876,13 @@
   </div>
   <div class="careers-panel" id="career-tab-panel" role="tabpanel" aria-labelledby={`career-tab-${activeTab}`}>
   {#each tabSections as section (section.identifier)}
-    {@const hiddenCount = section.items.filter((item) => item.hidden).length}
-    {@const isExpanded = expandedSectionIds.has(section.identifier)}
     <div class="careers-content" data-section={section.identifier}>
       <h3>{section.title()}</h3>
       {#each section.items as item (item.id)}
-        {@const CareerDefinition = careerComponents[item.id]}
-        <CareerDefinition />
+        {#if !item.hidden || isFiltered}
+          {@const CareerDefinition = careerComponents[item.id]}
+          <CareerDefinition />
+        {/if}
       {/each}
       {#if sectionsWithGithubNote.includes(section.identifier)}
         <ul class="note">
@@ -891,16 +892,29 @@
           </li>
         </ul>
       {/if}
-      {#if hiddenCount > 0 && !isFiltered}
-        <button
-          class="section-toggle"
-          type="button"
-          aria-expanded={isExpanded}
-          onclick={() => toggleSectionExpanded(section.identifier)}
-        >{isExpanded ? `− ${m.career_section_hide()}` : `+ ${m.career_section_show_more({ count: hiddenCount })}`}</button>
-      {/if}
     </div>
   {/each}
+  {#if hiddenItems.length > 0 && !isFiltered}
+    <button
+      class="section-toggle"
+      type="button"
+      aria-expanded={hiddenItemsExpanded}
+      onclick={toggleHiddenItems}
+    >{hiddenItemsExpanded ? `− ${m.career_section_hide()}` : `+ ${m.career_section_show_more({ count: hiddenItems.length })}`}</button>
+    {#if hiddenItemsExpanded}
+      <div class="hidden-sections">
+        {#each hiddenSections as section (section.identifier)}
+          <div class="careers-content" data-section={section.identifier}>
+            <h3>{section.title()}</h3>
+            {#each section.items.filter((item) => item.hidden) as item (item.id)}
+              {@const CareerDefinition = careerComponents[item.id]}
+              <CareerDefinition />
+            {/each}
+          </div>
+        {/each}
+      </div>
+    {/if}
+  {/if}
   </div>
   {#if menuTooltip}
     <div

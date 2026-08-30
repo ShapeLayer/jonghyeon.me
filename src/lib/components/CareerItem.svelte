@@ -4,14 +4,13 @@
   import Popup from '$lib/components/Popup.svelte';
   import CareerTagList from '$lib/components/CareerTagList.svelte';
   import type { Date as CareerDate } from '$lib/models/date';
-  import { getCareerItem, getCareerSection, getCareerTags, matchesCareerPeriod, matchesCareerTags } from '$lib/models/careers';
+  import { getCareerItem, getCareerTags, matchesCareerPeriod, matchesCareerTags } from '$lib/models/careers';
 
   interface CareerListControls {
     selectedTagIdentifiers: string[];
     periodFilter: { start?: CareerDate; end?: CareerDate } | undefined;
     isFiltered: boolean;
     orderOf: (id: string) => number;
-    isSectionExpanded: (sectionId: string) => boolean;
   }
 
   interface CareerPopupRequest {
@@ -40,8 +39,7 @@
   }: Props = $props();
 
   /** Dates and tags of the item live in the career model, keyed by id. */
-  const { startsAt, endsAt, current = false, hidden = false } = getCareerItem(id) ?? {};
-  const sectionId = getCareerSection(id)?.identifier ?? '';
+  const { startsAt, endsAt, current = false } = getCareerItem(id) ?? {};
 
   let datetime: string = $derived(
     `${startsAt?.year ?? ''}${startsAt?.month ? `.${String(startsAt.month).padStart(2, '0')}` : ''}${startsAt?.day ? `.${String(startsAt.day).padStart(2, '0')}` : ''}` +
@@ -51,11 +49,10 @@
   const tags = getCareerTags(id);
   let isExpanded = $state(false);
   const listControls = getContext<CareerListControls | undefined>('career-list-controls');
-  /** Behind the section's show-more toggle in the default view, unless a filter or sort already surfaced it. */
+  /** Parent sections decide which default and hidden entries are mounted; filters apply to every mounted entry. */
   let isVisible = $derived(
     matchesCareerTags(id, listControls?.selectedTagIdentifiers ?? []) &&
-    matchesCareerPeriod(id, listControls?.periodFilter?.start, listControls?.periodFilter?.end) &&
-    (!hidden || Boolean(listControls?.isFiltered) || Boolean(listControls?.isSectionExpanded(sectionId)))
+    matchesCareerPeriod(id, listControls?.periodFilter?.start, listControls?.periodFilter?.end)
   );
   let listOrder = $derived(listControls?.orderOf(id) ?? 0);
   /** Behind the expand toggle in the default view, unless a filter already surfaced it; stack tags stay visible regardless. */

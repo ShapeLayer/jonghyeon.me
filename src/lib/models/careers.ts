@@ -129,7 +129,7 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_education(),
     tagIdentifiers: ['education'],
     items: [
-      { id: 'edu-highschool-sdok', startsAt: { year: 2018, month: 3 }, endsAt: { year: 2021, month: 2 } },
+      { id: 'edu-highschool-sdok', startsAt: { year: 2018, month: 3 }, endsAt: { year: 2021, month: 2 }, hidden: true },
       { id: 'edu-bachelor-unlv-short-term', startsAt: { year: 2024, month: 8 }, tagIdentifiers: ['language', 'overseas'] },
       { id: 'edu-bachelor-exchange-sage', startsAt: { year: 2025, month: 9 }, endsAt: { year: 2026, month: 2 }, tagIdentifiers: ['language', 'overseas'] }
     ]
@@ -239,7 +239,7 @@ export const careerSections: CareerSection[] = [
         ]
       },
       { id: 'works-turbo-waffle', startsAt: { year: 2023, month: 8 }, endsAt: { year: 2023, month: 9 }, tagIdentifiers: ['pimm-algo-party', 'pre-ai', 'nodejs', 'nunjucks', 'puppeteer'] },
-      { id: 'career-project-prefix-gen', startsAt: { year: 2020, month: 5 }, tagIdentifiers: ['pre-ai'] }
+      { id: 'career-project-prefix-gen', startsAt: { year: 2020, month: 5 }, tagIdentifiers: ['pre-ai'], hidden: true }
     ]
   }
 ];
