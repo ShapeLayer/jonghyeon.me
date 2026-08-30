@@ -897,16 +897,14 @@
           <CareerDefinition />
         {/if}
       {/each}
-      {#if sectionsWithGithubNote.includes(section.identifier)}
-        <ul class="note">
-          <li>
-            {m.career_more_projects_github()}
-            <ExternalLink href="https://github.com/ShapeLayer?tab=repositories">GitHub</ExternalLink>
-          </li>
-        </ul>
-      {/if}
     </div>
   {/each}
+  <ul class="note">
+    <li>
+      {m.career_more_projects_github()}
+      <ExternalLink href="https://github.com/ShapeLayer?tab=repositories">GitHub</ExternalLink>
+    </li>
+  </ul>
   {#if hiddenItems.length > 0 && !isFiltered}
     <button
       class="section-toggle"
