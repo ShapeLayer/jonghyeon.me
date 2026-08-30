@@ -141,7 +141,7 @@
   "career_title_project_namumark": "Namumark",
   "career_details_project_namumark_li_0": "ナムウィキのマークアップ仕様を解析し、ASTを構築して他のマークアップ言語へコンパイルするツール",
   "career_details_project_namumark_li_1": "github/cmark-gfmのコードスタディを通して作成し、その後AIツールを使って未実装コンテンツを実装",
-  "career_details_project_namumark_li_2": "deriving: namumark-editor-ast-experimental",
+  "career_details_project_namumark_li_2": "Deriving: ",
   "career_title_project_unity_merge": "Unity Merge",
   "career_details_project_unity_merge_li_0": "UnityYAMLMergeがUnityメタデータ構造のUUID識別子の変化を追跡せず、開発ブランチのマージに失敗する問題を改善",
   "career_details_project_unity_merge_li_1": "全コミットで使用されたUUIDをuuid:pathペアとしてリポジトリで管理し、UUIDの変化を追跡しながらYAMLマージを行うよう開発",

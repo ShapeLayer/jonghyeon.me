@@ -154,7 +154,7 @@
   "career_title_project_namumark": "Namumark",
   "career_details_project_namumark_li_0": "나무위키의 마크업 스펙을 파싱, AST로 빌드해서 다른 마크업 언어로 컴파일하는 C 라이브러리",
   "career_details_project_namumark_li_1": "github/cmark-gfm을 코드 스터디하여 작성, 이후에 AI 도구를 사용하여 미구현 콘텐츠 구현",
-  "career_details_project_namumark_li_2": "deriving: namumark-editor-ast-experimental",
+  "career_details_project_namumark_li_2": "Deriving: ",
   "career_title_project_unity_merge": "Unity Merge",
   "career_details_project_unity_merge_li_0": "유니티의 UnityYAMLMerge 도구로 개발 분기를 병합할 때, 유니티 메타데이터 구조의 uuid 식별자 변화를 추적하지 않아 병합에 실패하는 상황을 개선",
   "career_details_project_unity_merge_li_1": "전체 커밋에 대해 사용된 uuid 값을 uuid:path 쌍을 만들어 리포지토리에서 함께 관리하도록 하여, uuid 식별자 변화를 추적하면서 YAML 병합을 수행하도록 개발",

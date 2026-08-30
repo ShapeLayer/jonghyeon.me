@@ -141,7 +141,7 @@
   "career_title_project_namumark": "Namumark",
   "career_details_project_namumark_li_0": "A tool that parses the Namu Wiki markup specification, builds an AST, and compiles it to other markup languages",
   "career_details_project_namumark_li_1": "Written through a code study of github/cmark-gfm, then completed unimplemented content using AI tools",
-  "career_details_project_namumark_li_2": "Deriving: namumark-editor-ast-experimental",
+  "career_details_project_namumark_li_2": "Deriving: ",
   "career_title_project_unity_merge": "Unity Merge",
   "career_details_project_unity_merge_li_0": "Improves merge failures caused by UnityYAMLMerge not tracking UUID identifier changes in Unity metadata structures when merging development branches",
   "career_details_project_unity_merge_li_1": "Tracks UUID changes during YAML merges by managing every UUID used across commits as uuid:path pairs in the repository",
