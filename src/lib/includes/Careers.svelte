@@ -29,6 +29,8 @@
   import CareerProjectKtasTrainer from '$lib/components/definitions/project/CareerProjectKtasTrainer.svelte';
   import CareerProjectPrefixGenerator from '$lib/components/definitions/project/CareerProjectPrefixGenerator.svelte';
   import CareerProjectZodiacComplex from '$lib/components/definitions/project/CareerProjectZodiacComplex.svelte';
+  import CareerProjectNamumark from '$lib/components/definitions/project/CareerProjectNamumark.svelte';
+  import CareerProjectUnityMerge from '$lib/components/definitions/project/CareerProjectUnityMerge.svelte';
   import CareerWorkCnuUccWorkingScholarship from '$lib/components/definitions/careers/CareerWorkCnuUccWorkingScholarship.svelte';
   import CareerWorkIeLab from '$lib/components/definitions/careers/CareerWorkIeLab.svelte';
   import CareerWorkImageLab from '$lib/components/definitions/careers/CareerWorkImageLab.svelte';
@@ -81,6 +83,8 @@
     'project-hccc22-page': CareerProjectHccc22Page,
     'project-iwfcv22-page': CareerProjectIwfcv22Page,
     'project-zodiac-complex': CareerProjectZodiacComplex,
+    'project-namumark': CareerProjectNamumark,
+    'project-unity-merge': CareerProjectUnityMerge,
     'achievement-cnu-startup21': CareerAchievementCnuStartup21,
     'achievement-icpc-21': CareerAchievementIcpc21,
     'paper-smart-media21': CareerPaperSmartMedia21,

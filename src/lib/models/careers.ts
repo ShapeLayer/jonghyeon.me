@@ -86,6 +86,8 @@ export const careerTags: CareerTag[] = [
   { identifier: 'limited', displayName: () => m.career_tag_ai_limited(), description: () => m.career_tag_ai_limited_description(), backgroundColor: '#fff4dc', foregroundColor: '#8a5a00', kind: 'ai' },
   { identifier: 'driven', displayName: () => m.career_tag_ai_driven(), description: () => m.career_tag_ai_driven_description(), backgroundColor: '#f1e9ff', foregroundColor: '#6a3fb5', kind: 'ai' },
   { identifier: 'csharp', displayName: () => m.career_tag_csharp(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
+  { identifier: 'c', displayName: () => m.career_tag_c(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
+  { identifier: 'cpp', displayName: () => m.career_tag_cpp(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'python', displayName: () => m.career_tag_python(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'unity', displayName: () => m.career_tag_unity(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'naninovel', displayName: () => m.career_tag_naninovel(), description: () => m.career_tag_naninovel_description(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
@@ -228,7 +230,9 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_develops(),
     tagIdentifiers: [],
     items: [
+      { id: 'project-unity-merge', tagIdentifiers: ['cpp', 'ktas-trainer', 'driven'] },
       { id: 'works-cellular', startsAt: { year: 2026, month: 8 }, tagIdentifiers: ['ktas-trainer', 'driven', 'rust', 'typescript'] },
+      { id: 'project-namumark', startsAt: { year: 2025, month: 1 }, endsAt: { year: 2026, month: 1 }, tagIdentifiers: ['c', 'limited'] },
       {
         id: 'works-typst-packages',
         startsAt: { year: 2024, month: 7 },
