@@ -74,6 +74,7 @@ export const careerTags: CareerTag[] = [
   { identifier: 'game', displayName: () => m.career_tag_game(), description: () => m.career_tag_game_description(), backgroundColor: '#fff3c9', foregroundColor: '#715500', kind: 'topic' },
   { identifier: 'algorithm', displayName: () => m.career_tag_algorithm(), description: () => m.career_tag_algorithm_description(), backgroundColor: '#e5f5e4', foregroundColor: '#2a6c2e', kind: 'topic' },
   { identifier: 'language', displayName: () => m.career_tag_language(), description: () => m.career_tag_language_description(), backgroundColor: '#f4eaff', foregroundColor: '#74439a', kind: 'topic' },
+  { identifier: 'japanese-literature', displayName: () => m.career_tag_japanese_literature(), description: () => m.career_tag_japanese_literature_description(), backgroundColor: '#f4eaff', foregroundColor: '#74439a', kind: 'topic' },
   { identifier: 'cloud-data', displayName: () => m.career_tag_cloud_data(), description: () => m.career_tag_cloud_data_description(), backgroundColor: '#e0f5ff', foregroundColor: '#176882', kind: 'topic' },
   { identifier: 'overseas', displayName: () => m.career_tag_overseas(), description: () => m.career_tag_overseas_description(), backgroundColor: '#ffe9d6', foregroundColor: '#a15816', kind: 'topic' },
   { identifier: 'era-minor', displayName: () => m.career_tag_era_minor(), description: () => m.career_tag_era_minor_description(), backgroundColor: '#ffe9e2', foregroundColor: '#a3401b', kind: 'era' },
@@ -85,13 +86,14 @@ export const careerTags: CareerTag[] = [
   { identifier: 'limited', displayName: () => m.career_tag_ai_limited(), description: () => m.career_tag_ai_limited_description(), backgroundColor: '#fff4dc', foregroundColor: '#8a5a00', kind: 'ai' },
   { identifier: 'driven', displayName: () => m.career_tag_ai_driven(), description: () => m.career_tag_ai_driven_description(), backgroundColor: '#f1e9ff', foregroundColor: '#6a3fb5', kind: 'ai' },
   { identifier: 'csharp', displayName: () => m.career_tag_csharp(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
+  { identifier: 'python', displayName: () => m.career_tag_python(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'unity', displayName: () => m.career_tag_unity(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'naninovel', displayName: () => m.career_tag_naninovel(), description: () => m.career_tag_naninovel_description(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'jekyll', displayName: () => m.jekyll(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'rust', displayName: () => m.career_tag_rust(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'typescript', displayName: () => m.career_tag_typescript(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'nodejs', displayName: () => m.career_tag_nodejs(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
-  { identifier: 'nunjucks', displayName: () => m.career_tag_nunjucks(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
+  { identifier: 'nunjucks', displayName: () => m.career_tag_nunjucks(), description: () => m.career_tag_nunjucks_description(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'puppeteer', displayName: () => m.career_tag_puppeteer(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' }
 ];
 
@@ -162,7 +164,7 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_activity(),
     tagIdentifiers: ['activity'],
     items: [
-      { id: 'activity-gwangju-sw-festival19', startsAt: { year: 2019, month: 5 } },
+      { id: 'activity-gwangju-sw-festival19', startsAt: { year: 2019, month: 5 }, tagIdentifiers: ['python'] },
       { id: 'activity-cnu-club-pimm', startsAt: { year: 2021, month: 3 }, endsAt: { year: 2026, month: 3 }, tagIdentifiers: ['game'] },
       { id: 'activity-cnu-club-stolio', startsAt: { year: 2022, month: 3 }, endsAt: { year: 2025, month: 12 } }
     ]
@@ -221,7 +223,7 @@ export const careerSections: CareerSection[] = [
         current: true,
         subItems: [
           { id: 'works-typst-packages-ucpc-solutions', tagIdentifiers: ['pimm-algo-party', 'algorithm'] },
-          { id: 'works-typst-packages-furiruby', tagIdentifiers: ['language'] }
+          { id: 'works-typst-packages-furiruby', tagIdentifiers: ['language', 'japanese-literature'] }
         ]
       },
       { id: 'works-turbo-waffle', startsAt: { year: 2023, month: 8 }, endsAt: { year: 2023, month: 9 }, tagIdentifiers: ['pimm-algo-party', 'pre-ai', 'nodejs', 'nunjucks', 'puppeteer'] },

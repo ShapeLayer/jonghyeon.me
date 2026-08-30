@@ -23,20 +23,20 @@
   import CareerEduHighSchoolSdok from '$lib/components/definitions/careers/CareerEduHighSchoolSdok.svelte';
   import CareerPaperSmartMedia21 from '$lib/components/definitions/careers/CareerPaperSmartMedia21.svelte';
   import CareerPaperSmartMedia22 from '$lib/components/definitions/careers/CareerPaperSmartMedia22.svelte';
-  import CareerProjectHccc22Page from '$lib/components/definitions/careers/CareerProjectHccc22Page.svelte';
-  import CareerProjectIwfcv22Page from '$lib/components/definitions/careers/CareerProjectIwfcv22Page.svelte';
-  import CareerProjectPrefixGenerator from '$lib/components/definitions/careers/CareerProjectPrefixGenerator.svelte';
-  import CareerProjectSignLanguageClient from '$lib/components/definitions/careers/CareerProjectSignLanguageClient.svelte';
-  import CareerProjectZodiacComplex from '$lib/components/definitions/careers/CareerProjectZodiacComplex.svelte';
+  import CareerProjectHccc22Page from '$lib/components/definitions/project/CareerProjectHccc22Page.svelte';
+  import CareerProjectIwfcv22Page from '$lib/components/definitions/project/CareerProjectIwfcv22Page.svelte';
+  import CareerProjectPrefixGenerator from '$lib/components/definitions/project/CareerProjectPrefixGenerator.svelte';
+  import CareerProjectSignLanguageClient from '$lib/components/definitions/project/CareerProjectSignLanguageClient.svelte';
+  import CareerProjectZodiacComplex from '$lib/components/definitions/project/CareerProjectZodiacComplex.svelte';
   import CareerWorkCnuUccWorkingScholarship from '$lib/components/definitions/careers/CareerWorkCnuUccWorkingScholarship.svelte';
   import CareerWorkIeLab from '$lib/components/definitions/careers/CareerWorkIeLab.svelte';
   import CareerWorkImageLab from '$lib/components/definitions/careers/CareerWorkImageLab.svelte';
   import CareerWorkDedamMathScienceLecturer from '$lib/components/definitions/careers/CareerWorkDedamMathScienceLecturer.svelte';
   import CareerWorkJamcodingLecturer from '$lib/components/definitions/careers/CareerWorkJamcodingLecturer.svelte';
   import CareerWorkRoka from '$lib/components/definitions/careers/CareerWorkRoka.svelte';
-  import WorkCellular from '$lib/components/definitions/works/WorkCellular.svelte';
-  import WorkTurboWaffle from '$lib/components/definitions/works/WorkTurboWaffle.svelte';
-  import WorkTypstPackages from '$lib/components/definitions/works/WorkTypstPackages.svelte';
+  import WorkCellular from '$lib/components/definitions/project/WorkCellular.svelte';
+  import WorkTurboWaffle from '$lib/components/definitions/project/WorkTurboWaffle.svelte';
+  import WorkTypstPackages from '$lib/components/definitions/project/WorkTypstPackages.svelte';
   import ExternalLink from '$lib/components/ExternalLink.svelte';
   import SectionHeader from '$lib/components/SectionHeader.svelte';
   import { m } from '$lib/paraglide/messages';
@@ -138,6 +138,21 @@
   let openMenuId: number | null = $state(null);
   let nextConditionId = 0;
   let controlsElement: HTMLDivElement | null = $state(null);
+  let menuTooltip: { text: string; left: number; top: number; above: boolean } | null = $state(null);
+
+  /** Renders outside the scrollable menu so descriptions are never clipped by its overflow boundary. */
+  const showMenuTooltip = (event: MouseEvent | FocusEvent, text: string | undefined) => {
+    if (!text) return;
+    const bounds = (event.currentTarget as HTMLElement).getBoundingClientRect();
+    const above = window.innerHeight - bounds.bottom < 96;
+    menuTooltip = {
+      text,
+      left: Math.min(Math.max(12, bounds.left), Math.max(12, window.innerWidth - 230)),
+      top: above ? bounds.top - 8 : bounds.bottom + 8,
+      above
+    };
+  };
+  const hideMenuTooltip = () => (menuTooltip = null);
   /** Every dimension's sort toggle, kept independent of the conditions array so it survives a tag screen closing
    *  without any value picked. Applied in careerSortCriteria's declared order whenever more than one is active. */
   let sortDirections: Record<string, SortToggleState> = $state(
@@ -581,6 +596,37 @@
     /* Absorbs the row's leftover space, so this group sits flush right of the category label. */
     margin-left: auto;
   }
+  .menu-tooltip {
+    position: fixed;
+    box-sizing: border-box;
+    width: max-content;
+    max-width: min(16em, calc(100vw - 24px));
+    padding: .55em .75em;
+    border-radius: 6px;
+    background: var(--base-fg-color);
+    color: var(--base-bg-color);
+    font-size: .85em;
+    line-height: 1.45;
+    white-space: normal;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .2);
+    pointer-events: none;
+    z-index: 40;
+  }
+  .menu-tooltip.above { transform: translateY(-100%); }
+  .menu-tooltip::before {
+    content: "";
+    position: absolute;
+    left: 1em;
+    top: -10px;
+    border: 5px solid transparent;
+    border-bottom-color: var(--base-fg-color);
+  }
+  .menu-tooltip.above::before {
+    top: auto;
+    bottom: -10px;
+    border-top-color: var(--base-fg-color);
+    border-bottom-color: transparent;
+  }
   .sort-toggle-hint {
     font-size: .9em;
     color: var(--base-fg-color-brighter);
@@ -730,7 +776,7 @@
               >×</button>
             {/if}
             {#if openMenuId === condition.id}
-              <div class="condition-menu" role="menu" aria-label={m.career_filter_choose()}>
+              <div class="condition-menu" role="menu" aria-label={m.career_filter_choose()} onscroll={hideMenuTooltip}>
                 {#if !condition.kind}
                   <!-- Step 1: pick which dimension this tag screen filters by. -->
                   <p class="menu-group-label">{m.career_filter_label()}</p>
@@ -744,6 +790,11 @@
                        then either a checkbox list of values (section/topic/era) or a date range (period). -->
                   {@const category = categoryOf(condition.kind)}
                   {@const sortState = sortDirections[condition.kind] ?? 'none'}
+                  {@const sortTooltip = sortState === 'asc'
+                    ? m.career_sort_ascending_tooltip()
+                    : sortState === 'desc'
+                      ? m.career_sort_descending_tooltip()
+                      : m.career_sort_default_tooltip()}
                   <div class="menu-item menu-item-sort-toggle" role="group" aria-label={category?.label()}>
                     <span class="menu-item-sort-toggle-label">{category?.label()}</span>
                     <span class="sort-toggle-group">
@@ -752,7 +803,10 @@
                         class="sort-direction-toggle"
                         type="button"
                         aria-label={m.career_sort_flip_direction()}
-                        title={sortState === 'asc' ? m.career_sort_ascending() : sortState === 'desc' ? m.career_sort_descending() : m.career_sort_none()}
+                        onmouseenter={(event) => showMenuTooltip(event, sortTooltip)}
+                        onmouseleave={hideMenuTooltip}
+                        onfocus={(event) => showMenuTooltip(event, sortTooltip)}
+                        onblur={hideMenuTooltip}
                         onclick={() => cycleSortDirection(condition.kind ?? '')}
                       >{sortToggleGlyph(sortState)}</button>
                     </span>
@@ -778,7 +832,13 @@
                     </div>
                   {:else}
                     {#each category?.kind !== 'period' ? (category?.tags ?? []) : [] as tag (tag.identifier)}
-                      <label class="menu-item menu-item-checkbox" title={tag.description?.()}>
+                      <label
+                        class="menu-item menu-item-checkbox"
+                        onmouseenter={(event) => showMenuTooltip(event, tag.description?.())}
+                        onmouseleave={hideMenuTooltip}
+                        onfocusin={(event) => showMenuTooltip(event, tag.description?.())}
+                        onfocusout={hideMenuTooltip}
+                      >
                         <input
                           type="checkbox"
                           checked={(condition.tagIdentifiers ?? []).includes(tag.identifier)}
@@ -840,4 +900,13 @@
     </div>
   {/each}
   </div>
+  {#if menuTooltip}
+    <div
+      class="menu-tooltip"
+      class:above={menuTooltip.above}
+      role="tooltip"
+      style:left={`${menuTooltip.left}px`}
+      style:top={`${menuTooltip.top}px`}
+    >{menuTooltip.text}</div>
+  {/if}
 </section>

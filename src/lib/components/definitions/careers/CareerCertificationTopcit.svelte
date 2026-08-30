@@ -2,8 +2,8 @@
   import { m } from '$lib/paraglide/messages';
   import CareerItem from '$lib/components/CareerItem.svelte';
   import CareerItemDetailContent from '$lib/components/CareerItemDetailContent.svelte';
-	import ExternalLink from '$lib/components/ExternalLink.svelte';
-	import TopcitGradeGraph from '$lib/components/TopcitGradeGraph.svelte';
+  import ExternalLink from '$lib/components/ExternalLink.svelte';
+  import TopcitGradeGraph from '$lib/components/TopcitGradeGraph.svelte';
 </script>
 
 <CareerItem

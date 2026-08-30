@@ -3,7 +3,7 @@
   import CareerItem from '$lib/components/CareerItem.svelte';
   import CareerItemDetailContent from '$lib/components/CareerItemDetailContent.svelte';
   import CareerAchievementScholarshipMiraeAsset33Cover from '$lib/assets/CareerAchievementScholarshipMiraeAsset33-cover.jpg';
-	import ExternalLink from '$lib/components/ExternalLink.svelte';
+  import ExternalLink from '$lib/components/ExternalLink.svelte';
 </script>
 
 <CareerItem

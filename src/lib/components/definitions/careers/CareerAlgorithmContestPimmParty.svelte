@@ -3,7 +3,7 @@
   import CareerItem from '$lib/components/CareerItem.svelte';
   import CareerItemDetailContent from '$lib/components/CareerItemDetailContent.svelte';
   import CareerItemDetailSubsection from '$lib/components/CareerItemDetailSubsection.svelte';
-	import ExternalLink from '$lib/components/ExternalLink.svelte';
+  import ExternalLink from '$lib/components/ExternalLink.svelte';
 </script>
 
 <CareerItem

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { m } from '$lib/paraglide/messages';
   import CareerItem from '$lib/components/CareerItem.svelte';
-	import CareerItemDetailContent from '$lib/components/CareerItemDetailContent.svelte';
-	import ExternalLink from '$lib/components/ExternalLink.svelte';
+  import CareerItemDetailContent from '$lib/components/CareerItemDetailContent.svelte';
+  import ExternalLink from '$lib/components/ExternalLink.svelte';
   import CareerAlgorithmContestGistCover from '$lib/assets/CareerAlgorithmContestGist-cover.webp';
 </script>
 
