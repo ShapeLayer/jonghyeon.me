@@ -157,7 +157,7 @@
   "career_details_project_namumark_li_2": "Deriving: ",
   "career_title_project_unity_merge": "Unity Merge",
   "career_details_project_unity_merge_li_0": "유니티의 UnityYAMLMerge 도구로 개발 분기를 병합할 때, 유니티 메타데이터 구조의 uuid 식별자 변화를 추적하지 않아 병합에 실패하는 상황을 개선",
-  "career_details_project_unity_merge_li_1": "전체 커밋에 대해 사용된 uuid 값을 uuid:path 쌍을 만들어 리포지토리에서 함께 관리하도록 하여, uuid 식별자 변화를 추적하면서 YAML 병합을 수행하도록 개발",
+  "career_details_project_unity_merge_li_1": "전체 커밋에 대해 사용된 uuid 값을 uuid:path 쌍으로 만들어 리포지토리에서 함께 관리하도록 하여, uuid 식별자 변화를 추적하면서 YAML 병합을 수행하도록 개발",
   "career_details_project_prefix_generator": "네이버 실시간 검색어 최고 10대/20대 부분 1위",
   "extlink_site_name_prefix_gen": "악질이름생성기",
   "extlink_post_title_reviewing_prefix_generator": "<악질 이름 생성기를 되돌아보며>",
