@@ -7,5 +7,8 @@
   id='activity-cnu-club-stolio'
   title={m.career_title_activity_cnu_club_stolio()}
 >
-  {m.career_details_activity_cnu_club_stolio_lead()}
+  <ul>
+    <li>{m.career_details_activity_cnu_club_stolio_li_0()}</li>
+    <li>{m.career_details_activity_cnu_club_stolio_li_1()}</li>
+  </ul>
 </CareerItem>

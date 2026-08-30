@@ -7,6 +7,8 @@
   id='paper-smart-media22'
   title={m.career_title_paper_smartmedia22()}
 >
-  {m.career_details_paper_smartmedia22()}<br />
-  {m.career_authors_paper_smartmedia22()}
+  <ul>
+    <li>{m.career_details_paper_smartmedia22()}</li>
+    <li>{m.career_authors_paper_smartmedia22()}</li>
+  </ul>
 </CareerItem>

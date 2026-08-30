@@ -62,8 +62,9 @@
     Material Symbols Outlined icons:
     open_in_new: ExternalLink.svelte
     close: Popup.svelte
+    right_panel_close: CareerItem.svelte
   -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close,open_in_new" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close,open_in_new,right_panel_close" />
 
   <!-- Kakao Map -->
   <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>

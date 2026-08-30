@@ -4,11 +4,10 @@
 </script>
 
 <CareerItem
-  id='work-roka'
-  title={m.career_title_work_roka()}
+  id='work-dedam-math-science-lecturer'
+  title={m.career_title_work_dedam_math_science_lecturer()}
 >
   <ul>
-    <li>{m.career_details_work_roka_li_0()}</li>
-    <li>{m.career_details_work_roka_li_1()}</li>
+    <li>{m.career_details_work_dedam_math_science_lecturer_li_0()}</li>
   </ul>
 </CareerItem>

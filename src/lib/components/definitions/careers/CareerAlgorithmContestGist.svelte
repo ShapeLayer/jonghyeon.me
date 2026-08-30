@@ -10,7 +10,10 @@
   id='algorithm-contest-gist'
   title={m.career_title_algorithm_contest_gist()}
 >
-  {m.career_details_algorithm_contest_gist()}
+  <ul>
+    <li>{m.career_details_algorithm_contest_gist()}</li>
+    <li><ExternalLink href='https://m.etnews.com/20240719000005'>{m.etnews()}</ExternalLink></li>
+  </ul>
   {#snippet detailContent()}
   <CareerItemDetailContent
     title={m.career_contents_algorithm_contest_gist_title()}
@@ -23,10 +26,6 @@
       }
     </style>
     <div class="career-algorithm-contest-gist-cover">
-      <p>
-        <img src={CareerAlgorithmContestGistCover} alt="" /><br />
-        Source: <ExternalLink href='https://m.etnews.com/20240719000005'>{m.etnews()}</ExternalLink>
-      </p>
     </div>
     <style>
       #gist-masters-see-more ul {
@@ -38,8 +37,6 @@
       }
     </style>
     <div id="gist-masters-see-more" class="content">
-      <p>{m.career_contents_algorithm_contest_gist_body_1()}</p>
-      <p>{m.career_contents_algorithm_contest_gist_body_2()}</p>
       <span>{m.problems()}</span>
       <ul>
         <li><ExternalLink href='https://archive.is/TaEdZ'>{m.career_contents_algorithm_contest_gist_prob_a()}</ExternalLink></li>

@@ -9,7 +9,9 @@
   id='activity-cnu-club-pimm'
   title={m.career_title_activity_cnu_club_pimm()}
 >
-  {m.career_details_activity_cnu_club_pimm_lead()}
+  <ul>
+    <li>{m.career_details_activity_cnu_club_pimm_lead()}</li>
+  </ul>
   {#snippet detailContent()}
   <CareerItemDetailContent
     title="전남대학교 게임개발동아리 PIMM"

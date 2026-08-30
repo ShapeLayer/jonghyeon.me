@@ -7,7 +7,4 @@
 <CareerItem
   id='work-ielab'
   title={m.career_title_work_ielab()}
->
-  {m.advisor_prof()}: {m.kim_jin_young()}
-  <ExternalLink href="https://ieeexplore.ieee.org/author/38185528600">({m.ieee_author_data()})</ExternalLink>
-</CareerItem>
+/>

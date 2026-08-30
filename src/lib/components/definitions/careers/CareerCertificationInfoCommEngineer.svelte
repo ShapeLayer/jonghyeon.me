@@ -4,6 +4,6 @@
 </script>
 
 <CareerItem
-  id='certification-network-manager'
-  title={m.career_title_certification_network_manager()}
+  id='certification-info-comm-engineer'
+  title={m.career_title_certification_info_comm_engineer()}
 />

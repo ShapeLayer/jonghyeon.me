@@ -2,12 +2,22 @@
   import { type Snippet, getContext, setContext } from 'svelte';
   import { m } from '$lib/paraglide/messages';
   import Popup from '$lib/components/Popup.svelte';
-  import { getCareerItem, getCareerTags, matchesCareerTags } from '$lib/models/careers';
+  import CareerTagList from '$lib/components/CareerTagList.svelte';
+  import type { Date as CareerDate } from '$lib/models/date';
+  import { getCareerItem, getCareerSection, getCareerTags, matchesCareerPeriod, matchesCareerTags } from '$lib/models/careers';
 
   interface CareerListControls {
     selectedTagIdentifiers: string[];
+    periodFilter: { start?: CareerDate; end?: CareerDate } | undefined;
     isFiltered: boolean;
     orderOf: (id: string) => number;
+    isSectionExpanded: (sectionId: string) => boolean;
+  }
+
+  interface CareerPopupRequest {
+    pendingId: string | null;
+    request: (id: string) => void;
+    clear: () => void;
   }
 
   interface Props {
@@ -15,29 +25,41 @@
     detailContent?: Snippet;
     id: string;
     title: string;
+    /** Struck through in the title, for a credential that's no longer valid. */
+    expired?: boolean;
+    /** Keeps startsAt/endsAt driving filtering and sorting, but skips rendering the date next to the title. */
+    hideDatetime?: boolean;
   }
   let {
     children,
     detailContent,
     id,
-    title
+    title,
+    expired = false,
+    hideDatetime = false
   }: Props = $props();
 
   /** Dates and tags of the item live in the career model, keyed by id. */
-  const { startsAt, endsAt, current = false } = getCareerItem(id) ?? {};
+  const { startsAt, endsAt, current = false, hidden = false } = getCareerItem(id) ?? {};
+  const sectionId = getCareerSection(id)?.identifier ?? '';
 
   let datetime: string = $derived(
-    `${startsAt?.year ?? ''}${startsAt?.month ? `.${String(startsAt.month).padStart(2, '0')}` : ''}${startsAt?.day ? `.${String(startsAt.day).padStart(2, '0')}` : ''}` + 
-    `${(endsAt || current) ? '-' : ''}`+ 
+    `${startsAt?.year ?? ''}${startsAt?.month ? `.${String(startsAt.month).padStart(2, '0')}` : ''}${startsAt?.day ? `.${String(startsAt.day).padStart(2, '0')}` : ''}` +
+    `${(endsAt || current) ? '-' : ''}`+
     `${endsAt ? `${endsAt.year}${endsAt.month ? `.${String(endsAt.month).padStart(2, '0')}` : ''}${endsAt.day ? `.${String(endsAt.day).padStart(2, '0')}` : ''}` : current ? m.present() : ''}`
   );
   const tags = getCareerTags(id);
   let isExpanded = $state(false);
   const listControls = getContext<CareerListControls | undefined>('career-list-controls');
-  let isVisible = $derived(matchesCareerTags(id, listControls?.selectedTagIdentifiers ?? []));
+  /** Behind the section's show-more toggle in the default view, unless a filter or sort already surfaced it. */
+  let isVisible = $derived(
+    matchesCareerTags(id, listControls?.selectedTagIdentifiers ?? []) &&
+    matchesCareerPeriod(id, listControls?.periodFilter?.start, listControls?.periodFilter?.end) &&
+    (!hidden || Boolean(listControls?.isFiltered) || Boolean(listControls?.isSectionExpanded(sectionId)))
+  );
   let listOrder = $derived(listControls?.orderOf(id) ?? 0);
-  /** Without the section headings the tags are what tells the items apart. */
-  let showTags = $derived(tags.length > 0 && (isExpanded || Boolean(listControls?.isFiltered)));
+  /** Behind the expand toggle in the default view, unless a filter already surfaced it; stack tags stay visible regardless. */
+  let tagsExpanded = $derived(isExpanded || Boolean(listControls?.isFiltered));
 
   setContext('career-tags', tags);
 
@@ -48,6 +70,15 @@
     if (detailContent) popupComponent?.open();
     else isExpanded = !isExpanded;
   };
+
+  /** A tag elsewhere on the page (e.g. a project tag) can ask to open this item's popup. */
+  const popupRequest = getContext<CareerPopupRequest | undefined>('career-popup-request');
+  $effect(() => {
+    if (detailContent && popupRequest?.pendingId === id) {
+      popupComponent?.open();
+      popupRequest.clear();
+    }
+  });
 </script>
 
 <style>
@@ -56,13 +87,15 @@
     border-radius: 4px;
     margin: .3em 0;
   }
+  /* Resting state carries no shading; the fill is what the pointer reveals. */
   :global(.career-item.interactive) {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: transparent;
     cursor: pointer;
     transition: background-color .2s;
   }
-  :global(.career-item.interactive:hover) {
-    background-color: rgba(0, 0, 0, 0.1);
+  :global(.career-item.interactive:hover),
+  :global(.career-item.interactive:focus-visible) {
+    background-color: rgba(0, 0, 0, 0.07);
   }
   .career-item-wrapper {
     position: relative;
@@ -80,7 +113,13 @@
     padding-top: .1em; /* font-size of .career-title is over .1em */
   }
   .career-title {
+    display: inline-flex;
+    align-items: center;
+    gap: .2em;
     font-size: 1.1em;
+  }
+  .career-title-content.expired {
+    text-decoration: line-through;
   }
   .career-summary {
     display: inline-block;
@@ -102,18 +141,10 @@
   .career-detail {
     font-size: .8em;
   }
-  .career-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .35em;
-    margin: .35em 0 0;
-  }
-  .career-tag {
-    border-radius: 999px;
-    font-size: .7em;
-    font-style: normal;
-    line-height: 1;
-    padding: .4em .55em;
+  @media (max-width: 600px) {
+    .career-datetime {
+      display: block;
+    }
   }
 </style>
 
@@ -121,19 +152,22 @@
 <div id={id} class:interactive={Boolean(detailContent) || tags.length > 0} class="career-item" bind:this={rootElement} onclick={onClickHandler} role="button" tabindex="0" onkeydown={(event) => (event.key === 'Enter' || event.key === ' ') && onClickHandler()}>
   <div class="career-item-wrapper">
     <div class="career-summary">
-      <span class="career-title">{title}</span>
-      <div class="career-datetime">{datetime}</div>
+      <span class="career-title">
+        <span class="career-title-content" class:expired>{title}</span>
+        {#if detailContent}
+          <span class="material-symbols-outlined" style="font-size: 1em;">right_panel_close</span>
+        {/if}
+      </span>
+      {#if !hideDatetime}
+        <div class="career-datetime">{datetime}</div>
+      {/if}
     </div>
+    {#if tags.length}
+      <CareerTagList {tags} expanded={tagsExpanded} />
+    {/if}
     <p class="career-detail">
       {@render children?.()}
     </p>
-    {#if showTags}
-      <div class="career-tags" aria-label="Career tags">
-        {#each tags as tag (tag.identifier)}
-          <span class="career-tag" style:background-color={tag.backgroundColor} style:color={tag.foregroundColor} title={tag.description()}>{tag.displayName()}</span>
-        {/each}
-      </div>
-    {/if}
   </div>
 </div>
 {#if detailContent}
