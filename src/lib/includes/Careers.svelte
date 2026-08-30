@@ -25,8 +25,9 @@
   import CareerPaperSmartMedia22 from '$lib/components/definitions/careers/CareerPaperSmartMedia22.svelte';
   import CareerProjectHccc22Page from '$lib/components/definitions/project/CareerProjectHccc22Page.svelte';
   import CareerProjectIwfcv22Page from '$lib/components/definitions/project/CareerProjectIwfcv22Page.svelte';
-  import CareerProjectPrefixGenerator from '$lib/components/definitions/project/CareerProjectPrefixGenerator.svelte';
   import CareerProjectSignLanguageClient from '$lib/components/definitions/project/CareerProjectSignLanguageClient.svelte';
+  import CareerProjectKtasTrainer from '$lib/components/definitions/project/CareerProjectKtasTrainer.svelte';
+  import CareerProjectPrefixGenerator from '$lib/components/definitions/project/CareerProjectPrefixGenerator.svelte';
   import CareerProjectZodiacComplex from '$lib/components/definitions/project/CareerProjectZodiacComplex.svelte';
   import CareerWorkCnuUccWorkingScholarship from '$lib/components/definitions/careers/CareerWorkCnuUccWorkingScholarship.svelte';
   import CareerWorkIeLab from '$lib/components/definitions/careers/CareerWorkIeLab.svelte';
@@ -75,6 +76,7 @@
     'work-jamcoding-lecturer': CareerWorkJamcodingLecturer,
     'work-dedam-math-science-lecturer': CareerWorkDedamMathScienceLecturer,
     'career-project-prefix-gen': CareerProjectPrefixGenerator,
+    'project-ktas-trainer': CareerProjectKtasTrainer,
     'proejct-sign-language-client': CareerProjectSignLanguageClient,
     'project-hccc22-page': CareerProjectHccc22Page,
     'project-iwfcv22-page': CareerProjectIwfcv22Page,
@@ -101,7 +103,7 @@
     'works-typst-packages': WorkTypstPackages
   };
   /** The note rendered at the end of a section, if it has one. */
-  const sectionsWithGithubNote = ['works'];
+  const sectionsWithGithubNote = ['works', 'develops'];
 
   /** Every dimension is picked through its own tag screen: section/topic/era show a checkbox list of values,
    *  period shows a date-range picker instead. Each tag screen also carries its own sort toggle at the top,

@@ -10,6 +10,8 @@
 >
   <ul>
     <li><ExternalLink href='https://hccc2022.github.io'>{m.extlink_site_name_hccc22()}</ExternalLink></li>
-    <li>{m.career_details_project_hccc22_page()}</li>
+    <li>{m.career_details_project_hccc22_page_li_1()}</li>
+    <li>{m.career_details_project_hccc22_page_li_2()}</li>
+    <li>{m.career_details_project_hccc22_page_li_3()}</li>
   </ul>
 </CareerItem>

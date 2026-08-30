@@ -215,8 +215,20 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_works(),
     tagIdentifiers: [],
     items: [
-      { id: 'works-cellular', startsAt: { year: 2026, month: 8 }, tagIdentifiers: ['ktas-trainer', 'driven', 'rust', 'typescript'] },
+      { id: 'project-ktas-trainer', startsAt: { year: 2025, month: 8 }, current: true, tagIdentifiers: ['csharp', 'unity', 'ktas-trainer', 'research', 'game', 'era-university', 'driven'] },
       { id: 'project-zodiac-complex', startsAt: { year: 2025, month: 7 }, endsAt: { year: 2025, month: 8 }, tagIdentifiers: ['game', 'csharp', 'unity', 'naninovel'] },
+      { id: 'project-hccc22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll'] },
+      { id: 'project-iwfcv22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll'] },
+      { id: 'proejct-sign-language-client', startsAt: { year: 2021, month: 6 }, endsAt: { year: 2022, month: 7 }, tagIdentifiers: ['game', 'research', 'pre-ai', 'sign-language', 'csharp', 'unity'] }
+    ]
+  },
+  {
+    identifier: 'develops',
+    tab: 'works',
+    title: () => m.career_section_develops(),
+    tagIdentifiers: [],
+    items: [
+      { id: 'works-cellular', startsAt: { year: 2026, month: 8 }, tagIdentifiers: ['ktas-trainer', 'driven', 'rust', 'typescript'] },
       {
         id: 'works-typst-packages',
         startsAt: { year: 2024, month: 7 },
@@ -227,9 +239,6 @@ export const careerSections: CareerSection[] = [
         ]
       },
       { id: 'works-turbo-waffle', startsAt: { year: 2023, month: 8 }, endsAt: { year: 2023, month: 9 }, tagIdentifiers: ['pimm-algo-party', 'pre-ai', 'nodejs', 'nunjucks', 'puppeteer'] },
-      { id: 'project-hccc22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll'] },
-      { id: 'project-iwfcv22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll'] },
-      { id: 'proejct-sign-language-client', startsAt: { year: 2021, month: 6 }, endsAt: { year: 2022, month: 7 }, tagIdentifiers: ['game', 'research', 'pre-ai', 'sign-language', 'csharp', 'unity'] },
       { id: 'career-project-prefix-gen', startsAt: { year: 2020, month: 5 }, tagIdentifiers: ['pre-ai'] }
     ]
   }

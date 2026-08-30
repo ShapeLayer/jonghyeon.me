@@ -1,7 +1,7 @@
 <style>
 .wave-container {  
   height: 40vh;
-  background: url("$lib/assets/ivory-grid.jpeg") no-repeat center center;
+  background: var(--base-bg-color);
   position: relative;
 }
 
