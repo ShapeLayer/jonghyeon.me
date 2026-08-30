@@ -88,6 +88,7 @@ export const careerTags: CareerTag[] = [
   { identifier: 'csharp', displayName: () => m.career_tag_csharp(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'c', displayName: () => m.career_tag_c(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'cpp', displayName: () => m.career_tag_cpp(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
+  { identifier: 'r', displayName: () => m.career_tag_r(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'python', displayName: () => m.career_tag_python(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'unity', displayName: () => m.career_tag_unity(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'naninovel', displayName: () => m.career_tag_naninovel(), description: () => m.career_tag_naninovel_description(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
@@ -230,8 +231,9 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_develops(),
     tagIdentifiers: [],
     items: [
-      { id: 'project-unity-merge', tagIdentifiers: ['cpp', 'ktas-trainer', 'driven'] },
+      { id: 'project-hannlp', startsAt: { year: 2026, month: 6 }, endsAt: { year: 2026, month: 8 }, tagIdentifiers: ['c', 'r', 'driven'], hidden: true },
       { id: 'works-cellular', startsAt: { year: 2026, month: 8 }, tagIdentifiers: ['ktas-trainer', 'driven', 'rust', 'typescript'] },
+      { id: 'project-unity-merge', startsAt: { year: 2026, month: 7 }, tagIdentifiers: ['cpp', 'ktas-trainer', 'driven'] },
       { id: 'project-namumark', startsAt: { year: 2025, month: 1 }, endsAt: { year: 2026, month: 1 }, tagIdentifiers: ['c', 'limited'] },
       {
         id: 'works-typst-packages',
@@ -242,6 +244,7 @@ export const careerSections: CareerSection[] = [
           { id: 'works-typst-packages-furiruby', tagIdentifiers: ['language', 'japanese-literature'] }
         ]
       },
+      { id: 'project-gfm2polygon-statement', startsAt: { year: 2024, month: 7 }, tagIdentifiers: ['cpp', 'pre-ai', 'pimm-algo-party', ], hidden: true },
       { id: 'works-turbo-waffle', startsAt: { year: 2023, month: 8 }, endsAt: { year: 2023, month: 9 }, tagIdentifiers: ['pimm-algo-party', 'pre-ai', 'nodejs', 'nunjucks', 'puppeteer'] },
       { id: 'career-project-prefix-gen', startsAt: { year: 2020, month: 5 }, tagIdentifiers: ['pre-ai'], hidden: true }
     ]

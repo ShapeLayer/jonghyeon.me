@@ -31,6 +31,8 @@
   import CareerProjectZodiacComplex from '$lib/components/definitions/project/CareerProjectZodiacComplex.svelte';
   import CareerProjectNamumark from '$lib/components/definitions/project/CareerProjectNamumark.svelte';
   import CareerProjectUnityMerge from '$lib/components/definitions/project/CareerProjectUnityMerge.svelte';
+  import CareerProjectGfm2polygonStatement from '$lib/components/definitions/project/CareerProjectGfm2polygonStatement.svelte';
+  import CareerProjectHannlp from '$lib/components/definitions/project/CareerProjectHannlp.svelte';
   import CareerWorkCnuUccWorkingScholarship from '$lib/components/definitions/careers/CareerWorkCnuUccWorkingScholarship.svelte';
   import CareerWorkIeLab from '$lib/components/definitions/careers/CareerWorkIeLab.svelte';
   import CareerWorkImageLab from '$lib/components/definitions/careers/CareerWorkImageLab.svelte';
@@ -85,6 +87,8 @@
     'project-zodiac-complex': CareerProjectZodiacComplex,
     'project-namumark': CareerProjectNamumark,
     'project-unity-merge': CareerProjectUnityMerge,
+    'project-gfm2polygon-statement': CareerProjectGfm2polygonStatement,
+    'project-hannlp': CareerProjectHannlp,
     'achievement-cnu-startup21': CareerAchievementCnuStartup21,
     'achievement-icpc-21': CareerAchievementIcpc21,
     'paper-smart-media21': CareerPaperSmartMedia21,
@@ -310,7 +314,12 @@
     const headerBounds = careersHeaderElement.getBoundingClientRect();
     isHeaderStuck = headerBounds.top <= 0 && sectionBounds.bottom > headerBounds.height;
   };
-  onMount(onWindowScroll);
+  onMount(() => {
+    // `opened=projects` is the public URL name for the internally named works tab.
+    // Any missing or unsupported value deliberately retains history as the default.
+    if (new URLSearchParams(window.location.search).get('opened') === 'projects') activeTab = 'works';
+    onWindowScroll();
+  });
   const sortToggleGlyph = (state: SortToggleState) => (state === 'asc' ? '↑' : state === 'desc' ? '↓' : '•');
   const formatCareerDate = (date?: CareerDate): string =>
     date ? `${date.year}.${String(date.month ?? 1).padStart(2, '0')}.${String(date.day ?? 1).padStart(2, '0')}` : '';

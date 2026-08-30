@@ -8,7 +8,7 @@
   <ul>
     <li><ExternalLink href='https://github.com/ShapeLayer/namumark'>GitHub</ExternalLink></li>
     <li>{m.career_details_project_namumark_li_0()}</li>
-    <li>{m.career_details_project_namumark_li_1()} <ExternalLink href='https://github.com/github/cmark-gfm'>github/cmark-gfm</ExternalLink></li>
+    <li>{m.career_details_project_namumark_li_1_before()}<ExternalLink href='https://github.com/github/cmark-gfm'>github/cmark-gfm</ExternalLink>{m.career_details_project_namumark_li_1_after()}</li>
     <li>{m.career_details_project_namumark_li_2()} <ExternalLink href='https://github.com/openNAMU/namumark-editor-ast-experimental'>namumark-editor-ast-experimental</ExternalLink></li>
   </ul>
 </CareerItem>
