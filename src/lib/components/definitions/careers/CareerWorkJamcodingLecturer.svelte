@@ -11,5 +11,6 @@
     <li>{m.career_details_work_jamcoding_lecturer_li_0()}</li>
     <li>{m.career_details_work_jamcoding_lecturer_li_1()}</li>
     <li>{m.career_details_work_jamcoding_lecturer_li_2()}</li>
+    <li>{m.career_details_work_jamcoding_lecturer_li_3()}</li>
   </ul>
 </CareerItem>
