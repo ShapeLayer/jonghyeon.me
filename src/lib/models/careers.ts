@@ -90,6 +90,7 @@ export const careerTags: CareerTag[] = [
   { identifier: 'cpp', displayName: () => m.career_tag_cpp(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'r', displayName: () => m.career_tag_r(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'python', displayName: () => m.career_tag_python(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
+  { identifier: 'flask', displayName: () => m.career_tag_flask(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'unity', displayName: () => m.career_tag_unity(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'naninovel', displayName: () => m.career_tag_naninovel(), description: () => m.career_tag_naninovel_description(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'jekyll', displayName: () => m.jekyll(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
@@ -222,7 +223,8 @@ export const careerSections: CareerSection[] = [
       { id: 'project-zodiac-complex', startsAt: { year: 2025, month: 7 }, endsAt: { year: 2025, month: 8 }, tagIdentifiers: ['game', 'csharp', 'unity', 'naninovel'] },
       { id: 'project-hccc22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll'] },
       { id: 'project-iwfcv22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll'] },
-      { id: 'proejct-sign-language-client', startsAt: { year: 2021, month: 6 }, endsAt: { year: 2022, month: 7 }, tagIdentifiers: ['game', 'research', 'pre-ai', 'sign-language', 'csharp', 'unity'] }
+      { id: 'project-sign-language-client', startsAt: { year: 2021, month: 6 }, endsAt: { year: 2022, month: 7 }, tagIdentifiers: ['game', 'research', 'pre-ai', 'sign-language', 'csharp', 'unity'] },
+      { id: 'project-sdok-fetea', startsAt: { year: 2019 }, tagIdentifiers: ['python', 'flask', 'pre-ai'] },
     ]
   },
   {

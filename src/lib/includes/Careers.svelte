@@ -33,6 +33,7 @@
   import CareerProjectUnityMerge from '$lib/components/definitions/project/CareerProjectUnityMerge.svelte';
   import CareerProjectGfm2polygonStatement from '$lib/components/definitions/project/CareerProjectGfm2polygonStatement.svelte';
   import CareerProjectHannlp from '$lib/components/definitions/project/CareerProjectHannlp.svelte';
+  import CareerProjectSdokFetea from '$lib/components/definitions/project/CareerProjectSdokFetea.svelte';
   import CareerWorkCnuUccWorkingScholarship from '$lib/components/definitions/careers/CareerWorkCnuUccWorkingScholarship.svelte';
   import CareerWorkIeLab from '$lib/components/definitions/careers/CareerWorkIeLab.svelte';
   import CareerWorkImageLab from '$lib/components/definitions/careers/CareerWorkImageLab.svelte';
@@ -81,7 +82,7 @@
     'work-dedam-math-science-lecturer': CareerWorkDedamMathScienceLecturer,
     'career-project-prefix-gen': CareerProjectPrefixGenerator,
     'project-ktas-trainer': CareerProjectKtasTrainer,
-    'proejct-sign-language-client': CareerProjectSignLanguageClient,
+    'project-sign-language-client': CareerProjectSignLanguageClient,
     'project-hccc22-page': CareerProjectHccc22Page,
     'project-iwfcv22-page': CareerProjectIwfcv22Page,
     'project-zodiac-complex': CareerProjectZodiacComplex,
@@ -89,6 +90,7 @@
     'project-unity-merge': CareerProjectUnityMerge,
     'project-gfm2polygon-statement': CareerProjectGfm2polygonStatement,
     'project-hannlp': CareerProjectHannlp,
+    'project-sdok-fetea': CareerProjectSdokFetea,
     'achievement-cnu-startup21': CareerAchievementCnuStartup21,
     'achievement-icpc-21': CareerAchievementIcpc21,
     'paper-smart-media21': CareerPaperSmartMedia21,
