@@ -740,8 +740,9 @@
   .list-view :global(.career-entry .career-item) { margin: 0; }
   .list-view .careers-header { margin-bottom: .9em; } /* .9em + the .3em gap = the 1.2em of the default view */
   .list-view .careers-panel, .list-view .careers-content { display: contents; }
-  .list-view .careers-content > h3,
-  .list-view .careers-content > .note { display: none; }
+  .list-view .careers-content > h3 { display: none; }
+  /* `display: contents` makes this note a flex item alongside sorted entries. Keep it below every entry. */
+  .list-view .github-projects-note { order: 2147483647; }
   .list-view :global(.career-entry) { width: 100%; }
   /* A section left with nothing to show still needs its toggle reachable when hidden items are tucked behind it. */
   .careers-content:not(:has(:global(.career-entry:not([hidden])))):not(:has(.section-toggle)) { display: none; }
@@ -940,12 +941,6 @@
       {/each}
     </div>
   {/each}
-  <ul class="note">
-    <li>
-      {m.career_more_projects_github()}
-      <ExternalLink href="https://github.com/ShapeLayer?tab=repositories">GitHub</ExternalLink>
-    </li>
-  </ul>
   {#if hiddenItems.length > 0 && !isFiltered}
     <button
       class="section-toggle"
@@ -967,6 +962,12 @@
       </div>
     {/if}
   {/if}
+  <ul class="note github-projects-note">
+    <li>
+      {m.career_more_projects_github()}
+      <ExternalLink href="https://github.com/ShapeLayer?tab=repositories">GitHub</ExternalLink>
+    </li>
+  </ul>
   </div>
   {#if menuTooltip}
     <div
