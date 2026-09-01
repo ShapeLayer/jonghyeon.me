@@ -157,7 +157,7 @@
   "career_title_project_sdok_fetea": "숭덕고 갤러리 및 Fe-tea 엔진",
   "career_details_project_sdok_fetea_li_0": "2019년 숭덕고등학교 학생회 의뢰로 개발한 게시판 엔진 및 운영한 건의 게시판 웹 서비스",
   "career_details_project_sdok_fetea_li_1": "Python, Flask, SQLite3 기반의 익명 웹 게시판과 피드 기능 지원",
-  "career_details_project_sdok_fetea_li_2": "OAuth2 로그인과 리스크 관리 측면에서 나무위키를 벤치마크한 ACL 시스템 구현",
+  "career_details_project_sdok_fetea_li_2": "OAuth2 로그인, 나무위키를 벤치마크한 ACL 시스템 구현",
   "career_details_project_sdok_fetea_li_3": "라즈베리 파이 3 모델 B에서 서비스를 운용한 경량 웹 엔진",
   "career_details_project_sdok_fetea_li_4": "",
   "career_title_project_namumark": "Namumark",

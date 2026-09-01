@@ -144,7 +144,7 @@
   "career_title_project_sdok_fetea": "숭덕高校ギャラリー及びFe-teaエンジン",
   "career_details_project_sdok_fetea_li_0": "2019年に숭덕高校生徒会の依頼で開発した掲示板エンジンと、運用した提案掲示板ウェブサービス",
   "career_details_project_sdok_fetea_li_1": "Python、Flask、SQLite3を基盤とした匿名ウェブ掲示板及びフィード機能をサポート",
-  "career_details_project_sdok_fetea_li_2": "OAuth2ログインと、リスク管理の観点からナムウィキをベンチマークしたACLシステムを実装",
+  "career_details_project_sdok_fetea_li_2": "OAuth2ログイン、ナムウィキをベンチマークしたACLシステムを実装",
   "career_details_project_sdok_fetea_li_3": "Raspberry Pi 3 Model Bでサービスを運用した軽量ウェブエンジン",
   "career_details_project_sdok_fetea_li_4": "",
   "career_title_project_gfm2polygon_statement": "GFM to Polygon Statement",

@@ -144,7 +144,7 @@
   "career_title_project_sdok_fetea": "Sungdeok High School Gallery and Fe-tea Engine",
   "career_details_project_sdok_fetea_li_0": "A bulletin-board engine commissioned by the Sungdeok High School student council in 2019, and a suggestion-board web service operated with it",
   "career_details_project_sdok_fetea_li_1": "An anonymous web bulletin board and feed built with Python, Flask, and SQLite3",
-  "career_details_project_sdok_fetea_li_2": "Implemented OAuth2 login and an ACL system benchmarked against Namu Wiki from a risk-management perspective",
+  "career_details_project_sdok_fetea_li_2": "Implemented OAuth2 login and an ACL system benchmarked against Namu Wiki",
   "career_details_project_sdok_fetea_li_3": "A lightweight web engine operated as a service on a Raspberry Pi 3 Model B",
   "career_details_project_sdok_fetea_li_4": "",
   "career_title_project_namumark": "Namumark",
