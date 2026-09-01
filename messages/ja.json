@@ -113,6 +113,8 @@
   "career_section_certification": "CERTIFICATIONS",
   "career_section_etc": "MISC",
   "career_filter_reset": "リセット",
+  "career_filter_exclude_hidden": "非表示項目を除外",
+  "career_filter_include_hidden": "非表示項目を含める",
   "career_filter_result_count": "全{total}件中 {shown}件を表示中。",
   "career_section_show_more": "もっと見る（{count}件）",
   "career_section_hide": "隠す",

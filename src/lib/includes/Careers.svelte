@@ -175,6 +175,9 @@
     const next: SortToggleState = current === 'none' ? 'asc' : current === 'asc' ? 'desc' : 'none';
     sortDirections = { ...sortDirections, [criterionIdentifier]: next };
   };
+  const clearSortDirection = (criterionIdentifier: string) => {
+    sortDirections = { ...sortDirections, [criterionIdentifier]: 'none' };
+  };
 
   /** The tab bar switches which sections the list below is built from; filters and sorts carry across. */
   let activeTab: CareerTabIdentifier = $state('history');
@@ -202,11 +205,18 @@
       .filter((criterion) => (sortDirections[criterion.identifier] ?? 'none') !== 'none')
       .map((criterion) => ({ criterionIdentifier: criterion.identifier, direction: sortDirections[criterion.identifier] as SortDirection }))
   );
+  let activeSortCriteria = $derived(
+    careerSortCriteria.filter((criterion) => (sortDirections[criterion.identifier] ?? 'none') !== 'none')
+  );
   let orderById = $derived(new Map(sortCareerItemIds(sortConditions).map((id, index) => [id, index])));
+  /** Hidden entries remain excluded from filter and sort results unless explicitly included. */
+  let excludeHiddenItems = $state(true);
+  let includeHiddenItems = $derived(!excludeHiddenItems);
   /** Section headings only make sense while the list is laid out section by section. */
-  let isFiltered = $derived(selectedTagIdentifiers.length > 0 || sortConditions.length > 0 || Boolean(periodFilter));
+  let isFiltered = $derived(selectedTagIdentifiers.length > 0 || sortConditions.length > 0 || Boolean(periodFilter) || includeHiddenItems);
+  let visibleItems = $derived(tabSections.flatMap((section) => section.items).filter((item) => includeHiddenItems || !item.hidden));
   let shownCount = $derived(
-    allItemIds.filter((id) => matchesCareerTags(id, selectedTagIdentifiers) && matchesCareerPeriod(id, periodFilter?.periodStart, periodFilter?.periodEnd)).length
+    visibleItems.filter((item) => matchesCareerTags(item.id, selectedTagIdentifiers) && matchesCareerPeriod(item.id, periodFilter?.periodStart, periodFilter?.periodEnd)).length
   );
 
   /** Hidden entries are collected below the active tab until the visitor asks to see them. */
@@ -273,6 +283,7 @@
     conditions = [];
     openMenuId = null;
     sortDirections = Object.fromEntries(careerSortCriteria.map((criterion) => [criterion.identifier, 'none' as SortToggleState]));
+    excludeHiddenItems = true;
   };
   /** Conditions left without a value when their menu goes away never became a filter. */
   const closeMenu = () => {
@@ -560,14 +571,14 @@
     box-shadow: 0 4px 14px rgba(0, 0, 0, .12);
   }
   .menu-group-label {
-    margin: 1.1em .5em .25em;
+    margin: 1.1em .5em .5em;
     font-size: .9em;
     font-weight: 700;
     letter-spacing: .04em;
     text-transform: uppercase;
     color: var(--base-fg-color-brighter);
   }
-  .menu-group-label:first-child { margin-top: .2em; }
+  .menu-group-label:first-child { margin-top: .5em; }
   .menu-item {
     display: flex;
     align-items: center;
@@ -697,6 +708,7 @@
     font-style: italic;
     color: var(--base-fg-color-brighter);
   }
+  .hidden-items-option input[type="checkbox"] { margin: 0; }
 
   .section-toggle {
     display: block;
@@ -868,10 +880,37 @@
                     {/each}
                   {/if}
                 {/if}
+                <label class="menu-item menu-item-checkbox hidden-items-option">
+                  <input type="checkbox" bind:checked={excludeHiddenItems} />
+                  {excludeHiddenItems ? m.career_filter_exclude_hidden() : m.career_filter_include_hidden()}
+                </label>
               </div>
             {/if}
           </span>
         {/each}
+        {#each activeSortCriteria as criterion (criterion.identifier)}
+          {@const direction = sortDirections[criterion.identifier] as SortDirection}
+          <span class="condition filled">
+            <span class="condition-label">{criterion.displayName()} {sortToggleGlyph(direction)}</span>
+            <button
+              class="condition-remove"
+              type="button"
+              aria-label={m.career_filter_remove()}
+              onclick={() => clearSortDirection(criterion.identifier)}
+            >×</button>
+          </span>
+        {/each}
+        {#if includeHiddenItems}
+          <span class="condition filled">
+            <span class="condition-label">{m.career_filter_include_hidden()}</span>
+            <button
+              class="condition-remove"
+              type="button"
+              aria-label={m.career_filter_remove()}
+              onclick={() => (excludeHiddenItems = true)}
+            >×</button>
+          </span>
+        {/if}
         <button
           class="add-condition"
           type="button"
@@ -894,7 +933,7 @@
     <div class="careers-content" data-section={section.identifier}>
       <h3>{section.title()}</h3>
       {#each section.items as item (item.id)}
-        {#if !item.hidden || isFiltered}
+        {#if !item.hidden || (isFiltered && includeHiddenItems)}
           {@const CareerDefinition = careerComponents[item.id]}
           <CareerDefinition />
         {/if}

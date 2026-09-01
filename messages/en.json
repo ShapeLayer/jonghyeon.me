@@ -113,6 +113,8 @@
   "career_section_certification": "CERTIFICATIONS",
   "career_section_etc": "MISC",
   "career_filter_reset": "Reset",
+  "career_filter_exclude_hidden": "Exclude hidden items",
+  "career_filter_include_hidden": "Include hidden items",
   "career_filter_result_count": "Showing {shown} of {total} items.",
   "career_section_show_more": "Show more ({count})",
   "career_section_hide": "Hide",

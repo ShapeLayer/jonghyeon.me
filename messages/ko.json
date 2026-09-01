@@ -123,6 +123,8 @@
   "career_section_certification": "CERTIFICATIONS",
   "career_section_etc": "MISC",
   "career_filter_reset": "초기화",
+  "career_filter_exclude_hidden": "숨김 항목 제외",
+  "career_filter_include_hidden": "숨김 항목 포함",
   "career_filter_result_count": "전체 {total}개 중 {shown}개 표시 중.",
   "career_section_show_more": "더 보기 ({count}개)",
   "career_section_hide": "숨기기",
