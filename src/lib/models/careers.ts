@@ -96,6 +96,7 @@ export const careerTags: CareerTag[] = [
   { identifier: 'jekyll', displayName: () => m.jekyll(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'rust', displayName: () => m.career_tag_rust(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'typescript', displayName: () => m.career_tag_typescript(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
+  { identifier: 'typst', displayName: () => m.career_tag_typst(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'nodejs', displayName: () => m.career_tag_nodejs(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'nunjucks', displayName: () => m.career_tag_nunjucks(), description: () => m.career_tag_nunjucks_description(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'puppeteer', displayName: () => m.career_tag_puppeteer(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' }
@@ -125,7 +126,7 @@ export const careerSections: CareerSection[] = [
     items: [
       { id: 'edu-bachelor-chonnam-natl-univ-ce', startsAt: { year: 2021, month: 3 }, current: true, tagIdentifiers: ['education'] },
       { id: 'edu-bachelor-chonnam-natl-univ-jp', startsAt: { year: 2026, month: 3 }, current: true, tagIdentifiers: ['education', 'language'] },
-      { id: 'work-dedam-math-science-lecturer', startsAt: { year: 2026, month: 7 }, current: true, tagIdentifiers: ['work'] }
+      { id: 'work-dedam-math-science-lecturer', startsAt: { year: 2026, month: 7 }, current: true, tagIdentifiers: ['work'], hidden: true },
     ]
   },
   {
@@ -134,8 +135,8 @@ export const careerSections: CareerSection[] = [
     tagIdentifiers: ['education'],
     items: [
       { id: 'edu-highschool-sdok', startsAt: { year: 2018, month: 3 }, endsAt: { year: 2021, month: 2 }, hidden: true },
-      { id: 'edu-bachelor-unlv-short-term', startsAt: { year: 2024, month: 8 }, tagIdentifiers: ['language', 'overseas'] },
-      { id: 'edu-bachelor-exchange-sage', startsAt: { year: 2025, month: 9 }, endsAt: { year: 2026, month: 2 }, tagIdentifiers: ['language', 'overseas'] }
+      { id: 'edu-bachelor-unlv-short-term', startsAt: { year: 2024, month: 8 }, tagIdentifiers: ['language', 'overseas'], hidden: true },
+      { id: 'edu-bachelor-exchange-saga', startsAt: { year: 2025, month: 9 }, endsAt: { year: 2026, month: 2 }, tagIdentifiers: ['language', 'overseas'] }
     ]
   },
   {
@@ -144,7 +145,7 @@ export const careerSections: CareerSection[] = [
     tagIdentifiers: ['work'],
     items: [
       { id: 'work-imagelab', startsAt: { year: 2021, month: 6 }, endsAt: { year: 2022, month: 7 }, tagIdentifiers: ['research'] },
-      { id: 'work-roka', startsAt: { year: 2022, month: 7 }, endsAt: { year: 2024, month: 1 } },
+      { id: 'work-roka', startsAt: { year: 2022, month: 7 }, endsAt: { year: 2024, month: 1 }, hidden: true },
       { id: 'work-ielab', startsAt: { year: 2024, month: 3 }, endsAt: { year: 2025, month: 2 }, tagIdentifiers: ['research'] },
       { id: 'work-cnu-ucc-working-scholarship', startsAt: { year: 2025, month: 3 }, endsAt: { year: 2025, month: 8 } },
       { id: 'work-jamcoding-lecturer', startsAt: { year: 2024, month: 1 }, endsAt: { year: 2026, month: 6 } }
@@ -155,7 +156,7 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_achievement(),
     tagIdentifiers: ['achievement'],
     items: [
-      { id: 'achievement-cnu-startup21', startsAt: { year: 2021, month: 12 } },
+      { id: 'achievement-cnu-startup21', startsAt: { year: 2021, month: 12 }, hidden: true },
       { id: 'achievement-icpc-21', startsAt: { year: 2021, month: 11, day: 13 }, tagIdentifiers: ['algorithm'] },
       { id: 'paper-smart-media21', startsAt: { year: 2021, month: 11 }, tagIdentifiers: ['research', 'pre-ai', 'sign-language', 'csharp', 'unity'] },
       { id: 'paper-smart-media22', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['research', 'pre-ai', 'sign-language', 'csharp', 'unity'] },
@@ -201,7 +202,7 @@ export const careerSections: CareerSection[] = [
       { id: 'certification-info-comm-engineer', startsAt: { year: 2026, month: 6, day: 12 } },
       { id: 'certification-topcit', startsAt: { year: 2025, month: 5, day: 24 } },
       { id: 'certification-computer', startsAt: { year: 2021, month: 7, day: 18 }, endsAt: { year: 2023, month: 10, day: 10 }, tagIdentifiers: ['algorithm', 'cloud-data'] },
-      { id: 'certification-aws', startsAt: { year: 2022, month: 1, day: 25 }, endsAt: { year: 2022, month: 10, day: 17 }, tagIdentifiers: ['cloud-data'] },
+      { id: 'certification-aws', startsAt: { year: 2022, month: 1, day: 25 }, endsAt: { year: 2022, month: 10, day: 17 }, tagIdentifiers: ['cloud-data'], hidden: true },
       { id: 'certification-language', startsAt: { year: 2021, month: 8, day: 8 }, endsAt: { year: 2026, month: 3, day: 29 }, tagIdentifiers: ['language'] }
     ]
   },
@@ -221,6 +222,7 @@ export const careerSections: CareerSection[] = [
     items: [
       { id: 'project-ktas-trainer', startsAt: { year: 2025, month: 8 }, current: true, tagIdentifiers: ['csharp', 'unity', 'ktas-trainer', 'research', 'game', 'era-university', 'driven'] },
       { id: 'project-zodiac-complex', startsAt: { year: 2025, month: 7 }, endsAt: { year: 2025, month: 8 }, tagIdentifiers: ['game', 'csharp', 'unity', 'naninovel'] },
+      { id: 'works-typst-maintaining', startsAt: { year: 2024, month: 7 }, current: true, tagIdentifiers: ['typst'] },
       { id: 'project-hccc22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll'] },
       { id: 'project-iwfcv22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll'] },
       { id: 'project-sign-language-client', startsAt: { year: 2021, month: 6 }, endsAt: { year: 2022, month: 7 }, tagIdentifiers: ['game', 'research', 'pre-ai', 'sign-language', 'csharp', 'unity'] },
@@ -237,15 +239,6 @@ export const careerSections: CareerSection[] = [
       { id: 'works-cellular', startsAt: { year: 2026, month: 8 }, tagIdentifiers: ['ktas-trainer', 'driven', 'rust', 'typescript'] },
       { id: 'project-unity-merge', startsAt: { year: 2026, month: 7 }, tagIdentifiers: ['cpp', 'ktas-trainer', 'driven'] },
       { id: 'project-namumark', startsAt: { year: 2025, month: 1 }, endsAt: { year: 2026, month: 1 }, tagIdentifiers: ['c', 'limited'] },
-      {
-        id: 'works-typst-packages',
-        startsAt: { year: 2024, month: 7 },
-        current: true,
-        subItems: [
-          { id: 'works-typst-packages-ucpc-solutions', tagIdentifiers: ['pimm-algo-party', 'algorithm'] },
-          { id: 'works-typst-packages-furiruby', tagIdentifiers: ['language', 'japanese-literature'] }
-        ]
-      },
       { id: 'project-gfm2polygon-statement', startsAt: { year: 2024, month: 7 }, tagIdentifiers: ['cpp', 'pre-ai', 'pimm-algo-party', ], hidden: true },
       { id: 'works-turbo-waffle', startsAt: { year: 2023, month: 8 }, endsAt: { year: 2023, month: 9 }, tagIdentifiers: ['pimm-algo-party', 'pre-ai', 'nodejs', 'nunjucks', 'puppeteer'] },
       { id: 'career-project-prefix-gen', startsAt: { year: 2020, month: 5 }, tagIdentifiers: ['pre-ai'], hidden: true }

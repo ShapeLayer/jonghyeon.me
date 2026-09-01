@@ -4,7 +4,7 @@
 </script>
 
 <CareerItem
-  id='edu-bachelor-exchange-sage'
+  id='edu-bachelor-exchange-saga'
   title={m.career_title_edu_bachelor_exchange_sage()}
 >
   <ul>

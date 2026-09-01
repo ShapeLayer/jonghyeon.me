@@ -98,6 +98,7 @@
   "career_tag_naninovel_description": "A Unity extension engine for visual novels",
   "career_tag_rust": "Rust",
   "career_tag_typescript": "TypeScript",
+  "career_tag_typst": "Typst",
   "career_tag_nodejs": "Node.js",
   "career_tag_nunjucks": "Nunjucks",
   "career_tag_nunjucks_description": "A JavaScript template engine",
@@ -219,6 +220,7 @@
   "career_details_activity_cnu_club_stolio_li_1": "Club management and project leadership",
   "career_title_algorithm_contest_pimm_party": "Community Open Contest <Chonnam Nat'l Univ. PIMM Algorithm Party>",
   "career_details_algorithm_contest_pimm_party": "Overall organizer for the '23, '24 H1, '24 H2, and '25 H1 contests",
+  "career_details_algorithm_contest_pimm_party_question_writing_23_24a": "Wrote questions for the '23 and '24 H1 contests",
   "career_contents_algorithm_contest_pimm_party_title": "Contest <Chonnam National University PIMM Algorithm Party>",
   "career_contents_algorithm_contest_pimm_party_subtitle": "Baekjoon Online Judge, Open Contest",
   "career_details_algorithm_contest_pimm23": "Writting exam questions and management",
@@ -234,7 +236,7 @@
   "career_details_algorithm_contest_pimm25a": "Management",
   "career_title_certification_toeic": "TOEIC 805 (2021.08.08)",
   "career_title_certification_jlpt": "JLPT N2 (2024.08.13)",
-  "career_title_certification_opic": "OPIc IM3 (2026.03.29)",
+  "career_title_certification_opic": "OPIc IM3 (English) (2026.03.29)",
   "career_title_certification_aws": "AWS Certification",
   "career_details_certification_aws_ccp": "AWS Certified Cloud Practitioner (2022.01.25)",
   "career_details_certification_aws_da": "AWS Certified Developer - Associate (2022.10.17)",
@@ -328,12 +330,5 @@
   "career_details_works_cellular_li_3": "Lets you trace how the project has changed over time, commit by commit",
   "career_contents_works_cellular_viewer": "Web viewer",
 
-  "career_title_works_typst_packages": "Typst package registry submissions",
-  "career_details_works_typst_packages": "Two packages published on Typst Universe",
-  "career_contents_works_typst_packages_title": "Typst package registry submissions",
-  "career_contents_works_typst_packages_body_1": "The following packages are published on Typst Universe, the official Typst package registry.",
-  "career_contents_works_typst_packages_ucpc_solutions_body_1": "A Typst port of ucpc-solutions, an algorithm contest editorial template made by the Baekjoon Online Judge community.",
-  "career_contents_works_typst_packages_ucpc_solutions_body_2": "It ships the utilities needed to write an editorial, together with presets for solved.ac difficulty ratings.",
-  "career_contents_works_typst_packages_furiruby_body_1": "A Typst library that places ruby text above and below the same character at once.",
-  "career_contents_works_typst_packages_furiruby_body_2": "It was written for cases where the archaic and the modern reading of a character have to be shown side by side, as in classical texts of languages that mix logograms and phonograms."
+  "career_title_works_typst_maintaining": "Package maintenance"
 }

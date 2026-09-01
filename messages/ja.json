@@ -98,6 +98,7 @@
   "career_tag_rust": "Rust",
   "career_tag_r": "R",
   "career_tag_typescript": "TypeScript",
+  "career_tag_typst": "Typst",
   "career_tag_nodejs": "Node.js",
   "career_tag_nunjucks": "Nunjucks",
   "career_tag_nunjucks_description": "JavaScriptテンプレートエンジン",
@@ -219,6 +220,7 @@
   "career_details_activity_cnu_club_stolio_li_1": "サークル運営執行及びプロジェクトリーディング",
   "career_title_algorithm_contest_pimm_party": "コミュニティオープンコンテスト〈全南大学PIMMアルゴリズムパーティ〉大会",
   "career_details_algorithm_contest_pimm_party": "'23年、'24年上半期、'24年下半期、'25年上半期の大会総括",
+  "career_details_algorithm_contest_pimm_party_question_writing_23_24a": "'23年、'24年上半期大会の出題",
   "career_contents_algorithm_contest_pimm_party_title": "〈全南大学PIMMアルゴリズムパーティ〉大会",
   "career_contents_algorithm_contest_pimm_party_subtitle": "Baekjoon Online Judge, Open Contest",
   "career_details_algorithm_contest_pimm23": "出題及び総括",
@@ -234,7 +236,7 @@
   "career_details_algorithm_contest_pimm25a": "総括",
   "career_title_certification_toeic": "TOEIC 805（2021.08.08）",
   "career_title_certification_jlpt": "JLPT N2（2024.08.13）",
-  "career_title_certification_opic": "OPIc IM3（2026.03.29）",
+  "career_title_certification_opic": "OPIc IM3（英語）（2026.03.29）",
   "career_title_certification_aws": "AWS Certification",
   "career_details_certification_aws_ccp": "AWS Certified Cloud Practitioner（2022.01.25）",
   "career_details_certification_aws_da": "AWS Certified Developer - Associate（2022.10.17）",
@@ -328,12 +330,5 @@
   "career_details_works_cellular_li_3": "コミット単位でプロジェクトの変化を時系列で確認可能",
   "career_contents_works_cellular_viewer": "Webビューア",
 
-  "career_title_works_typst_packages": "Typstパッケージレジストリへのパッケージ登録",
-  "career_details_works_typst_packages": "Typst Universeにパッケージ2件を登録",
-  "career_contents_works_typst_packages_title": "Typstパッケージレジストリへのパッケージ登録",
-  "career_contents_works_typst_packages_body_1": "Typstの公式パッケージレジストリであるTypst Universeに、次のパッケージを登録しました。",
-  "career_contents_works_typst_packages_ucpc_solutions_body_1": "Baekjoon Online Judgeコミュニティで作られたアルゴリズム大会の解説テンプレート ucpc-solutions を Typst に移植したパッケージです。",
-  "career_contents_works_typst_packages_ucpc_solutions_body_2": "解説文書の作成に必要なユーティリティと、solved.ac の難易度表記プリセットを提供します。",
-  "career_contents_works_typst_packages_furiruby_body_1": "同じ文字の上と下に同時にルビを振ることができる Typst ライブラリです。",
-  "career_contents_works_typst_packages_furiruby_body_2": "表意文字と表音文字を併用する言語の古典文献のように、同じ文字の歴史的な表記と現代の読みを並べて示す必要がある場合のために作りました。"
+  "career_title_works_typst_maintaining": "パッケージメンテナンス"
 }

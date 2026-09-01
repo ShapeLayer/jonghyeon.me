@@ -42,7 +42,7 @@
   import CareerWorkRoka from '$lib/components/definitions/careers/CareerWorkRoka.svelte';
   import WorkCellular from '$lib/components/definitions/project/WorkCellular.svelte';
   import WorkTurboWaffle from '$lib/components/definitions/project/WorkTurboWaffle.svelte';
-  import WorkTypstPackages from '$lib/components/definitions/project/WorkTypstPackages.svelte';
+  import WorkPackageMaintaining from '$lib/components/definitions/project/WorkPackageMaintaining.svelte';
   import ExternalLink from '$lib/components/ExternalLink.svelte';
   import SectionHeader from '$lib/components/SectionHeader.svelte';
   import { m } from '$lib/paraglide/messages';
@@ -73,7 +73,7 @@
     'edu-bachelor-chonnam-natl-univ-jp': CareerEduBachelorCnuJP,
     'edu-highschool-sdok': CareerEduHighSchoolSdok,
     'edu-bachelor-unlv-short-term': CareerEduBachelorUnlvShortTerm,
-    'edu-bachelor-exchange-sage': CareerEduBachelorExchangeSaga,
+    'edu-bachelor-exchange-saga': CareerEduBachelorExchangeSaga,
     'work-imagelab': CareerWorkImageLab,
     'work-roka': CareerWorkRoka,
     'work-ielab': CareerWorkIeLab,
@@ -110,7 +110,7 @@
     'certification-topcit': CareerCertificationTopcit,
     'works-turbo-waffle': WorkTurboWaffle,
     'works-cellular': WorkCellular,
-    'works-typst-packages': WorkTypstPackages
+    'works-typst-maintaining': WorkPackageMaintaining
   };
   /** The note rendered at the end of a section, if it has one. */
   const sectionsWithGithubNote = ['works', 'develops'];

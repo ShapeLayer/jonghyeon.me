@@ -12,6 +12,7 @@
 >
   <ul>
     <li>{m.career_details_algorithm_contest_pimm_party()}</li>
+    <li>{m.career_details_algorithm_contest_pimm_party_question_writing_23_24a()}</li>
   </ul>
   {#snippet detailContent()}
   <CareerItemDetailContent

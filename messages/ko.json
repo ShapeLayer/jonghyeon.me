@@ -108,6 +108,7 @@
   "career_tag_naninovel_description": "유니티 확장 비주얼 노벨 엔진",
   "career_tag_rust": "Rust",
   "career_tag_typescript": "TypeScript",
+  "career_tag_typst": "Typst",
   "career_tag_nodejs": "Node.js",
   "career_tag_nunjucks": "Nunjucks",
   "career_tag_nunjucks_description": "자바스크립트 템플릿 엔진",
@@ -237,6 +238,7 @@
 
   "career_title_algorithm_contest_pimm_party": "커뮤니티 오픈 콘테스트 <전남대학교 PIMM 알고리즘 파티> 대회",
   "career_details_algorithm_contest_pimm_party": "'23, '24 상반기, '24 하반기, '25 상반기 대회 총괄",
+  "career_details_algorithm_contest_pimm_party_question_writing_23_24a": "'23, '24 상반기 대회 출제",
   "career_contents_algorithm_contest_pimm_party_title": "<PIMM 알고리즘 파티> 대회",
   "career_contents_algorithm_contest_pimm_party_subtitle": "백준 온라인 저지, 오픈 콘테스트",
   "career_details_algorithm_contest_pimm23": "출제 및 총괄",
@@ -299,7 +301,7 @@
 
   "career_title_certification_toeic": "TOEIC 805(2021.08.08)",
   "career_title_certification_jlpt": "JLPT N2(2024.08.13)",
-  "career_title_certification_opic": "OPIc IM3(2026.03.29)",
+  "career_title_certification_opic": "OPIc IM3 (영어)(2026.03.29)",
   "career_title_certification_aws": "AWS Certification",
   "career_details_certification_aws_ccp": "AWS Certified Cloud Practitioner(2022.01.25)",
   "career_details_certification_aws_da": "AWS Certified Developer - Associate(2022.10.17)",
@@ -346,12 +348,5 @@
   "career_details_works_cellular_li_3": "커밋 단위로 프로젝트의 변화를 시간의 흐름에 따라 확인할 수 있음",
   "career_contents_works_cellular_viewer": "웹 뷰어",
 
-  "career_title_works_typst_packages": "Typst 패키지 레지스트리 패키지 등록",
-  "career_details_works_typst_packages": "Typst Universe에 패키지 2건 등록",
-  "career_contents_works_typst_packages_title": "Typst 패키지 레지스트리 패키지 등록",
-  "career_contents_works_typst_packages_body_1": "Typst 공식 패키지 레지스트리인 Typst Universe에 다음 패키지들을 등록하였습니다.",
-  "career_contents_works_typst_packages_ucpc_solutions_body_1": "Baekjoon Online Judge 커뮤니티에서 만들어진 알고리즘 대회 해설 템플릿 ucpc-solutions를 Typst로 이식한 패키지입니다.",
-  "career_contents_works_typst_packages_ucpc_solutions_body_2": "해설 문서를 작성하는 데 필요한 유틸리티와 solved.ac 난이도 표기 프리셋을 함께 제공합니다.",
-  "career_contents_works_typst_packages_furiruby_body_1": "한 글자의 위와 아래에 동시에 루비를 달 수 있게 하는 Typst 라이브러리입니다.",
-  "career_contents_works_typst_packages_furiruby_body_2": "표의문자와 표음문자를 함께 쓰는 언어의 고전 문헌처럼, 같은 글자의 옛 표기와 현대 표기를 나란히 보여야 하는 경우를 위해 만들었습니다."
+  "career_title_works_typst_maintaining": "패키지 메인테이닝"
 }
