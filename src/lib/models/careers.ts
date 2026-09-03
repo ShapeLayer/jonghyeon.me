@@ -28,7 +28,7 @@ export type CareerItemData = {
   startsAt?: CareerDate;
   endsAt?: CareerDate;
   current?: boolean;
-  /** Topic tags carried on top of the ones inherited from the section. */
+  /** Topic, era, AI, and stack tags carried on top of the ones inherited from the section. */
   tagIdentifiers?: string[];
   /** Entries the item's detail view breaks down into, each carrying tags of its own. */
   subItems?: CareerSubItemData[];
@@ -77,7 +77,7 @@ export const careerTags: CareerTag[] = [
   { identifier: 'japanese-literature', displayName: () => m.career_tag_japanese_literature(), description: () => m.career_tag_japanese_literature_description(), backgroundColor: '#f4eaff', foregroundColor: '#74439a', kind: 'topic' },
   { identifier: 'cloud-data', displayName: () => m.career_tag_cloud_data(), description: () => m.career_tag_cloud_data_description(), backgroundColor: '#e0f5ff', foregroundColor: '#176882', kind: 'topic' },
   { identifier: 'overseas', displayName: () => m.career_tag_overseas(), description: () => m.career_tag_overseas_description(), backgroundColor: '#ffe9d6', foregroundColor: '#a15816', kind: 'topic' },
-  { identifier: 'era-minor', displayName: () => m.career_tag_era_minor(), description: () => m.career_tag_era_minor_description(), backgroundColor: '#ffe9e2', foregroundColor: '#a3401b', kind: 'era' },
+  { identifier: 'era-junior', displayName: () => m.career_tag_era_minor(), description: () => m.career_tag_era_minor_description(), backgroundColor: '#ffe9e2', foregroundColor: '#a3401b', kind: 'era' },
   { identifier: 'era-university', displayName: () => m.career_tag_era_university(), description: () => m.career_tag_era_university_description(), backgroundColor: '#e2ecff', foregroundColor: '#1b3fa3', kind: 'era' },
   { identifier: 'pimm-algo-party', displayName: () => m.career_tag_pimm_algo_party(), description: () => m.career_tag_pimm_algo_party_description(), backgroundColor: '#e3f0ff', foregroundColor: '#0b5bb5', kind: 'project', opensItemId: 'algorithm-contest-pimm-party' },
   { identifier: 'ktas-trainer', displayName: () => m.career_tag_ktas_trainer(), description: () => m.career_tag_ktas_trainer_description(), backgroundColor: '#ffe8ec', foregroundColor: '#c11d3c', kind: 'project' },
@@ -102,17 +102,6 @@ export const careerTags: CareerTag[] = [
   { identifier: 'puppeteer', displayName: () => m.career_tag_puppeteer(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' }
 ];
 
-/** The month an item is grouped as 'era-university' from onward; anything earlier is 'era-minor'. */
-const UNIVERSITY_ERA_START_KEY = 2021 * 100 + 3;
-
-/** Era tags are derived from an item's date rather than declared explicitly, so every dated item gets one for free. */
-function eraTagIdentifierFor(item: CareerItemData): string | undefined {
-  const date = item.startsAt ?? item.endsAt;
-  if (!date) return undefined;
-  const key = date.year * 100 + (date.month ?? 1);
-  return key < UNIVERSITY_ERA_START_KEY ? 'era-minor' : 'era-university';
-}
-
 /**
  * Career items grouped the way they are laid out in the default view.
  * The order of the sections and of their items is the rendering order,
@@ -124,9 +113,9 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_current(),
     tagIdentifiers: ['current'],
     items: [
-      { id: 'edu-bachelor-chonnam-natl-univ-ce', startsAt: { year: 2021, month: 3 }, current: true, tagIdentifiers: ['education'] },
-      { id: 'edu-bachelor-chonnam-natl-univ-jp', startsAt: { year: 2026, month: 3 }, current: true, tagIdentifiers: ['education', 'language'] },
-      { id: 'work-dedam-math-science-lecturer', startsAt: { year: 2026, month: 7 }, current: true, tagIdentifiers: ['work'], hidden: true },
+      { id: 'edu-bachelor-chonnam-natl-univ-ce', startsAt: { year: 2021, month: 3 }, current: true, tagIdentifiers: ['education', 'era-university'] },
+      { id: 'edu-bachelor-chonnam-natl-univ-jp', startsAt: { year: 2026, month: 3 }, current: true, tagIdentifiers: ['education', 'language', 'era-university'] },
+      { id: 'work-dedam-math-science-lecturer', startsAt: { year: 2026, month: 7 }, current: true, tagIdentifiers: ['work', 'era-university'], hidden: true },
     ]
   },
   {
@@ -134,9 +123,9 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_education(),
     tagIdentifiers: ['education'],
     items: [
-      { id: 'edu-highschool-sdok', startsAt: { year: 2018, month: 3 }, endsAt: { year: 2021, month: 2 }, hidden: true },
-      { id: 'edu-bachelor-unlv-short-term', startsAt: { year: 2024, month: 8 }, tagIdentifiers: ['language', 'overseas'], hidden: true },
-      { id: 'edu-bachelor-exchange-saga', startsAt: { year: 2025, month: 9 }, endsAt: { year: 2026, month: 2 }, tagIdentifiers: ['language', 'overseas'] }
+      { id: 'edu-highschool-sdok', startsAt: { year: 2018, month: 3 }, endsAt: { year: 2021, month: 2 }, tagIdentifiers: ['era-junior'], hidden: true },
+      { id: 'edu-bachelor-unlv-short-term', startsAt: { year: 2024, month: 8 }, tagIdentifiers: ['language', 'overseas', 'era-university'], hidden: true },
+      { id: 'edu-bachelor-exchange-saga', startsAt: { year: 2025, month: 9 }, endsAt: { year: 2026, month: 2 }, tagIdentifiers: ['language', 'overseas', 'era-university'] }
     ]
   },
   {
@@ -144,11 +133,11 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_work(),
     tagIdentifiers: ['work'],
     items: [
-      { id: 'work-imagelab', startsAt: { year: 2021, month: 6 }, endsAt: { year: 2022, month: 7 }, tagIdentifiers: ['research'] },
-      { id: 'work-roka', startsAt: { year: 2022, month: 7 }, endsAt: { year: 2024, month: 1 }, hidden: true },
-      { id: 'work-ielab', startsAt: { year: 2024, month: 3 }, endsAt: { year: 2025, month: 2 }, tagIdentifiers: ['research'] },
-      { id: 'work-cnu-ucc-working-scholarship', startsAt: { year: 2025, month: 3 }, endsAt: { year: 2025, month: 8 } },
-      { id: 'work-jamcoding-lecturer', startsAt: { year: 2024, month: 1 }, endsAt: { year: 2026, month: 6 } }
+      { id: 'work-imagelab', startsAt: { year: 2021, month: 6 }, endsAt: { year: 2022, month: 7 }, tagIdentifiers: ['research', 'era-university'] },
+      { id: 'work-roka', startsAt: { year: 2022, month: 7 }, endsAt: { year: 2024, month: 1 }, tagIdentifiers: ['era-university'], hidden: true },
+      { id: 'work-ielab', startsAt: { year: 2024, month: 3 }, endsAt: { year: 2025, month: 2 }, tagIdentifiers: ['research', 'era-university'] },
+      { id: 'work-cnu-ucc-working-scholarship', startsAt: { year: 2025, month: 3 }, endsAt: { year: 2025, month: 8 }, tagIdentifiers: ['era-university'] },
+      { id: 'work-jamcoding-lecturer', startsAt: { year: 2024, month: 1 }, endsAt: { year: 2026, month: 6 }, tagIdentifiers: ['era-university'] }
     ]
   },
   {
@@ -156,12 +145,12 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_achievement(),
     tagIdentifiers: ['achievement'],
     items: [
-      { id: 'achievement-cnu-startup21', startsAt: { year: 2021, month: 12 }, hidden: true },
-      { id: 'achievement-icpc-21', startsAt: { year: 2021, month: 11, day: 13 }, tagIdentifiers: ['algorithm'] },
-      { id: 'paper-smart-media21', startsAt: { year: 2021, month: 11 }, tagIdentifiers: ['research', 'pre-ai', 'sign-language', 'csharp', 'unity'] },
-      { id: 'paper-smart-media22', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['research', 'pre-ai', 'sign-language', 'csharp', 'unity'] },
-      { id: 'achievement-cnu-algorithm-contest-6th', startsAt: { year: 2024, month: 5 }, tagIdentifiers: ['algorithm'] },
-      { id: 'achievement-cnu-sw-club25', startsAt: { year: 2024, month: 10, day: 25 } }
+      { id: 'achievement-cnu-startup21', startsAt: { year: 2021, month: 12 }, tagIdentifiers: ['era-university'], hidden: true },
+      { id: 'achievement-icpc-21', startsAt: { year: 2021, month: 11, day: 13 }, tagIdentifiers: ['algorithm', 'era-university'] },
+      { id: 'paper-smart-media21', startsAt: { year: 2021, month: 11 }, tagIdentifiers: ['research', 'pre-ai', 'sign-language', 'csharp', 'unity', 'era-university'] },
+      { id: 'paper-smart-media22', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['research', 'pre-ai', 'sign-language', 'csharp', 'unity', 'era-university'] },
+      { id: 'achievement-cnu-algorithm-contest-6th', startsAt: { year: 2024, month: 5 }, tagIdentifiers: ['algorithm', 'era-university'] },
+      { id: 'achievement-cnu-sw-club25', startsAt: { year: 2024, month: 10, day: 25 }, tagIdentifiers: ['era-university'] }
     ]
   },
   {
@@ -169,9 +158,9 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_activity(),
     tagIdentifiers: ['activity'],
     items: [
-      { id: 'activity-gwangju-sw-festival19', startsAt: { year: 2019, month: 5 }, tagIdentifiers: ['python'] },
-      { id: 'activity-cnu-club-pimm', startsAt: { year: 2021, month: 3 }, endsAt: { year: 2026, month: 3 }, tagIdentifiers: ['game'] },
-      { id: 'activity-cnu-club-stolio', startsAt: { year: 2022, month: 3 }, endsAt: { year: 2025, month: 12 } }
+      { id: 'activity-gwangju-sw-festival19', startsAt: { year: 2019, month: 5 }, tagIdentifiers: ['python', 'era-junior'] },
+      { id: 'activity-cnu-club-pimm', startsAt: { year: 2021, month: 3 }, endsAt: { year: 2026, month: 3 }, tagIdentifiers: ['game', 'era-university'] },
+      { id: 'activity-cnu-club-stolio', startsAt: { year: 2022, month: 3 }, endsAt: { year: 2025, month: 12 }, tagIdentifiers: ['era-university'] }
     ]
   },
   {
@@ -183,7 +172,7 @@ export const careerSections: CareerSection[] = [
         id: 'algorithm-contest-pimm-party',
         startsAt: { year: 2023, month: 9 },
         endsAt: { year: 2025, month: 3 },
-        tagIdentifiers: ['pimm-algo-party'],
+        tagIdentifiers: ['pimm-algo-party', 'era-university'],
         subItems: [
           { id: 'algorithm-contest-pimm-23' },
           { id: 'algorithm-contest-pimm-24a' },
@@ -191,7 +180,7 @@ export const careerSections: CareerSection[] = [
           { id: 'algorithm-contest-pimm-25a' }
         ]
       },
-      { id: 'algorithm-contest-gist', startsAt: { year: 2024, month: 5 } }
+      { id: 'algorithm-contest-gist', startsAt: { year: 2024, month: 5 }, tagIdentifiers: ['era-university'] }
     ]
   },
   {
@@ -199,11 +188,11 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_certification(),
     tagIdentifiers: ['certification'],
     items: [
-      { id: 'certification-info-comm-engineer', startsAt: { year: 2026, month: 6, day: 12 } },
-      { id: 'certification-topcit', startsAt: { year: 2025, month: 5, day: 24 } },
-      { id: 'certification-computer', startsAt: { year: 2021, month: 7, day: 18 }, endsAt: { year: 2023, month: 10, day: 10 }, tagIdentifiers: ['algorithm', 'cloud-data'] },
-      { id: 'certification-aws', startsAt: { year: 2022, month: 1, day: 25 }, endsAt: { year: 2022, month: 10, day: 17 }, tagIdentifiers: ['cloud-data'], hidden: true },
-      { id: 'certification-language', startsAt: { year: 2021, month: 8, day: 8 }, endsAt: { year: 2026, month: 3, day: 29 }, tagIdentifiers: ['language'] }
+      { id: 'certification-info-comm-engineer', startsAt: { year: 2026, month: 6, day: 12 }, tagIdentifiers: ['era-university'] },
+      { id: 'certification-topcit', startsAt: { year: 2025, month: 5, day: 24 }, tagIdentifiers: ['era-university'] },
+      { id: 'certification-computer', startsAt: { year: 2021, month: 7, day: 18 }, endsAt: { year: 2023, month: 10, day: 10 }, tagIdentifiers: ['algorithm', 'cloud-data', 'era-university'] },
+      { id: 'certification-aws', startsAt: { year: 2022, month: 1, day: 25 }, endsAt: { year: 2022, month: 10, day: 17 }, tagIdentifiers: ['cloud-data', 'era-university'], hidden: true },
+      { id: 'certification-language', startsAt: { year: 2021, month: 8, day: 8 }, endsAt: { year: 2026, month: 3, day: 29 }, tagIdentifiers: ['language', 'era-university'] }
     ]
   },
   {
@@ -211,7 +200,7 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_etc(),
     tagIdentifiers: [],
     items: [
-      { id: 'achievement-mirae-asset-33', startsAt: { year: 2025, month: 7 }, endsAt: { year: 2026, month: 2 } }
+      { id: 'achievement-mirae-asset-33', startsAt: { year: 2025, month: 7 }, endsAt: { year: 2026, month: 2 }, tagIdentifiers: ['era-university'] }
     ]
   },
   {
@@ -221,12 +210,12 @@ export const careerSections: CareerSection[] = [
     tagIdentifiers: [],
     items: [
       { id: 'project-ktas-trainer', startsAt: { year: 2025, month: 8 }, current: true, tagIdentifiers: ['csharp', 'unity', 'ktas-trainer', 'research', 'game', 'era-university', 'driven'] },
-      { id: 'project-zodiac-complex', startsAt: { year: 2025, month: 7 }, endsAt: { year: 2025, month: 8 }, tagIdentifiers: ['game', 'csharp', 'unity', 'naninovel'] },
+      { id: 'project-zodiac-complex', startsAt: { year: 2025, month: 7 }, endsAt: { year: 2025, month: 8 }, tagIdentifiers: ['game', 'csharp', 'unity', 'naninovel', 'era-university'] },
       { id: 'works-typst-maintaining', startsAt: { year: 2024, month: 7 }, current: true, tagIdentifiers: ['typst'] },
-      { id: 'project-hccc22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll'], hidden: true },
-      { id: 'project-iwfcv22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll'], hidden: true },
-      { id: 'project-sign-language-client', startsAt: { year: 2021, month: 6 }, endsAt: { year: 2022, month: 7 }, tagIdentifiers: ['game', 'research', 'pre-ai', 'sign-language', 'csharp', 'unity'] },
-      { id: 'project-sdok-fetea', startsAt: { year: 2019 }, tagIdentifiers: ['python', 'flask', 'pre-ai'] },
+      { id: 'project-hccc22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll', 'era-university'], hidden: true },
+      { id: 'project-iwfcv22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll', 'era-university'], hidden: true },
+      { id: 'project-sign-language-client', startsAt: { year: 2021, month: 6 }, endsAt: { year: 2022, month: 7 }, tagIdentifiers: ['game', 'research', 'pre-ai', 'sign-language', 'csharp', 'unity', 'era-university'] },
+      { id: 'project-sdok-fetea', startsAt: { year: 2019 }, tagIdentifiers: ['python', 'flask', 'pre-ai', 'era-junior'] },
     ]
   },
   {
@@ -235,13 +224,13 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_develops(),
     tagIdentifiers: [],
     items: [
-      { id: 'project-hannlp', startsAt: { year: 2026, month: 6 }, endsAt: { year: 2026, month: 8 }, tagIdentifiers: ['c', 'r', 'driven'], hidden: true },
-      { id: 'works-cellular', startsAt: { year: 2026, month: 8 }, tagIdentifiers: ['ktas-trainer', 'driven', 'rust', 'typescript'] },
-      { id: 'project-unity-merge', startsAt: { year: 2026, month: 7 }, tagIdentifiers: ['cpp', 'ktas-trainer', 'driven'] },
-      { id: 'project-namumark', startsAt: { year: 2025, month: 1 }, endsAt: { year: 2026, month: 1 }, tagIdentifiers: ['c', 'limited'] },
-      { id: 'project-gfm2polygon-statement', startsAt: { year: 2024, month: 7 }, tagIdentifiers: ['cpp', 'pre-ai', 'pimm-algo-party', ], hidden: true },
-      { id: 'works-turbo-waffle', startsAt: { year: 2023, month: 8 }, endsAt: { year: 2023, month: 9 }, tagIdentifiers: ['pimm-algo-party', 'pre-ai', 'nodejs', 'nunjucks', 'puppeteer'] },
-      { id: 'career-project-prefix-gen', startsAt: { year: 2020, month: 5 }, tagIdentifiers: ['pre-ai'], hidden: true }
+      { id: 'project-hannlp', startsAt: { year: 2026, month: 6 }, endsAt: { year: 2026, month: 8 }, tagIdentifiers: ['c', 'r', 'driven', 'era-university'], hidden: true },
+      { id: 'works-cellular', startsAt: { year: 2026, month: 8 }, tagIdentifiers: ['ktas-trainer', 'driven', 'rust', 'typescript', 'era-university'], hidden: true },
+      { id: 'project-unity-merge', startsAt: { year: 2026, month: 7 }, tagIdentifiers: ['cpp', 'ktas-trainer', 'driven', 'era-university'] },
+      { id: 'project-namumark', startsAt: { year: 2025, month: 1 }, endsAt: { year: 2026, month: 1 }, tagIdentifiers: ['c', 'limited', 'era-university'] },
+      { id: 'project-gfm2polygon-statement', startsAt: { year: 2024, month: 7 }, tagIdentifiers: ['cpp', 'pre-ai', 'pimm-algo-party', 'era-university'], hidden: true },
+      { id: 'works-turbo-waffle', startsAt: { year: 2023, month: 8 }, endsAt: { year: 2023, month: 9 }, tagIdentifiers: ['pimm-algo-party', 'pre-ai', 'nodejs', 'nunjucks', 'puppeteer', 'era-university'] },
+      { id: 'career-project-prefix-gen', startsAt: { year: 2020, month: 5 }, tagIdentifiers: ['pre-ai', 'era-junior'], hidden: true }
     ]
   }
 ];
@@ -371,8 +360,6 @@ export function getCareerTags(id: string): CareerTag[] {
     ...(item?.tagIdentifiers ?? []),
     ...(item?.subItems ?? []).flatMap((subItem) => subItem.tagIdentifiers ?? [])
   ]);
-  const eraTagIdentifier = item && eraTagIdentifierFor(item);
-  if (eraTagIdentifier) identifiers.add(eraTagIdentifier);
   return careerTags.filter((tag) => identifiers.has(tag.identifier));
 }
 

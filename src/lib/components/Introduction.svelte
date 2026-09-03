@@ -7,6 +7,20 @@
   const MIN_FEED_HEIGHT = 160;
   const MAX_FEED_HEIGHT = 1200;
 
+  let {
+    disableSummary = false,
+    disableDescription = false,
+    disableEmbed = false,
+    recentPostsCount = 5
+  }: {
+    disableSummary?: boolean;
+    disableDescription?: boolean;
+    disableEmbed?: boolean;
+    recentPostsCount?: number;
+  } = $props();
+
+  let feedUrl = $derived(`${FEED_ORIGIN}/static/embed-feed/?posts=${recentPostsCount}`);
+
   let scrollY: number = 0;
   let introductionElement: HTMLDivElement | null = null;
   let descriptionElement: HTMLDivElement | null = null;
@@ -19,14 +33,14 @@
       }
     }
 
-    if (introductionElement) { 
+    if (introductionElement) {
       introductionElement.style.marginTop = `calc(${Math.min(scrollY, 100)}px)`;
     }
-  }
+  };
 
   const init = () => {
     handleScrollY();
-  }
+  };
 
   const handleFeedResizeMessage = (event: MessageEvent) => {
     if (event.origin !== FEED_ORIGIN || !feedIframeElement) {
@@ -49,84 +63,74 @@
 
     const clampedHeight = Math.min(Math.max(Math.ceil(nextHeight), MIN_FEED_HEIGHT), MAX_FEED_HEIGHT);
     feedIframeElement.style.height = `${clampedHeight}px`;
-  }
+  };
 
   onMount(init);
 </script>
 
-<svelte:window
-  bind:scrollY={scrollY}
-  onscroll={handleScrollY}
-  onmessage={handleFeedResizeMessage}
-/>
-
 <style>
-.contacts .contacts-row {
-  display: flex;
-  gap: 1rem;
-  margin-top: .4rem;
-}
+  .contacts .contacts-row {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.4rem;
+  }
 
-h2 {
-  font-size: 1.5em;
-  margin: 0;
-}
+  h2 {
+    font-size: 1.5em;
+    margin: 0;
+  }
 
-.description {
-  margin-top: 4em;  /* not actually works, refer to handleScrollY */
-}
-.description p {
-  margin: 1em 0;
-  line-height: 1.6;
-}
+  .description {
+    margin-top: 4em; /* not actually works, refer to handleScrollY */
+  }
+  .description p {
+    margin: 1em 0;
+    line-height: 1.6;
+  }
 
-.embed-feed {
-  margin: 1.2em 0;
-}
+  .embed-feed {
+    margin: 1.2em 0;
+  }
 
-.embed-feed iframe {
-  width: 100%;
-  height: 200px;
-  border: 0;
-  background: transparent;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-drag: none;
-}
+  .embed-feed iframe {
+    width: 100%;
+    height: 200px;
+    border: 0;
+    background: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+  }
 </style>
 
+<svelte:window bind:scrollY onscroll={handleScrollY} onmessage={handleFeedResizeMessage} />
+
 <div class="introduction" bind:this={introductionElement}>
-  <div class="summary">
-    <div class="name">
-      <h2>Park, "ShapeLayer" Jonghyeon</h2>
-    </div>
-    <div class=contacts>
-      <div class="contacts-row">
-        <ExternalLink href="mailto:me@jonghyeon.me">me@jonghyeon.me</ExternalLink>
+  {#if !disableSummary}<div class="summary">
+      <div class="name">
+        <h2>Park, "ShapeLayer" Jonghyeon</h2>
       </div>
-      <div class="contacts-row">
-        <ExternalLink href="https://github.com/shapelayer" target="_blank" rel="noopener noreferrer">GitHub</ExternalLink>
-        <ExternalLink href="https://blog.jonghyeon.me" target="_blank" rel="noopener noreferrer">Blog</ExternalLink>
+      <div class="contacts">
+        <div class="contacts-row">
+          <ExternalLink href="mailto:me@jonghyeon.me">me@jonghyeon.me</ExternalLink>
+        </div>
+        <div class="contacts-row">
+          <ExternalLink href="https://github.com/shapelayer" target="_blank" rel="noopener noreferrer">GitHub</ExternalLink>
+          <ExternalLink href="https://blog.jonghyeon.me" target="_blank" rel="noopener noreferrer">Blog</ExternalLink>
+        </div>
+        <div>
+          <ExternalLink href="https://www.instagram.com/__jong.hyeon__/" target="_blank" rel="noopener noreferrer">Instagram</ExternalLink>
+        </div>
       </div>
-      <div>
-        <ExternalLink href="https://www.instagram.com/__jong.hyeon__/" target="_blank" rel="noopener noreferrer">Instagram</ExternalLink>
-      </div>
-    </div>  
-  </div>
-  <div class="description" bind:this={descriptionElement}>
-    <p>{m.profile_intro_description_1()}</p>
-    <p>{m.profile_intro_description_2_1()}<br />{m.profile_intro_description_2_2()}</p>
-    <p>{m.profile_intro_description_3()}</p>
-    <div class="embed-feed">
-      <iframe
-        bind:this={feedIframeElement}
-        src="https://blog.jonghyeon.me/static/embed-feed/"
-        title="Latest blog posts"
-        loading="lazy"
-        draggable="false"
-      ></iframe>
-    </div>
-  </div>
+    </div>{/if}
+  {#if !disableDescription}<div class="description" bind:this={descriptionElement}>
+      <p>{m.profile_intro_description_1()}</p>
+      <p>{m.profile_intro_description_2_1()}<br />{m.profile_intro_description_2_2()}</p>
+      <p>{m.profile_intro_description_3()}</p>
+    </div>{/if}
+  {#if !disableEmbed}<div class="embed-feed">
+      <iframe bind:this={feedIframeElement} src={feedUrl} title="Latest blog posts" loading="lazy" draggable="false"></iframe>
+    </div>{/if}
 </div>
