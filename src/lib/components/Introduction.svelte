@@ -20,6 +20,9 @@
   } = $props();
 
   let feedUrl = $derived(`${FEED_ORIGIN}/static/embed-feed/?posts=${recentPostsCount}`);
+  let estimatedFeedHeight = $derived(
+    Math.min(Math.max(70 + Math.max(1, recentPostsCount) * 30, MIN_FEED_HEIGHT), MAX_FEED_HEIGHT)
+  );
 
   let scrollY: number = 0;
   let introductionElement: HTMLDivElement | null = null;
@@ -131,6 +134,13 @@
       <p>{m.profile_intro_description_3()}</p>
     </div>{/if}
   {#if !disableEmbed}<div class="embed-feed">
-      <iframe bind:this={feedIframeElement} src={feedUrl} title="Latest blog posts" loading="lazy" draggable="false"></iframe>
+      <iframe
+        bind:this={feedIframeElement}
+        src={feedUrl}
+        title="Latest blog posts"
+        loading="lazy"
+        draggable="false"
+        style:height={`${estimatedFeedHeight}px`}
+      ></iframe>
     </div>{/if}
 </div>
