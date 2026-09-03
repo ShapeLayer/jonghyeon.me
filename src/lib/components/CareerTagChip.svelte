@@ -58,7 +58,7 @@
   .career-tag[data-tooltip]::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: calc(100% + .6em);
+    bottom: calc(100% + 10px);
     left: 50%;
     width: max-content;
     max-width: 16em;
@@ -75,7 +75,9 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translate(-50%, 4px);
+    /* The tooltip is positioned above the tag, so animate from farther above it.
+       Starting below would make the tooltip cover its own arrow during the transition. */
+    transform: translate(-50%, -4px);
     transition: opacity .15s ease, transform .15s ease;
     z-index: 30;
   }
@@ -83,14 +85,14 @@
   .career-tag[data-tooltip]::before {
     content: "";
     position: absolute;
-    bottom: calc(100% + .25em);
+    bottom: 100%;
     left: 50%;
     border: 5px solid transparent;
     border-top-color: var(--base-fg-color);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translate(-50%, 4px);
+    transform: translate(-50%, -4px);
     transition: opacity .15s ease, transform .15s ease;
     z-index: 31;
   }
@@ -105,11 +107,11 @@
      can overflow off-screen to the left. Anchor it to the chip's left edge instead. */
   .career-tag:first-child[data-tooltip]::after {
     left: 0;
-    transform: translate(0, 4px);
+    transform: translate(0, -4px);
   }
   .career-tag:first-child[data-tooltip]::before {
     left: .9em;
-    transform: translate(0, 4px);
+    transform: translate(0, -4px);
   }
   .career-tag:first-child[data-tooltip]:hover::after, .career-tag:first-child[data-tooltip]:hover::before,
   .career-tag:first-child[data-tooltip]:focus-visible::after, .career-tag:first-child[data-tooltip]:focus-visible::before {

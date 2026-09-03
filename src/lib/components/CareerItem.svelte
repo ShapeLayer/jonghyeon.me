@@ -125,7 +125,7 @@
   .career-detail-icon[data-tooltip]::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: calc(100% + .6em);
+    bottom: calc(100% + 10px);
     left: 50%;
     width: max-content;
     padding: .55em .75em;
@@ -141,7 +141,9 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translate(-50%, 4px);
+    /* The tooltip is positioned above the icon; animate from farther above so
+       the tooltip body does not cover the arrow while it enters. */
+    transform: translate(-50%, -4px);
     transition: opacity .15s ease, transform .15s ease;
     z-index: 30;
   }
