@@ -18,6 +18,7 @@
   "svelte": "Svelte",
 
   "careers": "커리어",
+  "career_detail_tooltip": "자세히 보기",
 
   "profile_intro_description_1": "안녕하세요! 저는 컴퓨터공학을 전공하고 있는 박종현입니다. 컴퓨터 시스템의 사용자 이름으로는 주로 ShapeLayer라는 이름을 사용합니다.",
   "profile_intro_description_2_1": "크게 다쳐 병원에서 생활했던 어린 시절, 옆 자리의 컴퓨터공학 전공 대학원생을 흉내내며 컴퓨터를 시작하게 되었습니다.",
@@ -136,8 +137,8 @@
   "career_details_edu_bachelor_unlv_short_term_study_li_0": "<에너지 워크숍> 단기 파견",
   "career_details_edu_bachelor_unlv_short_term_study_li_1": "신재생에너지 연구현장에서 기계장치의 제어와 데이터 수집을 위한 컴퓨팅 장치/프로그램의 개발, 운용 사례학습",
   "chonnam_national_university_press_release": "전남대학교 보도자료",
-  "career_title_edu_bachelor_exchange_sage": "사가대학 이공학부",
-  "career_details_edu_bachelor_exchange_sage_li_0": "특별청강학생",
+  "career_title_edu_bachelor_exchange_sage": "사가대학 이공학부 특별청강학생",
+  "career_details_edu_bachelor_exchange_sage_li_0": "전남대학교측 해외파견 교환학생, 이공학부 지능정보시스템코스",
 
   "career_title_work_imagelab": "전남대학교 지능영상미디어인터페이스연구실",
   "career_title_work_ielab": "전남대학교 지능전자연구실",

@@ -85,13 +85,13 @@
     margin: .3em 0;
   }
   /* Resting state carries no shading; the fill is what the pointer reveals. */
-  :global(.career-item.interactive) {
+  :global(.career-item.interactive.has-detail) {
     background-color: transparent;
     cursor: pointer;
     transition: background-color .2s;
   }
-  :global(.career-item.interactive:hover),
-  :global(.career-item.interactive:focus-visible) {
+  :global(.career-item.interactive.has-detail:hover),
+  :global(.career-item.interactive.has-detail:focus-visible) {
     background-color: rgba(0, 0, 0, 0.07);
   }
   .career-item-wrapper {
@@ -117,6 +117,39 @@
   }
   .career-title-content.expired {
     text-decoration: line-through;
+  }
+  .career-detail-icon {
+    position: relative;
+    cursor: help;
+  }
+  .career-detail-icon[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + .6em);
+    left: 50%;
+    width: max-content;
+    padding: .55em .75em;
+    border-radius: 6px;
+    background: var(--base-fg-color);
+    color: var(--base-bg-color);
+    font-family: 'Pretendard', 'Noto Sans KR', -apple-system, sans-serif;
+    font-size: .8em;
+    font-weight: normal;
+    line-height: 1.45;
+    white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .2);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, 4px);
+    transition: opacity .15s ease, transform .15s ease;
+    z-index: 30;
+  }
+  .career-detail-icon[data-tooltip]:hover::after,
+  .career-detail-icon[data-tooltip]:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
   }
   .career-summary {
     display: inline-block;
@@ -146,14 +179,16 @@
 </style>
 
 <div class="career-entry" data-tags={tags.map((tag) => tag.identifier).join(' ')} style:order={listOrder} hidden={!isVisible}>
-<div id={id} class:interactive={Boolean(detailContent) || tags.length > 0} class="career-item" bind:this={rootElement} onclick={onClickHandler} role="button" tabindex="0" onkeydown={(event) => (event.key === 'Enter' || event.key === ' ') && onClickHandler()}>
+<div id={id} class:interactive={Boolean(detailContent) || tags.length > 0} class:has-detail={Boolean(detailContent)} class="career-item" bind:this={rootElement} onclick={onClickHandler} role="button" tabindex="0" onkeydown={(event) => (event.key === 'Enter' || event.key === ' ') && onClickHandler()}>
   <div class="career-item-wrapper">
     <div class="career-summary">
       <span class="career-title">
-        <span class="career-title-content" class:expired>{title}</span>
-        {#if detailContent}
-          <span class="material-symbols-outlined" style="font-size: 1em;">right_panel_close</span>
-        {/if}
+        <span class="career-title-content" class:expired>
+          {title}
+          {#if detailContent}
+            <span class="material-symbols-outlined career-detail-icon" style="font-size: 1em; vertical-align: middle;" data-tooltip={m.career_detail_tooltip()} aria-label={m.career_detail_tooltip()}>right_panel_close</span>
+          {/if}
+        </span>
       </span>
       {#if !hideDatetime}
         <div class="career-datetime">{datetime}</div>
