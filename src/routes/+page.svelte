@@ -22,7 +22,7 @@
   <SectionDivider />
 {/if}
 {#if !preset.disableCareersSection}
-  <Careers opened={preset.openCareersSectionTabOpened} />
+  <Careers opened={preset.openCareersSectionTabOpened} hiddenOverrides={preset.careerItemHiddenOverrides} />
   <SectionDivider />
 {/if}
 <Footer />

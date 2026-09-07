@@ -10,6 +10,7 @@ export type Preset = {
 	disableIntroductionEmbedDiv: boolean;
 	countRecentPostsEmbed: number;
 	openCareersSectionTabOpened: CareersSectionTab;
+	careerItemHiddenOverrides: Record<string, boolean>;
 };
 
 export const defaultPreset: Preset = {
@@ -21,14 +22,19 @@ export const defaultPreset: Preset = {
 	disableIntroductionDescriptionDiv: false,
 	disableIntroductionEmbedDiv: false,
 	countRecentPostsEmbed: 5,
-	openCareersSectionTabOpened: 'history'
+	openCareersSectionTabOpened: 'history',
+	careerItemHiddenOverrides: {}
 };
 
 const presets: Record<string, Partial<Preset>> = {
 	cv: {
 		disableHeroSection: true,
 		countRecentPostsEmbed: 3,
-		openCareersSectionTabOpened: 'projects'
+		openCareersSectionTabOpened: 'projects',
+		careerItemHiddenOverrides: {
+			'project-gfm2polygon-statement': false,
+			'works-typst-maintaining': true
+		}
 	}
 };
 

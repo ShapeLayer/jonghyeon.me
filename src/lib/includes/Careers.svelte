@@ -50,7 +50,7 @@
   import type { CareersSectionTab } from '$lib/models/presets';
   import { aiTags, careerSortCriteria, careerTabs, careerTags, eraTags, getCareerSection, getCareerSections, matchesCareerPeriod, matchesCareerTags, projectTags, sectionTags, sortCareerItemIds, topicTags, type CareerTabIdentifier, type CareerTag, type CareerTagKind, type SortDirection } from '$lib/models/careers';
 
-  let { opened = 'history' }: { opened?: CareersSectionTab } = $props();
+  let { opened = 'history', hiddenOverrides = {} }: { opened?: CareersSectionTab; hiddenOverrides?: Record<string, boolean> } = $props();
 
   /** Career item id to the component that defines it. */
   const careerComponents: Record<string, Component> = {
@@ -170,7 +170,10 @@
   let careersSectionElement: HTMLElement | null = $state(null);
   let careersHeaderElement: HTMLDivElement | null = $state(null);
   let isHeaderStuck = $state(false);
-  let tabSections = $derived(getCareerSections(activeTab));
+  let tabSections = $derived(getCareerSections(activeTab).map((section) => ({
+    ...section,
+    items: section.items.map((item) => item.id in hiddenOverrides ? { ...item, hidden: hiddenOverrides[item.id] } : item)
+  })));
   let activeTabLabel = $derived(careerTabs.find((tab) => tab.identifier === activeTab)?.label() ?? '');
   let allItemIds = $derived(tabSections.flatMap((section) => section.items.map((item) => item.id)));
   /* Roving focus, as a tablist asks for: the arrow keys move between tabs rather than the Tab key. */
