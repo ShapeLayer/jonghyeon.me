@@ -100,6 +100,7 @@ h3.subsubtitle {
 a {
   color: var(--base-fg-color);
   text-decoration: underline 1.2px dashed;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
   transition: .1s ease-in-out;
 }
 a:hover,
@@ -133,6 +134,12 @@ li {
 }
 li::marker {
   font-weight: 900;
+}
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  padding-left: 1.4em;
 }
 li.arrow-header {
   list-style-type: "⇒";
