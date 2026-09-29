@@ -15,14 +15,18 @@
 </script>
 
 {#if !preset.disableHeroSection}
-  <Hero />
+  <Hero verticalSpacing={preset.heroVerticalSpacing} />
 {/if}
 {#if !preset.disableProfileSection}
   <Profile {preset} />
-  <SectionDivider />
+  {#if !preset.hideProfileCareersHr}
+    <SectionDivider margin={preset.profileCareersHrMargin} />
+  {/if}
 {/if}
 {#if !preset.disableCareersSection}
-  <Careers opened={preset.openCareersSectionTabOpened} hiddenOverrides={preset.careerItemHiddenOverrides} />
-  <SectionDivider />
+  <Careers opened={preset.openCareersSectionTabOpened} hiddenOverrides={preset.careerItemHiddenOverrides} tagDisplayModes={preset.careerTagDisplayModes} popupTransitionDurationMs={preset.popupTransitionDurationMs} verticalSpacing={preset.careersVerticalSpacing} />
+  {#if !preset.hideCareersFooterHr}
+    <SectionDivider margin={preset.careersFooterHrMargin} />
+  {/if}
 {/if}
-<Footer />
+<Footer verticalSpacing={preset.footerVerticalSpacing} hideBadges={preset.hideFooterBadges} hideLocaleSelector={preset.hideFooterLocaleSelector} hideCopyright={preset.hideFooterCopyright} />

@@ -13,7 +13,8 @@
 
   interface CareerPopupRequest {
     pendingId: string | null;
-    request: (id: string) => void;
+    pendingAnchor?: string;
+    request: (id: string, anchor?: string) => void;
     clear: () => void;
   }
   const popupRequest = getContext<CareerPopupRequest | undefined>('career-popup-request');

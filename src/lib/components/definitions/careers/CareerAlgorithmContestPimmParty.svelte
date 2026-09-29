@@ -3,6 +3,7 @@
   import CareerItem from '$lib/components/CareerItem.svelte';
   import CareerItemDetailContent from '$lib/components/CareerItemDetailContent.svelte';
   import CareerItemDetailSubsection from '$lib/components/CareerItemDetailSubsection.svelte';
+  import CareerProjectSummary from '$lib/components/CareerProjectSummary.svelte';
   import ExternalLink from '$lib/components/ExternalLink.svelte';
 </script>
 
@@ -19,6 +20,43 @@
     title={m.career_contents_algorithm_contest_pimm_party_title()}
     subtitle={m.career_contents_algorithm_contest_pimm_party_subtitle()}
   >
+    <CareerProjectSummary>
+      <ul>
+        <li>{m.career_contents_algorithm_contest_pimm_party_li_0()}</li>
+        <li>{m.career_contents_algorithm_contest_pimm_party_li_1()}</li>
+      </ul>
+    </CareerProjectSummary>
+
+    <CareerItemDetailSubsection id="algorithm-contest-ai-abuse-report" title={m.career_contents_algorithm_contest_pimm_party_ai_abuse_title()}>
+      <CareerProjectSummary tech={["GraphCodeBERT"]}>
+        <ul>
+          <li>{m.career_contents_algorithm_contest_pimm_party_ai_abuse_li_0()}</li>
+          <li>{m.career_contents_algorithm_contest_pimm_party_ai_abuse_li_1()}</li>
+          <li>{m.career_contents_algorithm_contest_pimm_party_ai_abuse_li_2()}</li>
+        </ul>
+      </CareerProjectSummary>
+    </CareerItemDetailSubsection>
+
+    <CareerItemDetailSubsection itemId="project-gfm2polygon-statement" title={m.career_contents_algorithm_contest_pimm_party_gfm2polygon_title()}>
+      <CareerProjectSummary tech={["C", "C++", "cmark-gfm", "WASM"]}>
+        <ul>
+          <li>{m.career_contents_algorithm_contest_pimm_party_gfm2polygon_li_0()}</li>
+          <li>{m.career_contents_algorithm_contest_pimm_party_gfm2polygon_li_1()}</li>
+        </ul>
+        <p><ExternalLink href='https://github.com/ShapeLayer/gfm2polygon-statement'>GitHub</ExternalLink></p>
+      </CareerProjectSummary>
+    </CareerItemDetailSubsection>
+
+    <CareerItemDetailSubsection itemId="works-turbo-waffle" title={m.career_contents_algorithm_contest_pimm_party_turbo_waffle_title()}>
+      <CareerProjectSummary tech={["Node.js", "Puppeteer", "Nunjucks"]}>
+        <ul>
+          <li>{m.career_contents_algorithm_contest_pimm_party_turbo_waffle_li_0()}</li>
+          <li>{m.career_contents_algorithm_contest_pimm_party_turbo_waffle_li_1()}</li>
+        </ul>
+        <p><ExternalLink href='https://github.com/ShapeLayer/turbo-waffle'>GitHub</ExternalLink></p>
+      </CareerProjectSummary>
+    </CareerItemDetailSubsection>
+
     <style>
       .pimmparty-content ul {
         list-style: disc;

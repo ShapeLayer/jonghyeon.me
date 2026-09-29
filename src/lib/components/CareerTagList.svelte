@@ -1,5 +1,7 @@
 <script lang="ts">
+  import { getContext } from 'svelte';
   import type { CareerTag } from '$lib/models/careers';
+  import type { CareerTagDisplayModes, CareerTagDisplayMode } from '$lib/models/presets';
   import CareerTagChip from '$lib/components/CareerTagChip.svelte';
 
   let {
@@ -14,6 +16,10 @@
     expanded?: boolean;
   } = $props();
 
+  const displayModes = getContext<{ modes: CareerTagDisplayModes } | undefined>('career-tag-display-modes');
+  let alwaysMode = $derived(displayModes?.modes.always ?? 'always');
+  let collapseMode = $derived(displayModes?.modes.collapse ?? 'collapse');
+
   /** Stack tags (tech labels) and project tags share one row and are always visible,
       project tags trailing at the end of that same line. */
   let alwaysVisibleTags = $derived([
@@ -21,7 +27,8 @@
     ...tags.filter((tag) => tag.kind === 'project')
   ]);
   let otherTags = $derived(tags.filter((tag) => tag.kind !== 'stack' && tag.kind !== 'project'));
-  let visibleTagCount = $derived(alwaysVisibleTags.length + (expanded ? otherTags.length : 0));
+  const isShown = (mode: CareerTagDisplayMode) => mode === 'always' || (mode === 'collapse' && expanded);
+  let visibleTagCount = $derived((isShown(alwaysMode) ? alwaysVisibleTags.length : 0) + (isShown(collapseMode) ? otherTags.length : 0));
 </script>
 
 <style>
@@ -33,7 +40,7 @@
   }
   .career-tag-rows.detail {
     gap: .45em;
-    margin: .8em 0 0;
+    margin: .4em 0;
   }
   .career-tags {
     display: flex;
@@ -55,7 +62,7 @@
 
 {#if visibleTagCount}
   <div class="career-tag-rows" class:detail={variant === 'detail'} aria-label="Career tags">
-    {#if alwaysVisibleTags.length}{@render tagRow(alwaysVisibleTags)}{/if}
-    {#if expanded && otherTags.length}{@render tagRow(otherTags)}{/if}
+    {#if isShown(alwaysMode) && alwaysVisibleTags.length}{@render tagRow(alwaysVisibleTags)}{/if}
+    {#if isShown(collapseMode) && otherTags.length}{@render tagRow(otherTags)}{/if}
   </div>
 {/if}

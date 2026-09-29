@@ -47,10 +47,17 @@
   import SectionHeader from '$lib/components/SectionHeader.svelte';
   import { m } from '$lib/paraglide/messages';
   import type { Date as CareerDate } from '$lib/models/date';
-  import type { CareersSectionTab } from '$lib/models/presets';
+  import type { CareersSectionTab, CareerTagDisplayModes, VerticalSpacing } from '$lib/models/presets';
   import { aiTags, careerSortCriteria, careerTabs, careerTags, eraTags, getCareerSection, getCareerSections, matchesCareerPeriod, matchesCareerTags, projectTags, sectionTags, sortCareerItemIds, topicTags, type CareerTabIdentifier, type CareerTag, type CareerTagKind, type SortDirection } from '$lib/models/careers';
 
-  let { opened = 'history', hiddenOverrides = {} }: { opened?: CareersSectionTab; hiddenOverrides?: Record<string, boolean> } = $props();
+  let { opened = 'history', hiddenOverrides = {}, tagDisplayModes = { always: 'always', collapse: 'collapse' }, popupTransitionDurationMs = 500, verticalSpacing = {} }: { opened?: CareersSectionTab; hiddenOverrides?: Record<string, boolean>; tagDisplayModes?: CareerTagDisplayModes; popupTransitionDurationMs?: number; verticalSpacing?: VerticalSpacing } = $props();
+
+  setContext('career-tag-display-modes', {
+    get modes() { return tagDisplayModes; }
+  });
+  setContext('popup-transition-duration-ms', {
+    get duration() { return popupTransitionDurationMs; }
+  });
 
   /** Career item id to the component that defines it. */
   const careerComponents: Record<string, Component> = {
@@ -341,18 +348,25 @@
   });
 
   /** A project tag's click asks to open its target item's popup; if that item lives on the other tab,
-   *  switch tabs first so the item mounts, then the item itself notices the pending id and opens. */
+   *  switch tabs first so the item mounts, then the item itself notices the pending id and opens.
+   *  An anchor, when given, is the element id inside that popup to show on open. */
   let popupRequestId: string | null = $state(null);
+  let popupRequestAnchor: string | undefined = $state(undefined);
   setContext('career-popup-request', {
     get pendingId() {
       return popupRequestId;
     },
-    request: (id: string) => {
+    get pendingAnchor() {
+      return popupRequestAnchor;
+    },
+    request: (id: string, anchor?: string) => {
       activeTab = getCareerSection(id)?.tab ?? 'history';
+      popupRequestAnchor = anchor;
       popupRequestId = id;
     },
     clear: () => {
       popupRequestId = null;
+      popupRequestAnchor = undefined;
     }
   });
 </script>
@@ -372,7 +386,7 @@
   .careers-header {
     position: sticky;
     top: 0;
-    z-index: 4;
+    z-index: 10;
     isolation: isolate;
     background-color: transparent;
   }
@@ -790,7 +804,7 @@
 
 <svelte:window onpointerdown={onWindowPointerDown} onpointerup={onWindowPointerUp} onpointercancel={abandonOutsidePointer} onscroll={onWindowScroll} onkeydown={onWindowKeyDown} />
 
-<section bind:this={careersSectionElement} class:list-view={isFiltered} class="careers">
+<section bind:this={careersSectionElement} class:list-view={isFiltered} class="careers" style:margin-top={verticalSpacing.marginTop} style:margin-bottom={verticalSpacing.marginBottom} style:padding-top={verticalSpacing.paddingTop} style:padding-bottom={verticalSpacing.paddingBottom}>
   <div bind:this={careersHeaderElement} class:stuck={isHeaderStuck} class="careers-header">
     <SectionHeader>{activeTabLabel}</SectionHeader>
     <p class="last-update">{m.last_update({ date: '2026-08-30' })}</p>

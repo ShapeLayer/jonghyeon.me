@@ -4,7 +4,8 @@
   import Popup from '$lib/components/Popup.svelte';
   import CareerTagList from '$lib/components/CareerTagList.svelte';
   import type { Date as CareerDate } from '$lib/models/date';
-  import { getCareerItem, getCareerTags, matchesCareerPeriod, matchesCareerTags } from '$lib/models/careers';
+  import { careerDetailAnchorId, getCareerItem, getCareerTags, matchesCareerPeriod, matchesCareerTags } from '$lib/models/careers';
+  import type { CareerTagDisplayModes } from '$lib/models/presets';
 
   interface CareerListControls {
     selectedTagIdentifiers: string[];
@@ -15,7 +16,8 @@
 
   interface CareerPopupRequest {
     pendingId: string | null;
-    request: (id: string) => void;
+    pendingAnchor?: string;
+    request: (id: string, anchor?: string) => void;
     clear: () => void;
   }
 
@@ -47,6 +49,11 @@
     `${endsAt ? `${endsAt.year}${endsAt.month ? `.${String(endsAt.month).padStart(2, '0')}` : ''}${endsAt.day ? `.${String(endsAt.day).padStart(2, '0')}` : ''}` : current ? m.present() : ''}`
   );
   const tags = getCareerTags(id);
+  const tagDisplayModes = getContext<{ modes: CareerTagDisplayModes } | undefined>('career-tag-display-modes');
+  let hasExpandableTags = $derived(
+    (tagDisplayModes?.modes.always === 'collapse' && tags.some((tag) => tag.kind === 'stack' || tag.kind === 'project')) ||
+    ((tagDisplayModes?.modes.collapse ?? 'collapse') === 'collapse' && tags.some((tag) => tag.kind !== 'stack' && tag.kind !== 'project'))
+  );
   let isExpanded = $state(false);
   const listControls = getContext<CareerListControls | undefined>('career-list-controls');
   /** Parent sections decide which default and hidden entries are mounted; filters apply to every mounted entry. */
@@ -63,16 +70,23 @@
   let rootElement: HTMLDivElement | null = $state(null);
   let popupComponent: Popup | null = $state(null);
 
-  const onClickHandler = () => {
-    if (detailContent) popupComponent?.open();
-    else isExpanded = !isExpanded;
-  };
-
   /** A tag elsewhere on the page (e.g. a project tag) can ask to open this item's popup. */
   const popupRequest = getContext<CareerPopupRequest | undefined>('career-popup-request');
+  /** Items under a project tag keep their details in that project's popup, opened at their own section. */
+  const detailTargetId = tags.find((tag) => tag.opensItemId && tag.opensItemId !== id)?.opensItemId;
+  let hasDetail = $derived(Boolean(detailContent) || Boolean(detailTargetId));
+
+  const onClickHandler = () => {
+    if (detailContent) {
+      popupComponent?.open();
+    } else if (detailTargetId) {
+      popupRequest?.request(detailTargetId, careerDetailAnchorId(id));
+    } else if (hasExpandableTags) isExpanded = !isExpanded;
+  };
+
   $effect(() => {
     if (detailContent && popupRequest?.pendingId === id) {
-      popupComponent?.open();
+      popupComponent?.open(popupRequest.pendingAnchor);
       popupRequest.clear();
     }
   });
@@ -80,6 +94,7 @@
 
 <style>
   .career-item {
+    position: relative;
     padding: .2em .3em;
     border-radius: 4px;
     margin: .3em 0;
@@ -118,11 +133,44 @@
   .career-title-content.expired {
     text-decoration: line-through;
   }
-  .career-detail-icon {
-    position: relative;
-    cursor: help;
+  /* Floats over the start of the item: shrunk into the top-left corner at rest,
+     grown to full size and centered on the first title line while the item is hovered. */
+  .career-detail-button {
+    --size: 1.7em;
+    --title-line: calc(1.1em * 1.6); /* .career-title font-size × body line-height */
+    position: absolute;
+    top: 0;
+    left: 4pt;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 6px;
+    background-color: var(--base-bg-color);
+    color: var(--base-fg-color);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .12), 0 3px 8px rgba(0, 0, 0, .14);
+    cursor: pointer;
+    transform: scale(.55);
+    transform-origin: top left;
+    transition: transform .2s ease, top .2s ease, background-color .12s ease, box-shadow .2s ease;
   }
-  .career-detail-icon[data-tooltip]::after {
+  .career-detail-button .material-symbols-outlined {
+    display: block;
+    font-size: 1.15em;
+    line-height: 1;
+  }
+  :global(.career-item.has-detail:hover) .career-detail-button,
+  :global(.career-item.has-detail:focus-visible) .career-detail-button {
+    top: calc(.3em + (var(--title-line) - var(--size)) / 2); /* item padding + summary offset */
+    transform: scale(1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 6px 14px rgba(0, 0, 0, .18);
+  }
+  :global(.career-item.has-detail:active) .career-detail-button {
+    background-color: var(--base-bg-color-dark);
+  }
+  .career-detail-button[data-tooltip]::after {
     content: attr(data-tooltip);
     position: absolute;
     bottom: calc(100% + 10px);
@@ -147,8 +195,8 @@
     transition: opacity .15s ease, transform .15s ease;
     z-index: 30;
   }
-  .career-detail-icon[data-tooltip]:hover::after,
-  .career-detail-icon[data-tooltip]:focus-visible::after {
+  .career-detail-button[data-tooltip]:hover::after,
+  .career-detail-button[data-tooltip]:focus-visible::after {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, 0);
@@ -181,15 +229,17 @@
 </style>
 
 <div class="career-entry" data-tags={tags.map((tag) => tag.identifier).join(' ')} style:order={listOrder} hidden={!isVisible}>
-<div id={id} class:interactive={Boolean(detailContent) || tags.length > 0} class:has-detail={Boolean(detailContent)} class="career-item" bind:this={rootElement} onclick={onClickHandler} role="button" tabindex="0" onkeydown={(event) => (event.key === 'Enter' || event.key === ' ') && onClickHandler()}>
+<div id={id} class:interactive={hasDetail || hasExpandableTags} class:has-detail={hasDetail} class="career-item" bind:this={rootElement} onclick={onClickHandler} role="button" tabindex="0" onkeydown={(event) => (event.key === 'Enter' || event.key === ' ') && onClickHandler()}>
+  {#if hasDetail}
+    <span class="career-detail-button" data-tooltip={m.career_detail_tooltip()} aria-label={m.career_detail_tooltip()}>
+      <span class="material-symbols-outlined" aria-hidden="true">right_panel_close</span>
+    </span>
+  {/if}
   <div class="career-item-wrapper">
     <div class="career-summary">
       <span class="career-title">
         <span class="career-title-content" class:expired>
           {title}
-          {#if detailContent}
-            <span class="material-symbols-outlined career-detail-icon" style="font-size: 1em; vertical-align: middle;" data-tooltip={m.career_detail_tooltip()} aria-label={m.career_detail_tooltip()}>right_panel_close</span>
-          {/if}
         </span>
       </span>
       {#if !hideDatetime}

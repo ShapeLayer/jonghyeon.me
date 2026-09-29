@@ -1,17 +1,30 @@
 <script lang="ts">
-  import { type Snippet } from 'svelte';
+  import { type Snippet, getContext } from 'svelte';
 
   interface Props {
     children?: Snippet;
   }
   let { children }: Props = $props();
+  const transition = getContext<{ duration: number } | undefined>('popup-transition-duration-ms');
+  let transitionDurationMs = $derived(transition?.duration ?? 500);
 
   let isOpen = $state<boolean>(false);
   let dimElement: HTMLDivElement | null = $state(null);
   let contentWrapperElement: HTMLDivElement | null = $state(null);
+  let contentElement: HTMLDivElement | null = $state(null);
 
-  const open = () => {
+  /** Starts at the top, or at the element with `anchorId` so it is already in view as the panel slides in. */
+  const scrollToAnchor = (anchorId?: string) => {
+    if (!contentElement) return;
+    const target = anchorId ? contentElement.querySelector<HTMLElement>(`#${CSS.escape(anchorId)}`) : null;
+    contentElement.scrollTop = target
+      ? target.getBoundingClientRect().top - contentElement.getBoundingClientRect().top + contentElement.scrollTop - 16
+      : 0;
+  };
+
+  const open = (anchorId?: string) => {
     if (!dimElement) return;
+    scrollToAnchor(anchorId);
     isOpen = true;
     dimElement.style.pointerEvents = 'auto';
     dimElement.style.opacity = '1';
@@ -57,7 +70,7 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 11;
-    transition: opacity .2s;
+    transition: opacity var(--popup-dim-duration);
     pointer-events: none;
     opacity: 0;
   }
@@ -72,7 +85,7 @@
     flex-direction: row;
     justify-content: flex-start;
     z-index: 12;
-    transition: left .5s;
+    transition: left var(--popup-slide-duration);
     background-color: white;
   }
   .popup-content {
@@ -114,10 +127,10 @@
 
 <svelte:window on:keydown={onKeyDownHandler} />
 
-<div class="popup">
+<div class="popup" style:--popup-slide-duration={`${transitionDurationMs}ms`} style:--popup-dim-duration={`${transitionDurationMs * 0.4}ms`}>
   <dim bind:this={dimElement} onclick={close}></dim>
   <div bind:this={contentWrapperElement} class="popup-content-wrapper">
-    <div class="popup-content">
+    <div bind:this={contentElement} class="popup-content">
       <div class="popup-header">
         <button class="close-button" onclick={close}>
           <span class="material-symbols-outlined">close</span>

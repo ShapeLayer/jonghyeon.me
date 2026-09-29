@@ -1,9 +1,16 @@
 <script lang="ts">
+  import LocaleSelectorNav from '$lib/components/LocaleSelectorNav.svelte';
+
   let { children } = $props();
 </script>
 
 <main class="detail-page">
-  {@render children()}
+  <div class="detail-content">
+    {@render children()}
+  </div>
+  <footer class="detail-locale">
+    <LocaleSelectorNav />
+  </footer>
 </main>
 
 <style>
@@ -15,6 +22,22 @@
     padding: 3em 2em;
     box-sizing: border-box;
     background: white;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .detail-content {
+    width: 100%;
+  }
+
+  .detail-locale {
+    margin-top: auto;
+    padding-top: 4em;
+  }
+
+  .detail-locale :global(.locale-selector ul) {
+    top: auto;
+    bottom: calc(100% + 0.25em);
   }
 
   .detail-page :global(code) {

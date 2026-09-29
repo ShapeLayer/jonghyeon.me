@@ -1,7 +1,5 @@
-<style>
-  hr {
-    margin: 5rem auto;
-  }
-</style>
+<script lang="ts">
+  let { margin = '5rem auto' }: { margin?: string } = $props();
+</script>
 
-<hr />
+<hr style:margin={margin} />

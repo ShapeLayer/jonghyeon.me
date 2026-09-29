@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import ExternalLink from './ExternalLink.svelte';
   import { m } from '$lib/paraglide/messages';
+  import type { VerticalSpacing } from '$lib/models/presets';
   const FEED_ORIGIN = 'https://blog.jonghyeon.me';
   const FEED_RESIZE_MESSAGE_TYPE = 'embed-feed-resize';
   const MIN_FEED_HEIGHT = 160;
@@ -11,12 +11,28 @@
     disableSummary = false,
     disableDescription = false,
     disableEmbed = false,
-    recentPostsCount = 5
+    enableScrollAdjustment = true,
+    descriptionMarginTop = '4em',
+    shownParagraphs = [0, 1, 2],
+    recentPostsCount = 5,
+    hideEmailLink = false,
+    hideGithubLink = false,
+    hideBlogLink = false,
+    hideInstagramLink = false,
+    verticalSpacing = {}
   }: {
     disableSummary?: boolean;
     disableDescription?: boolean;
     disableEmbed?: boolean;
+    enableScrollAdjustment?: boolean;
+    descriptionMarginTop?: string;
+    shownParagraphs?: number[];
     recentPostsCount?: number;
+    hideEmailLink?: boolean;
+    hideGithubLink?: boolean;
+    hideBlogLink?: boolean;
+    hideInstagramLink?: boolean;
+    verticalSpacing?: VerticalSpacing;
   } = $props();
 
   let feedUrl = $derived(`${FEED_ORIGIN}/static/embed-feed/?posts=${recentPostsCount}`);
@@ -24,26 +40,8 @@
     Math.min(Math.max(70 + Math.max(1, recentPostsCount) * 30, MIN_FEED_HEIGHT), MAX_FEED_HEIGHT)
   );
 
-  let scrollY: number = 0;
-  let introductionElement: HTMLDivElement | null = null;
-  let descriptionElement: HTMLDivElement | null = null;
+  let scrollY = $state(0);
   let feedIframeElement: HTMLIFrameElement | null = null;
-
-  const handleScrollY = (e?: Event) => {
-    if (descriptionElement) {
-      if (scrollY < 100) {
-        descriptionElement.style.marginTop = `calc(${100 - scrollY}px + 4em)`;
-      }
-    }
-
-    if (introductionElement) {
-      introductionElement.style.marginTop = `calc(${Math.min(scrollY, 100)}px)`;
-    }
-  };
-
-  const init = () => {
-    handleScrollY();
-  };
 
   const handleFeedResizeMessage = (event: MessageEvent) => {
     if (event.origin !== FEED_ORIGIN || !feedIframeElement) {
@@ -68,7 +66,6 @@
     feedIframeElement.style.height = `${clampedHeight}px`;
   };
 
-  onMount(init);
 </script>
 
 <style>
@@ -83,9 +80,12 @@
     margin: 0;
   }
 
-  .description {
-    margin-top: 4em; /* not actually works, refer to handleScrollY */
+  .summary.scroll-adjusted {
+    position: sticky;
+    top: 0;
+    transform: translateY(var(--scroll-offset));
   }
+
   .description p {
     margin: 1em 0;
     line-height: 1.6;
@@ -108,30 +108,36 @@
   }
 </style>
 
-<svelte:window bind:scrollY onscroll={handleScrollY} onmessage={handleFeedResizeMessage} />
+<svelte:window bind:scrollY onmessage={handleFeedResizeMessage} />
 
-<div class="introduction" bind:this={introductionElement}>
-  {#if !disableSummary}<div class="summary">
+<div class="introduction" style:margin-top={verticalSpacing.marginTop} style:margin-bottom={verticalSpacing.marginBottom} style:padding-top={verticalSpacing.paddingTop} style:padding-bottom={verticalSpacing.paddingBottom}>
+  {#if !disableSummary}<div class="summary" class:scroll-adjusted={enableScrollAdjustment} style:--scroll-offset={enableScrollAdjustment ? `${Math.min(Math.max(scrollY, 0), 100)}px` : '0px'}>
       <div class="name">
         <h2>Park, "ShapeLayer" Jonghyeon</h2>
       </div>
       <div class="contacts">
-        <div class="contacts-row">
-          <ExternalLink href="mailto:me@jonghyeon.me">me@jonghyeon.me</ExternalLink>
-        </div>
-        <div class="contacts-row">
-          <ExternalLink href="https://github.com/shapelayer" target="_blank" rel="noopener noreferrer">GitHub</ExternalLink>
-          <ExternalLink href="https://blog.jonghyeon.me" target="_blank" rel="noopener noreferrer">Blog</ExternalLink>
-        </div>
-        <div>
-          <ExternalLink href="https://www.instagram.com/__jong.hyeon__/" target="_blank" rel="noopener noreferrer">Instagram</ExternalLink>
-        </div>
+        {#if !hideEmailLink}
+          <div class="contacts-row">
+            <ExternalLink href="mailto:me@jonghyeon.me">me@jonghyeon.me</ExternalLink>
+          </div>
+        {/if}
+        {#if !hideGithubLink || !hideBlogLink}
+          <div class="contacts-row">
+            {#if !hideGithubLink}<ExternalLink href="https://github.com/shapelayer">GitHub</ExternalLink>{/if}
+            {#if !hideBlogLink}<ExternalLink href="https://blog.jonghyeon.me">Blog</ExternalLink>{/if}
+          </div>
+        {/if}
+        {#if !hideInstagramLink}
+          <div>
+            <ExternalLink href="https://www.instagram.com/__jong.hyeon__/">Instagram</ExternalLink>
+          </div>
+        {/if}
       </div>
     </div>{/if}
-  {#if !disableDescription}<div class="description" bind:this={descriptionElement}>
-      <p>{m.profile_intro_description_1()}</p>
-      <p>{m.profile_intro_description_2_1()}<br />{m.profile_intro_description_2_2()}</p>
-      <p>{m.profile_intro_description_3()}</p>
+  {#if !disableDescription}<div class="description" style:margin-top={enableScrollAdjustment && !disableSummary ? `calc(100px + ${descriptionMarginTop})` : descriptionMarginTop}>
+      {#if shownParagraphs.includes(0)}<p>{m.profile_intro_description_1()}</p>{/if}
+      {#if shownParagraphs.includes(1)}<p>{m.profile_intro_description_2_1()}<br />{m.profile_intro_description_2_2()}</p>{/if}
+      {#if shownParagraphs.includes(2)}<p>{m.profile_intro_description_3()}</p>{/if}
     </div>{/if}
   {#if !disableEmbed}<div class="embed-feed">
       <iframe

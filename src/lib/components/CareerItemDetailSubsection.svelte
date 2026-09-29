@@ -1,34 +1,34 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
   import CareerTagList from '$lib/components/CareerTagList.svelte';
-  import { getCareerSubItemTags } from '$lib/models/careers';
+  import { careerDetailAnchorId, getCareerSubItemTags, getCareerTags } from '$lib/models/careers';
 
   let {
     id,
+    itemId,
     title,
     subtitle,
-    divider = true,
     children
   }: {
     /** Sub-entry id declared on the parent item, which is where its tags come from. */
-    id: string;
+    id?: string;
+    /** A career item whose details live here instead of in a popup of its own; it opens this popup at this section. */
+    itemId?: string;
     title: string;
     subtitle?: string;
-    /** Whether to draw the separator above this subsection. */
-    divider?: boolean;
     children?: Snippet;
   } = $props();
-  const tags = getCareerSubItemTags(id);
+  /** The popup's own project tag is left out, since the whole popup is about that project. */
+  let tags = $derived(itemId ? getCareerTags(itemId).filter((tag) => !tag.opensItemId) : getCareerSubItemTags(id ?? ''));
+  let anchorId = $derived(itemId ? careerDetailAnchorId(itemId) : id);
 </script>
 
 <style>
   .subsection {
     margin: .65em 0 .35em;
     padding-top: .75em;
+    padding-inline: 0;
     flex-direction: column;
-  }
-  .subsection.with-divider {
-    border-top: 1px solid rgba(0, 0, 0, .1);
   }
   h3 {
     margin: 0;
@@ -43,7 +43,7 @@
   }
 </style>
 
-<section class="subsection" class:with-divider={divider} {id}>
+<section class="subsection" id={anchorId}>
   <h3>{title}</h3>
   {#if subtitle}
     <h4>{subtitle}</h4>

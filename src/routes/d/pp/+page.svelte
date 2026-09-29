@@ -18,7 +18,7 @@
       <section class="detail-section" aria-labelledby="events-heading">
         <h2 id="events-heading">{m.detail_section_events()}</h2>
         <div class="section-content">
-          <CareerItemDetailSubsection id="algorithm-contest-pimm-23" title={m.career_contents_algorithm_contest_pimm23_title()} subtitle={m.career_details_algorithm_contest_pimm23()} divider={false}>
+          <CareerItemDetailSubsection id="algorithm-contest-pimm-23" title={m.career_contents_algorithm_contest_pimm23_title()} subtitle={m.career_details_algorithm_contest_pimm23()}>
             <div class="contest-content">
               <ul>
                 <li><span>{m.problems()} <ExternalLink href="https://archive.is/16FCI">(archive.is)</ExternalLink></span></li>
@@ -29,7 +29,7 @@
             </div>
           </CareerItemDetailSubsection>
 
-          <CareerItemDetailSubsection id="algorithm-contest-pimm-24a" title={m.career_contents_algorithm_contest_pimm24a_title()} subtitle={m.career_details_algorithm_contest_pimm24a()} divider={false}>
+          <CareerItemDetailSubsection id="algorithm-contest-pimm-24a" title={m.career_contents_algorithm_contest_pimm24a_title()} subtitle={m.career_details_algorithm_contest_pimm24a()}>
             <div class="contest-content">
               <ul>
                 <li><span>{m.problems()} <ExternalLink href="https://archive.is/Ddg9H">(archive.is)</ExternalLink></span></li>
@@ -40,7 +40,7 @@
             </div>
           </CareerItemDetailSubsection>
 
-          <CareerItemDetailSubsection id="algorithm-contest-pimm-24b" title={m.career_contents_algorithm_contest_pimm24b_title()} subtitle={m.career_details_algorithm_contest_pimm24b()} divider={false}>
+          <CareerItemDetailSubsection id="algorithm-contest-pimm-24b" title={m.career_contents_algorithm_contest_pimm24b_title()} subtitle={m.career_details_algorithm_contest_pimm24b()}>
             <div class="contest-content">
               <ul>
                 <li><span>{m.problems()} <ExternalLink href="https://archive.is/wEz1b">(archive.is)</ExternalLink></span></li>
@@ -50,7 +50,7 @@
             </div>
           </CareerItemDetailSubsection>
 
-          <CareerItemDetailSubsection id="algorithm-contest-pimm-25a" title={m.career_contents_algorithm_contest_pimm25a_title()} subtitle={m.career_details_algorithm_contest_pimm25a()} divider={false}>
+          <CareerItemDetailSubsection id="algorithm-contest-pimm-25a" title={m.career_contents_algorithm_contest_pimm25a_title()} subtitle={m.career_details_algorithm_contest_pimm25a()}>
             <div class="contest-content">
               <ul>
                 <li><span>{m.problems()} <ExternalLink href="https://archive.is/BRS4E">(archive.is)</ExternalLink></span></li>
@@ -121,7 +121,6 @@
 
   .section-content :global(.subsection:first-child) {
     padding-top: 0;
-    border-top: 0;
   }
 
   .section-content :global(.subsection:last-child) {

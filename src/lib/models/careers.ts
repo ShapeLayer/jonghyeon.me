@@ -80,7 +80,7 @@ export const careerTags: CareerTag[] = [
   { identifier: 'era-junior', displayName: () => m.career_tag_era_minor(), description: () => m.career_tag_era_minor_description(), backgroundColor: '#ffe9e2', foregroundColor: '#a3401b', kind: 'era' },
   { identifier: 'era-university', displayName: () => m.career_tag_era_university(), description: () => m.career_tag_era_university_description(), backgroundColor: '#e2ecff', foregroundColor: '#1b3fa3', kind: 'era' },
   { identifier: 'pimm-algo-party', displayName: () => m.career_tag_pimm_algo_party(), description: () => m.career_tag_pimm_algo_party_description(), backgroundColor: '#e3f0ff', foregroundColor: '#0b5bb5', kind: 'project', opensItemId: 'algorithm-contest-pimm-party' },
-  { identifier: 'ktas-trainer', displayName: () => m.career_tag_ktas_trainer(), description: () => m.career_tag_ktas_trainer_description(), backgroundColor: '#ffe8ec', foregroundColor: '#c11d3c', kind: 'project' },
+  { identifier: 'ktas-trainer', displayName: () => m.career_tag_ktas_trainer(), description: () => m.career_tag_ktas_trainer_description(), backgroundColor: '#ffe8ec', foregroundColor: '#c11d3c', kind: 'project', opensItemId: 'project-ktas-trainer' },
   { identifier: 'sign-language', displayName: () => m.career_tag_sign_language(), description: () => m.career_tag_sign_language_description(), backgroundColor: '#e0f7f0', foregroundColor: '#0f7a63', kind: 'project' },
   { identifier: 'pre-ai', displayName: () => m.career_tag_ai_pre_ai(), description: () => m.career_tag_ai_pre_ai_description(), backgroundColor: '#eef0f2', foregroundColor: '#55606b', kind: 'ai' },
   { identifier: 'limited', displayName: () => m.career_tag_ai_limited(), description: () => m.career_tag_ai_limited_description(), backgroundColor: '#fff4dc', foregroundColor: '#8a5a00', kind: 'ai' },
@@ -350,6 +350,11 @@ export function getCareerSection(id: string): CareerSection | undefined {
 export function getCareerSubItemTags(id: string): CareerTag[] {
   const identifiers = new Set(subItemById.get(id)?.tagIdentifiers ?? []);
   return careerTags.filter((tag) => identifiers.has(tag.identifier));
+}
+
+/** Element id of an item's section inside another item's detail popup, e.g. a project under its project tag's popup. */
+export function careerDetailAnchorId(id: string): string {
+  return `detail-${id}`;
 }
 
 /** Tags of an item, including the ones its sub-entries carry, so a filter reaches the item through them. */
