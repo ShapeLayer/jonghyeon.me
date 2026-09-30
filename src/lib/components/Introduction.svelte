@@ -81,8 +81,6 @@
   }
 
   .summary.scroll-adjusted {
-    position: sticky;
-    top: 0;
     transform: translateY(var(--scroll-offset));
   }
 
