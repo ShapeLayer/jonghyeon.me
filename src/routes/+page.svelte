@@ -24,7 +24,7 @@
   {/if}
 {/if}
 {#if !preset.disableCareersSection}
-  <Careers opened={preset.openCareersSectionTabOpened} hiddenOverrides={preset.careerItemHiddenOverrides} tagDisplayModes={preset.careerTagDisplayModes} popupTransitionDurationMs={preset.popupTransitionDurationMs} verticalSpacing={preset.careersVerticalSpacing} />
+  <Careers opened={preset.openCareersSectionTabOpened} hiddenOverrides={preset.careerItemHiddenOverrides} tagDisplayModes={preset.careerTagDisplayModes} detailTagVisibility={preset.careerDetailTagVisibility} popupTransitionDurationMs={preset.popupTransitionDurationMs} verticalSpacing={preset.careersVerticalSpacing} />
   {#if !preset.hideCareersFooterHr}
     <SectionDivider margin={preset.careersFooterHrMargin} />
   {/if}

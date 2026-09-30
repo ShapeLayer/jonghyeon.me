@@ -51,8 +51,8 @@
   const tags = getCareerTags(id);
   const tagDisplayModes = getContext<{ modes: CareerTagDisplayModes } | undefined>('career-tag-display-modes');
   let hasExpandableTags = $derived(
-    (tagDisplayModes?.modes.always === 'collapse' && tags.some((tag) => tag.kind === 'stack' || tag.kind === 'project')) ||
-    ((tagDisplayModes?.modes.collapse ?? 'collapse') === 'collapse' && tags.some((tag) => tag.kind !== 'stack' && tag.kind !== 'project'))
+    (tagDisplayModes?.modes.primary === 'collapse' && tags.some((tag) => tag.kind === 'stack' || tag.kind === 'project')) ||
+    ((tagDisplayModes?.modes.secondary ?? 'collapse') === 'collapse' && tags.some((tag) => tag.kind !== 'stack' && tag.kind !== 'project'))
   );
   let isExpanded = $state(false);
   const listControls = getContext<CareerListControls | undefined>('career-list-controls');

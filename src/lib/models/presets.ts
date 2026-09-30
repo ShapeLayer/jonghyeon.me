@@ -1,6 +1,19 @@
 export type CareersSectionTab = 'history' | 'projects';
 export type CareerTagDisplayMode = 'always' | 'collapse' | 'hide';
-export type CareerTagDisplayModes = { always: CareerTagDisplayMode; collapse: CareerTagDisplayMode };
+/** Display mode per tag group: primary holds stack and project tags, secondary every other kind. */
+export type CareerTagDisplayModes = { primary: CareerTagDisplayMode; secondary: CareerTagDisplayMode };
+/**
+ * Tag visibility inside detail popups, independent of the list's display modes.
+ * `primary` and `secondary` toggle the same tag groups the list uses; `show` and `hide`
+ * override them with tag kinds (e.g. 'ai', 'topic') or single tag identifiers (e.g. 'driven'),
+ * a tag identifier outranking its kind.
+ */
+export type CareerDetailTagVisibility = {
+	primary: boolean;
+	secondary: boolean;
+	show: string[];
+	hide: string[];
+};
 export type VerticalSpacing = {
 	marginTop?: string;
 	marginBottom?: string;
@@ -39,6 +52,7 @@ export type Preset = {
 	openCareersSectionTabOpened: CareersSectionTab;
 	careerItemHiddenOverrides: Record<string, boolean>;
 	careerTagDisplayModes: CareerTagDisplayModes;
+	careerDetailTagVisibility: CareerDetailTagVisibility;
 	popupTransitionDurationMs: number;
 };
 
@@ -72,7 +86,8 @@ export const defaultPreset: Preset = {
 	countRecentPostsEmbed: 5,
 	openCareersSectionTabOpened: 'history',
 	careerItemHiddenOverrides: {},
-	careerTagDisplayModes: { always: 'always', collapse: 'collapse' },
+	careerTagDisplayModes: { primary: 'always', secondary: 'collapse' },
+	careerDetailTagVisibility: { primary: true, secondary: true, show: [], hide: [] },
 	popupTransitionDurationMs: 500
 };
 
@@ -96,7 +111,8 @@ const presets: Record<string, Partial<Preset>> = {
 			'work-ielab': true,
 			'work-cnu-ucc-working-scholarship': true
 		},
-		careerTagDisplayModes: { always: 'always', collapse: 'hide' }
+		careerTagDisplayModes: { primary: 'always', secondary: 'hide' },
+		careerDetailTagVisibility: { primary: true, secondary: false, show: ['ai'], hide: [] }
 	}
 };
 

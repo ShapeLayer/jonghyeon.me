@@ -47,13 +47,16 @@
   import SectionHeader from '$lib/components/SectionHeader.svelte';
   import { m } from '$lib/paraglide/messages';
   import type { Date as CareerDate } from '$lib/models/date';
-  import type { CareersSectionTab, CareerTagDisplayModes, VerticalSpacing } from '$lib/models/presets';
+  import type { CareerDetailTagVisibility, CareersSectionTab, CareerTagDisplayModes, VerticalSpacing } from '$lib/models/presets';
   import { aiTags, careerSortCriteria, careerTabs, careerTags, eraTags, getCareerSection, getCareerSections, matchesCareerPeriod, matchesCareerTags, projectTags, sectionTags, sortCareerItemIds, topicTags, type CareerTabIdentifier, type CareerTag, type CareerTagKind, type SortDirection } from '$lib/models/careers';
 
-  let { opened = 'history', hiddenOverrides = {}, tagDisplayModes = { always: 'always', collapse: 'collapse' }, popupTransitionDurationMs = 500, verticalSpacing = {} }: { opened?: CareersSectionTab; hiddenOverrides?: Record<string, boolean>; tagDisplayModes?: CareerTagDisplayModes; popupTransitionDurationMs?: number; verticalSpacing?: VerticalSpacing } = $props();
+  let { opened = 'history', hiddenOverrides = {}, tagDisplayModes = { primary: 'always', secondary: 'collapse' }, detailTagVisibility = { primary: true, secondary: true, show: [], hide: [] }, popupTransitionDurationMs = 500, verticalSpacing = {} }: { opened?: CareersSectionTab; hiddenOverrides?: Record<string, boolean>; tagDisplayModes?: CareerTagDisplayModes; detailTagVisibility?: CareerDetailTagVisibility; popupTransitionDurationMs?: number; verticalSpacing?: VerticalSpacing } = $props();
 
   setContext('career-tag-display-modes', {
     get modes() { return tagDisplayModes; }
+  });
+  setContext('career-detail-tag-visibility', {
+    get visibility() { return detailTagVisibility; }
   });
   setContext('popup-transition-duration-ms', {
     get duration() { return popupTransitionDurationMs; }
