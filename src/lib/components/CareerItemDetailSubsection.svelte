@@ -14,7 +14,8 @@
     id?: string;
     /** A career item whose details live here instead of in a popup of its own; it opens this popup at this section. */
     itemId?: string;
-    title: string;
+    /** Left out for the popup's own main content, which the popup title already names. */
+    title?: string;
     subtitle?: string;
     children?: Snippet;
   } = $props();
@@ -44,7 +45,9 @@
 </style>
 
 <section class="subsection" id={anchorId}>
-  <h3>{title}</h3>
+  {#if title}
+    <h3>{title}</h3>
+  {/if}
   {#if subtitle}
     <h4>{subtitle}</h4>
   {/if}
