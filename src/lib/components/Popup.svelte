@@ -59,6 +59,9 @@
 </script>
 
 <style>
+  .popup {
+    --popup-max-width: clamp(600px, 50vw, 880px);
+  }
   button {
     cursor: pointer;
   }
@@ -78,7 +81,7 @@
     position: fixed;
     top: 0;
     left: -100vw;
-    max-width: 600px;
+    max-width: var(--popup-max-width);
     width: 100%;
     height: 100vh;
     display: flex;
@@ -94,7 +97,7 @@
     flex-direction: column;
     padding: 3em 2em;
     text-align: left;
-    max-width: 600px;
+    max-width: var(--popup-max-width);
     width: 100%;
     box-sizing: border-box;
     margin: 0 auto;
