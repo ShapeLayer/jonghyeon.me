@@ -299,6 +299,7 @@
   "career_contents_algorithm_contest_pimm_party_turbo_waffle_title": "해설집 제작용 자체 조판 도구 개발",
   "career_contents_algorithm_contest_pimm_party_turbo_waffle_li_0": "군 사이버지식정보방(하모니 OS) PC 환경에서 일관적으로 렌더링되는 해설집 PDF 제작 필요",
   "career_contents_algorithm_contest_pimm_party_turbo_waffle_li_1": "Markdown에 사전 정의 레이아웃을 적용해 PDF로 렌더링하는 CLI 도구 개발",
+  "career_contents_algorithm_contest_pimm_party_turbo_waffle_pdf": "turbo-waffle로 렌더링한 PDF",
   "career_details_algorithm_contest_pimm23": "출제 및 총괄",
   "career_contents_algorithm_contest_pimm23_title": "<2023 전남대학교 PIMM 알고리즘 파티> 대회",
   "career_contents_algorithm_contest_pimm23_prob_a": "문제 A. <학점계산프로그램>",

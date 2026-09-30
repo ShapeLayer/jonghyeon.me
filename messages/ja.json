@@ -281,6 +281,7 @@
   "career_contents_algorithm_contest_pimm_party_turbo_waffle_title": "解説集制作用の自作組版ツールの開発",
   "career_contents_algorithm_contest_pimm_party_turbo_waffle_li_0": "軍のサイバー知識情報室(Harmony OS)のPC環境で一貫してレンダリングされる解説集PDFの制作が必要",
   "career_contents_algorithm_contest_pimm_party_turbo_waffle_li_1": "Markdownに事前定義レイアウトを適用してPDFにレンダリングするCLIツールを開発",
+  "career_contents_algorithm_contest_pimm_party_turbo_waffle_pdf": "turbo-waffleでレンダリングしたPDF",
   "career_details_algorithm_contest_pimm23": "出題及び総括",
   "career_contents_algorithm_contest_pimm23_title": "コミュニティオープンコンテスト〈2023全南大学PIMMアルゴリズムパーティ〉大会",
   "extlink_post_title_rewinding_2023_pimm_party": "[KO] 〈2023全南大学PIMMを振り返って〉",

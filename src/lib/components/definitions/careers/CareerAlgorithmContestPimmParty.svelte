@@ -63,7 +63,10 @@
           <li>{m.career_contents_algorithm_contest_pimm_party_turbo_waffle_li_0()}</li>
           <li>{m.career_contents_algorithm_contest_pimm_party_turbo_waffle_li_1()}</li>
         </ul>
-        <p><ExternalLink href='https://github.com/ShapeLayer/turbo-waffle'>GitHub</ExternalLink></p>
+        <p>
+          <ExternalLink href='https://github.com/ShapeLayer/turbo-waffle'>GitHub</ExternalLink>
+          <ExternalLink href={asset('/files/pimm23.pdf')}>{m.career_contents_algorithm_contest_pimm_party_turbo_waffle_pdf()}</ExternalLink>
+        </p>
       </CareerProjectSummary>
     </CareerItemDetailSubsection>
 
