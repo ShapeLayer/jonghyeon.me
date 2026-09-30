@@ -249,9 +249,9 @@
     {#if tags.length}
       <CareerTagList {tags} expanded={tagsExpanded} />
     {/if}
-    <p class="career-detail">
+    <div class="career-detail">
       {@render children?.()}
-    </p>
+    </div>
   </div>
 </div>
 {#if detailContent}
