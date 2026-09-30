@@ -33,7 +33,7 @@
   {#if children}
     {@render children()}
   {/if}
-  {#if tech.length}
+  <!--{#if tech.length}
     <p class="tech-stack">{#each tech as item}<span>{item}</span>{/each}</p>
-  {/if}
+  {/if}-->
 </div>
