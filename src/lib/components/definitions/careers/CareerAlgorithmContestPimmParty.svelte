@@ -5,6 +5,12 @@
   import CareerItemDetailSubsection from '$lib/components/CareerItemDetailSubsection.svelte';
   import CareerProjectSummary from '$lib/components/CareerProjectSummary.svelte';
   import ExternalLink from '$lib/components/ExternalLink.svelte';
+	import ZoomableImage from '$lib/components/ZoomableImage.svelte';
+  import CareerProjectGFMDescConvWebUI from '$lib/assets/CareerProjectGfmToPolygonDesc.png';
+  import { asset } from '$app/paths';
+  import { getLocale } from '$lib/paraglide/runtime';
+
+  const aiReportHref = asset(getLocale() === 'ko' ? '/files/pimm25a-ai.pdf' : '/files/pimm25a-ai-en.pdf');
 </script>
 
 <CareerItem
@@ -34,6 +40,7 @@
           <li>{m.career_contents_algorithm_contest_pimm_party_ai_abuse_li_1()}</li>
           <li>{m.career_contents_algorithm_contest_pimm_party_ai_abuse_li_2()}</li>
         </ul>
+        <p><ExternalLink href={aiReportHref}>{m.detail_pimm_ai_report_pdf()}</ExternalLink></p>
       </CareerProjectSummary>
     </CareerItemDetailSubsection>
 
@@ -43,7 +50,10 @@
           <li>{m.career_contents_algorithm_contest_pimm_party_gfm2polygon_li_0()}</li>
           <li>{m.career_contents_algorithm_contest_pimm_party_gfm2polygon_li_1()}</li>
         </ul>
-        <p><ExternalLink href='https://github.com/ShapeLayer/gfm2polygon-statement'>GitHub</ExternalLink></p>
+        <ZoomableImage src={CareerProjectGFMDescConvWebUI} alt='Web UI' />
+        <p>
+          <ExternalLink href='https://github.com/ShapeLayer/gfm2polygon-statement'>GitHub</ExternalLink> <ExternalLink href='https://gfm-online-judge-description-tool.pages.dev/'>{m.career_contents_algorithm_contest_pimm_party_web_editor()}</ExternalLink>
+        </p>
       </CareerProjectSummary>
     </CareerItemDetailSubsection>
 

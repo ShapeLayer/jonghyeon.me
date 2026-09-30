@@ -3,6 +3,10 @@
   import CareerItemDetailContent from '$lib/components/CareerItemDetailContent.svelte';
   import CareerItemDetailSubsection from '$lib/components/CareerItemDetailSubsection.svelte';
   import ExternalLink from '$lib/components/ExternalLink.svelte';
+  import { asset } from '$app/paths';
+  import { getLocale } from '$lib/paraglide/runtime';
+
+  const aiReportHref = asset(getLocale() === 'ko' ? '/files/pimm25a-ai.pdf' : '/files/pimm25a-ai-en.pdf');
 
 </script>
 
@@ -90,6 +94,11 @@
           <li>
             {m.detail_pimm_ai_report()}<br />
             <ExternalLink href="https://github.com/pimm-dev/2025-first-half-algorithm-party-editorial/blob/main/pimm25a-ai.pdf">pimm-dev/2025-first-half-algorithm-party-editorial</ExternalLink>
+            <ul>
+              <li>
+                <ExternalLink href={aiReportHref}>{m.detail_pimm_ai_report_pdf()}</ExternalLink>
+              </li>
+            </ul>
           </li>
         </ul>
       </section>
