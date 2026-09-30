@@ -53,6 +53,10 @@
 
   "careers": "커리어",
   "career_detail_tooltip": "자세히 보기",
+  "image_viewer_open": "이미지 크게 보기",
+  "image_viewer_close": "닫기",
+  "image_viewer_zoom_in": "확대",
+  "image_viewer_zoom_out": "축소",
 
   "profile_intro_description_1": "안녕하세요! 저는 컴퓨터공학을 전공하고 있는 박종현입니다. 컴퓨터 시스템의 사용자 이름으로는 주로 ShapeLayer라는 이름을 사용합니다.",
   "profile_intro_description_2_1": "크게 다쳐 병원에서 생활했던 어린 시절, 옆 자리의 컴퓨터공학 전공 대학원생을 흉내내며 컴퓨터를 시작하게 되었습니다.",
