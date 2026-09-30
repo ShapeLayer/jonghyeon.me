@@ -6,6 +6,11 @@
 
 <CareerItem id="works-typst-maintaining" title={m.career_title_works_typst_maintaining()}>
 	<ul>
+		<li>HanNLP:
+			<ExternalLink href="https://cran.r-project.org/web/packages/HanNLP/index.html">
+				CRAN
+			</ExternalLink>
+		</li>
 		<li>ucpc-solutions: 
 			<ExternalLink href="https://typst.app/universe/package/ucpc-solutions">
 				Typst Universe
