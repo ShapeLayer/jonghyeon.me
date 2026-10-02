@@ -34,11 +34,11 @@
     localeSelections.forEach(each => each.bind?.setAttribute('aria-selected', 'false'));
     e?.setAttribute('aria-selected', 'true');
 
-    setLocale(locale);
-
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('user-locale-preference', locale);
     }
+
+    setLocale(locale);
 
     localeSelectorButtonAriaExpanded = false;
   }

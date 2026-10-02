@@ -3,7 +3,7 @@
   
   import { browser } from '$app/environment';
   import { onMount } from 'svelte';
-  import { setLocale } from '$lib/paraglide/runtime';
+  import { isLocale, setLocale } from '$lib/paraglide/runtime';
   import { m } from '$lib/paraglide/messages';
 
   import GoogleAnalytics from '$lib/includes/GoogleAnalytics.svelte';
@@ -13,12 +13,24 @@
   /* start i18n support */
   const initLocale = () => {
     if (browser) {
+      const url = new URL(window.location.href);
+      const requestedLocale = url.searchParams.get('locale');
+
+      if (isLocale(requestedLocale)) {
+        // Consume the initial override before setLocale can reload the page.
+        url.searchParams.delete('locale');
+        window.history.replaceState(window.history.state, '', url);
+        localStorage.setItem('user-locale-preference', requestedLocale);
+        setLocale(requestedLocale);
+        return;
+      }
+
       // Check if user has manually set a locale preference
       const savedLocale = localStorage.getItem('user-locale-preference');
       
-      if (savedLocale) {
+      if (isLocale(savedLocale)) {
         // User has a saved preference, use it
-        setLocale(savedLocale as any);
+        setLocale(savedLocale);
       } else {
         // No saved preference, auto-detect from browser
         let language = window.navigator.language;
