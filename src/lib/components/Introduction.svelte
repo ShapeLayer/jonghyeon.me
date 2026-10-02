@@ -122,7 +122,7 @@
         {#if !hideGithubLink || !hideBlogLink}
           <div class="contacts-row">
             {#if !hideGithubLink}<ExternalLink href="https://github.com/shapelayer">GitHub</ExternalLink>{/if}
-            {#if !hideBlogLink}<ExternalLink href="https://blog.jonghyeon.me">Blog</ExternalLink>{/if}
+            {#if !hideBlogLink}<ExternalLink href="https://blog.jonghyeon.me">{m.extlink_site_blog()}</ExternalLink>{/if}
           </div>
         {/if}
         {#if !hideInstagramLink}
