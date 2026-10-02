@@ -106,7 +106,7 @@ const presets: Record<string, Partial<Preset>> = {
 		openCareersSectionTabOpened: 'projects',
 		careerItemHiddenOverrides: {
 			'project-gfm2polygon-statement': false,
-			'works-typst-maintaining': true,
+			'works-typst-maintaining': false,
 			'work-imagelab': true,
 			'work-ielab': true,
 			'work-cnu-ucc-working-scholarship': true
