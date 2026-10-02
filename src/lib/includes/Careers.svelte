@@ -810,7 +810,7 @@
 <section bind:this={careersSectionElement} class:list-view={isFiltered} class="careers" style:margin-top={verticalSpacing.marginTop} style:margin-bottom={verticalSpacing.marginBottom} style:padding-top={verticalSpacing.paddingTop} style:padding-bottom={verticalSpacing.paddingBottom}>
   <div bind:this={careersHeaderElement} class:stuck={isHeaderStuck} class="careers-header">
     <SectionHeader>{activeTabLabel}</SectionHeader>
-    <p class="last-update">{m.last_update({ date: '2026-08-30' })}</p>
+    <p class="last-update">{m.last_update({ date: '2026-09-30' })}</p>
     <div class="career-tabs" role="tablist" aria-label={m.careers()}>
       {#each careerTabs as tab, index (tab.identifier)}
         <button class="career-tab" type="button" role="tab" id={`career-tab-${tab.identifier}`} aria-selected={activeTab === tab.identifier} aria-controls="career-tab-panel" tabindex={activeTab === tab.identifier ? 0 : -1} onclick={() => (activeTab = tab.identifier)} onkeydown={(event) => onTabKeyDown(event, index)}>{tab.label()}</button>
