@@ -65,10 +65,8 @@
             allowfullscreen
           ></iframe>
         </div>
-        <div class="image-row">
-          <ZoomableImage src={CareerProjectKtasGraphEditor} alt='KTAS Trainer Graph Editor' width={1554} height={1025} />
-          <ZoomableImage src={CareerProjectKtasE2eConsole} alt='KTAS Trainer E2E Console' width={1505} height={1087} />
-        </div>
+        <ZoomableImage src={CareerProjectKtasGraphEditor} alt='KTAS Trainer Graph Editor' width={1554} height={1025} />
+        <ZoomableImage src={CareerProjectKtasE2eConsole} alt='KTAS Trainer E2E Console' width={1505} height={1087} />
       </CareerItemDetailSubsection>
 
       <CareerItemDetailSubsection itemId="project-unity-merge" title={m.career_title_project_unity_merge()}>
