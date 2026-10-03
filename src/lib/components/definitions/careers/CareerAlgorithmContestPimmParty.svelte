@@ -1,5 +1,6 @@
 <script lang="ts">
   import { m } from '$lib/paraglide/messages';
+  import PimmAnomalyFormula from '$lib/components/PimmAnomalyFormula.svelte';
   import CareerItem from '$lib/components/CareerItem.svelte';
   import CareerItemDetailContent from '$lib/components/CareerItemDetailContent.svelte';
   import CareerItemDetailSubsection from '$lib/components/CareerItemDetailSubsection.svelte';
@@ -43,7 +44,7 @@
       <CareerProjectSummary tech={["GraphCodeBERT"]}>
         <ul>
           <li>{m.career_contents_algorithm_contest_pimm_party_ai_abuse_li_0()}</li>
-          <li>{m.career_contents_algorithm_contest_pimm_party_ai_abuse_li_1()}</li>
+          <li>{m.career_contents_algorithm_contest_pimm_party_ai_abuse_li_1()}<PimmAnomalyFormula /></li>
           <li>{m.career_contents_algorithm_contest_pimm_party_ai_abuse_li_2()}</li>
         </ul>
         <p><ExternalLink href={aiReportHref}>{m.detail_pimm_ai_report_pdf()}</ExternalLink></p>
