@@ -5,7 +5,7 @@
   import CareerItemDetailSubsection from '$lib/components/CareerItemDetailSubsection.svelte';
   import CareerProjectSummary from '$lib/components/CareerProjectSummary.svelte';
   import ExternalLink from '$lib/components/ExternalLink.svelte';
-	import ZoomableImage from '$lib/components/ZoomableImage.svelte';
+  import ZoomableImage from '$lib/components/ZoomableImage.svelte';
   import CareerProjectGFMDescConvWebUI from '$lib/assets/CareerProjectGfmToPolygonDesc.png';
   import { asset } from '$app/paths';
   import { getLocale } from '$lib/paraglide/runtime';

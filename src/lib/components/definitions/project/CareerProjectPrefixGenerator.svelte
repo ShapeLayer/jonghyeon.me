@@ -6,7 +6,7 @@
 
 <CareerItem id="career-project-prefix-gen" title={m.career_title_project_prefix_generator()}>
   <ul>
-		<li><ExternalLink href="https://name.ho9.me">{m.extlink_site_name_prefix_gen()}</ExternalLink></li>
+    <li><ExternalLink href="https://name.ho9.me">{m.extlink_site_name_prefix_gen()}</ExternalLink></li>
     <li>{m.career_details_project_prefix_generator()}</li>
     <li><ExternalLink
         href="https://blog.jonghyeon.me/posts/2020-05-14-reviewing-prefix-generator/"

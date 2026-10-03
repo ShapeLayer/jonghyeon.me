@@ -105,7 +105,7 @@
     'certification-topcit': CareerCertificationTopcit,
     'works-turbo-waffle': WorkTurboWaffle,
     'works-cellular': WorkCellular,
-    'works-typst-maintaining': WorkPackageMaintaining
+    'works-package-maintaining': WorkPackageMaintaining
   };
   /** The note rendered at the end of a section, if it has one. */
   const sectionsWithGithubNote = ['works', 'develops'];
