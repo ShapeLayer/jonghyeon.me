@@ -2,6 +2,7 @@
   "$schema": "https://inlang.com/schema/inlang-message-format",
 
   "last_update": "{date} 마지막 업데이트.",
+  "career_detail_hint": "아이콘이 있는 항목은 자세한 정보를 열어볼 수 있습니다.",
   "present": "현재",
   "see_more": "더 알아보기",
   "retrospective": "회고",
@@ -285,6 +286,7 @@
   "career_details_algorithm_contest_pimm_party": "'23, '24 상반기, '24 하반기, '25 상반기 대회 총괄",
   "career_details_algorithm_contest_pimm_party_question_writing_23_24a": "'23, '24 상반기 대회 출제",
   "career_contents_algorithm_contest_pimm_party_title": "<PIMM 알고리즘 파티> 대회",
+  "career_contents_algorithm_contest_pimm_detailed_title": "대회 총괄 및 문제 출제",
   "career_contents_algorithm_contest_pimm_party_subtitle": "백준 온라인 저지, 오픈 콘테스트",
   "career_contents_algorithm_contest_pimm_party_li_0": "〈전남대학교 PIMM 알고리즘 파티〉를 군 복무 중 신설하여 백준 온라인 저지 오픈 콘테스트로 개최",
   "career_contents_algorithm_contest_pimm_party_li_1": "〈2024 GIST 알고리즘 마스터즈〉 등 총 5개 대회에서 출제(3회) 및 총괄(4회) 역할 수행",

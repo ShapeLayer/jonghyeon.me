@@ -1,6 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "last_update": "Last Updated in {date}.",
+  "career_detail_hint": "Items with this icon can be opened for more details.",
   "present": "present",
   "see_more": "See More",
   "retrospective": "Retrospective",
@@ -267,6 +268,7 @@
   "career_details_algorithm_contest_pimm_party": "Overall organizer for the '23, '24 H1, '24 H2, and '25 H1 contests",
   "career_details_algorithm_contest_pimm_party_question_writing_23_24a": "Wrote questions for the '23 and '24 H1 contests",
   "career_contents_algorithm_contest_pimm_party_title": "Contest <Chonnam National University PIMM Algorithm Party>",
+  "career_contents_algorithm_contest_pimm_detailed_title": "Contest Organization and Problem Setting",
   "career_contents_algorithm_contest_pimm_party_subtitle": "Baekjoon Online Judge, Open Contest",
   "career_contents_algorithm_contest_pimm_party_li_0": "Founded <Chonnam National University PIMM Algorithm Party> during military service and hosted it as an open contest on Baekjoon Online Judge",
   "career_contents_algorithm_contest_pimm_party_li_1": "Served as problem setter (3 times) and lead organizer (4 times) across 5 contests, including <2024 GIST Algorithm Masters>",

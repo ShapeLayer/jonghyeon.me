@@ -1,6 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "last_update": "{date} 最終更新.",
+  "career_detail_hint": "このアイコンが付いた項目は、詳しい情報を開いて見ることができます。",
   "present": "現在",
   "see_more": "詳しく",
   "retrospective": "振り返り",

@@ -386,6 +386,19 @@
     font-style: italic;
   }
 
+  .career-detail-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+    font-size: 0.8em;
+    color: var(--base-fg-color-brighter);
+  }
+  .career-detail-hint .material-symbols-outlined {
+    flex-shrink: 0;
+    font-size: 1.15em;
+    line-height: 1;
+  }
+
   .careers-header {
     position: sticky;
     top: 0;
@@ -811,6 +824,10 @@
   <div bind:this={careersHeaderElement} class:stuck={isHeaderStuck} class="careers-header">
     <SectionHeader>{activeTabLabel}</SectionHeader>
     <p class="last-update">{m.last_update({ date: '2026-09-30' })}</p>
+    <p class="career-detail-hint">
+      <span class="material-symbols-outlined" role="img" aria-label={m.see_more()}>right_panel_close</span>
+      <span>{m.career_detail_hint()}</span>
+    </p>
     <div class="career-tabs" role="tablist" aria-label={m.careers()}>
       {#each careerTabs as tab, index (tab.identifier)}
         <button class="career-tab" type="button" role="tab" id={`career-tab-${tab.identifier}`} aria-selected={activeTab === tab.identifier} aria-controls="career-tab-panel" tabindex={activeTab === tab.identifier ? 0 : -1} onclick={() => (activeTab = tab.identifier)} onkeydown={(event) => onTabKeyDown(event, index)}>{tab.label()}</button>
