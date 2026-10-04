@@ -1,4 +1,4 @@
-name: Zoomable Image host integration
+name: Site integration
 on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
