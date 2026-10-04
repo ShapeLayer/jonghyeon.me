@@ -32,25 +32,26 @@
         // User has a saved preference, use it
         setLocale(savedLocale);
       } else {
-        // No saved preference, auto-detect from browser
-        let language = window.navigator.language;
-        if (language.includes('ko') || language.includes('kr')) {
-          setLocale('ko');
-        } else if (language.includes('ja') || language.includes('jp')) {
-          setLocale('ja');
-        } else if (
-          language.includes('en') ||
-          language.includes('us') ||
-          language.includes('gb') ||
-          language.includes('au') ||
-          language.includes('ca') ||
-          language.includes('nz')
-        ) {
-          setLocale('en');
-        } else {
-          // Default to Korean if no specific locale is detected
-          setLocale('ko');
+        // Prefer the runtime's formatting locale, which can reflect OS settings
+        // independently of the browser's preferred languages.
+        let formattingLocale: string | undefined;
+        try {
+          formattingLocale = new Intl.DateTimeFormat().resolvedOptions().locale;
+        } catch {
+          // Continue with browser preferences if Intl locale detection fails.
         }
+
+        const candidates = [
+          formattingLocale,
+          ...window.navigator.languages,
+          window.navigator.language
+        ];
+        const detectedLocale = candidates
+          .filter((candidate): candidate is string => Boolean(candidate))
+          .map(candidate => candidate.toLowerCase().split('-')[0])
+          .find(isLocale);
+
+        setLocale(detectedLocale ?? 'en');
       }
     }
   }
