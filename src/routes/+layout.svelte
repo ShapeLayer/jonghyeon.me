@@ -66,6 +66,14 @@
 <svelte:head>
   <title>{m.park_jong_hyeon()} (@ShapeLayer)</title>
 
+  <!-- A tiny explicit image prevents link scrapers from selecting body images. -->
+  <meta property="og:image" content="https://jonghyeon.me/link-preview.png" />
+  <meta property="og:image:width" content="1" />
+  <meta property="og:image:height" content="1" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="https://jonghyeon.me/link-preview.png" />
+  <meta name="robots" content="max-image-preview:none" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
