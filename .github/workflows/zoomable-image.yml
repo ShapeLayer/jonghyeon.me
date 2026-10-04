@@ -1,4 +1,4 @@
-name: Verify package
+name: Zoomable Image host integration
 on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
@@ -7,19 +7,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - uses: pnpm/action-setup@v4
+        with:
+          version: 12.6.0
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
           cache: pnpm
+          cache-dependency-path: |
+            pnpm-lock.yaml
+            packages/zoomable-image/pnpm-lock.yaml
+      - run: pnpm --ignore-workspace --dir packages/zoomable-image install --frozen-lockfile
       - run: pnpm install --frozen-lockfile
-      - run: pnpm format:check
       - run: pnpm exec playwright install --with-deps chromium firefox webkit
-      - run: pnpm test:release
-      - run: pnpm test:package
+      - run: pnpm check
+      - run: pnpm test:zoomable-image:integration
+      - run: pnpm test:zoomable-image:dev
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: browser-results
+          name: zoomable-image-host-results
           path: test-results/
           retention-days: 7
