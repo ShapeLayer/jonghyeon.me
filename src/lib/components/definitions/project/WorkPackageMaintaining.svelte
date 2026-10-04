@@ -11,7 +11,7 @@
         CRAN
       </ExternalLink>
     </li>
-    <li>kilo-goal-plugin
+    <li>kilo-goal-plugin: 
       <ExternalLink href="https://www.npmjs.com/package/@shapelayer/kilo-goal-plugin">
         npm
       </ExternalLink>

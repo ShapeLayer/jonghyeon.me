@@ -1,6 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "last_update": "Last Updated in {date}.",
+  "career_download_cv": "Download CV",
   "career_detail_hint": "Items with this icon can be opened for more details.",
   "present": "present",
   "see_more": "See More",

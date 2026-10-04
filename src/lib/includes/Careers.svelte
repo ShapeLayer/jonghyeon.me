@@ -47,6 +47,8 @@
   import ExternalLink from '$lib/components/ExternalLink.svelte';
   import SectionHeader from '$lib/components/SectionHeader.svelte';
   import { m } from '$lib/paraglide/messages';
+  import { getLocale } from '$lib/paraglide/runtime';
+  import { base } from '$app/paths';
   import type { Date as CareerDate } from '$lib/models/date';
   import type { CareerDetailTagVisibility, CareersSectionTab, CareerTagDisplayModes, VerticalSpacing } from '$lib/models/presets';
   import { aiTags, careerSortCriteria, careerTabs, careerTags, eraTags, getCareerSection, getCareerSections, matchesCareerPeriod, matchesCareerTags, projectTags, sectionTags, sortCareerItemIds, stackTags, topicTags, type CareerTabIdentifier, type CareerTag, type CareerTagKind, type SortDirection } from '$lib/models/careers';
@@ -448,12 +450,28 @@
     padding-left: 0.5em;
   }
 
+  .career-tab-row {
+    display: flex;
+    align-items: stretch;
+    margin: 1em 0 0;
+    border-bottom: 1px solid var(--base-bg-color-darker);
+  }
   .career-tabs {
     display: flex;
     flex-wrap: wrap;
     gap: 0.2em;
-    margin: 1em 0 0;
-    border-bottom: 1px solid var(--base-bg-color-darker);
+    flex: 1;
+    min-width: 0;
+  }
+  .career-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .career-download svg {
+    width: 1em;
+    height: 1em;
   }
   .career-tab {
     /* Sits on the tablist's own bottom rule, so the selected tab can paint over it. */
@@ -844,10 +862,17 @@
       <span class="material-symbols-outlined" role="img" aria-label={m.see_more()}>right_panel_close</span>
       <span>{m.career_detail_hint()}</span>
     </p>
-    <div class="career-tabs" role="tablist" aria-label={m.careers()}>
-      {#each careerTabs as tab, index (tab.identifier)}
-        <button class="career-tab" type="button" role="tab" id={`career-tab-${tab.identifier}`} aria-selected={activeTab === tab.identifier} aria-controls="career-tab-panel" tabindex={activeTab === tab.identifier ? 0 : -1} onclick={() => (activeTab = tab.identifier)} onkeydown={(event) => onTabKeyDown(event, index)}>{tab.label()}</button>
-      {/each}
+    <div class="career-tab-row">
+      <div class="career-tabs" role="tablist" aria-label={m.careers()}>
+        {#each careerTabs as tab, index (tab.identifier)}
+          <button class="career-tab" type="button" role="tab" id={`career-tab-${tab.identifier}`} aria-selected={activeTab === tab.identifier} aria-controls="career-tab-panel" tabindex={activeTab === tab.identifier ? 0 : -1} onclick={() => (activeTab = tab.identifier)} onkeydown={(event) => onTabKeyDown(event, index)}>{tab.label()}</button>
+        {/each}
+      </div>
+      <button class="career-tab career-download" type="button" aria-label={m.career_download_cv()} title={m.career_download_cv()} onclick={() => window.open(`${base}/files/cv-${getLocale() === 'ko' ? 'ko' : 'en'}.pdf`, '_blank', 'noopener,noreferrer')}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5" />
+        </svg>
+      </button>
     </div>
     {#if activeTab !== 'stack'}
     <div class="career-controls" bind:this={controlsElement} aria-label={m.career_filter_controls()}>
