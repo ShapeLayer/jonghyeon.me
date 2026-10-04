@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import type { ZoomableImage } from '@shapelayer/zoomable-image';
 
 for (const locale of ['en', 'ko']) {
 	test(`Svelte adapter preserves ${locale} labels, regions, SSR image and host popup behavior`, async ({
@@ -10,11 +9,24 @@ for (const locale of ['en', 'ko']) {
 		const html = await response.text();
 		expect(html).toContain('<zoomable-image');
 		expect(html).toMatch(/<zoomable-image[^>]*>[\s\S]*?<img[^>]*loading="lazy"/);
-		await page.goto(`/?locale=${locale}`);
+		// Start SSR and hydration in the same locale to avoid a locale-switch reload.
+		await page.context().addCookies([
+			{
+				name: 'PARAGLIDE_LOCALE',
+				value: locale,
+				url: testInfo.project.use.baseURL!
+			}
+		]);
+		await page.addInitScript((selectedLocale) => {
+			localStorage.setItem('user-locale-preference', selectedLocale);
+		}, locale);
+		await page.goto('/');
 		const image = page.locator('zoomable-image[alt="Web UI"]');
-		await expect
-			.poll(() => image.evaluate((node) => (node as ZoomableImage).labels?.open))
-			.toBe(locale === 'en' ? 'View larger image' : '이미지 크게 보기');
+		// Changing the locale can reload the page; locator assertions reacquire the element.
+		await expect(image.locator('.trigger')).toHaveAttribute(
+			'aria-label',
+			locale === 'en' ? 'View larger image: Web UI' : '이미지 크게 보기: Web UI'
+		);
 		await page.locator('#algorithm-contest-operations').click();
 		const popup = page.locator('#algorithm-contest-operations-detail .popup-content-wrapper');
 		await expect(popup).toHaveCSS('left', '0px');
@@ -26,11 +38,7 @@ for (const locale of ['en', 'ko']) {
 			'aria-label',
 			locale === 'en' ? 'Close' : '닫기'
 		);
-		await expect
-			.poll(() =>
-				image.locator('.image').evaluate((node) => (node as HTMLImageElement).naturalWidth)
-			)
-			.toBe(1280);
+		await expect(image.locator('.image')).toHaveJSProperty('naturalWidth', 1280);
 		const regions = await image.locator('.region').count();
 		if (locale === 'en') expect(regions).toBeGreaterThan(0);
 		else expect(regions).toBe(0);
