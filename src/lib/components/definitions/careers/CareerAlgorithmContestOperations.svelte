@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { ImageAnnotation } from '$lib/components/image-annotations';
   import { m } from '$lib/paraglide/messages';
   import PimmAnomalyFormula from '$lib/components/PimmAnomalyFormula.svelte';
   import CareerItem from '$lib/components/CareerItem.svelte';
@@ -13,6 +14,33 @@
   import { getLocale } from '$lib/paraglide/runtime';
 
   const aiReportHref = asset(getLocale() === 'ko' ? '/files/pimm25a-ai.pdf' : '/files/pimm25a-ai-en.pdf');
+
+  // Bounds include the black margins of the original 1280 × 1025 screenshot.
+  const gfmRegion = (id: string, x: number, y: number, width: number, height: number, text: string): ImageAnnotation => ({
+    id, x: x / 1280 * 100, y: y / 1025 * 100, width: width / 1280 * 100, height: height / 1025 * 100, text
+  });
+  const gfmAnnotations = $derived(getLocale() === 'ko' ? [] : [
+    gfmRegion('gemini-0', 1059, 46, 151, 25, m.career_image_gfm_polygon_gemini()),
+    gfmRegion('plan-1', 98, 327, 525, 61, m.career_image_gfm_polygon_plan()),
+    gfmRegion('question-2', 98, 407, 190, 22, m.career_image_gfm_polygon_question()),
+    gfmRegion('input-3', 98, 447, 52, 23, m.career_image_gfm_polygon_input()),
+    gfmRegion('jonghyeon_date-4', 98, 487, 376, 23, m.career_image_gfm_polygon_jonghyeon_date()),
+    gfmRegion('yeongdo_date-5', 98, 527, 376, 23, m.career_image_gfm_polygon_yeongdo_date()),
+    gfmRegion('parameters-6', 98, 568, 521, 42, m.career_image_gfm_polygon_parameters()),
+    gfmRegion('actions-7', 98, 629, 454, 24, m.career_image_gfm_polygon_actions()),
+    gfmRegion('leave_action-8', 98, 670, 522, 42, m.career_image_gfm_polygon_leave_action()),
+    gfmRegion('discipline_action-9', 98, 712, 522, 41, m.career_image_gfm_polygon_discipline_action()),
+    gfmRegion('nco_action-10', 98, 752, 522, 42, m.career_image_gfm_polygon_nco_action()),
+    gfmRegion('output-11', 98, 811, 54, 24, m.career_image_gfm_polygon_output()),
+    gfmRegion('result-12', 98, 851, 323, 26, m.career_image_gfm_polygon_result()),
+    gfmRegion('early_discharge-13', 656, 361, 405, 26, m.career_image_gfm_polygon_early_discharge()),
+    gfmRegion('disciplinary_training-14', 656, 442, 523, 44, m.career_image_gfm_polygon_disciplinary_training()),
+    gfmRegion('fixed_term_nco-15', 656, 543, 523, 44, m.career_image_gfm_polygon_fixed_term_nco()),
+    gfmRegion('plan-16', 656, 665, 523, 63, m.career_image_gfm_polygon_plan()),
+    gfmRegion('question-17', 656, 766, 190, 25, m.career_image_gfm_polygon_question()),
+    gfmRegion('input-18', 699, 807, 32, 24, m.career_image_gfm_polygon_input()),
+    gfmRegion('jonghyeon_date-19', 656, 847, 375, 26, m.career_image_gfm_polygon_jonghyeon_date()),
+  ]);
 </script>
 
 <style>
@@ -59,7 +87,7 @@
           <li>{m.career_contents_algorithm_contest_pimm_party_gfm2polygon_li_0()}</li>
           <li>{m.career_contents_algorithm_contest_pimm_party_gfm2polygon_li_1()}</li>
         </ul>
-        <ZoomableImage src={CareerProjectGFMDescConvWebUI} alt='Web UI' />
+        <ZoomableImage src={CareerProjectGFMDescConvWebUI} alt='Web UI' width={1280} height={1025} annotations={gfmAnnotations} />
         <p>
           <ExternalLink href='https://github.com/ShapeLayer/gfm2polygon-statement'>GitHub</ExternalLink> <ExternalLink href='https://gfm-online-judge-description-tool.pages.dev/'>{m.career_contents_algorithm_contest_pimm_party_web_editor()}</ExternalLink>
         </p>
