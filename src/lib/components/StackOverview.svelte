@@ -60,6 +60,18 @@
 	const ordered = $derived(
 		[...stacks].sort((a, b) => Number(b.id === promotedStack) - Number(a.id === promotedStack))
 	);
+	let hiddenStacksExpanded = $state(false);
+	const topStackIds = new Set(stacks.slice(0, 10).map((stack) => stack.id));
+	const topStacks = $derived(
+		ordered.filter(
+			(stack) => topStackIds.has(stack.id) || (!portrait && stack.id === promotedStack)
+		)
+	);
+	const hiddenStacks = $derived(
+		ordered.filter(
+			(stack) => !topStackIds.has(stack.id) && (portrait || stack.id !== promotedStack)
+		)
+	);
 	const histogramScale = $derived(portrait ? 5 : 3);
 	const histogramWidth = (share: number) =>
 		`${Math.min(100, Math.max(0, share * 100 * histogramScale))}%`;
@@ -130,7 +142,7 @@
 	</div>
 	<p class="basis">{m.stack_basis()}</p>
 	<div class="histograms">
-		{#each ordered as stack (stack.id)}
+		{#each topStacks as stack (stack.id)}
 			<button
 				type="button"
 				class="histogram"
@@ -153,6 +165,45 @@
 			</button>
 		{/each}
 	</div>
+	{#if hiddenStacks.length > 0}
+		<button
+			class="section-toggle"
+			type="button"
+			aria-expanded={hiddenStacksExpanded}
+			aria-controls="hidden-stack-histograms"
+			onclick={() => (hiddenStacksExpanded = !hiddenStacksExpanded)}
+		>
+			{hiddenStacksExpanded
+				? `− ${m.career_section_hide()}`
+				: `+ ${m.career_section_show_more({ count: hiddenStacks.length })}`}
+		</button>
+		{#if hiddenStacksExpanded}
+			<div class="histograms hidden-histograms" id="hidden-stack-histograms">
+				{#each hiddenStacks as stack (stack.id)}
+					<button
+						type="button"
+						class="histogram"
+						class:muted={hovered !== null && hovered !== stack.id}
+						onmouseenter={() => (hovered = stack.id)}
+						onmouseleave={clear}
+						onfocus={() => (hovered = stack.id)}
+						onblur={clear}
+						onclick={() => open(stack)}
+					>
+						<span class="stack-name">{stack.name}</span>
+						<span class="track"
+							><span
+								class="bar"
+								style:width={histogramWidth(stack.share)}
+								style:background={stack.color}
+							></span></span
+						>
+						<span class="share">{stack.projects.length}</span>
+					</button>
+				{/each}
+			</div>
+		{/if}
+	{/if}
 </div>
 {#if tooltip && !portrait}
 	<div
@@ -258,6 +309,25 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.35rem;
+	}
+	.section-toggle {
+		display: block;
+		margin: 0.6em 0 0;
+		border: 1px dashed var(--base-bg-color-darker);
+		border-radius: 999px;
+		background: transparent;
+		color: var(--base-fg-color-brighter);
+		font: inherit;
+		font-size: 0.75em;
+		line-height: 1;
+		padding: 0.6em 0.9em;
+		cursor: pointer;
+		transition:
+			border-color 0.15s,
+			color 0.15s;
+	}
+	.hidden-histograms {
+		margin-top: 1.2em;
 	}
 	.histogram {
 		display: flex;
@@ -412,6 +482,25 @@
 	@media (prefers-reduced-motion: reduce) {
 		.tile,
 		.region-label,
+		.section-toggle {
+			display: block;
+			margin: 0.6em 0 0;
+			border: 1px dashed var(--base-bg-color-darker);
+			border-radius: 999px;
+			background: transparent;
+			color: var(--base-fg-color-brighter);
+			font: inherit;
+			font-size: 0.75em;
+			line-height: 1;
+			padding: 0.6em 0.9em;
+			cursor: pointer;
+			transition:
+				border-color 0.15s,
+				color 0.15s;
+		}
+		.hidden-histograms {
+			margin-top: 1.2em;
+		}
 		.histogram {
 			transition: none;
 		}
