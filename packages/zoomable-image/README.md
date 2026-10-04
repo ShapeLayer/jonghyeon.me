@@ -1,8 +1,8 @@
-# @shapelayer/zoomable-image
+# Zoomable Image
 
 A dependency-free TypeScript Web Component for zooming images, captions, and image annotations. MIT licensed. Requires Custom Elements v1, Shadow DOM, Pointer Events, ResizeObserver, modal `dialog`, and dynamic viewport units in a modern browser.
 
-## Install and register
+## Getting Started
 
 ```sh
 npm install @shapelayer/zoomable-image
@@ -115,49 +115,23 @@ The main entry is safe to import on an SSR server and does not register elements
 </zoomable-image>
 ```
 
-The shadow tree hides fallback children after upgrade. Framework adapters should assign `annotations` and `labels` as properties after mounting. This repository's `src/lib/components/ZoomableImage.svelte` demonstrates Svelte 5 client registration, reactive properties, localized labels, and an SSR fallback.
+The shadow tree hides fallback children after upgrade. Framework adapters should assign `annotations` and `labels` as properties after mounting. [The site adapter](https://github.com/ShapeLayer/jonghyeon.me/blob/main/src/lib/components/ZoomableImage.svelte) demonstrates Svelte 5 client registration, reactive properties, localized labels, and an SSR fallback.
 
 `defineZoomableImage(tagName?, registry?)` supports custom tag names and a registry, is idempotent for this library, and reports collisions with unrelated elements. After default registration, `new ZoomableImage()` also works in the browser. Custom tag names do not automatically augment TypeScript's tag-name map.
 
 ## Development and verification
 
-From repository root (Node 22+, pnpm 10+):
+From repository root (Node 22+, pnpm 12.6.0):
 
 ```sh
 pnpm install --frozen-lockfile
-pnpm --filter @shapelayer/zoomable-image exec playwright install chromium firefox webkit
-pnpm --filter @shapelayer/zoomable-image test:release
-pnpm --filter @shapelayer/zoomable-image test:package
-pnpm --filter @shapelayer/zoomable-image test:integration
-pnpm --filter @shapelayer/zoomable-image test:dev
-pnpm check
+pnpm exec playwright install chromium firefox webkit
+pnpm test:release
+pnpm test:package
 ```
 
-`test:release` runs type, unit, and browser checks. Browser projects cover Chromium, Firefox, WebKit, Android Chromium emulation, and iPhone WebKit emulation. `test:package` packs and installs the actual artifact into an isolated consumer, verifies exports/SSR/types/license, and rejects unexpected files. `test:integration` builds the host site and checks English/Korean labels, annotations, focus, and nested popup behavior across the same five projects.
+`test:release` runs type, unit, and browser checks. Browser projects cover Chromium, Firefox, WebKit, Android Chromium emulation, and iPhone WebKit emulation. `test:package` packs and installs the actual artifact into an isolated consumer, verifies exports/SSR/types/license, and rejects unexpected files.
 
-`test:dev` runs the same host checks against the Vite development server. The host Vite config explicitly allows `packages/zoomable-image/dist` alongside SvelteKit’s source/runtime paths so the linked workspace package can load during development.
-
-Build with `pnpm --filter @shapelayer/zoomable-image build`. Serve `packages/zoomable-image` with any static HTTP server and open `/examples/` for the self-contained demo.
+Build with `pnpm build`. Run `node test/server.mjs` and open `http://127.0.0.1:4174/examples/` for the self-contained demo. Host integration tests are maintained in the separate jonghyeon.me repository.
 
 On macOS 27, Playwright Firefox may exit before tests with `Could not find profile folder` due to its shared Firefox app-data directory ([upstream report](https://github.com/microsoft/playwright/issues/42768)). The configuration accepts `ZOOMABLE_FIREFOX_EXECUTABLE` for an isolated test-browser launcher. CI uses Linux and the normal bundled Firefox. Test results describe browser-engine checks and emulated touch environments, not physical-device certification.
-
-## Release
-
-Version `0.1.0` is the initial release. See [CHANGELOG.md](./CHANGELOG.md) in the source repository for changes.
-
-1. Run the verification commands above and commit the reviewed source to `main`.
-2. Use an npm account with access to the `@shapelayer` scope. For the first release, sign in with `npm login` and publish from the package directory:
-
-   ```sh
-   cd packages/zoomable-image
-   npm publish --access public
-   ```
-
-3. For subsequent CI releases, configure npm trusted publishing for repository `ShapeLayer/jonghyeon.me`, workflow `zoomable-image-release.yml`, and environment `npm`. Alternatively, configure an `NPM_TOKEN` secret with package publish access. Configure any desired approval protection on the GitHub `npm` environment.
-4. Run the **Publish Zoomable Image** workflow on `main` with the exact manifest version. The workflow re-runs browser, installed-package, and host-site checks before publishing with provenance. It never publishes automatically on a push.
-
-Trusted publishing requires an eligible Node/npm version and package publisher configuration; see [npm's instructions](https://docs.npmjs.com/trusted-publishers/). The workflow uses Node 24. Authentication and scope access are external account prerequisites; this repository does not contain credentials.
-
-Initial scope includes stepped zoom and single-pointer pan. Wheel/pinch zoom, annotation authoring, and HTML captions are outside the `0.1.0` API.
-
-Viewer dimensions and typography use explicit pixel values: desktop controls are 22px tall with an 11px zoom label; touch controls are 38px tall with a 15px label. Without a caption, the image is centered in the full viewport and fits within 32px horizontal and 96px vertical margins. Tooltips use 12px text and prefer the centered position above a region, falling back below when space is insufficient. Null/undefined caption properties remove the caption. Viewport units and percentage annotation coordinates remain responsive.

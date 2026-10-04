@@ -32,26 +32,27 @@
     "test:browser": "npm run build && playwright test",
     "test:release": "npm run check && npm run check:tests && npm test && npm run test:browser",
     "test:package": "node test/package.mjs",
-    "test:integration": "pnpm --dir ../.. build && playwright test -c playwright.integration.config.ts",
-    "check:tests": "tsc --noEmit --strict --target ES2022 --module NodeNext --lib ES2022,DOM,DOM.Iterable test/browser/viewer.spec.ts test/integration/site.spec.ts playwright.config.ts playwright.integration.config.ts playwright.dev.config.ts",
-    "test:dev": "npm run build && playwright test -c playwright.dev.config.ts"
+    "check:tests": "tsc --noEmit --strict --target ES2022 --module NodeNext --lib ES2022,DOM,DOM.Iterable test/browser/viewer.spec.ts playwright.config.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "typescript": "^5.9.3",
-    "@playwright/test": "^1.63.0"
+    "@playwright/test": "^1.63.0",
+    "prettier": "^3.9.6",
+    "@types/node": "^22.20.5"
   },
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShapeLayer/jonghyeon.me.git",
-    "directory": "packages/zoomable-image"
+    "url": "git+https://github.com/ShapeLayer/zoomable-image.git"
   },
   "bugs": {
-    "url": "https://github.com/ShapeLayer/jonghyeon.me/issues"
+    "url": "https://github.com/ShapeLayer/zoomable-image/issues"
   },
-  "homepage": "https://github.com/ShapeLayer/jonghyeon.me/tree/main/packages/zoomable-image#readme",
+  "homepage": "https://github.com/ShapeLayer/zoomable-image#readme",
   "keywords": [
     "web-component",
     "custom-element",
@@ -65,5 +66,6 @@
   },
   "types": "./dist/index.d.ts",
   "license": "MIT",
-  "customElements": "custom-elements.json"
+  "customElements": "custom-elements.json",
+  "packageManager": "pnpm@12.6.0"
 }

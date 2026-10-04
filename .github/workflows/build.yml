@@ -1,27 +1,30 @@
 name: Build and Deploy
-
 on:
   push:
-    branches: [ main ]
-
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: pnpm/action-setup@v4
-      with:
-        version: 10
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '24'
-        cache: 'pnpm'
-    - run: pnpm install
-    - run: pnpm build
-    - uses: actions/upload-pages-artifact@v3
-      with:
-        path: build/
-
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.6.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: pnpm
+          cache-dependency-path: |
+            pnpm-lock.yaml
+            packages/zoomable-image/pnpm-lock.yaml
+      - run: pnpm --ignore-workspace --dir packages/zoomable-image install --frozen-lockfile
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/
   deploy:
     needs: build
     permissions:
@@ -29,8 +32,8 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-    - id: deployment
-      uses: actions/deploy-pages@v4
+      - id: deployment
+        uses: actions/deploy-pages@v4

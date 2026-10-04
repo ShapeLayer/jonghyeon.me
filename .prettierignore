@@ -7,3 +7,6 @@ bun.lockb
 
 # Miscellaneous
 /static/
+
+# Independently maintained Git submodule
+/packages/zoomable-image/

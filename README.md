@@ -40,6 +40,22 @@ You can preview the production build with `npm run preview`.
 ## Zoomable Image package
 
 The site's image viewer is maintained as an independent package named `@shapelayer/zoomable-image`.
-See [package documentation](packages/zoomable-image/README.md) for the Web Component API,
+See [package documentation](https://github.com/ShapeLayer/zoomable-image#readme) for the Web Component API,
 verification commands, and release steps. The Svelte component is a client-side adapter
 with an SSR fallback image.
+
+The viewer repository is pinned as a Git submodule at `packages/zoomable-image`.
+Initialize submodules before installing dependencies:
+
+```sh
+git submodule update --init --recursive
+pnpm --ignore-workspace --dir packages/zoomable-image install --frozen-lockfile
+pnpm install --frozen-lockfile
+pnpm dev
+pnpm test:zoomable-image:integration
+pnpm test:zoomable-image:dev
+```
+
+Package CI and npm release workflows live in the separate package repository.
+
+To update the viewer, check out the desired commit in `packages/zoomable-image`, verify the site, and commit the submodule pointer in this repository. CI checks out the pinned commit recursively.

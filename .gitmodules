@@ -1,0 +1,3 @@
+[submodule "packages/zoomable-image"]
+	path = packages/zoomable-image
+	url = https://github.com/ShapeLayer/zoomable-image.git
