@@ -32,6 +32,7 @@
 		const query = window.matchMedia('(orientation: portrait)');
 		const update = () => {
 			portrait = query.matches;
+			tooltip = null;
 		};
 		update();
 		query.addEventListener('change', update);
@@ -59,10 +60,16 @@
 	const ordered = $derived(
 		[...stacks].sort((a, b) => Number(b.id === promotedStack) - Number(a.id === promotedStack))
 	);
-	const percent = (share: number) => `${(share * 100).toFixed(1)}%`;
+	const histogramScale = $derived(portrait ? 5 : 3);
+	const histogramWidth = (share: number) =>
+		`${Math.min(100, Math.max(0, share * 100 * histogramScale))}%`;
 	function highlight(event: MouseEvent | FocusEvent, stack: (typeof stacks)[number]) {
 		hovered = stack.id;
 		promotedStack = stack.id;
+		if (portrait) {
+			tooltip = null;
+			return;
+		}
 		const bounds = (event.currentTarget as HTMLElement).getBoundingClientRect();
 		tooltip = {
 			name: stack.name,
@@ -107,6 +114,19 @@
 				onclick={() => open(stack)}
 			></button>
 		{/each}
+		{#if portrait}
+			{#each regions as region (region.stack.id)}
+				<div
+					class="region-label"
+					class:muted={hovered !== null && hovered !== region.stack.id}
+					style:grid-column={`${region.x + 1} / span ${region.width}`}
+					style:grid-row={`${region.y + 1} / span ${region.height}`}
+					aria-hidden="true"
+				>
+					<span>{region.stack.name}</span>
+				</div>
+			{/each}
+		{/if}
 	</div>
 	<p class="basis">{m.stack_basis()}</p>
 	<div class="histograms">
@@ -123,7 +143,10 @@
 			>
 				<span class="stack-name">{stack.name}</span>
 				<span class="track"
-					><span class="bar" style:width={percent(stack.share)} style:background={stack.color}
+					><span
+						class="bar"
+						style:width={histogramWidth(stack.share)}
+						style:background={stack.color}
 					></span></span
 				>
 				<span class="share">{stack.projects.length}</span>
@@ -131,7 +154,7 @@
 		{/each}
 	</div>
 </div>
-{#if tooltip}
+{#if tooltip && !portrait}
 	<div
 		class="stack-tooltip"
 		role="tooltip"
@@ -270,6 +293,27 @@
 		font-size: 0.85rem;
 		font-variant-numeric: tabular-nums;
 	}
+	.region-label {
+		position: absolute;
+		inset: 2px;
+		pointer-events: none;
+		z-index: 1;
+		overflow: hidden;
+		text-align: left;
+		font-size: clamp(8px, 2.5vw, 11px);
+		line-height: 1.2;
+		transition: opacity 0.15s;
+	}
+	.region-label span {
+		display: inline;
+		box-decoration-break: clone;
+		-webkit-box-decoration-break: clone;
+		padding: 1px 3px;
+		border-radius: 2px;
+		background: #fffffff0;
+		color: var(--base-fg-color);
+		overflow-wrap: anywhere;
+	}
 	.stack-tooltip {
 		position: fixed;
 		transform: translate(-50%, -100%);
@@ -367,6 +411,7 @@
 	}
 	@media (prefers-reduced-motion: reduce) {
 		.tile,
+		.region-label,
 		.histogram {
 			transition: none;
 		}
