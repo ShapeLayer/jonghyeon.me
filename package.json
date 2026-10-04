@@ -4,14 +4,16 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
+    "dev": "pnpm --filter @shapelayer/zoomable-image build && vite dev",
+    "build": "pnpm --filter @shapelayer/zoomable-image build && vite build",
     "preview": "vite preview",
     "prepare": "svelte-kit sync || echo ''",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check": "pnpm --filter @shapelayer/zoomable-image build && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "format": "prettier --write .",
-    "lint": "prettier --check . && eslint ."
+    "lint": "prettier --check . && eslint .",
+    "test:zoomable-image": "pnpm --filter @shapelayer/zoomable-image test",
+    "test:zoomable-image:browser": "pnpm --filter @shapelayer/zoomable-image test:browser"
   },
   "devDependencies": {
     "@eslint/compat": "^1.4.1",
@@ -37,6 +39,7 @@
     "vite": "^7.3.6"
   },
   "dependencies": {
-    "@inlang/paraglide-js": "^2.25.0"
+    "@inlang/paraglide-js": "^2.25.0",
+    "@shapelayer/zoomable-image": "workspace:*"
   }
 }

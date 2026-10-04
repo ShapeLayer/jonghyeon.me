@@ -36,3 +36,10 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## Zoomable Image package
+
+The site's image viewer is maintained as an independent package named `@shapelayer/zoomable-image`.
+See [package documentation](packages/zoomable-image/README.md) for the Web Component API,
+verification commands, and release steps. The Svelte component is a client-side adapter
+with an SSR fallback image.

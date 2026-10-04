@@ -25,3 +25,11 @@ vite.config.ts.timestamp-*
 
 # Paraglide
 src/lib/paraglide
+
+/packages/*/dist/
+/packages/*/*.tgz
+
+/packages/*/test-results/
+/packages/*/playwright-report/
+
+/packages/*/.svelte-kit/
