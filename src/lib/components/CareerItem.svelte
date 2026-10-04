@@ -100,6 +100,15 @@
     } else {
       rootElement?.scrollIntoView({ block: 'center' });
       rootElement?.focus({ preventScroll: true });
+      rootElement?.animate(
+        [
+          { backgroundColor: 'transparent', offset: 0, easing: 'ease-in-out' },
+          { backgroundColor: 'rgba(0, 0, 0, 0.1)', offset: 0.2 / 3 },
+          { backgroundColor: 'rgba(0, 0, 0, 0.1)', offset: 2.8 / 3, easing: 'ease-in-out' },
+          { backgroundColor: 'transparent', offset: 1 }
+        ],
+        { duration: 3000 }
+      );
     }
     popupRequest.clear();
   });

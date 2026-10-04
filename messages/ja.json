@@ -406,5 +406,6 @@
   "stack_project_boosted_decoders_description": "LDPC符号のブースティング学習実装のPyTorch移植",
   "stack_project_persona_evaluation": "個人実験：韓国国民を描写した合成人格の9Axes評価と選挙区別8Values評価",
   "stack_project_rhythm_controller": "リズムゲーム用アーケードコントローラーと設定ドライバー",
-  "stack_project_game_academy": "コンテンツアカデミー正規課程（ゲーム制作）（2021）"
+  "stack_project_game_academy": "コンテンツアカデミー正規課程（ゲーム制作）（2021）",
+  "stack_project_algorithm_contest_editorials": "アルゴリズムコンテストの問題・解説エディトリアル"
 }

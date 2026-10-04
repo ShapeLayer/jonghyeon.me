@@ -44,6 +44,14 @@
     contentWrapperElement.style.left = '-100vw';
   }
 
+  /** Keep the popup mounted until its closing slide finishes before switching views. */
+  const closeAndWait = async () => {
+    if (!isOpen) return;
+    const duration = transitionDurationMs;
+    close();
+    if (duration > 0) await new Promise<void>((resolve) => window.setTimeout(resolve, duration));
+  };
+
   const onKeyDownHandler = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       if (isOpen) {
@@ -55,7 +63,7 @@
     }
   }
 
-  export { open, close };
+  export { open, close, closeAndWait };
 </script>
 
 <style>

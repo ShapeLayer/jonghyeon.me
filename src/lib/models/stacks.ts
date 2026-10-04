@@ -124,39 +124,11 @@ export const stackProjects: StackProject[] = [
 		ref: 'works-turbo-waffle'
 	},
 	{
-		id: 'pimm25a-editorial',
-		title: () => m.stack_project_pimm25a_editorial(),
-		stacks: ['typst'],
-		refType: 'external',
-		ref: 'https://github.com/pimm-dev/2025-first-half-algorithm-party-editorial'
-	},
-	{
-		id: 'pimm24b-editorial',
-		title: () => m.stack_project_pimm24b_editorial(),
-		stacks: ['typst'],
-		refType: 'external',
-		ref: 'https://github.com/pimm-dev/2024-second-half-algorithm-party-editorial'
-	},
-	{
-		id: 'pimm24a-editorial',
-		title: () => m.stack_project_pimm24a_editorial(),
-		stacks: ['typst'],
-		refType: 'external',
-		ref: 'https://github.com/pimm-dev/2024-first-half-algorithm-party-editorial'
-	},
-	{
-		id: 'gist-editorial',
-		title: () => m.stack_project_gist_editorial(),
+		id: 'algorithm-contest-editorials',
+		title: () => m.stack_project_algorithm_contest_editorials(),
 		stacks: ['typst'],
 		refType: 'inner',
-		ref: 'algorithm-contest-gist'
-	},
-	{
-		id: 'sw-olympiad-workbook',
-		title: () => m.stack_project_sw_olympiad_workbook(),
-		stacks: ['typst'],
-		refType: 'external',
-		ref: 'https://github.com/ShapeLayer/software-thinking-competition-practice-workbook'
+		ref: 'algorithm-contest-operations'
 	},
 	{
 		id: 'jonghyeon-site',

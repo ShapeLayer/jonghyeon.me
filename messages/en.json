@@ -407,5 +407,6 @@
   "stack_project_boosted_decoders_description": "PyTorch port of the implementation of Boosting learning for LDPC codes",
   "stack_project_persona_evaluation": "Personal Experiment: 9Axes Evaluation of Synthetic Korean Personas and 8Values Evaluation by Electoral District",
   "stack_project_rhythm_controller": "Rhythm Game Arcade Controller and Configuration Driver",
-  "stack_project_game_academy": "Content Academy Regular Course (Game Development) (2021)"
+  "stack_project_game_academy": "Content Academy Regular Course (Game Development) (2021)",
+  "stack_project_algorithm_contest_editorials": "Algorithm Contest Problems and Editorials"
 }

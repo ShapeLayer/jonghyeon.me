@@ -408,5 +408,6 @@
   "stack_project_boosted_decoders_description": "LDPC 코드의 부스팅 학습 구현을 PyTorch로 포팅",
   "stack_project_persona_evaluation": "개인 실험: 대한민국 국민 묘사 합성 페르소나의 9Axes 평가 및 지역구별 8Values 평가",
   "stack_project_rhythm_controller": "리듬게임 아케이드 컨트롤러 및 설정 드라이버",
-  "stack_project_game_academy": "콘텐츠아카데미 정규과정 (게임제작) (2021)"
+  "stack_project_game_academy": "콘텐츠아카데미 정규과정 (게임제작) (2021)",
+  "stack_project_algorithm_contest_editorials": "알고리즘 대회 문제 및 해설 에디토리얼"
 }

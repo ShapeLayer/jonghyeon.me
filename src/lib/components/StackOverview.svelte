@@ -44,9 +44,16 @@
 	const itemNavigation = getContext<{ navigate: (id: string) => Promise<void> }>(
 		'career-item-navigation'
 	);
+	let navigating = false;
 	async function openInner(ref: string) {
-		popup?.close();
-		await itemNavigation.navigate(ref);
+		if (navigating) return;
+		navigating = true;
+		try {
+			await popup?.closeAndWait();
+			await itemNavigation.navigate(ref);
+		} finally {
+			navigating = false;
+		}
 	}
 	let tooltip = $state<{ name: string; x: number; y: number } | null>(null);
 	const ordered = $derived(
