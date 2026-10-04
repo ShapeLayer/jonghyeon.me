@@ -26,6 +26,8 @@
     detailContent?: Snippet;
     id: string;
     title: string;
+    detailTargetId?: string;
+    detailTargetAnchor?: string;
     /** Struck through in the title, for a credential that's no longer valid. */
     expired?: boolean;
     /** Keeps startsAt/endsAt driving filtering and sorting, but skips rendering the date next to the title. */
@@ -36,6 +38,8 @@
     detailContent,
     id,
     title,
+    detailTargetId: explicitDetailTargetId,
+    detailTargetAnchor,
     expired = false,
     hideDatetime = false
   }: Props = $props();
@@ -73,23 +77,33 @@
   /** A tag elsewhere on the page (e.g. a project tag) can ask to open this item's popup. */
   const popupRequest = getContext<CareerPopupRequest | undefined>('career-popup-request');
   /** Items under a project tag keep their details in that project's popup, opened at their own section. */
-  const detailTargetId = tags.find((tag) => tag.opensItemId && tag.opensItemId !== id)?.opensItemId;
+  const tagDetailTargetId = tags.find((tag) => tag.opensItemId && tag.opensItemId !== id)?.opensItemId;
+  const detailTargetId = explicitDetailTargetId ?? tagDetailTargetId;
   let hasDetail = $derived(Boolean(detailContent) || Boolean(detailTargetId));
 
   const onClickHandler = () => {
     if (detailContent) {
       popupComponent?.open();
     } else if (detailTargetId) {
-      popupRequest?.request(detailTargetId, careerDetailAnchorId(id));
+      popupRequest?.request(detailTargetId, detailTargetAnchor ?? careerDetailAnchorId(id));
     } else if (hasExpandableTags) isExpanded = !isExpanded;
   };
 
   $effect(() => {
-    if (detailContent && popupRequest?.pendingId === id) {
+    if (popupRequest?.pendingId !== id) return;
+    if (detailContent) {
       popupComponent?.open(popupRequest.pendingAnchor);
-      popupRequest.clear();
+    } else if (detailTargetId) {
+      // Some entries keep their details inside a parent project's popup.
+      popupRequest.request(detailTargetId, detailTargetAnchor ?? careerDetailAnchorId(id));
+      return;
+    } else {
+      rootElement?.scrollIntoView({ block: 'center' });
+      rootElement?.focus({ preventScroll: true });
     }
+    popupRequest.clear();
   });
+
 </script>
 
 <style>

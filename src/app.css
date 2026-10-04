@@ -97,14 +97,17 @@ h3.subtitle {
 h3.subsubtitle {
   font-size: .9em;
 }
-a {
+a,
+.reference-link {
   color: var(--base-fg-color);
   text-decoration: underline 1.2px dashed;
   text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
   transition: .1s ease-in-out;
 }
 a:hover,
-a:focus {
+a:focus,
+.reference-link:hover,
+.reference-link:focus-visible {
   color: var(--base-bg-color);
   background-color: var(--base-fg-color-brighter);
   transition: .1s ease-in-out;

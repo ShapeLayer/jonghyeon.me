@@ -37,7 +37,7 @@ export type CareerItemData = {
 };
 
 /** The tab a section is listed under: the career history, or the works list. */
-export type CareerTabIdentifier = 'history' | 'works';
+export type CareerTabIdentifier = 'history' | 'works' | 'stack';
 
 export type CareerSection = {
   identifier: string;
@@ -58,7 +58,8 @@ export type CareerTab = {
 
 export const careerTabs: CareerTab[] = [
   { identifier: 'history', label: () => m.career_tab_history() },
-  { identifier: 'works', label: () => m.career_tab_works() }
+  { identifier: 'works', label: () => m.career_tab_works() },
+  { identifier: 'stack', label: () => m.career_tab_stack() }
 ];
 
 /** The single source of truth for career tag labels and their presentation. */
@@ -79,7 +80,7 @@ export const careerTags: CareerTag[] = [
   { identifier: 'overseas', displayName: () => m.career_tag_overseas(), description: () => m.career_tag_overseas_description(), backgroundColor: '#ffe9d6', foregroundColor: '#a15816', kind: 'topic' },
   { identifier: 'era-junior', displayName: () => m.career_tag_era_minor(), description: () => m.career_tag_era_minor_description(), backgroundColor: '#ffe9e2', foregroundColor: '#a3401b', kind: 'era' },
   { identifier: 'era-university', displayName: () => m.career_tag_era_university(), description: () => m.career_tag_era_university_description(), backgroundColor: '#e2ecff', foregroundColor: '#1b3fa3', kind: 'era' },
-  { identifier: 'pimm-algo-party', displayName: () => m.career_tag_pimm_algo_party(), description: () => m.career_tag_pimm_algo_party_description(), backgroundColor: '#e3f0ff', foregroundColor: '#0b5bb5', kind: 'project', opensItemId: 'algorithm-contest-pimm-party' },
+  { identifier: 'pimm-algo-party', displayName: () => m.career_tag_pimm_algo_party(), description: () => m.career_tag_pimm_algo_party_description(), backgroundColor: '#e3f0ff', foregroundColor: '#0b5bb5', kind: 'project', opensItemId: 'algorithm-contest-operations' },
   { identifier: 'ktas-trainer', displayName: () => m.career_tag_ktas_trainer(), description: () => m.career_tag_ktas_trainer_description(), backgroundColor: '#ffe8ec', foregroundColor: '#c11d3c', kind: 'project', opensItemId: 'project-ktas-trainer' },
   { identifier: 'sign-language', displayName: () => m.career_tag_sign_language(), description: () => m.career_tag_sign_language_description(), backgroundColor: '#e0f7f0', foregroundColor: '#0f7a63', kind: 'project' },
   { identifier: 'pre-ai', displayName: () => m.career_tag_ai_pre_ai(), description: () => m.career_tag_ai_pre_ai_description(), backgroundColor: '#eef0f2', foregroundColor: '#55606b', kind: 'ai' },
@@ -169,7 +170,7 @@ export const careerSections: CareerSection[] = [
     tagIdentifiers: ['activity', 'contest-hosting', 'algorithm'],
     items: [
       {
-        id: 'algorithm-contest-pimm-party',
+        id: 'algorithm-contest-operations',
         startsAt: { year: 2023, month: 9 },
         endsAt: { year: 2025, month: 3 },
         tagIdentifiers: ['pimm-algo-party', 'era-university'],
@@ -211,7 +212,7 @@ export const careerSections: CareerSection[] = [
     items: [
       { id: 'project-ktas-trainer', startsAt: { year: 2025, month: 8 }, current: true, tagIdentifiers: ['csharp', 'unity', 'ktas-trainer', 'research', 'game', 'era-university', 'driven'] },
       { id: 'project-zodiac-complex', startsAt: { year: 2025, month: 7 }, endsAt: { year: 2025, month: 8 }, tagIdentifiers: ['game', 'csharp', 'unity', 'naninovel', 'era-university'] },
-      { id: 'works-package-maintaining', startsAt: { year: 2024, month: 7 }, current: true, tagIdentifiers: ['r', 'node.js', 'typst'] },
+      { id: 'works-package-maintaining', startsAt: { year: 2024, month: 7 }, current: true, tagIdentifiers: ['r', 'nodejs', 'typst'] },
       { id: 'project-hccc22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll', 'era-university'], hidden: true },
       { id: 'project-iwfcv22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll', 'era-university'], hidden: true },
       { id: 'project-sign-language-client', startsAt: { year: 2021, month: 6 }, endsAt: { year: 2022, month: 7 }, tagIdentifiers: ['game', 'research', 'pre-ai', 'sign-language', 'csharp', 'unity', 'era-university'] },
@@ -311,6 +312,14 @@ export const careerSortCriteria: CareerSortCriterion[] = [
     defaultDirection: 'asc'
   },
   {
+    identifier: 'stack',
+    displayName: () => m.career_sort_stack(),
+    description: () => m.career_sort_stack_description(),
+    keySource: 'identifier',
+    tagKind: 'stack',
+    defaultDirection: 'asc'
+  },
+  {
     identifier: 'ai',
     displayName: () => m.career_sort_ai(),
     description: () => m.career_sort_ai_description(),
@@ -336,6 +345,7 @@ export const sectionTags: CareerTag[] = careerTags.filter((tag) => tag.kind === 
 export const topicTags: CareerTag[] = careerTags.filter((tag) => tag.kind === 'topic');
 export const eraTags: CareerTag[] = careerTags.filter((tag) => tag.kind === 'era');
 export const projectTags: CareerTag[] = careerTags.filter((tag) => tag.kind === 'project');
+export const stackTags: CareerTag[] = careerTags.filter((tag) => tag.kind === 'stack');
 export const aiTags: CareerTag[] = careerTags.filter((tag) => tag.kind === 'ai');
 
 export function getCareerItem(id: string): CareerItemData | undefined {

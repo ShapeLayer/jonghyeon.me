@@ -8,6 +8,7 @@
   import ExternalLink from '$lib/components/ExternalLink.svelte';
   import ZoomableImage from '$lib/components/ZoomableImage.svelte';
   import CareerProjectGFMDescConvWebUI from '$lib/assets/CareerProjectGfmToPolygonDesc.png';
+  import CareerAlgorithmContestGist from '$lib/assets/CareerAlgorithmContestGist-cover.webp';
   import { asset } from '$app/paths';
   import { getLocale } from '$lib/paraglide/runtime';
 
@@ -15,14 +16,14 @@
 </script>
 
 <style>
-  .pimmparty-content {
+  .algorithm-contest-content {
     margin: 1em 0;
   }
 </style>
 
 <CareerItem
-  id='algorithm-contest-pimm-party'
-  title={m.career_title_algorithm_contest_pimm_party()}
+  id='algorithm-contest-operations'
+  title={m.career_title_algorithm_contest_operations()}
 >
   <ul>
     <li>{m.career_details_algorithm_contest_pimm_party()}</li>
@@ -30,7 +31,8 @@
   </ul>
   {#snippet detailContent()}
   <CareerItemDetailContent
-    title={m.career_contents_algorithm_contest_pimm_party_title()}
+    id="algorithm-contest-operations-detail"
+    title={m.career_title_algorithm_contest_operations()}
     subtitle={m.career_contents_algorithm_contest_pimm_party_subtitle()}
   >
     <CareerProjectSummary>
@@ -78,54 +80,73 @@
     </CareerItemDetailSubsection>
 
     <style>
-      .pimmparty-content ul {
+      .algorithm-contest-content ul {
         list-style: disc;
         padding-left: 1em;
       }
-      .pimmparty-content li {
+      .algorithm-contest-content li {
         margin: .25em 0;
+      }
+      .gist-cover-wrapper {
+        display: flex;
+        justify-content: center;
       }
     </style>
 
     <CareerItemDetailSubsection id='algorithm-contest-pimm-detailed' title={m.career_contents_algorithm_contest_pimm_detailed_title()}>
-      <div class="pimmparty-content content">
+      <div class="algorithm-contest-content content">
         <span>{m.career_contents_algorithm_contest_pimm23_title()}</span>
         <ul>
-          <li>{m.problems()} <ExternalLink href='https://archive.is/16FCI'>(archive.is)</ExternalLink></li>
+          <li><ExternalLink href="https://archive.is/52Ktp">{m.contest_page()} (archive.is)</ExternalLink></li>
+          <li><ExternalLink href='https://archive.is/16FCI'>{m.problems()} (archive.is)</ExternalLink></li>
           <li><ExternalLink href='https://archive.is/LG22S'>{m.set_problem()}: {m.career_contents_algorithm_contest_pimm23_prob_c()}</ExternalLink></li>
           <li><ExternalLink href="https://blog.jonghyeon.me/posts/2023-09-05-rewinding-2023-pimm-party/">{m.extlink_post_title_rewinding_2023_pimm_party()}</ExternalLink></li>
-          <li><ExternalLink href="https://archive.is/52Ktp">{m.contest_page()} (archive.is)</ExternalLink></li>
         </ul>
       </div>
 
-      <div class="pimmparty-content content">
+      <div class="algorithm-contest-content content">
         <span>{m.career_contents_algorithm_contest_pimm24a_title()}</span>
         <ul>
-          <li><span>{m.problems()} <ExternalLink href='https://archive.is/Ddg9H'>(archive.is)</ExternalLink></span></li>
+          <li><ExternalLink href="https://archive.is/sx5QG">{m.contest_page()} (archive.is)</ExternalLink></li>
+          <li><ExternalLink href='https://archive.is/Ddg9H'>{m.problems()} (archive.is)</ExternalLink></li>
           <li><ExternalLink href='https://archive.is/xwZK9'>{m.set_problem()}: {m.career_contents_algorithm_contest_pimm24a_prob_e()}</ExternalLink></li>
           <li><ExternalLink href="https://blog.jonghyeon.me/posts/2024-03-13-rewinding-2024-1-pimm-party/">{m.extlink_post_title_rewinding_2024_1_pimm_party()}</ExternalLink></li>
-          <li><ExternalLink href="https://archive.is/sx5QG">{m.contest_page()} (archive.is)</ExternalLink></li>
         </ul>
       </div>
 
-      <div class="pimmparty-content content">
+      <div class="algorithm-contest-content content">
         <span>{m.career_contents_algorithm_contest_pimm24b_title()}</span>
         <ul>
-          <li>{m.problems()} <ExternalLink href='https://archive.is/wEz1b'>(archive.is)</ExternalLink></li>
-          <li><ExternalLink href="https://blog.jonghyeon.me/posts/2024-09-23-rewinding-2024-2-pimm-party/">{m.extlink_post_title_rewinding_2024_2_pimm_party()}</ExternalLink></li>
           <li><ExternalLink href="https://archive.is/Kn3m0">{m.contest_page()} (archive.is)</ExternalLink></li>
+          <li><ExternalLink href='https://archive.is/wEz1b'>{m.problems()} (archive.is)</ExternalLink></li>
+          <li><ExternalLink href="https://blog.jonghyeon.me/posts/2024-09-23-rewinding-2024-2-pimm-party/">{m.extlink_post_title_rewinding_2024_2_pimm_party()}</ExternalLink></li>
         </ul>
       </div>
       
-      <div class="pimmparty-content content">
+      <div class="algorithm-contest-content content">
         <span>{m.career_contents_algorithm_contest_pimm25a_title()}</span>
         <ul>
-          <li>{m.problems()} <ExternalLink href='https://archive.is/BRS4E'>(archive.is)</ExternalLink></li>
-          <li><ExternalLink href="https://blog.jonghyeon.me/posts/2025-04-15-till-its-over/">{m.extlink_post_title_rewinding_2025_1_pimm_party()}</ExternalLink></li>
           <li><ExternalLink href="https://archive.is/MUAgn">{m.contest_page()} (archive.is)</ExternalLink></li>
+          <li><ExternalLink href='https://archive.is/BRS4E'>{m.problems()} (archive.is)</ExternalLink></li>
+          <li><ExternalLink href="https://blog.jonghyeon.me/posts/2025-04-15-till-its-over/">{m.extlink_post_title_rewinding_2025_1_pimm_party()}</ExternalLink></li>
         </ul>
       </div>
+
+      <div id="detail-algorithm-contest-gist" class="algorithm-contest-content content">
+        <span>{m.career_contents_algorithm_contest_gist_title()}</span>
+
+        <ul>
+          <li><ExternalLink href='https://archive.is/suENW'>{m.contest_page()} (archive.is)</ExternalLink></li>
+          <li><ExternalLink href='https://archive.is/suENW'>{m.problems()} (archive.is)</ExternalLink></li>
+          <li>{m.set_problem()}: <ExternalLink href='https://archive.is/VfYfn'>{m.career_contents_algorithm_contest_gist_prob_b()} </ExternalLink></li>
+          <li><ExternalLink href='https://m.etnews.com/20240719000005'>{m.etnews()}</ExternalLink></li>
+        </ul>
+        <div class="gist-cover-wrapper">
+          <ZoomableImage src={CareerAlgorithmContestGist} alt={m.career_contents_algorithm_contest_gist_title()} displayWidth="80%" />
+        </div>
+      </div>
     </CareerItemDetailSubsection>
+
   </CareerItemDetailContent>
   {/snippet}
 </CareerItem>

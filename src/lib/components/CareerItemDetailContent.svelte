@@ -6,10 +6,12 @@
   let {
     title,
     subtitle,
+    id,
     children
   }: {
     title: string;
     subtitle?: string;
+    id?: string;
     children?: Snippet;
   } = $props();
   const tags = getContext<CareerTag[]>('career-tags') ?? [];
@@ -41,7 +43,7 @@
   }
 </style>
 
-<div>
+<div {id}>
   <h2>{title}</h2>
   {#if subtitle}
     <h3>{subtitle}</h3>

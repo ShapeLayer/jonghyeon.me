@@ -8,10 +8,12 @@
     alt: string;
     width?: number;
     height?: number;
+    /** CSS width of the inline zoom trigger, such as `80%` or `24rem`. */
+    displayWidth?: string;
     /** Shown above the zoom controls in the full-screen viewer; nothing is shown when empty. */
     caption?: string;
   }
-  let { src, alt, width, height, caption }: Props = $props();
+  let { src, alt, width, height, displayWidth, caption }: Props = $props();
   const uid = $props.id();
   const captionId = `${uid}-caption`;
   let hasCaption = $derived(!!caption?.trim());
@@ -138,6 +140,7 @@
   bind:this={triggerElement}
   type="button"
   class="zoomable-image-trigger"
+  style:width={displayWidth}
   aria-label={`${m.image_viewer_open()}: ${alt}`}
   onclick={onTriggerClick}
   onkeydown={onTriggerKeyDown}

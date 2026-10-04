@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Component } from 'svelte';
-  import { onMount, setContext } from 'svelte';
+  import StackOverview from '$lib/components/StackOverview.svelte';
+  import { onMount, setContext, tick } from 'svelte';
   import CareerAchievementCnuAlgorithmContest6th from '$lib/components/definitions/careers/CareerAchievementCnuAlgorithmContest6th.svelte';
   import CareerAchievementCnuStartup21 from '$lib/components/definitions/careers/CareerAchievementCnuStartup21.svelte';
   import CareerAchievementCnuSwClub24 from '$lib/components/definitions/careers/CareerAchievementCnuSwClub24.svelte';
@@ -10,7 +11,7 @@
   import CareerActivityCnuClubStolio from '$lib/components/definitions/careers/CareerActivityCnuClubStolio.svelte';
   import CareerActivityGwangjuSwFestival19 from '$lib/components/definitions/careers/CareerActivityGwangjuSwFestival19.svelte';
   import CareerAlgorithmContestGist from '$lib/components/definitions/careers/CareerAlgorithmContestGist.svelte';
-  import CareerAlgorithmContestPimmParty from '$lib/components/definitions/careers/CareerAlgorithmContestPimmParty.svelte';
+  import CareerAlgorithmContestOperations from '$lib/components/definitions/careers/CareerAlgorithmContestOperations.svelte';
   import CareerCertificationAws from '$lib/components/definitions/careers/CareerCertificationAws.svelte';
   import CareerCertificationComputer from '$lib/components/definitions/careers/CareerCertificationComputer.svelte';
   import CareerCertificationInfoCommEngineer from '$lib/components/definitions/careers/CareerCertificationInfoCommEngineer.svelte';
@@ -48,7 +49,7 @@
   import { m } from '$lib/paraglide/messages';
   import type { Date as CareerDate } from '$lib/models/date';
   import type { CareerDetailTagVisibility, CareersSectionTab, CareerTagDisplayModes, VerticalSpacing } from '$lib/models/presets';
-  import { aiTags, careerSortCriteria, careerTabs, careerTags, eraTags, getCareerSection, getCareerSections, matchesCareerPeriod, matchesCareerTags, projectTags, sectionTags, sortCareerItemIds, topicTags, type CareerTabIdentifier, type CareerTag, type CareerTagKind, type SortDirection } from '$lib/models/careers';
+  import { aiTags, careerSortCriteria, careerTabs, careerTags, eraTags, getCareerSection, getCareerSections, matchesCareerPeriod, matchesCareerTags, projectTags, sectionTags, sortCareerItemIds, stackTags, topicTags, type CareerTabIdentifier, type CareerTag, type CareerTagKind, type SortDirection } from '$lib/models/careers';
 
   let { opened = 'history', hiddenOverrides = {}, tagDisplayModes = { primary: 'always', secondary: 'collapse' }, detailTagVisibility = { primary: true, secondary: true, show: [], hide: [] }, popupTransitionDurationMs = 500, verticalSpacing = {} }: { opened?: CareersSectionTab; hiddenOverrides?: Record<string, boolean>; tagDisplayModes?: CareerTagDisplayModes; detailTagVisibility?: CareerDetailTagVisibility; popupTransitionDurationMs?: number; verticalSpacing?: VerticalSpacing } = $props();
 
@@ -96,7 +97,7 @@
     'activity-gwangju-sw-festival19': CareerActivityGwangjuSwFestival19,
     'activity-cnu-club-pimm': CareerActivityCnuClubPimm,
     'activity-cnu-club-stolio': CareerActivityCnuClubStolio,
-    'algorithm-contest-pimm-party': CareerAlgorithmContestPimmParty,
+    'algorithm-contest-operations': CareerAlgorithmContestOperations,
     'algorithm-contest-gist': CareerAlgorithmContestGist,
     'certification-language': CareerCertificationLanguage,
     'certification-aws': CareerCertificationAws,
@@ -116,7 +117,7 @@
   type CareerConditionKind = CareerTagKind | 'period';
   type TagScreenCategory =
     | {
-        kind: 'section' | 'topic' | 'era' | 'project' | 'ai';
+        kind: 'section' | 'topic' | 'era' | 'project' | 'ai' | 'stack';
         label: () => string;
         tags: CareerTag[];
       }
@@ -139,6 +140,7 @@
     { kind: 'topic', label: () => m.career_filter_topics(), tags: topicTags },
     { kind: 'era', label: () => m.career_filter_eras(), tags: eraTags },
     { kind: 'project', label: () => m.career_filter_projects(), tags: projectTags },
+    { kind: 'stack', label: () => m.career_filter_stack(), tags: stackTags },
     { kind: 'ai', label: () => m.career_filter_ai(), tags: aiTags },
     { kind: 'period', label: () => m.career_filter_period() }
   ];
@@ -218,7 +220,8 @@
   /** Hidden entries are collected below the active tab until the visitor asks to see them. */
   let hiddenItemsExpandedByTab: Record<CareerTabIdentifier, boolean> = $state({
     history: false,
-    works: false
+    works: false,
+    stack: false
   });
   let hiddenItemsExpanded = $derived(hiddenItemsExpandedByTab[activeTab]);
   const toggleHiddenItems = () => {
@@ -355,6 +358,19 @@
    *  An anchor, when given, is the element id inside that popup to show on open. */
   let popupRequestId: string | null = $state(null);
   let popupRequestAnchor: string | undefined = $state(undefined);
+  // Stack references can target entries without a detail popup, including hidden ones.
+  setContext('career-item-navigation', {
+    navigate: async (id: string) => {
+      const section = getCareerSection(id);
+      if (!section) return;
+      resetAll();
+      activeTab = section.tab ?? 'history';
+      hiddenItemsExpandedByTab = { ...hiddenItemsExpandedByTab, [activeTab]: true };
+      await tick();
+      popupRequestAnchor = undefined;
+      popupRequestId = id;
+    }
+  });
   setContext('career-popup-request', {
     get pendingId() {
       return popupRequestId;
@@ -833,6 +849,7 @@
         <button class="career-tab" type="button" role="tab" id={`career-tab-${tab.identifier}`} aria-selected={activeTab === tab.identifier} aria-controls="career-tab-panel" tabindex={activeTab === tab.identifier ? 0 : -1} onclick={() => (activeTab = tab.identifier)} onkeydown={(event) => onTabKeyDown(event, index)}>{tab.label()}</button>
       {/each}
     </div>
+    {#if activeTab !== 'stack'}
     <div class="career-controls" bind:this={controlsElement} aria-label={m.career_filter_controls()}>
       <div class="control-row">
         <span class="control-label">{m.career_filter_label()}</span>
@@ -919,8 +936,12 @@
         </p>
       {/if}
     </div>
+    {/if}
   </div>
   <div class="careers-panel" id="career-tab-panel" role="tabpanel" aria-labelledby={`career-tab-${activeTab}`}>
+    {#if activeTab === 'stack'}
+      <StackOverview />
+    {:else}
     {#each tabSections as section (section.identifier)}
       <div class="careers-content" data-section={section.identifier}>
         <h3>{section.title()}</h3>
@@ -954,6 +975,7 @@
         <ExternalLink href="https://github.com/ShapeLayer?tab=repositories">GitHub</ExternalLink>
       </li>
     </ul>
+    {/if}
   </div>
   {#if menuTooltip}
     <div class="menu-tooltip" class:above={menuTooltip.above} role="tooltip" style:left={`${menuTooltip.left}px`} style:top={`${menuTooltip.top}px`}>

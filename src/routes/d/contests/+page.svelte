@@ -11,12 +11,13 @@
 </script>
 
 <svelte:head>
-  <title>{m.career_contents_algorithm_contest_pimm_party_title()} · {m.park_jong_hyeon()}</title>
+  <title>{m.career_title_algorithm_contest_operations()} · {m.park_jong_hyeon()}</title>
   <meta name="description" content={m.detail_pimm_description()} />
 </svelte:head>
 
 <CareerItemDetailContent
-      title={m.career_contents_algorithm_contest_pimm_party_title()}
+      id="algorithm-contest-operations-detail"
+      title={m.career_title_algorithm_contest_operations()}
       subtitle={m.career_contents_algorithm_contest_pimm_party_subtitle()}
     >
       <section class="detail-section" aria-labelledby="events-heading">
@@ -61,6 +62,28 @@
                 <li>{m.retrospective()}: <ExternalLink href="https://blog.jonghyeon.me/posts/2025-04-15-till-its-over/">{m.extlink_post_title_rewinding_2025_1_pimm_party()}</ExternalLink></li>
                 <li>{m.contest_page()}: <ExternalLink href="https://archive.is/MUAgn">(archive.is)</ExternalLink></li>
               </ul>
+            </div>
+          </CareerItemDetailSubsection>
+
+          <CareerItemDetailSubsection id="algorithm-contest-gist" title={m.career_contents_algorithm_contest_gist_title()} subtitle={m.career_contents_algorithm_contest_gist_subtitle()}>
+            <div id="detail-algorithm-contest-gist" class="contest-content">
+              <span>{m.problems()}</span>
+              <ul>
+                <li><ExternalLink href="https://archive.is/TaEdZ">{m.career_contents_algorithm_contest_gist_prob_a()}</ExternalLink></li>
+                <li><ExternalLink href="https://archive.is/VfYfn">{m.career_contents_algorithm_contest_gist_prob_b()} ({m.set_problem()})</ExternalLink></li>
+                <li><ExternalLink href="https://archive.is/WiDf4">{m.career_contents_algorithm_contest_gist_prob_c()}</ExternalLink></li>
+                <li><ExternalLink href="https://archive.is/YnXhs">{m.career_contents_algorithm_contest_gist_prob_d()}</ExternalLink></li>
+                <li><ExternalLink href="https://archive.is/0thiQ">{m.career_contents_algorithm_contest_gist_prob_e()}</ExternalLink></li>
+                <li><ExternalLink href="https://archive.is/DXVVz">{m.career_contents_algorithm_contest_gist_prob_f()}</ExternalLink></li>
+                <li><ExternalLink href="https://archive.is/gpVxB">{m.career_contents_algorithm_contest_gist_prob_g()}</ExternalLink></li>
+                <li><ExternalLink href="https://archive.is/wmzMm">{m.career_contents_algorithm_contest_gist_prob_h()}</ExternalLink></li>
+                <li><ExternalLink href="https://archive.is/2fSfS">{m.career_contents_algorithm_contest_gist_prob_i()}</ExternalLink></li>
+              </ul>
+              <p>
+                <ExternalLink href="https://m.etnews.com/20240719000005">{m.see_more()}: {m.etnews()}</ExternalLink>
+                <ExternalLink href="https://www.acmicpc.net/category/detail/4225">{m.contest_page()}</ExternalLink>
+                <ExternalLink href="https://archive.is/suENW">(archive.is)</ExternalLink>
+              </p>
             </div>
           </CareerItemDetailSubsection>
         </div>

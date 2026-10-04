@@ -1,6 +1,5 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-
   "last_update": "{date} 마지막 업데이트.",
   "career_detail_hint": "아이콘이 있는 항목은 자세한 정보를 열어볼 수 있습니다.",
   "present": "현재",
@@ -8,7 +7,7 @@
   "retrospective": "회고",
   "detail_section_events": "개최",
   "detail_section_projects": "프로젝트",
-  "detail_pimm_description": "PIMM 알고리즘 파티의 개최 대회와 관련 프로젝트",
+  "detail_pimm_description": "알고리즘 대회 총괄 및 출제, 운영 경력과 관련 프로젝트",
   "detail_pimm_turbo_waffle": "사이버지식정보방 PC 환경에서도 결정적으로 렌더링되는 조판 시스템",
   "detail_pimm_editorial": "조판 시스템을 사용해 작성한 대회 해설",
   "detail_pimm_gfm2polygon": "GitHub Flavored Markdown을 Codeforces Polygon의 디스크립션 문법으로 변환하는 라이브러리",
@@ -40,31 +39,24 @@
   "detail_ktas_unity_tracking": "작업의 진척에 따라 자원의 UUID가 변경될 수 있지만, 기본 병합 도구는 UUID 변경을 추적하지 않음.",
   "detail_ktas_unity_breakage": "유니티의 병합 도구를 사용하여 병합하면, UUID의 변경으로 연결된 자원들이 깨지거나 사라진 것으로 표시됨.",
   "detail_ktas_unity_solution": "UUID의 변경 기록을 추적하여 병합 과정에서 사용하는 도구를 작성하여 문제 상황을 해결.",
-
   "socials": "소셜",
   "set_problem": "출제",
   "problems": "문제 일람",
-
   "park_jong_hyeon": "박종현",
-
   "etnews": "전자신문",
   "stove_store": "Stove Store",
-  
   "jekyll": "Jekyll",
   "svelte": "Svelte",
-
   "careers": "커리어",
   "career_detail_tooltip": "자세히 보기",
   "image_viewer_open": "이미지 크게 보기",
   "image_viewer_close": "닫기",
   "image_viewer_zoom_in": "확대",
   "image_viewer_zoom_out": "축소",
-
   "profile_intro_description_1": "안녕하세요! 저는 컴퓨터공학을 전공하고 있는 박종현입니다. 컴퓨터 시스템의 사용자 이름으로는 주로 ShapeLayer라는 이름을 사용합니다.",
   "profile_intro_description_2_1": "크게 다쳐 병원에서 생활했던 어린 시절, 옆 자리의 컴퓨터공학 전공 대학원생을 흉내내며 컴퓨터를 시작하게 되었습니다.",
   "profile_intro_description_2_2": "이어서 게임 <마인크래프트>를 열심히 하던 유년기, 모딩에 큰 관심을 가져 당시 소위 \"통합설치기\"라고 불리는 모딩 적용 도구를 만들어내기 위해 비주얼 베이직을 무작정 공부하고, 고용량의 모딩 파일을 처리하기 위해 서버와 네트워크, 리눅스를 사용하기 시작했습니다. 이어서는 기어코 모딩을 직접 해내겠다는 열망으로 Java 책과 강의를 따라하며 컴퓨터공학자의 꿈을 키웠습니다.",
   "profile_intro_description_3": "성장을 거듭해 인문계 고등학교에서 학생회의 프로그램 의뢰를 처리하거나, 대학에 진학하고 다양한 문제 상황, 교과목에서 프로그래밍으로 문제를 해결하며, 컴퓨터공학 학부과정의 다음을 준비하고 있습니다.",
-
   "career_filter_controls": "커리어 필터 및 정렬",
   "career_filter_label": "필터 / 정렬",
   "career_filter_add": "조건 추가",
@@ -75,6 +67,7 @@
   "career_filter_eras": "시기",
   "career_filter_period": "기간",
   "career_filter_projects": "프로젝트",
+  "career_filter_stack": "기술",
   "career_filter_ai": "AI 사용",
   "career_period_start": "시작일",
   "career_period_end": "종료일",
@@ -93,6 +86,8 @@
   "career_sort_era_description": "미성년, 대학 시기를 기준으로 정렬합니다.",
   "career_sort_project": "프로젝트",
   "career_sort_project_description": "관련 프로젝트 태그를 기준으로 정렬합니다.",
+  "career_sort_stack": "기술",
+  "career_sort_stack_description": "기술 태그를 기준으로 정렬합니다.",
   "career_sort_ai": "AI",
   "career_sort_ai_description": "AI 활용 정도를 기준으로 정렬합니다.",
   "career_tag_current": "진행 중",
@@ -169,7 +164,6 @@
   "career_filter_result_count": "전체 {total}개 중 {shown}개 표시 중.",
   "career_section_show_more": "더 보기 ({count}개)",
   "career_section_hide": "숨기기",
-
   "career_title_edu_highschool_sdok": "숭덕고등학교",
   "career_title_edu_bachelor_cnu_ce": "전남대학교 공과대학 컴퓨터정보통신공학과 학부과정",
   "career_title_edu_bachelor_cnu_jp": "전남대학교 인문대학 일어일문학과 학부과정",
@@ -179,7 +173,6 @@
   "chonnam_national_university_press_release": "전남대학교 보도자료",
   "career_title_edu_bachelor_exchange_sage": "사가대학 이공학부 특별청강학생",
   "career_details_edu_bachelor_exchange_sage_li_0": "전남대학교측 해외파견 교환학생, 이공학부 지능정보시스템코스",
-
   "career_title_work_imagelab": "전남대학교 지능영상미디어인터페이스연구실",
   "career_title_work_ielab": "전남대학교 지능전자연구실",
   "career_title_work_roka": "대한민국 육군",
@@ -195,7 +188,6 @@
   "career_title_work_cnu_ucc_working_scholarship": "전남대학교 정보화본부",
   "career_details_work_cnu_ucc_working_scholarship_li_0": "국가근로장학생 행정업무보조",
   "career_details_work_cnu_ucc_working_scholarship": "PC 실습실 기자재 유지보수 및 소프트웨어 운용",
-
   "career_title_project_prefix_generator": "악질이름생성기",
   "career_title_project_sdok_fetea": "숭덕고 갤러리 및 Fe-tea 엔진",
   "career_details_project_sdok_fetea_li_0": "2019년 숭덕고등학교 학생회 의뢰로 개발한 게시판 엔진 및 운영한 건의 게시판 웹 서비스",
@@ -249,7 +241,6 @@
   "career_details_project_zodiac_complex_li_1": "개발 최종단계에 참여: 런타임 실패 해결 작업 수행",
   "career_details_project_zodiac_complex_li_2": "대학생 팀, 비주얼 노벨 게임 프로젝트",
   "career_more_projects_github": "그 외의 프로젝트들은 GitHub를 참조해주십시오.",
-
   "career_title_achievement_cnu_startup21": "제19회 2021 전남대학교 창업아이템 경진대회 입선",
   "career_title_achievement_icpc21": "국제 대학생 프로그래밍 대회 아시아 서울 지역 본선 진출",
   "career_title_achievement_cnu_algorithm_contest_6th": "전남대학교 제6회 교내SW프로그래밍경진대회 장려상",
@@ -257,14 +248,12 @@
   "career_title_achievement_scholarship_mirae_asset_33th": "미래에셋 해외교환 장학생 33기",
   "mirae_asset_foundation_press_release": "미래에셋박현주재단 보도자료",
   "scholarship_certificate": "장학증서",
-
   "career_title_paper_smartmedia21": "\"자연스러운 수어 애니메이션을 위한 FBX 파일 결합 알고리즘\"",
   "career_authors_paper_smartmedia21": "정종호, 고영민, 박종현, 이칠우, 김대진.",
   "career_details_paper_smartmedia21": "한국스마트미디어학회 2021 춘계 학술대회",
   "career_title_paper_smartmedia22": "\"자연스러운 애니메이션을 위한 수어 애니메이션 생성 알고리즘 고도화\"",
   "career_authors_paper_smartmedia22": "정종호, 박종현, 나광일, 성홍념, 황희재, 이칠우.",
   "career_details_paper_smartmedia22": "한국스마트미디어학회 2022 종합학술대회",
-
   "career_title_activity_gwangju_sw_festival19": "2019 광주SW체험축전 <한글코드로 만드는 디스코드 챗봇> 체험 부스",
   "career_contents_activity_gwangju_sw_festival19_body_1a": "축전 참여 프로젝트 총괄",
   "career_contents_activity_gwangju_sw_festival19_body_1b": "체험 프로그램에서 사용할 소프트웨어 개발",
@@ -281,8 +270,7 @@
   "career_title_activity_cnu_club_stolio": "전남대학교 AI융합대학 인공지능학부 과동아리 Stolio",
   "career_details_activity_cnu_club_stolio_li_0": "동아리 개설 참여",
   "career_details_activity_cnu_club_stolio_li_1": "동아리 운영 집행 및 프로젝트 리딩",
-
-  "career_title_algorithm_contest_pimm_party": "커뮤니티 오픈 콘테스트 <전남대학교 PIMM 알고리즘 파티> 대회",
+  "career_title_algorithm_contest_operations": "알고리즘 대회 총괄 및 출제, 운영",
   "career_details_algorithm_contest_pimm_party": "'23, '24 상반기, '24 하반기, '25 상반기 대회 총괄",
   "career_details_algorithm_contest_pimm_party_question_writing_23_24a": "'23, '24 상반기 대회 출제",
   "career_contents_algorithm_contest_pimm_party_title": "<PIMM 알고리즘 파티> 대회",
@@ -291,7 +279,7 @@
   "career_contents_algorithm_contest_pimm_party_li_0": "〈전남대학교 PIMM 알고리즘 파티〉를 군 복무 중 신설하여 백준 온라인 저지 오픈 콘테스트로 개최",
   "career_contents_algorithm_contest_pimm_party_li_1": "〈2024 GIST 알고리즘 마스터즈〉 등 총 5개 대회에서 출제(3회) 및 총괄(4회) 역할 수행",
   "career_contents_algorithm_contest_pimm_party_ai_abuse_title": "AI 어뷰징 제출 판별 방법 연구 및 보고서 작성",
-  "career_contents_algorithm_contest_pimm_party_ai_abuse_li_0": "AI 사용 금지 규칙에도 노골적인 AI 생성 답안 제출 발생, 판별 프로토콜과 선행 연구 부재",
+  "career_contents_algorithm_contest_pimm_party_ai_abuse_li_0": "AI 사용 금지 규칙에도 노골적인 AI 생성 답안 제출 발생, 판별 프로토콜과 선행 연구 부재로 독자 연구 수행",
   "career_contents_algorithm_contest_pimm_party_ai_abuse_li_1": "제출 간 시간 차, diff 크기, 답안의 언어 변화를 매개변수로 하는 이상 징후 산출식 정의",
   "career_contents_algorithm_contest_pimm_party_ai_abuse_li_2": "여러 LLM으로 생성한 대조군 답안과의 GraphCodeBERT 임베딩 유사도 측정",
   "career_contents_algorithm_contest_pimm_party_gfm2polygon_title": "Markdown → Codeforces Polygon 지문 변환 도구 개발",
@@ -359,7 +347,6 @@
   "career_contents_algorithm_contest_pimm25a_prob_g": "문제 G. <보물 찾기>",
   "career_contents_algorithm_contest_pimm25a_prob_h": "문제 H. <비장의 일격 (Large)>",
   "extlink_post_title_rewinding_2025_1_pimm_party": "<PIMM 알고리즘 파티가 끝날 때까지>",
-
   "career_title_certification_toeic": "TOEIC 805(2021.08.08)",
   "career_title_certification_jlpt": "JLPT N2(2024.08.13)",
   "career_title_certification_opic": "OPIc IM3 (영어)(2026.03.29)",
@@ -391,24 +378,35 @@
   "career_contents_certification_topcit_li_5a": "수준 5: 창의융합형 (850 ~ 1,000점)",
   "career_contents_certification_topcit_li_5b": "기술 및 비즈니스 영역에 대한 지식과 스킬을 응용하여 주도적으로 과제를 해결할 수 있는 수준",
   "extlink_site_name_topcit": "TOPCIT",
-
   "career_details_certifications_experied": "만료됨",
   "career_tab_history": "이력",
   "career_tab_works": "프로젝트",
   "career_section_works": "WORKS",
   "career_section_develops": "DEVELOPS",
-
   "career_title_works_turbo_waffle": "Turbo Waffle",
   "career_details_works_turbo_waffle_li_0": "Markdown, Nunjucks를 마크업 언어로 사용하는 조판 시스템",
   "career_details_works_turbo_waffle_li_1": "대회 문제의 해설 원고를 디자인이 적용된 문제 해설 PDF로 변환",
   "career_details_works_turbo_waffle_li_2": "군생활 기간, GitHub Codespaces와 저사양의 사이버지식정보방 PC 환경에서 동작 가능하도록 개발",
-
   "career_title_works_cellular": "Cellular",
   "career_details_works_cellular_li_1": "연구 프로젝트 팀 내부에서 비 컴퓨터 전공 참여진들에게도 프로젝트 진행 상황을 효과적으로 공유하기 위해 작성",
   "career_details_works_cellular_li_2": "소스 코드를 모듈 디렉터리 단위로 분석해, 프로젝트의 구조와 모듈별 코드량을 히트맵 그래프로 시각화하는 도구",
   "career_details_works_cellular_li_3": "커밋 단위로 프로젝트의 변화를 시간의 흐름에 따라 확인할 수 있음",
   "career_contents_works_cellular_viewer": "웹 뷰어",
-
   "career_title_works_typst_maintaining": "패키지 메인테이닝",
-  "extlink_site_blog": "Blog"
+  "extlink_site_blog": "Blog",
+  "career_tab_stack": "기술 스택",
+  "stack_description": "프로젝트에서 사용한 기술의 등장 비율입니다. 타일을 선택하면 해당 기술을 사용한 프로젝트를 볼 수 있습니다.",
+  "stack_basis": "프로젝트별 기술을 한 번씩 집계한 전체 등장 횟수 기준",
+  "stack_projects": "사용 프로젝트",
+  "stack_close": "닫기",
+  "stack_occurrences": "{count}회",
+  "stack_project_pimm25a_editorial": "〈2025 상반기 PIMM 알고리즘 파티〉 대회 문제 및 해설 에디토리얼",
+  "stack_project_pimm24b_editorial": "〈2024 하반기 PIMM 알고리즘 파티〉 대회 문제 및 해설 에디토리얼",
+  "stack_project_pimm24a_editorial": "〈2024 상반기 PIMM 알고리즘 파티〉 대회 문제 및 해설 에디토리얼",
+  "stack_project_gist_editorial": "〈2024 GIST 알고리즘 마스터즈〉 대회 문제 및 해설 에디토리얼",
+  "stack_project_sw_olympiad_workbook": "〈SW사고력올림피아드〉 대회 대비 워크북",
+  "stack_project_boosted_decoders_description": "LDPC 코드의 부스팅 학습 구현을 PyTorch로 포팅",
+  "stack_project_persona_evaluation": "개인 실험: 대한민국 국민 묘사 합성 페르소나의 9Axes 평가 및 지역구별 8Values 평가",
+  "stack_project_rhythm_controller": "리듬게임 아케이드 컨트롤러 및 설정 드라이버",
+  "stack_project_game_academy": "콘텐츠아카데미 정규과정 (게임제작) (2021)"
 }

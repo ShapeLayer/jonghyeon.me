@@ -4,9 +4,11 @@
   let {
     children,
     href,
+    showIcon = true,
   }: {
     children: Snippet;
     href: string;
+    showIcon?: boolean;
   } = $props();
 </script>
 
@@ -24,5 +26,7 @@
 
 <a href="{href}" class="external-link" target="_blank" rel="noopener noreferrer">
   {@render children()}
-  <span class="material-symbols-outlined" style="font-size: 1em;">open_in_new</span>
+  {#if showIcon}
+    <span class="material-symbols-outlined" style="font-size: 1em;">open_in_new</span>
+  {/if}
 </a>
