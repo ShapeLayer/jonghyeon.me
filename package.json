@@ -8,14 +8,15 @@
 		"build": "pnpm --dir packages/zoomable-image build && vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
-		"check": "pnpm --dir packages/zoomable-image build && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"check": "pnpm --dir packages/zoomable-image build && pnpm generate:i18n && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "pnpm --dir packages/zoomable-image build && pnpm generate:i18n && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"test:zoomable-image": "pnpm --dir packages/zoomable-image test",
 		"test:zoomable-image:browser": "pnpm --dir packages/zoomable-image test:browser",
 		"test:zoomable-image:integration": "pnpm build && playwright test -c playwright.zoomable-image.config.ts",
-		"test:zoomable-image:dev": "pnpm --dir packages/zoomable-image build && playwright test -c playwright.zoomable-image.dev.config.ts"
+		"test:zoomable-image:dev": "pnpm --dir packages/zoomable-image build && playwright test -c playwright.zoomable-image.dev.config.ts",
+		"generate:i18n": "paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide --strategy cookie baseLocale"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.1",
