@@ -482,25 +482,7 @@
   @media (prefers-reduced-motion: reduce) {
     .tile,
     .region-label,
-    .section-toggle {
-      display: block;
-      margin: 0.6em 0 0;
-      border: 1px dashed var(--base-bg-color-darker);
-      border-radius: 999px;
-      background: transparent;
-      color: var(--base-fg-color-brighter);
-      font: inherit;
-      font-size: 0.75em;
-      line-height: 1;
-      padding: 0.6em 0.9em;
-      cursor: pointer;
-      transition:
-        border-color 0.15s,
-        color 0.15s;
-    }
-    .hidden-histograms {
-      margin-top: 1.2em;
-    }
+    .section-toggle,
     .histogram {
       transition: none;
     }
