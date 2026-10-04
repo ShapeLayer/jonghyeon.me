@@ -116,7 +116,7 @@
       <div class="contacts">
         {#if !hideEmailLink}
           <div class="contacts-row">
-            <ExternalLink href="mailto:me@jonghyeon.me">me@jonghyeon.me</ExternalLink>
+            <ExternalLink href="mailto:jng.hyn.park@gmail.com">jng.hyn.park@gmail.com</ExternalLink>
           </div>
         {/if}
         {#if !hideGithubLink || !hideBlogLink}
