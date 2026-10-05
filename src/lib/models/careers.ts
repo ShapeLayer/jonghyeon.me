@@ -161,27 +161,20 @@ export const careerSections: CareerSection[] = [
     items: [
       { id: 'activity-gwangju-sw-festival19', startsAt: { year: 2019, month: 5 }, tagIdentifiers: ['python', 'era-junior'] },
       { id: 'activity-cnu-club-pimm', startsAt: { year: 2021, month: 3 }, endsAt: { year: 2026, month: 3 }, tagIdentifiers: ['game', 'era-university'] },
-      { id: 'activity-cnu-club-stolio', startsAt: { year: 2022, month: 3 }, endsAt: { year: 2025, month: 12 }, tagIdentifiers: ['era-university'] }
-    ]
-  },
-  {
-    identifier: 'contest-hosting',
-    title: () => m.career_section_contest_hosting(),
-    tagIdentifiers: ['activity', 'contest-hosting', 'algorithm'],
-    items: [
+      { id: 'activity-cnu-club-stolio', startsAt: { year: 2022, month: 3 }, endsAt: { year: 2025, month: 12 }, tagIdentifiers: ['era-university'] },
       {
         id: 'algorithm-contest-operations',
         startsAt: { year: 2023, month: 9 },
         endsAt: { year: 2025, month: 3 },
-        tagIdentifiers: ['pimm-algo-party', 'era-university'],
+        tagIdentifiers: ['contest-hosting', 'algorithm', 'pimm-algo-party', 'era-university'],
         subItems: [
           { id: 'algorithm-contest-pimm-23' },
           { id: 'algorithm-contest-pimm-24a' },
           { id: 'algorithm-contest-pimm-24b' },
-          { id: 'algorithm-contest-pimm-25a' }
+          { id: 'algorithm-contest-pimm-25a' },
+          { id: 'detail-algorithm-contest-gist' }
         ]
-      },
-      { id: 'algorithm-contest-gist', startsAt: { year: 2024, month: 5 }, tagIdentifiers: ['era-university'] }
+      }
     ]
   },
   {

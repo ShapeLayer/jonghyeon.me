@@ -10,7 +10,6 @@
   import CareerActivityCnuClubPimm from '$lib/components/definitions/careers/CareerActivityCnuClubPimm.svelte';
   import CareerActivityCnuClubStolio from '$lib/components/definitions/careers/CareerActivityCnuClubStolio.svelte';
   import CareerActivityGwangjuSwFestival19 from '$lib/components/definitions/careers/CareerActivityGwangjuSwFestival19.svelte';
-  import CareerAlgorithmContestGist from '$lib/components/definitions/careers/CareerAlgorithmContestGist.svelte';
   import CareerAlgorithmContestOperations from '$lib/components/definitions/careers/CareerAlgorithmContestOperations.svelte';
   import CareerCertificationAws from '$lib/components/definitions/careers/CareerCertificationAws.svelte';
   import CareerCertificationComputer from '$lib/components/definitions/careers/CareerCertificationComputer.svelte';
@@ -100,7 +99,6 @@
     'activity-cnu-club-pimm': CareerActivityCnuClubPimm,
     'activity-cnu-club-stolio': CareerActivityCnuClubStolio,
     'algorithm-contest-operations': CareerAlgorithmContestOperations,
-    'algorithm-contest-gist': CareerAlgorithmContestGist,
     'certification-language': CareerCertificationLanguage,
     'certification-aws': CareerCertificationAws,
     'certification-computer': CareerCertificationComputer,
