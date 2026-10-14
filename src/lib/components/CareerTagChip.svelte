@@ -19,6 +19,27 @@
   }
   const popupRequest = getContext<CareerPopupRequest | undefined>('career-popup-request');
 
+  /** Keep detail tooltips inside the popup's scroll viewport, including wrapped rows. */
+  const positionTooltip = (event: MouseEvent | FocusEvent) => {
+    if (variant !== 'detail' || !tag.description) return;
+    const chip = event.currentTarget as HTMLElement;
+    let left = 0;
+    let right = document.documentElement.clientWidth;
+    for (let parent = chip.parentElement; parent; parent = parent.parentElement) {
+      if (!/auto|scroll|hidden|clip/.test(getComputedStyle(parent).overflowX)) continue;
+      const bounds = parent.getBoundingClientRect();
+      left = Math.max(left, bounds.left + parent.clientLeft);
+      right = Math.min(right, bounds.left + parent.clientLeft + parent.clientWidth);
+    }
+    const margin = 8;
+    chip.style.setProperty('--tooltip-max-width', `${Math.max(1, right - left - margin * 2)}px`);
+    const tooltipWidth = parseFloat(getComputedStyle(chip, '::after').width);
+    const bounds = chip.getBoundingClientRect();
+    const preferredLeft = bounds.left + (bounds.width - tooltipWidth) / 2;
+    const tooltipLeft = Math.max(left + margin, Math.min(preferredLeft, right - margin - tooltipWidth));
+    chip.style.setProperty('--tooltip-left', `${tooltipLeft - bounds.left}px`);
+  };
+
   /** Opens the referenced item's popup instead of bubbling into the chip's own career item. */
   const onClickHandler = (event: MouseEvent) => {
     if (!tag.opensItemId) return;
@@ -118,6 +139,18 @@
   .career-tag:first-child[data-tooltip]:focus-visible::after, .career-tag:first-child[data-tooltip]:focus-visible::before {
     transform: translate(0, 0);
   }
+
+  .career-tag.detail[data-tooltip]::after {
+    box-sizing: border-box;
+    max-width: min(16em, var(--tooltip-max-width, 100vw));
+    overflow-wrap: anywhere;
+    left: var(--tooltip-left, 0px);
+    transform: translate(0, -4px);
+  }
+  .career-tag.detail[data-tooltip]:hover::after,
+  .career-tag.detail[data-tooltip]:focus-visible::after {
+    transform: translate(0, 0);
+  }
 </style>
 
 <span
@@ -132,5 +165,7 @@
   role={tag.opensItemId ? 'button' : undefined}
   tabindex={tag.opensItemId ? 0 : undefined}
   onclick={onClickHandler}
+  onmouseenter={positionTooltip}
+  onfocus={positionTooltip}
   onkeydown={(event) => (event.key === 'Enter' || event.key === ' ') && onClickHandler(event as unknown as MouseEvent)}
 >{tag.displayName()}</span>
