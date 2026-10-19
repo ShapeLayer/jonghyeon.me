@@ -518,5 +518,12 @@
   "timeline_subtitle_discord_booth": "Experience Booth, 2019 Gwangju SW Festival",
   "timeline_title_zodiac": "Game: Zodiac Complex",
   "timeline_subtitle_zodiac": "Technical Support for Hotfixes and Quality Assurance",
-  "timeline_subtitle_gist24": "GIST Oryong Hall and Baekjoon Online Judge"
+  "timeline_subtitle_gist24": "GIST Oryong Hall and Baekjoon Online Judge",
+  "timeline_origin_title": "「Writing, erasing···.」",
+  "timeline_origin_description": "began learning C after hearing that Minecraft: Bedrock Edition was written in C——",
+  "timeline_origin_java": "began learning Java to mod Minecraft——",
+  "timeline_origin_encounter": "hospitalized with a leg injury, met a computer science student in the next bed who was writing Android app code——",
+  "timeline_origin_description_intro": "In the midst of adolescence,",
+  "timeline_origin_java_intro": "On the transition from elementary to middle school,",
+  "timeline_origin_encounter_intro": "In the summer of first grade,"
 }

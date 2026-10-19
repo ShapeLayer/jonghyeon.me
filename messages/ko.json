@@ -519,5 +519,12 @@
   "timeline_subtitle_discord_booth": "2019 광주SW체험축전 체험부스",
   "timeline_title_zodiac": "게임 〈별자리콤플렉스〉",
   "timeline_subtitle_zodiac": "핫픽스 및 품질관리 기술지원",
-  "timeline_subtitle_gist24": "광주과학기술원 오룡관 및 백준 온라인 저지"
+  "timeline_subtitle_gist24": "광주과학기술원 오룡관 및 백준 온라인 저지",
+  "timeline_origin_title": "「쓰며 지우며···.」",
+  "timeline_origin_description": "《마인크래프트: 베드락 에디션》이 C로 작성된다는 이야기에 C를 공부하기 시작하다——",
+  "timeline_origin_java": "마인크래프트를 모딩하기 위해 Java를 공부하기 시작하다——",
+  "timeline_origin_encounter": "다리를 다쳐 입원한 병동의 옆 자리에서, 안드로이드 앱 코드를 짜는 컴퓨터공학 전공자를 만나다——",
+  "timeline_origin_description_intro": "사춘기의 한복판,",
+  "timeline_origin_java_intro": "초등학생에서 중학생으로 넘어가며,",
+  "timeline_origin_encounter_intro": "초등학교 1학년 여름,"
 }
