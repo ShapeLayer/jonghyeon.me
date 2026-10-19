@@ -104,7 +104,7 @@ export const timelineItems: TimelineItem[] = [
 		end: '2024.07',
 		color: '#917ca2',
 		opensItemId: 'algorithm-contest-operations',
-		subtitle: () => m.timeline_subtitle_contest()
+		subtitle: () => m.timeline_subtitle_gist24()
 	},
 	{
 		id: 'pimm24b',

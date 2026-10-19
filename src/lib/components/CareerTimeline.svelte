@@ -1,9 +1,17 @@
 <script lang="ts">
-	import { getContext } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	import { m } from '$lib/paraglide/messages';
 	import { layoutTimeline, timelineItems, type TimelineItem } from '$lib/models/timeline';
 
-	let { items = timelineItems }: { items?: TimelineItem[] } = $props();
+	let {
+		items = timelineItems,
+		highlightedItemIds = []
+	}: {
+		items?: TimelineItem[];
+		/** Additional highlights, including diagnostics or future selection modes. */
+		highlightedItemIds?: string[];
+	} = $props();
+	let timelineElement: HTMLDivElement | null = $state(null);
 	const navigation = getContext<{ navigate: (id: string) => Promise<void> }>(
 		'career-item-navigation'
 	);
@@ -31,7 +39,67 @@
 				.map((item) => item.id)
 		)
 	);
-	const isActive = (item: TimelineItem) => dateItemIds.has(item.id) || item.color === activeColor;
+	const isActive = (item: TimelineItem) =>
+		dateItemIds.has(item.id) || highlightedItemIds.includes(item.id) || item.color === activeColor;
+	const activeItemIds = $derived(items.filter(isActive).map((item) => item.id));
+	let floatingFrame = 0;
+	function updateFloatingEntries() {
+		if (!timelineElement) return;
+		const header = timelineElement.closest('.careers')?.querySelector('.careers-header');
+		const top = Math.max(0, header?.getBoundingClientRect().bottom ?? 0);
+		const entries = [...timelineElement.querySelectorAll<HTMLElement>('.entry')];
+		for (const entry of entries) {
+			entry.style.transform = '';
+			entry.removeAttribute('data-floating');
+		}
+		if (
+			activeItemIds.length < 2 ||
+			top >= window.innerHeight ||
+			timelineElement.getBoundingClientRect().bottom <= top
+		)
+			return;
+		const active = new Set(activeItemIds);
+		const floating = entries
+			.filter((entry) => active.has(entry.dataset.timelineId ?? ''))
+			.map((entry) => ({
+				entry,
+				bounds: entry.getBoundingClientRect(),
+				container: entry.parentElement!.getBoundingClientRect()
+			}))
+			.filter(({ bounds, container }) => bounds.top < top && container.bottom > top)
+			.sort((a, b) => a.bounds.top - b.bounds.top);
+		let nextTop = top;
+		for (const { entry, bounds } of floating) {
+			entry.style.transform = `translateY(${nextTop - bounds.top}px)`;
+			entry.dataset.floating = 'true';
+			nextTop += bounds.height;
+		}
+	}
+	function scheduleFloatingEntries() {
+		cancelAnimationFrame(floatingFrame);
+		floatingFrame = requestAnimationFrame(updateFloatingEntries);
+	}
+	$effect(() => {
+		void activeItemIds;
+		void timelineElement;
+		scheduleFloatingEntries();
+	});
+	onMount(() => {
+		const observer = new ResizeObserver(scheduleFloatingEntries);
+		if (timelineElement) {
+			observer.observe(timelineElement);
+			const header = timelineElement.closest('.careers')?.querySelector('.careers-header');
+			if (header) observer.observe(header);
+		}
+		window.addEventListener('scroll', scheduleFloatingEntries, { passive: true, capture: true });
+		window.addEventListener('resize', scheduleFloatingEntries);
+		return () => {
+			observer.disconnect();
+			window.removeEventListener('scroll', scheduleFloatingEntries, true);
+			window.removeEventListener('resize', scheduleFloatingEntries);
+			cancelAnimationFrame(floatingFrame);
+		};
+	});
 	function onTimelinePointerMove(event: PointerEvent) {
 		if (event.pointerType === 'touch') return;
 		const hits = document.elementsFromPoint(event.clientX, event.clientY);
@@ -88,7 +156,12 @@
 	onblur={() => (hoveredId = null)}
 />
 
-<div class="timeline" use:separateDateLabels style:--line-color={activeColor ?? '#636363'}>
+<div
+	bind:this={timelineElement}
+	class="timeline"
+	use:separateDateLabels
+	style:--line-color={activeColor ?? '#636363'}
+>
 	{#each layout.bands as band (band.item.id)}
 		<div
 			class="timeline-item"
@@ -193,7 +266,6 @@
 			var(--item-color) var(--highlight-color-strength),
 			var(--base-bg-color)
 		);
-		z-index: 2;
 	}
 	.duration-band {
 		position: absolute;
@@ -206,6 +278,7 @@
 		z-index: 0;
 	}
 	.timeline-item.active .duration-band {
+		z-index: 2;
 		/* Keep the highlight's tint fixed; adjust only how much of the layer below shows. */
 		background: color-mix(in srgb, var(--item-surface) var(--highlight-tail-opacity), transparent);
 	}
@@ -258,6 +331,13 @@
 		position: relative;
 		z-index: 1;
 		pointer-events: auto;
+	}
+	.timeline-item.active .entry {
+		z-index: 3;
+	}
+	.timeline-item .entry:global([data-floating]) {
+		z-index: 4;
+		box-shadow: 0 2px 4px #00000010;
 	}
 	.text-ink {
 		background: var(--base-bg-color);
