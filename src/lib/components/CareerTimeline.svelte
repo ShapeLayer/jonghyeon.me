@@ -104,7 +104,7 @@
 		if (event.pointerType === 'touch') return;
 		const hits = document.elementsFromPoint(event.clientX, event.clientY);
 		// A raised tail must not hide the main boxes underneath it from hover detection.
-		const main = hits.find((element) => element.matches('.select-entry'));
+		const main = hits.find((element) => element.matches('.select-entry, .timeline-detail'));
 		const tail = hits.find((element) => element.matches('.duration-band'));
 		hoveredId =
 			main?.closest<HTMLElement>('[data-timeline-id]')?.dataset.timelineId ??
@@ -142,7 +142,10 @@
 		if (item.opensItemId) void navigation.navigate(item.opensItemId);
 	}
 	function resetOnBackground(event: MouseEvent) {
-		if (event.target instanceof Element && event.target.closest('.duration-band, .select-entry'))
+		if (
+			event.target instanceof Element &&
+			event.target.closest('.duration-band, .select-entry, .timeline-detail')
+		)
 			return;
 		selectedId = null;
 		hoveredId = null;
@@ -205,6 +208,19 @@
 							>{/if}
 					</span>
 				</button>
+				{#if band.item.opensItemId}
+					<button
+						type="button"
+						class="timeline-detail"
+						title={m.career_detail_tooltip()}
+						aria-label={`${band.item.title()}: ${m.career_detail_tooltip()}`}
+						onfocus={() => (focusedId = band.item.id)}
+						onblur={() => (focusedId = null)}
+						onclick={() => activate(band.item)}
+						><span class="material-symbols-outlined" aria-hidden="true">right_panel_close</span
+						></button
+					>
+				{/if}
 			</div>
 		</div>
 	{/each}
@@ -337,6 +353,8 @@
 		min-width: 0;
 	}
 	.entry {
+		display: flex;
+		align-items: center;
 		grid-row: 1;
 		align-self: start;
 		padding-left: 3px;
@@ -377,7 +395,26 @@
 		outline: 2px solid var(--item-color);
 		outline-offset: 2px;
 	}
+
+	.timeline-detail {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		align-self: center;
+		line-height: 1;
+		flex: none;
+		margin-inline: 0.4rem 0.75rem;
+		padding: 0.3rem 0;
+		font-size: 0.7em;
+		color: color-mix(in srgb, var(--base-fg-color) var(--text-strength), var(--base-bg-color));
+		white-space: nowrap;
+	}
+	.timeline-detail .material-symbols-outlined {
+		font-size: 16px;
+	}
 	.select-entry {
+		flex: 1;
+		min-width: 0;
 		color: color-mix(in srgb, var(--base-fg-color) var(--text-strength), var(--base-bg-color));
 		display: flex;
 		flex-direction: column;

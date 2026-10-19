@@ -423,6 +423,7 @@
     z-index: 10;
     isolation: isolate;
     background-color: transparent;
+    padding-top: 1rem;
   }
   .careers-header::before {
     position: absolute;
