@@ -37,7 +37,7 @@ export type CareerItemData = {
 };
 
 /** The tab a section is listed under: the career history, or the works list. */
-export type CareerTabIdentifier = 'history' | 'works' | 'stack';
+export type CareerTabIdentifier = 'history' | 'works' | 'stack' | 'timeline';
 
 export type CareerSection = {
   identifier: string;
@@ -59,6 +59,7 @@ export type CareerTab = {
 export const careerTabs: CareerTab[] = [
   { identifier: 'history', label: () => m.career_tab_history() },
   { identifier: 'works', label: () => m.career_tab_works() },
+  { identifier: 'timeline', label: () => m.career_tab_timeline() },
   { identifier: 'stack', label: () => m.career_tab_stack() }
 ];
 

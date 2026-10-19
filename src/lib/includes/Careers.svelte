@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Component } from 'svelte';
+  import CareerTimeline from '$lib/components/CareerTimeline.svelte';
   import StackOverview from '$lib/components/StackOverview.svelte';
   import { onMount, setContext, tick } from 'svelte';
   import CareerAchievementCnuAlgorithmContest6th from '$lib/components/definitions/careers/CareerAchievementCnuAlgorithmContest6th.svelte';
@@ -221,6 +222,7 @@
   let hiddenItemsExpandedByTab: Record<CareerTabIdentifier, boolean> = $state({
     history: false,
     works: false,
+    timeline: false,
     stack: false
   });
   let hiddenItemsExpanded = $derived(hiddenItemsExpandedByTab[activeTab]);
@@ -852,7 +854,7 @@
 
 <svelte:window onpointerdown={onWindowPointerDown} onpointerup={onWindowPointerUp} onpointercancel={abandonOutsidePointer} onscroll={onWindowScroll} onkeydown={onWindowKeyDown} />
 
-<section bind:this={careersSectionElement} class:list-view={isFiltered} class="careers" style:margin-top={verticalSpacing.marginTop} style:margin-bottom={verticalSpacing.marginBottom} style:padding-top={verticalSpacing.paddingTop} style:padding-bottom={verticalSpacing.paddingBottom}>
+<section bind:this={careersSectionElement} class:list-view={isFiltered && activeTab !== 'timeline' && activeTab !== 'stack'} class="careers" style:margin-top={verticalSpacing.marginTop} style:margin-bottom={verticalSpacing.marginBottom} style:padding-top={verticalSpacing.paddingTop} style:padding-bottom={verticalSpacing.paddingBottom}>
   <div bind:this={careersHeaderElement} class:stuck={isHeaderStuck} class="careers-header">
     <SectionHeader>{activeTabLabel}</SectionHeader>
     <p class="last-update">{m.last_update({ date: '2026-09-30' })}</p>
@@ -872,7 +874,7 @@
         </svg>
       </button>
     </div>
-    {#if activeTab !== 'stack'}
+    {#if activeTab !== 'stack' && activeTab !== 'timeline'}
     <div class="career-controls" bind:this={controlsElement} aria-label={m.career_filter_controls()}>
       <div class="control-row">
         <span class="control-label">{m.career_filter_label()}</span>
@@ -964,6 +966,8 @@
   <div class="careers-panel" id="career-tab-panel" role="tabpanel" aria-labelledby={`career-tab-${activeTab}`}>
     {#if activeTab === 'stack'}
       <StackOverview />
+    {:else if activeTab === 'timeline'}
+      <CareerTimeline />
     {:else}
     {#each tabSections as section (section.identifier)}
       <div class="careers-content" data-section={section.identifier}>
