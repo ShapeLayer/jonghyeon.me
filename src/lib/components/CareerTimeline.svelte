@@ -229,6 +229,7 @@
 <style>
 	.timeline {
 		--date-width: 6rem;
+		--date-line-gap: 1rem;
 		--lane-step: 0.85rem;
 		--period-line-gap: 6px;
 		--highlight-color-strength: 23%;
@@ -295,9 +296,11 @@
 	}
 
 	.date {
+		justify-content: flex-end;
+		text-align: right;
 		align-self: start;
 		grid-column: 1;
-		padding: 0.5rem 0.6rem 0 0;
+		padding: 0.5rem var(--date-line-gap) 0 0;
 		font-size: 0.8em;
 		color: var(--base-fg-color-brighter);
 		font-variant-numeric: tabular-nums;
@@ -311,7 +314,7 @@
 	.date.compact-boundary span {
 		position: absolute;
 		bottom: 0;
-		left: 0;
+		right: var(--date-line-gap);
 		line-height: 1.3;
 		white-space: nowrap;
 		padding-bottom: 0.15rem;
@@ -419,7 +422,6 @@
 			margin: 0 0.5em;
 		}
 		.date {
-			padding-right: 0.5rem;
 			font-size: 0.7em;
 		}
 	}
