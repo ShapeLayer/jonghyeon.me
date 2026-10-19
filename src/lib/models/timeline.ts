@@ -14,6 +14,22 @@ export type TimelineItem = {
 	opensItemId?: string;
 };
 
+/** Increase to spread the palette further apart while retaining its colour families. */
+export const timelineColorVariation = 1.4;
+
+function varyTimelineColor(color: string): string {
+	const anchor = [120, 128, 145];
+	const channels = anchor.map((center, index) => {
+		const channel = Number.parseInt(color.slice(1 + index * 2, 3 + index * 2), 16);
+		return Math.round(
+			Math.max(0, Math.min(255, center + (channel - center) * timelineColorVariation))
+		)
+			.toString(16)
+			.padStart(2, '0');
+	});
+	return `#${channels.join('')}`;
+}
+
 export const timelineItems: TimelineItem[] = [
 	{
 		id: 'computer-engineering',
@@ -158,7 +174,7 @@ export const timelineItems: TimelineItem[] = [
 		opensItemId: 'project-zodiac-complex',
 		subtitle: () => m.timeline_subtitle_zodiac()
 	}
-];
+].map((item) => ({ ...item, color: varyTimelineColor(item.color) }));
 
 /** Group by end month, with ongoing entries first and stable ordering within each month. */
 export function groupTimelineItems(items: TimelineItem[]) {

@@ -230,6 +230,7 @@
 	.timeline {
 		--date-width: 6rem;
 		--lane-step: 0.85rem;
+		--period-line-gap: 6px;
 		--highlight-color-strength: 23%;
 		--highlight-tail-opacity: 85%;
 		isolation: isolate;
@@ -270,12 +271,20 @@
 	.duration-band {
 		position: absolute;
 		inset: 0;
-		border-left: 3px solid var(--item-color);
 		background: var(--base-bg-color);
 		border-radius: 0 3px 3px 0;
 		padding: 0;
 		pointer-events: auto;
 		z-index: 0;
+	}
+	.duration-band::before {
+		content: '';
+		position: absolute;
+		top: calc(var(--period-line-gap) / 2);
+		bottom: calc(var(--period-line-gap) / 2);
+		left: 0;
+		width: 3px;
+		background: var(--item-color);
 	}
 	.timeline-item.active .duration-band {
 		z-index: 2;
