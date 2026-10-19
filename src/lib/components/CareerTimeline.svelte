@@ -353,16 +353,49 @@
 		min-width: 0;
 	}
 	.entry {
+		--main-padding-y: 0.45rem;
+		--main-padding-x: 0.6rem;
 		display: flex;
 		align-items: center;
 		grid-row: 1;
 		align-self: start;
 		padding-left: 3px;
-		background: var(--base-bg-color);
 		min-width: 0;
 		position: relative;
 		z-index: 1;
 		pointer-events: auto;
+	}
+	.entry::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: var(--item-surface, var(--base-bg-color));
+		mask-image:
+			linear-gradient(
+				to right,
+				transparent,
+				#000 var(--main-padding-x),
+				#000 calc(100% - var(--main-padding-x)),
+				transparent
+			),
+			linear-gradient(
+				to bottom,
+				transparent,
+				#000 var(--main-padding-y),
+				#000 calc(100% - var(--main-padding-y)),
+				transparent
+			);
+		mask-composite: intersect;
+		pointer-events: none;
+		z-index: 0;
+	}
+	.entry::before {
+		z-index: 2;
+		pointer-events: none;
+	}
+	.entry > button {
+		position: relative;
+		z-index: 1;
 	}
 	.timeline-item.active .entry {
 		z-index: 3;
@@ -378,7 +411,6 @@
 		padding: 0.08em 0.12em;
 	}
 
-	.timeline-item.active .entry,
 	.timeline-item.active .text-ink {
 		background: var(--item-surface);
 	}
@@ -420,7 +452,7 @@
 		flex-direction: column;
 		gap: 0.15rem;
 		width: 100%;
-		padding: 0.45rem 0.6rem;
+		padding: var(--main-padding-y) var(--main-padding-x);
 		overflow-wrap: anywhere;
 	}
 	.title {
