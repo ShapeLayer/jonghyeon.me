@@ -257,7 +257,8 @@
 		display: grid;
 		grid-template-rows: subgrid;
 		position: relative;
-		margin-left: calc(3px + var(--depth) * var(--lane-step));
+		margin-left: calc((var(--depth) + 1) * var(--lane-step));
+		margin-block: calc(var(--period-line-gap) / 2);
 		pointer-events: none;
 	}
 	.timeline-item.active {
@@ -277,11 +278,12 @@
 		pointer-events: auto;
 		z-index: 0;
 	}
-	.duration-band::before {
+	.duration-band::before,
+	.entry::before {
 		content: '';
 		position: absolute;
-		top: calc(var(--period-line-gap) / 2);
-		bottom: calc(var(--period-line-gap) / 2);
+		top: 0;
+		bottom: 0;
 		left: 0;
 		width: 3px;
 		background: var(--item-color);
@@ -334,7 +336,7 @@
 	.entry {
 		grid-row: 1;
 		align-self: start;
-		border-left: 3px solid var(--item-color);
+		padding-left: 3px;
 		background: var(--base-bg-color);
 		min-width: 0;
 		position: relative;
