@@ -524,5 +524,8 @@
   "timeline_origin_encounter": "脚をけがして入院した病室の隣のベッドで、Androidアプリのコードを書くコンピュータ工学専攻の学生と出会う——",
   "timeline_origin_description_intro": "思春期の真っただ中、",
   "timeline_origin_java_intro": "小学生から中学生になる頃、",
-  "timeline_origin_encounter_intro": "小学1年生の夏、"
+  "timeline_origin_encounter_intro": "小学1年生の夏、",
+  "timeline_subtitle_turbo_waffle": "turbo-waffle の開発",
+  "timeline_subtitle_gfm2polygon": "gfm2polygon-statement の開発",
+  "timeline_subtitle_ai_report": "AI提出の評価および報告書の発表"
 }

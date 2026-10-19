@@ -526,5 +526,8 @@
   "timeline_origin_encounter": "다리를 다쳐 입원한 병동의 옆 자리에서, 안드로이드 앱 코드를 짜는 컴퓨터공학 전공자를 만나다——",
   "timeline_origin_description_intro": "사춘기의 한복판,",
   "timeline_origin_java_intro": "초등학생에서 중학생으로 넘어가며,",
-  "timeline_origin_encounter_intro": "초등학교 1학년 여름,"
+  "timeline_origin_encounter_intro": "초등학교 1학년 여름,",
+  "timeline_subtitle_turbo_waffle": "turbo-waffle 개발",
+  "timeline_subtitle_gfm2polygon": "gfm2polygon-statement 개발",
+  "timeline_subtitle_ai_report": "AI 제출 평가 및 보고서 발표"
 }

@@ -525,5 +525,8 @@
   "timeline_origin_encounter": "hospitalized with a leg injury, met a computer science student in the next bed who was writing Android app code——",
   "timeline_origin_description_intro": "In the midst of adolescence,",
   "timeline_origin_java_intro": "On the transition from elementary to middle school,",
-  "timeline_origin_encounter_intro": "In the summer of first grade,"
+  "timeline_origin_encounter_intro": "In the summer of first grade,",
+  "timeline_subtitle_turbo_waffle": "Developed turbo-waffle",
+  "timeline_subtitle_gfm2polygon": "Developed gfm2polygon-statement",
+  "timeline_subtitle_ai_report": "Evaluated AI submissions and published a report"
 }
