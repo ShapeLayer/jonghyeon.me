@@ -5,6 +5,19 @@
   let { verticalSpacing = {} }: { verticalSpacing?: VerticalSpacing } = $props();
 </script>
 
-<div class="hero" style:margin-top={verticalSpacing.marginTop} style:margin-bottom={verticalSpacing.marginBottom} style:padding-top={verticalSpacing.paddingTop} style:padding-bottom={verticalSpacing.paddingBottom}>
+<div
+  class="hero"
+  style:margin-top={verticalSpacing.marginTop}
+  style:margin-bottom={verticalSpacing.marginBottom}
+  style:padding-top={verticalSpacing.paddingTop}
+  style:padding-bottom={verticalSpacing.paddingBottom}
+>
   <Catchphrase />
 </div>
+
+<style>
+  .hero {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+</style>
