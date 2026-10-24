@@ -1,9 +1,12 @@
+import { createRandomPlayback } from './randomPlayback';
+
 /** Rasterize a rotating 3D sculpture onto a fixed grid of square screen pixels. */
 export function createLayerField(canvas: HTMLCanvasElement, onPhase: (phase: string) => void) {
   const context = canvas.getContext('2d');
   if (!context) return { destroy() {}, setPaused(_value: boolean) {} };
   const ctx = context;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const playback = createRandomPlayback();
   let width = 0,
     height = 0,
     frame = 0,
@@ -195,7 +198,7 @@ export function createLayerField(canvas: HTMLCanvasElement, onPhase: (phase: str
       previous = 0;
       return;
     }
-    if (previous) elapsed += Math.min((now - previous) / 1000, 0.05);
+    if (previous) elapsed += playback.advance(Math.min((now - previous) / 1000, 0.05));
     previous = now;
     draw();
     frame = requestAnimationFrame(tick);
