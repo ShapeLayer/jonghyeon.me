@@ -5,7 +5,6 @@ export function createLayerField(canvas: HTMLCanvasElement, onPhase: (phase: str
   const context = canvas.getContext('2d');
   if (!context) return { destroy() {}, setPaused(_value: boolean) {} };
   const ctx = context;
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const playback = createRandomPlayback();
   let width = 0,
     height = 0,
@@ -194,7 +193,7 @@ export function createLayerField(canvas: HTMLCanvasElement, onPhase: (phase: str
   }
   function tick(now: number) {
     frame = 0;
-    if (destroyed || paused || !visible || document.hidden || reducedMotion.matches) {
+    if (destroyed || paused || !visible || document.hidden) {
       previous = 0;
       return;
     }
@@ -208,7 +207,7 @@ export function createLayerField(canvas: HTMLCanvasElement, onPhase: (phase: str
     frame = 0;
     previous = 0;
     draw();
-    if (!destroyed && !paused && visible && !document.hidden && !reducedMotion.matches)
+    if (!destroyed && !paused && visible && !document.hidden)
       frame = requestAnimationFrame(tick);
   }
   const resize = new ResizeObserver(() => {
@@ -228,7 +227,6 @@ export function createLayerField(canvas: HTMLCanvasElement, onPhase: (phase: str
   resize.observe(canvas);
   intersection.observe(canvas);
   document.addEventListener('visibilitychange', sync);
-  reducedMotion.addEventListener('change', sync);
   sync();
   return {
     setPaused(value: boolean) {
@@ -241,7 +239,6 @@ export function createLayerField(canvas: HTMLCanvasElement, onPhase: (phase: str
       resize.disconnect();
       intersection.disconnect();
       document.removeEventListener('visibilitychange', sync);
-      reducedMotion.removeEventListener('change', sync);
     }
   };
 }

@@ -12,11 +12,10 @@
     controller = createLayerField(canvas, (value) => {
       phase = value;
     });
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const frames = [2, 7, 13, 5];
     let index = 0;
     const inkTimer = window.setInterval(() => {
-      if (paused || reducedMotion.matches || document.hidden) return;
+      if (paused || document.hidden) return;
       inkFrame = frames[++index % frames.length];
     }, 150);
     // Each region follows its own randomly timed target, with smooth turns.
@@ -42,7 +41,7 @@
     function flow(now: number) {
       const dt = previous ? Math.min((now - previous) / 1000, 0.06) : 0;
       previous = now;
-      if (!paused && !reducedMotion.matches && !document.hidden) {
+      if (!paused && !document.hidden) {
         const values = channels.map((channel) => {
           channel.progress += dt / (channel.duration * 3);
           if (channel.progress >= 1) {
