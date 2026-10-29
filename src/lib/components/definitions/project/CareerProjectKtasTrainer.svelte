@@ -214,7 +214,7 @@
     <CareerItemDetailContent title={m.career_title_project_ktas_trainer()}>
       <CareerItemDetailSubsection>
         <div class="paper-wrapper">
-          <p class="paper-status">※ 논문 작성, 투고 및 심사 중</p>
+          <p class="paper-status">{m.career_contents_project_ktas_trainer_paper_status()}</p>
           <div class="paper-authors" lang="en">
             <p class="paper-title">Development and Evaluation of a Unity-Based Virtual Simulation Program for Hospital-Based Disaster Nursing</p>
             <p class="paper-names">
@@ -235,7 +235,7 @@
               <circle cx="12" cy="7" r="4" />
               <path d="M4 21v-2a8 8 0 0 1 16 0v2" />
             </svg>
-            <span>팀 내 유일 컴퓨터공학 전공자(1/5)로 개발 전 과정 참여</span>
+            <span>{m.career_contents_project_ktas_trainer_paper_team()}</span>
           </p>
         </div>
         <div class="video-embed">
