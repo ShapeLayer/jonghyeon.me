@@ -107,6 +107,10 @@ const presets: Record<string, Partial<Preset>> = {
     careerItemHiddenOverrides: {
       'project-gfm2polygon-statement': false,
       'works-package-maintaining': false,
+      'project-sdok-fetea': true,
+      'edu-bachelor-chonnam-natl-univ-jp': true,
+      'activity-cnu-club-stolio': true,
+      'edu-bachelor-exchange-saga': true,
       'work-imagelab': true,
       'work-ielab': true,
       'work-cnu-ucc-working-scholarship': true
