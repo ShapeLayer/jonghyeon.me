@@ -101,7 +101,7 @@ const presets: Record<string, Partial<Preset>> = {
     enableIntroductionScrollAdjustment: false,
     hideProfileCareersHr: true,
     hideCareersFooterHr: true,
-    shownIntroductionParagraphs: [1],
+    shownIntroductionParagraphs: [],
     hideProfileInstagramLink: true,
     openCareersSectionTabOpened: 'projects',
     careerItemHiddenOverrides: {
