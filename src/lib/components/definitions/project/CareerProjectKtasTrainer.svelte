@@ -90,7 +90,92 @@
   ]);
 </script>
 
+<svelte:head>
+  <link href="https://fonts.cdnfonts.com/css/times-new-roman" rel="stylesheet" />
+</svelte:head>
+
 <style>
+  .paper-authors {
+    margin: 1.5em 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: .8em;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .paper-title {
+    margin: 0 0 1em;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  .paper-names {
+    margin: 0 0 .75em;
+  }
+
+  .paper-author {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .paper-name-mask {
+    display: inline-block;
+    width: 3em;
+    height: .75em;
+    margin-right: .25em;
+    background: currentColor;
+  }
+
+  .paper-wrapper {
+    margin: 1.5em 0;
+  }
+
+  .paper-status {
+    margin: 0 0 .5em;
+  }
+
+  .paper-status,
+  .paper-team {
+    font-size: .65em;
+    opacity: .7;
+  }
+
+  .paper-wrapper:has(.paper-major-highlight:hover) .paper-team {
+    color: inherit;
+    opacity: 1;
+  }
+
+  .paper-team {
+    display: flex;
+    align-items: center;
+    gap: .4em;
+    margin: .5em 0;
+  }
+
+  .paper-team svg {
+    width: 1.2em;
+    height: 1.2em;
+    flex-shrink: 0;
+  }
+
+  .paper-affiliations {
+    font-size: .9em;
+    font-style: italic;
+    line-height: 1.2;
+  }
+
+  .paper-affiliations p {
+    margin: .1em 0;
+  }
+
+  .paper-major-highlight {
+    background: rgba(250, 204, 21, .35);
+    color: inherit;
+    border-radius: .15em;
+    padding: 0 .1em;
+    position: relative;
+  }
+
   .video-embed {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -128,6 +213,31 @@
   {#snippet detailContent()}
     <CareerItemDetailContent title={m.career_title_project_ktas_trainer()}>
       <CareerItemDetailSubsection>
+        <div class="paper-wrapper">
+          <p class="paper-status">※ 논문 작성, 투고 및 심사 중</p>
+          <div class="paper-authors" lang="en">
+            <p class="paper-title">Development and Evaluation of a Unity-Based Virtual Simulation Program for Hospital-Based Disaster Nursing</p>
+            <p class="paper-names">
+              {#each [['Kang', '1'], ['Jonghyeon Park', '2'], ['Yoo', '3'], ['Kang', '4'], ['Lee', '3'], ['Cho', '5*']] as [name, affiliation], index}
+                <span class="paper-author">{#if index !== 1}<span class="paper-name-mask" role="img" aria-label="Given name redacted"></span>{/if}{name}<sup>{affiliation}</sup></span>{index < 5 ? ', ' : ''}
+              {/each}
+            </p>
+            <div class="paper-affiliations">
+              <p><sup>1</sup> Registered <mark class="paper-major-highlight">Nurse</mark>, Samsung Medical Center, South Korea</p>
+              <p><sup>2</sup> Undergraduate student, Department of <mark class="paper-major-highlight">Computer Engineering</mark>, College of Engineering, Chonnam National University, South Korea</p>
+              <p><sup>3</sup> Graducated Student, College of <mark class="paper-major-highlight">Nursing</mark>, Chonnam National University, South Korea</p>
+              <p><sup>4</sup> Registered <mark class="paper-major-highlight">Nurse</mark>, Asan Medical Center, South Korea</p>
+              <p><sup>5</sup> Assoicate Professor, College of <mark class="paper-major-highlight">Nursing</mark>, Chonnam National University, South Korea</p>
+            </div>
+          </div>
+          <p class="paper-team">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="7" r="4" />
+              <path d="M4 21v-2a8 8 0 0 1 16 0v2" />
+            </svg>
+            <span>팀 내 유일 컴퓨터공학 전공자(1/5)로 개발 전 과정 참여</span>
+          </p>
+        </div>
         <div class="video-embed">
           <iframe
             src="https://www.youtube.com/embed/NR-BYGcniVg?si=Wm_jLckYICz0KO3A&amp;start=499"
