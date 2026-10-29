@@ -118,6 +118,12 @@
     white-space: nowrap;
   }
 
+  .paper-self {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: .2em;
+  }
+
   .paper-name-mask {
     display: inline-block;
     width: 3em;
@@ -219,12 +225,12 @@
             <p class="paper-title">Development and Evaluation of a Unity-Based Virtual Simulation Program for Hospital-Based Disaster Nursing</p>
             <p class="paper-names">
               {#each [['Kang', '1'], ['Jonghyeon Park', '2'], ['Yoo', '3'], ['Kang', '4'], ['Lee', '3'], ['Cho', '5*']] as [name, affiliation], index}
-                <span class="paper-author">{#if index !== 1}<span class="paper-name-mask" role="img" aria-label="Given name redacted"></span>{/if}{name}<sup>{affiliation}</sup></span>{index < 5 ? ', ' : ''}
+                <span class="paper-author">{#if index !== 1}<span class="paper-name-mask" role="img" aria-label="Given name redacted"></span>{/if}<span class:paper-self={index === 1}>{name}</span><sup>{affiliation}</sup></span>{index < 5 ? ', ' : ''}
               {/each}
             </p>
             <div class="paper-affiliations">
               <p><sup>1</sup> Registered <mark class="paper-major-highlight">Nurse</mark>, Samsung Medical Center, South Korea</p>
-              <p><sup>2</sup> Undergraduate student, Department of <mark class="paper-major-highlight">Computer Engineering</mark>, College of Engineering, Chonnam National University, South Korea</p>
+              <p class="paper-self"><sup>2</sup> Undergraduate student, Department of <mark class="paper-major-highlight">Computer Engineering</mark>, College of Engineering, Chonnam National University, South Korea</p>
               <p><sup>3</sup> Graducated Student, College of <mark class="paper-major-highlight">Nursing</mark>, Chonnam National University, South Korea</p>
               <p><sup>4</sup> Registered <mark class="paper-major-highlight">Nurse</mark>, Asan Medical Center, South Korea</p>
               <p><sup>5</sup> Assoicate Professor, College of <mark class="paper-major-highlight">Nursing</mark>, Chonnam National University, South Korea</p>
@@ -269,11 +275,20 @@
             <br />
             <li>
               {m.career_contents_project_ktas_trainer_li_1()}
+              <ul>
+                <li>{m.career_contents_project_ktas_trainer_scenario_problem()}</li>
+                <li>{m.career_contents_project_ktas_trainer_scenario_dsl()}</li>
+                <li>{m.career_contents_project_ktas_trainer_scenario_editor()}</li>
+              </ul>
               <br />
               <ZoomableImage src={CareerProjectKtasGraphEditor} alt='KTAS Trainer Graph Editor' width={1554} height={1025} />
             </li>
             <li>
               {m.career_contents_project_ktas_trainer_li_2()}
+              <ul>
+                <li>{m.career_contents_project_ktas_trainer_testing_mcp()}</li>
+                <li>{m.career_contents_project_ktas_trainer_testing_automation()}</li>
+              </ul>
               <br />
               <ZoomableImage src={CareerProjectKtasE2eConsole} alt='KTAS Trainer E2E Console' width={1505} height={1087} annotations={e2eConsoleAnnotations} />
               <ZoomableImage src={CareerProjectKtasE2eUse} alt='KTAS Trainer E2E Use' width={1190} height={992} annotations={e2eUseAnnotations} />

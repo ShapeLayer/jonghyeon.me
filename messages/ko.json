@@ -223,8 +223,8 @@
   "career_details_project_ktas_trainer_li_0": "간호대학 논문 프로젝트에 유일 컴퓨터공학 전공자로서 참여",
   "career_details_project_ktas_trainer_li_1": "유니티 기반 3D 실시간 멀티플레이어 게임 스펙의 재난간호역량강화 프로그램의 클라이언트, 서버 양 측 개발",
   "career_contents_project_ktas_trainer_li_0": "Unity 기반 3D 실시간 멀티플레이어 게임 스펙의 교육용 시뮬레이션 프로그램 개발",
-  "career_contents_project_ktas_trainer_li_1": "비개발 직군 팀원이 인게임 시나리오를 수정, 테스트할 수 있도록 GraphView 편집기 구현",
-  "career_contents_project_ktas_trainer_li_2": "MCP 서버를 추가해 플레이 검증에 자동화된 E2E 테스트 절차 추가",
+  "career_contents_project_ktas_trainer_li_1": "메디컬 전공 팀원의 개발 작업 참여 어려움",
+  "career_contents_project_ktas_trainer_li_2": "디버깅 작업 소요 시간이 마련된 일정을 초과할 것으로 예상됨",
   "career_title_project_hccc22_page": "호남 대학간 침해 대응 대회 2022 사이트",
   "career_details_project_hccc22_page": "아웃소싱 // 프론트엔드 디자인 및 개발",
   "career_details_project_hccc22_page_li_1": "프론트엔드 디자인 및 개발",
@@ -531,5 +531,10 @@
   "timeline_subtitle_gfm2polygon": "gfm2polygon-statement 개발",
   "timeline_subtitle_ai_report": "AI 제출 평가 및 보고서 발표",
   "career_contents_project_ktas_trainer_paper_status": "※ 논문 작성, 투고 중",
-  "career_contents_project_ktas_trainer_paper_team": "팀 내 유일 컴퓨터공학 전공자로 개발 전 과정 참여"
+  "career_contents_project_ktas_trainer_paper_team": "팀 내 유일 컴퓨터공학 전공자로 개발 전 과정 참여",
+  "career_contents_project_ktas_trainer_scenario_problem": "의료 지식 콘텐츠가 개발 역할을 거치며 의료 지식이 덜 상세하게 표현되는 문제",
+  "career_contents_project_ktas_trainer_scenario_dsl": "인게임 콘텐츠를 표현하는 DSL 정의, 구현",
+  "career_contents_project_ktas_trainer_scenario_editor": "비개발 직군 팀원이 인게임 시나리오를 수정, 테스트할 수 있도록 DSL을 GUI로 수정 가능하게 하는 GraphView 편집기 구현",
+  "career_contents_project_ktas_trainer_testing_mcp": "MCP 서버를 추가해 AI 모델이 빌드를 조작할 수 있도록 함",
+  "career_contents_project_ktas_trainer_testing_automation": "AI 모델을 사용하여 E2E 테스트를 자동화"
 }

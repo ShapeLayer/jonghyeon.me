@@ -220,8 +220,8 @@
   "career_details_project_ktas_trainer_li_0": "看護大学の論文プロジェクトに、唯一のコンピュータ工学専攻者として参加",
   "career_details_project_ktas_trainer_li_1": "Unityベースの3Dリアルタイムマルチプレイヤーゲーム仕様による災害看護能力強化プログラムのクライアント・サーバー双方を開発",
   "career_contents_project_ktas_trainer_li_0": "Unityベースの3Dリアルタイムマルチプレイヤーゲーム仕様の教育用シミュレーションプログラムを開発",
-  "career_contents_project_ktas_trainer_li_1": "非開発職のチームメンバーがゲーム内シナリオを修正・テストできるようGraphViewエディタを実装",
-  "career_contents_project_ktas_trainer_li_2": "MCPサーバーを追加し、プレイ検証に自動化されたE2Eテスト手順を導入",
+  "career_contents_project_ktas_trainer_li_1": "医療分野を専攻するチームメンバーの開発参加が困難",
+  "career_contents_project_ktas_trainer_li_2": "デバッグに必要な時間が予定された日程を超えると予想",
   "career_title_project_hccc22_page": "湖南大学間侵害対応大会2022WEB",
   "career_details_project_hccc22_page": "アウトソーシング // フロントエンドデザイン及び開発",
   "career_details_project_hccc22_page_li_1": "フロントエンドデザイン及び開発",
@@ -529,5 +529,10 @@
   "timeline_subtitle_gfm2polygon": "gfm2polygon-statement の開発",
   "timeline_subtitle_ai_report": "AI提出の評価および報告書の発表",
   "career_contents_project_ktas_trainer_paper_status": "※ 論文執筆・投稿中",
-  "career_contents_project_ktas_trainer_paper_team": "チーム唯一のコンピュータ工学専攻者として開発の全工程に参加"
+  "career_contents_project_ktas_trainer_paper_team": "チーム唯一のコンピュータ工学専攻者として開発の全工程に参加",
+  "career_contents_project_ktas_trainer_scenario_problem": "医療知識を含むコンテンツが開発担当者を介することで、詳細が十分に表現されない問題",
+  "career_contents_project_ktas_trainer_scenario_dsl": "ゲーム内コンテンツを表現するDSLを定義・実装",
+  "career_contents_project_ktas_trainer_scenario_editor": "非開発職のメンバーがゲーム内シナリオを修正・テストできるよう、DSLをGUIで編集するGraphViewエディタを実装",
+  "career_contents_project_ktas_trainer_testing_mcp": "AIモデルがビルドを操作できるようMCPサーバーを追加",
+  "career_contents_project_ktas_trainer_testing_automation": "AIモデルを用いてE2Eテストを自動化"
 }
