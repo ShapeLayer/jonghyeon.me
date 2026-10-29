@@ -275,10 +275,8 @@
             <li>
               {m.career_contents_project_ktas_trainer_li_2()}
               <br />
-              <div class="image-row">
-                <ZoomableImage src={CareerProjectKtasE2eConsole} alt='KTAS Trainer E2E Console' width={1505} height={1087} annotations={e2eConsoleAnnotations} />
-                <ZoomableImage src={CareerProjectKtasE2eUse} alt='KTAS Trainer E2E Use' width={1190} height={992} annotations={e2eUseAnnotations} />
-              </div>
+              <ZoomableImage src={CareerProjectKtasE2eConsole} alt='KTAS Trainer E2E Console' width={1505} height={1087} annotations={e2eConsoleAnnotations} />
+              <ZoomableImage src={CareerProjectKtasE2eUse} alt='KTAS Trainer E2E Use' width={1190} height={992} annotations={e2eUseAnnotations} />
             </li>
           </ul>
         </CareerProjectSummary>
