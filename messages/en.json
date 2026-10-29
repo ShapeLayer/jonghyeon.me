@@ -535,5 +535,16 @@
   "career_contents_project_ktas_trainer_scenario_dsl": "Defined and implemented a DSL for in-game content",
   "career_contents_project_ktas_trainer_scenario_editor": "Implemented a GraphView editor for editing the DSL through a GUI, enabling non-developer teammates to modify and test in-game scenarios",
   "career_contents_project_ktas_trainer_testing_mcp": "Added an MCP server so AI models could control the game build",
-  "career_contents_project_ktas_trainer_testing_automation": "Automated E2E testing with AI models"
+  "career_contents_project_ktas_trainer_testing_automation": "Automated E2E testing with AI models",
+  "profile_intro_problem_solving_heading": "I approach all kinds of problems through computer engineering.",
+  "profile_intro_future_heading": "I think deeply about how to live and work with the future.",
+  "profile_intro_bugs_description": "Bugs are not confined to code. Even when something is not a bug, there may be a better way to do it.",
+  "profile_intro_problem_solving_description": "I think the major challenges we face leave us feeling powerless because multiple problems overlap and become entangled. I believe that by breaking them down into smaller pieces and tackling them one at a time, we can reach our goals with less difficulty than we might expect.",
+  "profile_intro_club_source": "〈A Year Running a Game Development Club〉",
+  "profile_intro_club_quote": "By analyzing what had caused the negative emotions I felt in the club, I wanted to prevent the same things from happening again.",
+  "profile_intro_humanities_source": "〈Are Humanities Students Destroying Their Own Value?〉",
+  "profile_intro_humanities_quote": "I dare to argue that, through their actions, they are actively destroying their own identity as humanities students with their own hands. Predictions that AI will replace technical roles in science and engineering are more widespread than ever, and pessimism that nothing will remain exclusively human has taken hold. Yet this may be precisely the moment when the inherent value of the humanities can shine.",
+  "profile_intro_ai_source": "〈AI-driven, Token Maxxing, and the Bill: Bringing AI to the Center of My Work〉",
+  "profile_intro_ai_quote": "The sheer amount of code that still needed to be implemented was enormous. Even if I knew exactly how to implement it in my head, I would not have been able to finish it properly within the deadline by typing it all by hand. So the speed of code generation alone was a strong incentive to use AI. (...) I split it into an infrastructure layer, which AI was never intended to modify and which required thorough human review even if it did, and a content layer, which was intended to be written and modified by AI.",
+  "profile_intro_feed_title": "Latest blog posts"
 }

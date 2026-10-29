@@ -534,5 +534,16 @@
   "career_contents_project_ktas_trainer_scenario_dsl": "ゲーム内コンテンツを表現するDSLを定義・実装",
   "career_contents_project_ktas_trainer_scenario_editor": "非開発職のメンバーがゲーム内シナリオを修正・テストできるよう、DSLをGUIで編集するGraphViewエディタを実装",
   "career_contents_project_ktas_trainer_testing_mcp": "AIモデルがビルドを操作できるようMCPサーバーを追加",
-  "career_contents_project_ktas_trainer_testing_automation": "AIモデルを用いてE2Eテストを自動化"
+  "career_contents_project_ktas_trainer_testing_automation": "AIモデルを用いてE2Eテストを自動化",
+  "profile_intro_problem_solving_heading": "あらゆる問題をコンピュータ工学的なアプローチで解決しようとしています。",
+  "profile_intro_future_heading": "未来とともに歩む方法を、真剣に考え続けています。",
+  "profile_intro_bugs_description": "バグはコードの中だけにあるわけではありません。バグでなくても、今よりもっとよい方法があるかもしれません。",
+  "profile_intro_problem_solving_description": "私たちが直面する大きな課題は、いくつもの問題が重なり、絡み合うことで、私たちを無力にしてしまうのだと思います。問題を分解し、一つひとつ小さく切り分けていけば、思っているほど難しくなく目標にたどり着けると信じています。",
+  "profile_intro_club_source": "〈ゲーム開発サークルを1年間運営して〉",
+  "profile_intro_club_quote": "サークルで抱いた負の感情は何が原因だったのかを分析しながら、同じことが二度と繰り返されないようにしたかった。",
+  "profile_intro_humanities_source": "〈人文学を学ぶ学生は、自らの手でその価値を壊しているのか〉",
+  "profile_intro_humanities_quote": "私は、彼らのそうした姿が、人文学を専攻する自分自身を自らの手で積極的に破壊しているのだと、あえて主張する。理工系の技術職がAIに代替される可能性がかつてないほど取り沙汰され、人間にしかできない仕事はなくなるという悲観論に包まれている今。人文学は、その本来の価値が輝く瞬間を迎えているのかもしれないというのに。",
+  "profile_intro_ai_source": "〈AI-driven、トークンマキシング、請求書：AIを作業の中心に据えて〉",
+  "profile_intro_ai_quote": "依然として、実装が必要なコードの量は純粋に膨大だった。頭の中でコードをどう実装するか完全にわかっていたとしても、手で直接入力するだけでは、期限内にきちんと仕上げられなかっただろう。だから、コード生成の速さだけでもAIを使う十分な動機になった。(...) AIには決して修正を任せないことを意図し、仮に任せるとしても人間の作業者による徹底したレビューを必要とするインフラ層と、AIによる記述・修正を意図したコンテンツ層に分けた。",
+  "profile_intro_feed_title": "最近のブログ記事"
 }

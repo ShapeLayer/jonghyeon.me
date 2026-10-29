@@ -1,5 +1,6 @@
 <script lang="ts">
   import ExternalLink from './ExternalLink.svelte';
+  import Quote from './Quote.svelte';
   import { m } from '$lib/paraglide/messages';
   import type { VerticalSpacing } from '$lib/models/presets';
   const FEED_ORIGIN = 'https://blog.jonghyeon.me';
@@ -89,6 +90,13 @@
     line-height: 1.6;
   }
 
+  .description h3 {
+    margin: 2em 0 1em;
+    font-size: 1.1em;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
   .embed-feed {
     margin: 1.2em 0;
   }
@@ -135,13 +143,40 @@
   {#if !disableDescription}<div class="description" style:margin-top={enableScrollAdjustment && !disableSummary ? `calc(100px + ${descriptionMarginTop})` : descriptionMarginTop}>
       {#if shownParagraphs.includes(0)}<p>{m.profile_intro_description_1()}</p>{/if}
       {#if shownParagraphs.includes(1)}<p>{m.profile_intro_description_2_1()}<br />{m.profile_intro_description_2_2()}</p>{/if}
-      {#if shownParagraphs.includes(2)}<p>{m.profile_intro_description_3()}</p>{/if}
+      <br />
+      <!-- 추가 서술 -->
+      {#if shownParagraphs.includes(2)}
+        <h3>{m.profile_intro_problem_solving_heading()}</h3>
+        <Quote
+          sourceTitle={m.profile_intro_club_source()}
+          sourceUrl="https://blog.jonghyeon.me/posts/2024-11-29-i-worked-in-undergraduate-club/"
+        >
+          {m.profile_intro_club_quote()}
+        </Quote>
+        <p>{m.profile_intro_bugs_description()}</p>
+        <p>{m.profile_intro_problem_solving_description()}</p>
+
+        <h3>{m.profile_intro_future_heading()}</h3>
+        <Quote
+          sourceTitle={m.profile_intro_humanities_source()}
+          sourceUrl="https://blog.jonghyeon.me/posts/2026-06-20-are-students-in-humanities-losing-their-value-themselves/"
+        >
+          {m.profile_intro_humanities_quote()}
+        </Quote>
+        <Quote
+          sourceTitle={m.profile_intro_ai_source()}
+          sourceUrl="https://blog.jonghyeon.me/posts/2026-09-02-token-maxxing"
+        >
+          {m.profile_intro_ai_quote()}
+        </Quote>
+      {/if}
+        <br />
     </div>{/if}
   {#if !disableEmbed}<div class="embed-feed">
       <iframe
         bind:this={feedIframeElement}
         src={feedUrl}
-        title="Latest blog posts"
+        title={m.profile_intro_feed_title()}
         loading="lazy"
         draggable="false"
         style:height={`${estimatedFeedHeight}px`}

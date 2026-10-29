@@ -536,5 +536,16 @@
   "career_contents_project_ktas_trainer_scenario_dsl": "인게임 콘텐츠를 표현하는 DSL 정의, 구현",
   "career_contents_project_ktas_trainer_scenario_editor": "비개발 직군 팀원이 인게임 시나리오를 수정, 테스트할 수 있도록 DSL을 GUI로 수정 가능하게 하는 GraphView 편집기 구현",
   "career_contents_project_ktas_trainer_testing_mcp": "MCP 서버를 추가해 AI 모델이 빌드를 조작할 수 있도록 함",
-  "career_contents_project_ktas_trainer_testing_automation": "AI 모델을 사용하여 E2E 테스트를 자동화"
+  "career_contents_project_ktas_trainer_testing_automation": "AI 모델을 사용하여 E2E 테스트를 자동화",
+  "profile_intro_problem_solving_heading": "온갖 문제를 컴퓨터 공학적인 접근법으로 해결해보고 있습니다.",
+  "profile_intro_future_heading": "미래와 함께하는 방법을 치열하게 고뇌하고 있습니다.",
+  "profile_intro_bugs_description": "버그는 코드에만 있지 않습니다. 버그가 아니더라도, 지금보다 더 나은 방법이 있을지도 모릅니다.",
+  "profile_intro_problem_solving_description": "우리가 맞닥뜨리는 큰 과제는, 여러 개의 문제가 겹치고 엉켜 우리를 무력하게 만든다고 생각합니다. 문제를 분해해나가고 하나하나 작게 잘라내면, 생각만큼은 어렵지 않게 목표에 도달할 수 있다고 믿습니다.",
+  "profile_intro_club_source": "〈게임개발동아리를 1년간 운영하다〉",
+  "profile_intro_club_quote": "동아리에서 느꼈던 부의 감정들은 무엇이 원인이었나 분석하면서, 더 이상 같은 일이 반복되는 것을 막고 싶었다.",
+  "profile_intro_humanities_source": "〈인문학도는 자기 자신의 손으로 인문학도로서의 가치를 파괴하고있는가〉",
+  "profile_intro_humanities_quote": "나는 이들의 모습이 인문학을 전공하는 자기 자신을 자신의 손으로 적극적으로 파괴하고 있다고 감히 주장한다. 그 어느때보다 이공계 기술직의 AI 대체 가능성이 점쳐지고, 인간만이 할 수 있는 일은 없을 것이라는 비관론에 휩싸인 지금. 인문학은 그 본연의 가치가 빛나는 순간이 있을지 모를진대.",
+  "profile_intro_ai_source": "〈AI-driven, 토큰 맥싱, 청구서: AI를 작업의 중심으로 끌어들이고〉",
+  "profile_intro_ai_quote": "여전히 요구되는 코드 구현량이 순수하게 막대했다. 머릿속으로 코드를 어떻게 구현할지 완전히 알고 있다고 하더라도, 손으로 직접 타이핑하는 것으로는 기간 내에 제대로 끝마치지 못했을 것이다. 그래서 코드 생성 속도 하나만으로도 AI를 사용할 유인이 컸다. (...) 절대로 AI에게 수정을 맡기지 않는 것이 의도되고, 설령 맡긴다고 하더라도 인간 작업자에 의해 철저히 리뷰되어야 하는 인프라 계층, AI에 의해 작성되고 수정되는 것이 의도되는 콘텐츠 계층으로 나누었다.",
+  "profile_intro_feed_title": "최근 블로그 글"
 }
