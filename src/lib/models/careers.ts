@@ -163,7 +163,7 @@ export const careerSections: CareerSection[] = [
     items: [
       { id: 'activity-gwangju-sw-festival19', startsAt: { year: 2019, month: 5 }, tagIdentifiers: ['python', 'era-junior'] },
       { id: 'activity-cnu-club-pimm', startsAt: { year: 2021, month: 3 }, endsAt: { year: 2026, month: 3 }, tagIdentifiers: ['game', 'era-university'] },
-      { id: 'activity-cnu-club-stolio', startsAt: { year: 2022, month: 3 }, endsAt: { year: 2025, month: 12 }, tagIdentifiers: ['era-university'] },
+      { id: 'activity-cnu-club-stolio', startsAt: { year: 2022, month: 3 }, endsAt: { year: 2025, month: 12 }, tagIdentifiers: ['era-university'], hidden: true },
       {
         id: 'algorithm-contest-operations',
         startsAt: { year: 2023, month: 9 },
