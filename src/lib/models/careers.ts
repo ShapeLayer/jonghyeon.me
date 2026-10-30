@@ -139,7 +139,7 @@ export const careerSections: CareerSection[] = [
       { id: 'work-imagelab', startsAt: { year: 2021, month: 6 }, endsAt: { year: 2022, month: 7 }, tagIdentifiers: ['research', 'era-university'] },
       { id: 'work-roka', startsAt: { year: 2022, month: 7 }, endsAt: { year: 2024, month: 1 }, tagIdentifiers: ['era-university'], hidden: true },
       { id: 'work-ielab', startsAt: { year: 2024, month: 3 }, endsAt: { year: 2025, month: 2 }, tagIdentifiers: ['research', 'era-university'] },
-      { id: 'work-cnu-ucc-working-scholarship', startsAt: { year: 2025, month: 3 }, endsAt: { year: 2025, month: 8 }, tagIdentifiers: ['era-university'] },
+      { id: 'work-cnu-ucc-working-scholarship', startsAt: { year: 2025, month: 3 }, endsAt: { year: 2025, month: 8 }, tagIdentifiers: ['era-university'], hidden: true },
       { id: 'work-jamcoding-lecturer', startsAt: { year: 2024, month: 1 }, endsAt: { year: 2026, month: 6 }, tagIdentifiers: ['era-university'] }
     ]
   },
