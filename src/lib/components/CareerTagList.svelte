@@ -24,7 +24,7 @@
       project tags trailing at the end of that same line. */
   let primaryTags = $derived([
     ...tags.filter((tag) => tag.kind === 'stack'),
-    ...tags.filter((tag) => tag.kind === 'project')
+    ...tags.filter((tag) => tag.kind === 'project' && (variant === 'detail' || isShown(displayModes?.modes.project ?? primaryMode)))
   ]);
   let secondaryTags = $derived(tags.filter((tag) => tag.kind !== 'stack' && tag.kind !== 'project'));
   const isShown = (mode: CareerTagDisplayMode) => mode === 'always' || (mode === 'collapse' && expanded);

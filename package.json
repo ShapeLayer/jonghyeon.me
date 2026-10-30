@@ -16,7 +16,8 @@
     "test:zoomable-image:browser": "pnpm --dir packages/zoomable-image test:browser",
     "test:zoomable-image:integration": "pnpm build && playwright test -c playwright.zoomable-image.config.ts",
     "test:zoomable-image:dev": "pnpm --dir packages/zoomable-image build && playwright test -c playwright.zoomable-image.dev.config.ts",
-    "generate:i18n": "paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide --strategy cookie baseLocale --output-structure locale-modules"
+    "generate:i18n": "paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide --strategy cookie baseLocale --output-structure locale-modules",
+    "portfolio": "pnpm --dir packages/zoomable-image build && node scripts/export-portfolio.mjs"
   },
   "devDependencies": {
     "@eslint/compat": "^1.4.1",

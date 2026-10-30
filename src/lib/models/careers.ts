@@ -89,6 +89,7 @@ export const careerTags: CareerTag[] = [
   { identifier: 'driven', displayName: () => m.career_tag_ai_driven(), description: () => m.career_tag_ai_driven_description(), backgroundColor: '#f1e9ff', foregroundColor: '#6a3fb5', kind: 'ai' },
   { identifier: 'csharp', displayName: () => m.career_tag_csharp(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'c', displayName: () => m.career_tag_c(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
+  { identifier: 'os', displayName: () => 'OS', backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'cpp', displayName: () => m.career_tag_cpp(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'r', displayName: () => m.career_tag_r(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
   { identifier: 'python', displayName: () => m.career_tag_python(), backgroundColor: '#eef2f6', foregroundColor: '#3c5068', kind: 'stack' },
@@ -205,6 +206,7 @@ export const careerSections: CareerSection[] = [
     tagIdentifiers: [],
     items: [
       { id: 'project-ktas-trainer', startsAt: { year: 2025, month: 8 }, current: true, tagIdentifiers: ['csharp', 'unity', 'ktas-trainer', 'research', 'game', 'era-university', 'driven'] },
+      { id: 'project-server', tagIdentifiers: ['c', 'os'], hidden: true },
       { id: 'project-zodiac-complex', startsAt: { year: 2025, month: 7 }, endsAt: { year: 2025, month: 8 }, tagIdentifiers: ['game', 'csharp', 'unity', 'naninovel', 'era-university'] },
       { id: 'works-package-maintaining', startsAt: { year: 2024, month: 7 }, current: true, tagIdentifiers: ['r', 'nodejs', 'typst'] },
       { id: 'project-hccc22-page', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['pre-ai', 'jekyll', 'era-university'], hidden: true },

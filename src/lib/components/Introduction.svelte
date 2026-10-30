@@ -9,6 +9,8 @@
   const MAX_FEED_HEIGHT = 1200;
 
   let {
+    showNickname = true,
+    contactsInline = false,
     disableSummary = false,
     disableDescription = false,
     disableEmbed = false,
@@ -16,12 +18,15 @@
     descriptionMarginTop = '4em',
     shownParagraphs = [0, 1, 2],
     recentPostsCount = 5,
+    hideWebsiteLink = true,
     hideEmailLink = false,
     hideGithubLink = false,
     hideBlogLink = false,
     hideInstagramLink = false,
     verticalSpacing = {}
   }: {
+    showNickname?: boolean;
+    contactsInline?: boolean;
     disableSummary?: boolean;
     disableDescription?: boolean;
     disableEmbed?: boolean;
@@ -29,6 +34,7 @@
     descriptionMarginTop?: string;
     shownParagraphs?: number[];
     recentPostsCount?: number;
+    hideWebsiteLink?: boolean;
     hideEmailLink?: boolean;
     hideGithubLink?: boolean;
     hideBlogLink?: boolean;
@@ -70,6 +76,15 @@
 </script>
 
 <style>
+  .contacts.inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .3em 1em;
+    margin-top: .4em;
+  }
+  .contacts.inline .contacts-row { display: contents; }
+
   .contacts .contacts-row {
     display: flex;
     gap: 1rem;
@@ -119,16 +134,17 @@
 <div class="introduction" style:margin-top={verticalSpacing.marginTop} style:margin-bottom={verticalSpacing.marginBottom} style:padding-top={verticalSpacing.paddingTop} style:padding-bottom={verticalSpacing.paddingBottom}>
   {#if !disableSummary}<div class="summary" class:scroll-adjusted={enableScrollAdjustment} style:--scroll-offset={enableScrollAdjustment ? `${Math.min(Math.max(scrollY, 0), 100)}px` : '0px'}>
       <div class="name">
-        <h2>Park, "ShapeLayer" Jonghyeon</h2>
+        <h2>{showNickname ? 'Park, "ShapeLayer" Jonghyeon' : 'Park Jonghyeon'}</h2>
       </div>
-      <div class="contacts">
+      <div class="contacts" class:inline={contactsInline}>
         {#if !hideEmailLink}
           <div class="contacts-row">
             <ExternalLink href="mailto:jng.hyn.park@gmail.com">jng.hyn.park@gmail.com</ExternalLink>
           </div>
         {/if}
-        {#if !hideGithubLink || !hideBlogLink}
+        {#if !hideWebsiteLink || !hideGithubLink || !hideBlogLink}
           <div class="contacts-row">
+            {#if !hideWebsiteLink}<ExternalLink href="https://jonghyeon.me">jonghyeon.me</ExternalLink>{/if}
             {#if !hideGithubLink}<ExternalLink href="https://github.com/shapelayer">GitHub</ExternalLink>{/if}
             {#if !hideBlogLink}<ExternalLink href="https://blog.jonghyeon.me">{m.extlink_site_blog()}</ExternalLink>{/if}
           </div>

@@ -59,3 +59,16 @@ pnpm test:zoomable-image:dev
 Package CI and npm release workflows live in the separate package repository.
 
 To update the viewer, check out the desired commit in `packages/zoomable-image`, verify the site, and commit the submodule pointer in this repository. CI checks out the pinned commit recursively.
+
+## PDF portfolio
+
+Generate a PDF from the CV preset without changing the site's tabs or Details UI:
+
+```sh
+npm run portfolio -- --preset=cv --locale=ko
+npm run portfolio -- --locale=en --output=output/portfolio-en.pdf
+```
+
+## Direct item links
+
+Use `https://jonghyeon.me/?select=project-ktas-trainer` to select an item directly.

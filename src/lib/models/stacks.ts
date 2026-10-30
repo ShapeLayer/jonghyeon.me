@@ -23,6 +23,15 @@ export function getStackReferences(project: StackProject): StackReference[] {
 
 export const stackProjects: StackProject[] = [
   {
+    id: 'server',
+    title: () => 'server',
+    description: () => m.career_details_project_server(),
+    stacks: ['c', 'os'],
+    refType: 'inner',
+    ref: 'project-server',
+    additionalRefs: [{ refType: 'external', ref: 'https://github.com/ShapeLayer/server' }]
+  },
+  {
     id: 'ktas',
     title: () => m.career_title_project_ktas_trainer(),
     stacks: ['csharp', 'unity'],
@@ -269,6 +278,7 @@ export const stackDefinitions = [
   { id: 'python', name: 'Python', color: '#3572a5' },
   { id: 'flask', name: 'Flask', color: '#6e9f8c' },
   { id: 'c', name: 'C', color: '#555555' },
+  { id: 'os', name: 'OS', color: '#607d8b' },
   { id: 'rust', name: 'Rust', color: '#dea584' },
   { id: 'typescript', name: 'TypeScript', color: '#3178c6' },
   { id: 'cpp', name: 'C++', color: '#f34b7d' },

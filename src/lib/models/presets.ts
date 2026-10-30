@@ -1,7 +1,7 @@
 export type CareersSectionTab = 'history' | 'projects';
 export type CareerTagDisplayMode = 'always' | 'collapse' | 'hide';
 /** Display mode per tag group: primary holds stack and project tags, secondary every other kind. */
-export type CareerTagDisplayModes = { primary: CareerTagDisplayMode; secondary: CareerTagDisplayMode };
+export type CareerTagDisplayModes = { primary: CareerTagDisplayMode; secondary: CareerTagDisplayMode; project?: CareerTagDisplayMode };
 /**
  * Tag visibility inside detail popups, independent of the list's display modes.
  * `primary` and `secondary` toggle the same tag groups the list uses; `show` and `hide`
@@ -44,6 +44,9 @@ export type Preset = {
   hideCareersFooterHr: boolean;
   careersFooterHrMargin: string;
   shownIntroductionParagraphs: number[];
+  showProfileNickname: boolean;
+  profileContactsInline: boolean;
+  hideProfileWebsiteLink: boolean;
   hideProfileEmailLink: boolean;
   hideProfileGithubLink: boolean;
   hideProfileBlogLink: boolean;
@@ -79,6 +82,9 @@ export const defaultPreset: Preset = {
   hideCareersFooterHr: false,
   careersFooterHrMargin: '5rem auto',
   shownIntroductionParagraphs: [0, 1, 2],
+  showProfileNickname: true,
+  profileContactsInline: false,
+  hideProfileWebsiteLink: true,
   hideProfileEmailLink: false,
   hideProfileGithubLink: false,
   hideProfileBlogLink: false,
@@ -92,6 +98,14 @@ export const defaultPreset: Preset = {
 };
 
 const presets: Record<string, Partial<Preset>> = {
+  portfolio: {
+    careerItemHiddenOverrides: { 'project-server': false },
+    careerTagDisplayModes: { primary: 'always', secondary: 'hide', project: 'hide' },
+    careerDetailTagVisibility: { primary: true, secondary: false, show: ['ai'], hide: ['project'] },
+    showProfileNickname: false,
+    profileContactsInline: true,
+    hideProfileWebsiteLink: false
+  },
   cv: {
     disableHeroSection: true,
     popupTransitionDurationMs: 250,
@@ -122,5 +136,10 @@ const presets: Record<string, Partial<Preset>> = {
 
 export const resolvePreset = (identifier: string | null): Preset => ({
   ...defaultPreset,
-  ...(identifier ? presets[identifier] : undefined)
+  ...(identifier === 'portfolio' ? presets.cv : undefined),
+  ...(identifier ? presets[identifier] : undefined),
+  careerItemHiddenOverrides: {
+    ...(identifier === 'portfolio' ? presets.cv.careerItemHiddenOverrides : {}),
+    ...(identifier ? presets[identifier]?.careerItemHiddenOverrides : {})
+  }
 });

@@ -184,3 +184,211 @@ th, td {
 ruby {
   ruby-align: center;
 }
+
+.cv-portfolio .portfolio-careers {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cv-portfolio .portfolio-chapter > h2 {
+  border-bottom: 2px solid currentColor;
+  margin: 1em 0;
+}
+.cv-portfolio .portfolio-section > h3 { margin: 1.2em 0 .5em; }
+.cv-portfolio .portfolio-detail { margin: .25em 0 .8em 1.3em; font-size: .85em; }
+.cv-portfolio .portfolio-detail .content { display: block; overflow: visible; }
+.cv-portfolio .portfolio-detail .content > * { margin-bottom: 1em; }
+.cv-portfolio .portfolio-stacks > div { margin: .7em 0; }
+.cv-portfolio .portfolio-stacks dt { font-weight: bold; }
+.cv-portfolio .portfolio-stacks dd { font-size: .9em; }
+
+@media print {
+  @page portfolio { size: A4; margin: 16mm 15mm; }
+  html:has(.cv-portfolio), body:has(.cv-portfolio) {
+    background: white;
+    overflow: visible;
+    height: auto;
+  }
+  .cv-portfolio {
+    page: portfolio;
+    --base-bg-color: white;
+    font-size: 10pt;
+    color: #202020;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .cv-portfolio footer,
+  .cv-portfolio .career-detail-button,
+  .cv-portfolio .material-symbols-outlined { display: none !important; }
+  .cv-portfolio .profile,
+  .cv-portfolio .introduction,
+  .cv-portfolio .summary {
+    width: 100%;
+    max-width: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+  .cv-portfolio .portfolio-chapter + .portfolio-chapter { break-before: page; }
+  .cv-portfolio .career-item { cursor: default; background: transparent; }
+  .cv-portfolio h2, .cv-portfolio h3, .cv-portfolio h4,
+  .cv-portfolio .career-item { break-after: avoid; }
+  .cv-portfolio p { orphans: 3; widows: 3; }
+  .cv-portfolio figure, .cv-portfolio tr,
+  .cv-portfolio .portfolio-stacks > div { break-inside: avoid; }
+  .cv-portfolio img {
+    max-width: 100%;
+    max-height: 220mm;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  .cv-portfolio a { overflow-wrap: anywhere; }
+}
+
+.cv-portfolio .portfolio-careers,
+.cv-portfolio .portfolio-chapter,
+.cv-portfolio .portfolio-section {
+  display: block;
+  max-width: none;
+  padding: 0;
+}
+.cv-portfolio .portfolio-timeline li { margin: .8em 0; }
+.cv-portfolio .portfolio-timeline p { margin: .2em 0; }
+@media print {
+  .cv-portfolio table { display: table; white-space: normal; }
+  .cv-portfolio th, .cv-portfolio td { overflow-wrap: anywhere; }
+}
+
+@media print {
+  .cv-portfolio .description:empty { display: none; }
+  .cv-portfolio .portfolio-stacks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 6mm;
+  }
+}
+
+@media print {
+  .cv-portfolio .introduction .description { display: none; }
+  .cv-portfolio .portfolio-careers { margin-top: 5mm; }
+  .cv-portfolio .portfolio-detail ul { margin: 0; }
+  .cv-portfolio .portfolio-detail p { margin: .25em 0; }
+}
+
+@media print {
+  .cv-portfolio .career-entry { break-inside: avoid; }
+}
+@media print {
+  .cv-portfolio { line-height: 1.45; }
+  .cv-portfolio .career-entry { display: flow-root; page-break-inside: avoid; }
+  .cv-portfolio .career-item { break-after: auto; margin: .2em 0; padding-block: .1em; }
+  .cv-portfolio .career-detail { line-height: 1.45; }
+}
+
+.cv-portfolio .portfolio-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3mm;
+  margin: 3mm 0;
+}
+.cv-portfolio .portfolio-gallery figure,
+.cv-portfolio .portfolio-project-image { margin: 0; }
+.cv-portfolio .portfolio-feature-image { grid-column: 1 / -1; }
+.cv-portfolio .portfolio-gallery img,
+.cv-portfolio .portfolio-project-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.cv-portfolio .portfolio-gallery figcaption,
+.cv-portfolio .portfolio-project-image figcaption {
+  margin-top: 1mm;
+  font-size: .8em;
+  color: var(--base-fg-color-brighter);
+}
+@media print {
+  .cv-portfolio .career-entry:has(.portfolio-gallery),
+  .cv-portfolio .career-entry:has(.portfolio-project-image) {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+  .cv-portfolio .portfolio-gallery { break-inside: avoid; }
+  .cv-portfolio .portfolio-gallery img { height: 48mm; }
+  .cv-portfolio .portfolio-feature-image img { height: 70mm; }
+  .cv-portfolio .portfolio-project-image { margin-top: 3mm; }
+  .cv-portfolio .portfolio-project-image img { height: 78mm; }
+}
+
+.cv-portfolio .portfolio-project-group { margin-bottom: 5mm; }
+.cv-portfolio .portfolio-related-projects {
+  margin-left: 4mm;
+  padding-left: 3mm;
+  border-left: 1px solid var(--base-bg-color-dark);
+}
+@media print {
+  .cv-portfolio .career-entry:has(.portfolio-gallery):not(:has(.portfolio-feature-image)) {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+@media print {
+  .cv-portfolio .portfolio-gallery { grid-template-columns: 1fr; break-inside: auto; }
+  .cv-portfolio .portfolio-gallery figure { break-inside: avoid; }
+  .cv-portfolio .portfolio-feature-image { grid-column: auto; }
+  .cv-portfolio .portfolio-image-stage { --portfolio-image-height: 90mm; }
+  .cv-portfolio .career-entry:has(.portfolio-gallery):not(:has(.portfolio-feature-image)) {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+}
+
+.cv-portfolio .career-tag-rows + .career-detail { padding-top: .7em; }
+
+.cv-portfolio .portfolio-end {
+  margin-top: 6mm;
+  text-align: right;
+  break-before: avoid;
+}
+.cv-portfolio .portfolio-challenges-title {
+  margin-top: .8em;
+  margin-bottom: .3em;
+  font-weight: 700;
+}
+.cv-portfolio .portfolio-end strong { font-weight: 700; }
+
+@media print {
+  .cv-portfolio .portfolio-feature-image .portfolio-image-stage {
+    --portfolio-image-height: 78mm;
+  }
+}
+
+.cv-portfolio .portfolio-item-link {
+  display: inline-flex;
+  align-items: center;
+  margin-left: .3em;
+  color: var(--base-fg-color-brighter);
+  text-decoration: none;
+}
+.cv-portfolio .portfolio-item-link svg { flex-shrink: 0; }
+
+.cv-portfolio .career-title { gap: .1em; }
+.cv-portfolio .portfolio-item-link { margin-left: 0; }
+.cv-portfolio .career-datetime { margin-left: .8em; }
+
+@media print {
+  @page portfolio {
+    @top-left {
+      content: "Park Jonghyeon";
+      font-family: Arial, sans-serif;
+      font-size: 8pt;
+      font-weight: 600;
+      color: #505461;
+      vertical-align: middle;
+    }
+  }
+  @page portfolio:first {
+    @top-left { content: none; }
+  }
+}

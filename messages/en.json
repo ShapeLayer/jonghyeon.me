@@ -546,5 +546,16 @@
   "profile_intro_humanities_quote": "I dare to argue that, through their actions, they are actively destroying their own identity as humanities students with their own hands. Predictions that AI will replace technical roles in science and engineering are more widespread than ever, and pessimism that nothing will remain exclusively human has taken hold. Yet this may be precisely the moment when the inherent value of the humanities can shine.",
   "profile_intro_ai_source": "〈AI-driven, Token Maxxing, and the Bill: Bringing AI to the Center of My Work〉",
   "profile_intro_ai_quote": "The sheer amount of code that still needed to be implemented was enormous. Even if I knew exactly how to implement it in my head, I would not have been able to finish it properly within the deadline by typing it all by hand. So the speed of code generation alone was a strong incentive to use AI. (...) I split it into an infrastructure layer, which AI was never intended to modify and which required thorough human review even if it did, and a content layer, which was intended to be written and modified by AI.",
-  "profile_intro_feed_title": "Latest blog posts"
+  "profile_intro_feed_title": "Latest blog posts",
+  "portfolio_end": "End.",
+  "portfolio_sign_language_role": "Developed the client for a Korean-to-Korean Sign Language translation program intended for museums and other exhibition venues",
+  "portfolio_sign_language_mapping": "Mapped embedded Korean tokens to sign language animations and implemented playback in the client",
+  "portfolio_sign_language_challenges": "Key challenges",
+  "portfolio_sign_language_position": "Even when signing the same word, hand positions need to change with the flow of the sentence",
+  "portfolio_sign_language_transition": "Hand movements need to connect smoothly without abrupt stops, much like connected sounds in speech",
+  "portfolio_stack_caption_before": "Explore this section in more detail at ",
+  "portfolio_stack_caption_after": ".",
+  "career_details_project_server": "Learning in progress: implementing a real-time processing server using C and POSIX system calls",
+  "portfolio_sign_language_solution": "Separated upper-body and arm animations, controlled them according to sentence playback progress, and used linear interpolation between consecutive sign animations",
+  "portfolio_turbo_waffle_output": "Output"
 }
