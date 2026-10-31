@@ -149,11 +149,11 @@ export const careerSections: CareerSection[] = [
     tagIdentifiers: ['achievement'],
     items: [
       { id: 'achievement-cnu-startup21', startsAt: { year: 2021, month: 12 }, tagIdentifiers: ['era-university'], hidden: true },
-      { id: 'achievement-icpc-21', startsAt: { year: 2021, month: 11, day: 13 }, tagIdentifiers: ['algorithm', 'era-university'] },
-      { id: 'paper-smart-media21', startsAt: { year: 2021, month: 11 }, tagIdentifiers: ['research', 'pre-ai', 'sign-language', 'csharp', 'unity', 'era-university'] },
-      { id: 'paper-smart-media22', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['research', 'pre-ai', 'sign-language', 'csharp', 'unity', 'era-university'] },
-      { id: 'achievement-cnu-algorithm-contest-6th', startsAt: { year: 2024, month: 5 }, tagIdentifiers: ['algorithm', 'era-university'] },
-      { id: 'achievement-cnu-sw-club25', startsAt: { year: 2024, month: 10, day: 25 }, tagIdentifiers: ['era-university'] }
+      { id: 'achievement-icpc-21', startsAt: { year: 2021, month: 11, day: 13 }, tagIdentifiers: ['algorithm', 'era-university'], hidden: true },
+      { id: 'paper-smart-media21', startsAt: { year: 2021, month: 11 }, tagIdentifiers: ['research', 'pre-ai', 'sign-language', 'csharp', 'unity', 'era-university'], hidden: true },
+      { id: 'paper-smart-media22', startsAt: { year: 2022, month: 6 }, tagIdentifiers: ['research', 'pre-ai', 'sign-language', 'csharp', 'unity', 'era-university'], hidden: true },
+      { id: 'achievement-cnu-algorithm-contest-6th', startsAt: { year: 2024, month: 5 }, tagIdentifiers: ['algorithm', 'era-university'], hidden: true },
+      { id: 'achievement-cnu-sw-club25', startsAt: { year: 2024, month: 10, day: 25 }, tagIdentifiers: ['era-university'], hidden: true }
     ]
   },
   {
