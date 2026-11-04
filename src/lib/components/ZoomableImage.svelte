@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getContext, onMount } from 'svelte';
+  import { onMount } from 'svelte';
   import type {
     ImageAnnotation,
     ZoomableImage as ZoomableImageElement
@@ -16,7 +16,6 @@
     caption?: string;
   }
   let { src, alt, width, height, displayWidth, caption, annotations = [] }: Props = $props();
-  const portfolio = getContext<{ enabled: boolean }>('career-portfolio');
   let element: ZoomableImageElement | undefined = $state();
   let registered = $state(false);
 
@@ -44,12 +43,6 @@
   });
 </script>
 
-{#if portfolio?.enabled}
-  <figure class="portfolio-image">
-    <img {src} {alt} {width} {height} loading="eager" />
-    {#if caption}<figcaption>{caption}</figcaption>{/if}
-  </figure>
-{:else}
 <zoomable-image
   bind:this={element}
   {src}
@@ -63,7 +56,6 @@
   <!-- Visible before hydration and when JavaScript is disabled; hidden by the component's shadow tree. -->
   <img {src} {alt} {width} {height} loading="lazy" />
 </zoomable-image>
-{/if}
 
 <style>
   zoomable-image {

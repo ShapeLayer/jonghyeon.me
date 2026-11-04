@@ -98,14 +98,6 @@ export const defaultPreset: Preset = {
 };
 
 const presets: Record<string, Partial<Preset>> = {
-  portfolio: {
-    careerItemHiddenOverrides: { 'project-server': false },
-    careerTagDisplayModes: { primary: 'always', secondary: 'hide', project: 'hide' },
-    careerDetailTagVisibility: { primary: true, secondary: false, show: ['ai'], hide: ['project'] },
-    showProfileNickname: false,
-    profileContactsInline: true,
-    hideProfileWebsiteLink: false
-  },
   cv: {
     disableHeroSection: true,
     popupTransitionDurationMs: 250,
@@ -136,10 +128,5 @@ const presets: Record<string, Partial<Preset>> = {
 
 export const resolvePreset = (identifier: string | null): Preset => ({
   ...defaultPreset,
-  ...(identifier === 'portfolio' ? presets.cv : undefined),
-  ...(identifier ? presets[identifier] : undefined),
-  careerItemHiddenOverrides: {
-    ...(identifier === 'portfolio' ? presets.cv.careerItemHiddenOverrides : {}),
-    ...(identifier ? presets[identifier]?.careerItemHiddenOverrides : {})
-  }
+  ...(identifier ? presets[identifier] : undefined)
 });

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getGfmAnnotations } from '$lib/models/portfolio-image-annotations';
+  import { getGfmAnnotations } from '$lib/models/career-image-annotations';
   import { m } from '$lib/paraglide/messages';
   import PimmAnomalyFormula from '$lib/components/PimmAnomalyFormula.svelte';
   import CareerItem from '$lib/components/CareerItem.svelte';

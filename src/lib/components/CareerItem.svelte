@@ -1,8 +1,6 @@
 <script lang="ts">
   import { type Snippet, getContext, setContext } from 'svelte';
-  import { getLocale } from '$lib/paraglide/runtime';
   import { m } from '$lib/paraglide/messages';
-  import PortfolioItemDetail from '$lib/components/PortfolioItemDetail.svelte';
   import Popup from '$lib/components/Popup.svelte';
   import CareerTagList from '$lib/components/CareerTagList.svelte';
   import type { Date as CareerDate } from '$lib/models/date';
@@ -54,7 +52,6 @@
     `${(endsAt || current) ? '-' : ''}`+
     `${endsAt ? `${endsAt.year}${endsAt.month ? `.${String(endsAt.month).padStart(2, '0')}` : ''}${endsAt.day ? `.${String(endsAt.day).padStart(2, '0')}` : ''}` : current ? m.present() : ''}`
   );
-  const portfolio = getContext<{ enabled: boolean }>('career-portfolio');
   const tags = getCareerTags(id);
   const tagDisplayModes = getContext<{ modes: CareerTagDisplayModes } | undefined>('career-tag-display-modes');
   let hasExpandableTags = $derived(
@@ -267,18 +264,6 @@
         <span class="career-title-content" class:expired>
           {title}
         </span>
-        {#if portfolio?.enabled}
-          <a class="portfolio-item-link"
-            href={`https://jonghyeon.me/?select=${encodeURIComponent(id)}&locale=${getLocale()}`}
-            aria-label={`${title} — jonghyeon.me`}
-            onclick={(event) => event.stopPropagation()}
-            onkeydown={(event) => event.stopPropagation()}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-              <path d="M10 13a5 5 0 0 0 7 .1l3-3a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7-.1l-3 3a5 5 0 0 0 7 7l2-2" />
-            </svg>
-          </a>
-        {/if}
       </span>
       {#if !hideDatetime}
         <div class="career-datetime">{datetime}</div>
@@ -292,11 +277,7 @@
     </div>
   </div>
 </div>
-{#if portfolio?.enabled && ['project-ktas-trainer', 'project-sign-language-client', 'project-namumark', 'project-gfm2polygon-statement', 'algorithm-contest-operations', 'works-cellular'].includes(id)}
-  <div class="portfolio-detail" id={`${id}-detail`}>
-    <PortfolioItemDetail {id} />
-  </div>
-{:else if detailContent && !portfolio?.enabled}
+{#if detailContent}
   <div id={`${id}-detail`}>
     <Popup bind:this={popupComponent}>
       {@render detailContent()}

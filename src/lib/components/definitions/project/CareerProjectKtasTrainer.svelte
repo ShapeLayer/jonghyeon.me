@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getE2eUseAnnotations, getE2eConsoleAnnotations } from '$lib/models/portfolio-image-annotations';
+  import { getE2eUseAnnotations, getE2eConsoleAnnotations } from '$lib/models/career-image-annotations';
   import { m } from '$lib/paraglide/messages';
   import CareerItem from '$lib/components/CareerItem.svelte';
   import CareerItemDetailContent from '$lib/components/CareerItemDetailContent.svelte';

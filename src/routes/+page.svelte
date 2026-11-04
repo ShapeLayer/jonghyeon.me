@@ -7,16 +7,13 @@
   import Footer from '$lib/includes/Footer.svelte';
   import { defaultPreset, resolvePreset } from '$lib/models/presets';
 
-  const portfolio = import.meta.env.VITE_PORTFOLIO === 'true';
-  const portfolioPreset = () => resolvePreset('portfolio');
-  let preset = $state(portfolio ? portfolioPreset() : defaultPreset);
+  let preset = $state(defaultPreset);
 
   afterNavigate(() => {
-    preset = portfolio ? portfolioPreset() : resolvePreset(new URLSearchParams(window.location.search).get('preset'));
+    preset = resolvePreset(new URLSearchParams(window.location.search).get('preset'));
   });
 </script>
 
-<div class:cv-portfolio={portfolio}>
 {#if !preset.disableHeroSection}
   <Hero verticalSpacing={preset.heroVerticalSpacing} />
 {/if}
@@ -27,11 +24,9 @@
   {/if}
 {/if}
 {#if !preset.disableCareersSection}
-  <Careers {portfolio} opened={preset.openCareersSectionTabOpened} hiddenOverrides={preset.careerItemHiddenOverrides} tagDisplayModes={preset.careerTagDisplayModes} detailTagVisibility={preset.careerDetailTagVisibility} popupTransitionDurationMs={preset.popupTransitionDurationMs} verticalSpacing={preset.careersVerticalSpacing} />
+  <Careers opened={preset.openCareersSectionTabOpened} hiddenOverrides={preset.careerItemHiddenOverrides} tagDisplayModes={preset.careerTagDisplayModes} detailTagVisibility={preset.careerDetailTagVisibility} popupTransitionDurationMs={preset.popupTransitionDurationMs} verticalSpacing={preset.careersVerticalSpacing} />
   {#if !preset.hideCareersFooterHr}
     <SectionDivider margin={preset.careersFooterHrMargin} />
   {/if}
 {/if}
 <Footer verticalSpacing={preset.footerVerticalSpacing} hideBadges={preset.hideFooterBadges} hideLocaleSelector={preset.hideFooterLocaleSelector} hideCopyright={preset.hideFooterCopyright} />
-
-</div>

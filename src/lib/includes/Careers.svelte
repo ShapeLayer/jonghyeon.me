@@ -1,7 +1,5 @@
 <script lang="ts">
-  import PortfolioStackMap from '$lib/components/PortfolioStackMap.svelte';
   import { afterNavigate } from '$app/navigation';
-  import { getPortfolioGroups } from '$lib/models/portfolio';
   import type { Component } from 'svelte';
   import CareerProjectServer from '$lib/components/definitions/project/CareerProjectServer.svelte';
   import CareerTimeline from '$lib/components/CareerTimeline.svelte';
@@ -57,9 +55,8 @@
   import type { CareerDetailTagVisibility, CareersSectionTab, CareerTagDisplayModes, VerticalSpacing } from '$lib/models/presets';
   import { aiTags, careerSortCriteria, careerTabs, careerTags, eraTags, getCareerSection, getCareerSections, matchesCareerPeriod, matchesCareerTags, projectTags, sectionTags, sortCareerItemIds, stackTags, topicTags, type CareerTabIdentifier, type CareerTag, type CareerTagKind, type SortDirection } from '$lib/models/careers';
 
-  let { portfolio = false, opened = 'history', hiddenOverrides = {}, tagDisplayModes = { primary: 'always', secondary: 'collapse' }, detailTagVisibility = { primary: true, secondary: true, show: [], hide: [] }, popupTransitionDurationMs = 500, verticalSpacing = {} }: { portfolio?: boolean; opened?: CareersSectionTab; hiddenOverrides?: Record<string, boolean>; tagDisplayModes?: CareerTagDisplayModes; detailTagVisibility?: CareerDetailTagVisibility; popupTransitionDurationMs?: number; verticalSpacing?: VerticalSpacing } = $props();
+  let { opened = 'history', hiddenOverrides = {}, tagDisplayModes = { primary: 'always', secondary: 'collapse' }, detailTagVisibility = { primary: true, secondary: true, show: [], hide: [] }, popupTransitionDurationMs = 500, verticalSpacing = {} }: { opened?: CareersSectionTab; hiddenOverrides?: Record<string, boolean>; tagDisplayModes?: CareerTagDisplayModes; detailTagVisibility?: CareerDetailTagVisibility; popupTransitionDurationMs?: number; verticalSpacing?: VerticalSpacing } = $props();
 
-  setContext('career-portfolio', { get enabled() { return portfolio; } });
 
   setContext('career-tag-display-modes', {
     get modes() { return tagDisplayModes; }
@@ -351,10 +348,10 @@
 
   setContext('career-list-controls', {
     get selectedTagIdentifiers() {
-      return portfolio ? [] : selectedTagIdentifiers;
+      return selectedTagIdentifiers;
     },
     get periodFilter() {
-      return !portfolio && periodFilter ? { start: periodFilter.periodStart, end: periodFilter.periodEnd } : undefined;
+      return periodFilter ? { start: periodFilter.periodStart, end: periodFilter.periodEnd } : undefined;
     },
     get isFiltered() {
       return isFiltered;
@@ -381,7 +378,6 @@
   setContext('career-item-navigation', { navigate: navigateToCareerItem });
 
   afterNavigate(async ({ to }) => {
-    if (portfolio) return;
     const selected = to?.url.searchParams.get('select');
     // Let the preset's initial tab settle before applying the explicit URL state.
     await tick();
@@ -880,29 +876,6 @@
 
 <svelte:window onpointerdown={onWindowPointerDown} onpointerup={onWindowPointerUp} onpointercancel={abandonOutsidePointer} onscroll={onWindowScroll} onkeydown={onWindowKeyDown} />
 
-{#if portfolio}
-  <section class="portfolio-careers">
-    <PortfolioStackMap />
-    <section class="portfolio-chapter">
-      <h2>{m.career_tab_works()}</h2>
-      {#each getPortfolioGroups(hiddenOverrides) as group (group.id)}
-        {@const CareerDefinition = careerComponents[group.id]}
-        <section class="portfolio-section portfolio-project-group" data-project={group.id}>
-          <CareerDefinition />
-          {#if group.items.length}
-            <div class="portfolio-related-projects">
-              {#each group.items as id (id)}
-                {@const RelatedDefinition = careerComponents[id]}
-                <RelatedDefinition />
-              {/each}
-            </div>
-          {/if}
-        </section>
-      {/each}
-      <p class="portfolio-end"><strong>{m.portfolio_end()}</strong></p>
-    </section>
-  </section>
-{:else}
 <section bind:this={careersSectionElement} class:list-view={isFiltered && activeTab !== 'timeline' && activeTab !== 'stack'} class="careers" style:margin-top={verticalSpacing.marginTop} style:margin-bottom={verticalSpacing.marginBottom} style:padding-top={verticalSpacing.paddingTop} style:padding-bottom={verticalSpacing.paddingBottom}>
   <div bind:this={careersHeaderElement} class:stuck={isHeaderStuck} class="careers-header">
     <SectionHeader>{activeTabLabel}</SectionHeader>
@@ -1059,5 +1032,3 @@
     </div>
   {/if}
 </section>
-
-{/if}
