@@ -52,20 +52,63 @@
   import { getLocale } from '$lib/paraglide/runtime';
   import { base } from '$app/paths';
   import type { Date as CareerDate } from '$lib/models/date';
-  import type { CareerDetailTagVisibility, CareersSectionTab, CareerTagDisplayModes, VerticalSpacing } from '$lib/models/presets';
-  import { aiTags, careerSortCriteria, careerTabs, careerTags, eraTags, getCareerSection, getCareerSections, matchesCareerPeriod, matchesCareerTags, projectTags, sectionTags, sortCareerItemIds, stackTags, topicTags, type CareerTabIdentifier, type CareerTag, type CareerTagKind, type SortDirection } from '$lib/models/careers';
+  import type {
+    CareerDetailTagVisibility,
+    CareersSectionTab,
+    CareerTagDisplayModes,
+    VerticalSpacing
+  } from '$lib/models/presets';
+  import {
+    aiTags,
+    careerSortCriteria,
+    careerTabs,
+    careerTags,
+    eraTags,
+    getCareerSection,
+    getCareerSections,
+    matchesCareerPeriod,
+    matchesCareerTags,
+    projectTags,
+    sectionTags,
+    sortCareerItemIds,
+    stackTags,
+    topicTags,
+    type CareerTabIdentifier,
+    type CareerTag,
+    type CareerTagKind,
+    type SortDirection
+  } from '$lib/models/careers';
 
-  let { opened = 'history', hiddenOverrides = {}, tagDisplayModes = { primary: 'always', secondary: 'collapse' }, detailTagVisibility = { primary: true, secondary: true, show: [], hide: [] }, popupTransitionDurationMs = 500, verticalSpacing = {} }: { opened?: CareersSectionTab; hiddenOverrides?: Record<string, boolean>; tagDisplayModes?: CareerTagDisplayModes; detailTagVisibility?: CareerDetailTagVisibility; popupTransitionDurationMs?: number; verticalSpacing?: VerticalSpacing } = $props();
-
+  let {
+    opened = 'history',
+    hiddenOverrides = {},
+    tagDisplayModes = { primary: 'always', secondary: 'collapse' },
+    detailTagVisibility = { primary: true, secondary: true, show: [], hide: [] },
+    popupTransitionDurationMs = 500,
+    verticalSpacing = {}
+  }: {
+    opened?: CareersSectionTab;
+    hiddenOverrides?: Record<string, boolean>;
+    tagDisplayModes?: CareerTagDisplayModes;
+    detailTagVisibility?: CareerDetailTagVisibility;
+    popupTransitionDurationMs?: number;
+    verticalSpacing?: VerticalSpacing;
+  } = $props();
 
   setContext('career-tag-display-modes', {
-    get modes() { return tagDisplayModes; }
+    get modes() {
+      return tagDisplayModes;
+    }
   });
   setContext('career-detail-tag-visibility', {
-    get visibility() { return detailTagVisibility; }
+    get visibility() {
+      return detailTagVisibility;
+    }
   });
   setContext('popup-transition-duration-ms', {
-    get duration() { return popupTransitionDurationMs; }
+    get duration() {
+      return popupTransitionDurationMs;
+    }
   });
 
   /** Career item id to the component that defines it. */
@@ -149,13 +192,15 @@
     { kind: 'ai', label: () => m.career_filter_ai(), tags: aiTags },
     { kind: 'period', label: () => m.career_filter_period() }
   ];
-  const categoryOf = (kind: CareerConditionKind | undefined) => (kind ? tagScreenCategories.find((category) => category.kind === kind) : undefined);
+  const categoryOf = (kind: CareerConditionKind | undefined) =>
+    kind ? tagScreenCategories.find((category) => category.kind === kind) : undefined;
 
   let conditions: Condition[] = $state([]);
   let openMenuId: number | null = $state(null);
   let nextConditionId = 0;
   let controlsElement: HTMLDivElement | null = $state(null);
-  let menuTooltip: { text: string; left: number; top: number; above: boolean } | null = $state(null);
+  let menuTooltip: { text: string; left: number; top: number; above: boolean } | null =
+    $state(null);
 
   /** Renders outside the scrollable menu so descriptions are never clipped by its overflow boundary. */
   const showMenuTooltip = (event: MouseEvent | FocusEvent, text: string | undefined) => {
@@ -172,7 +217,11 @@
   const hideMenuTooltip = () => (menuTooltip = null);
   /** Every dimension's sort toggle, kept independent of the conditions array so it survives a tag screen closing
    *  without any value picked. Applied in careerSortCriteria's declared order whenever more than one is active. */
-  let sortDirections: Record<string, SortToggleState> = $state(Object.fromEntries(careerSortCriteria.map((criterion) => [criterion.identifier, 'none' as SortToggleState])));
+  let sortDirections: Record<string, SortToggleState> = $state(
+    Object.fromEntries(
+      careerSortCriteria.map((criterion) => [criterion.identifier, 'none' as SortToggleState])
+    )
+  );
   const cycleSortDirection = (criterionIdentifier: string) => {
     const current = sortDirections[criterionIdentifier] ?? 'none';
     const next: SortToggleState = current === 'none' ? 'asc' : current === 'asc' ? 'desc' : 'none';
@@ -187,11 +236,17 @@
   let careersSectionElement: HTMLElement | null = $state(null);
   let careersHeaderElement: HTMLDivElement | null = $state(null);
   let isHeaderStuck = $state(false);
-  let tabSections = $derived(getCareerSections(activeTab).map((section) => ({
-    ...section,
-    items: section.items.map((item) => item.id in hiddenOverrides ? { ...item, hidden: hiddenOverrides[item.id] } : item)
-  })));
-  let activeTabLabel = $derived(careerTabs.find((tab) => tab.identifier === activeTab)?.label() ?? '');
+  let tabSections = $derived(
+    getCareerSections(activeTab).map((section) => ({
+      ...section,
+      items: section.items.map((item) =>
+        item.id in hiddenOverrides ? { ...item, hidden: hiddenOverrides[item.id] } : item
+      )
+    }))
+  );
+  let activeTabLabel = $derived(
+    careerTabs.find((tab) => tab.identifier === activeTab)?.label() ?? ''
+  );
   let allItemIds = $derived(tabSections.flatMap((section) => section.items.map((item) => item.id)));
   /* Roving focus, as a tablist asks for: the arrow keys move between tabs rather than the Tab key. */
   const onTabKeyDown = (event: KeyboardEvent, index: number) => {
@@ -202,8 +257,16 @@
     activeTab = next.identifier;
     document.getElementById(`career-tab-${next.identifier}`)?.focus();
   };
-  let selectedTagIdentifiers = $derived(conditions.filter((condition) => condition.kind && condition.kind !== 'period').flatMap((condition) => condition.tagIdentifiers ?? []));
-  let periodFilter = $derived(conditions.find((condition) => condition.kind === 'period' && condition.periodStart && condition.periodEnd));
+  let selectedTagIdentifiers = $derived(
+    conditions
+      .filter((condition) => condition.kind && condition.kind !== 'period')
+      .flatMap((condition) => condition.tagIdentifiers ?? [])
+  );
+  let periodFilter = $derived(
+    conditions.find(
+      (condition) => condition.kind === 'period' && condition.periodStart && condition.periodEnd
+    )
+  );
   let sortConditions = $derived(
     careerSortCriteria
       .filter((criterion) => (sortDirections[criterion.identifier] ?? 'none') !== 'none')
@@ -212,15 +275,36 @@
         direction: sortDirections[criterion.identifier] as SortDirection
       }))
   );
-  let activeSortCriteria = $derived(careerSortCriteria.filter((criterion) => (sortDirections[criterion.identifier] ?? 'none') !== 'none'));
-  let orderById = $derived(new Map(sortCareerItemIds(sortConditions).map((id, index) => [id, index])));
+  let activeSortCriteria = $derived(
+    careerSortCriteria.filter(
+      (criterion) => (sortDirections[criterion.identifier] ?? 'none') !== 'none'
+    )
+  );
+  let orderById = $derived(
+    new Map(sortCareerItemIds(sortConditions).map((id, index) => [id, index]))
+  );
   /** Hidden entries remain excluded from filter and sort results unless explicitly included. */
   let excludeHiddenItems = $state(true);
   let includeHiddenItems = $derived(!excludeHiddenItems);
   /** Section headings only make sense while the list is laid out section by section. */
-  let isFiltered = $derived(selectedTagIdentifiers.length > 0 || sortConditions.length > 0 || Boolean(periodFilter) || includeHiddenItems);
-  let visibleItems = $derived(tabSections.flatMap((section) => section.items).filter((item) => includeHiddenItems || !item.hidden));
-  let shownCount = $derived(visibleItems.filter((item) => matchesCareerTags(item.id, selectedTagIdentifiers) && matchesCareerPeriod(item.id, periodFilter?.periodStart, periodFilter?.periodEnd)).length);
+  let isFiltered = $derived(
+    selectedTagIdentifiers.length > 0 ||
+      sortConditions.length > 0 ||
+      Boolean(periodFilter) ||
+      includeHiddenItems
+  );
+  let visibleItems = $derived(
+    tabSections
+      .flatMap((section) => section.items)
+      .filter((item) => includeHiddenItems || !item.hidden)
+  );
+  let shownCount = $derived(
+    visibleItems.filter(
+      (item) =>
+        matchesCareerTags(item.id, selectedTagIdentifiers) &&
+        matchesCareerPeriod(item.id, periodFilter?.periodStart, periodFilter?.periodEnd)
+    ).length
+  );
 
   /** Hidden entries are collected below the active tab until the visitor asks to see them. */
   let hiddenItemsExpandedByTab: Record<CareerTabIdentifier, boolean> = $state({
@@ -233,14 +317,23 @@
   const toggleHiddenItems = () => {
     hiddenItemsExpandedByTab = { ...hiddenItemsExpandedByTab, [activeTab]: !hiddenItemsExpanded };
   };
-  let hiddenItems = $derived(tabSections.flatMap((section) => section.items.filter((item) => item.hidden)));
-  let hiddenSections = $derived(tabSections.filter((section) => section.items.some((item) => item.hidden)));
+  let hiddenItems = $derived(
+    tabSections.flatMap((section) => section.items.filter((item) => item.hidden))
+  );
+  let hiddenSections = $derived(
+    tabSections.filter((section) => section.items.some((item) => item.hidden))
+  );
 
   /** A condition only becomes a real filter once it has a value; a bare category pick doesn't count yet. */
-  const isConditionComplete = (condition: Condition) => (condition.kind === 'period' ? Boolean(condition.periodStart && condition.periodEnd) : Boolean(condition.kind) && (condition.tagIdentifiers?.length ?? 0) > 0);
+  const isConditionComplete = (condition: Condition) =>
+    condition.kind === 'period'
+      ? Boolean(condition.periodStart && condition.periodEnd)
+      : Boolean(condition.kind) && (condition.tagIdentifiers?.length ?? 0) > 0;
   /** Categories left for a condition, excluding what the other conditions already use. */
   const availableCategoriesFor = (conditionId: number) => {
-    const usedKinds = conditions.filter((condition) => condition.id !== conditionId && condition.kind).map((condition) => condition.kind);
+    const usedKinds = conditions
+      .filter((condition) => condition.id !== conditionId && condition.kind)
+      .map((condition) => condition.kind);
     return tagScreenCategories.filter((category) => !usedKinds.includes(category.kind));
   };
   let canAddCondition = $derived(availableCategoriesFor(-1).length > 0);
@@ -252,14 +345,22 @@
   };
   /** Pick which category a condition's tag screen filters by. The menu stays open for the value/date step. */
   const pickCategory = (conditionId: number, kind: CareerConditionKind) => {
-    conditions = conditions.map((condition) => (condition.id === conditionId ? (kind === 'period' ? { ...condition, kind, periodStart: undefined, periodEnd: undefined } : { ...condition, kind, tagIdentifiers: [] }) : condition));
+    conditions = conditions.map((condition) =>
+      condition.id === conditionId
+        ? kind === 'period'
+          ? { ...condition, kind, periodStart: undefined, periodEnd: undefined }
+          : { ...condition, kind, tagIdentifiers: [] }
+        : condition
+    );
   };
   /** Toggle one value of the chosen category in or out. */
   const toggleTagValue = (conditionId: number, tagIdentifier: string) => {
     conditions = conditions.map((condition) => {
       if (condition.id !== conditionId) return condition;
       const current = condition.tagIdentifiers ?? [];
-      const next = current.includes(tagIdentifier) ? current.filter((identifier) => identifier !== tagIdentifier) : [...current, tagIdentifier];
+      const next = current.includes(tagIdentifier)
+        ? current.filter((identifier) => identifier !== tagIdentifier)
+        : [...current, tagIdentifier];
       return { ...condition, tagIdentifiers: next };
     });
   };
@@ -267,10 +368,19 @@
     const [year, month, day] = value.split('-').map(Number);
     return year && month && day ? { year, month, day } : undefined;
   };
-  const formatDateInputValue = (date?: CareerDate): string => (date ? `${String(date.year).padStart(4, '0')}-${String(date.month ?? 1).padStart(2, '0')}-${String(date.day ?? 1).padStart(2, '0')}` : '');
-  const setPeriodBound = (conditionId: number, bound: 'periodStart' | 'periodEnd', value: string) => {
+  const formatDateInputValue = (date?: CareerDate): string =>
+    date
+      ? `${String(date.year).padStart(4, '0')}-${String(date.month ?? 1).padStart(2, '0')}-${String(date.day ?? 1).padStart(2, '0')}`
+      : '';
+  const setPeriodBound = (
+    conditionId: number,
+    bound: 'periodStart' | 'periodEnd',
+    value: string
+  ) => {
     const date = parseDateInputValue(value);
-    conditions = conditions.map((condition) => (condition.id === conditionId ? { ...condition, [bound]: date } : condition));
+    conditions = conditions.map((condition) =>
+      condition.id === conditionId ? { ...condition, [bound]: date } : condition
+    );
   };
   const removeCondition = (conditionId: number) => {
     conditions = conditions.filter((condition) => condition.id !== conditionId);
@@ -280,7 +390,9 @@
   const resetAll = () => {
     conditions = [];
     openMenuId = null;
-    sortDirections = Object.fromEntries(careerSortCriteria.map((criterion) => [criterion.identifier, 'none' as SortToggleState]));
+    sortDirections = Object.fromEntries(
+      careerSortCriteria.map((criterion) => [criterion.identifier, 'none' as SortToggleState])
+    );
     excludeHiddenItems = true;
   };
   /** Conditions left without a value when their menu goes away never became a filter. */
@@ -301,11 +413,16 @@
   let outsidePointer: { id: number; x: number; y: number } | null = null;
   const onWindowPointerDown = (event: PointerEvent) => {
     if (openMenuId === null) return;
-    outsidePointer = controlsElement?.contains(event.target as Node) ? null : { id: event.pointerId, x: event.clientX, y: event.clientY };
+    outsidePointer = controlsElement?.contains(event.target as Node)
+      ? null
+      : { id: event.pointerId, x: event.clientX, y: event.clientY };
   };
   const onWindowPointerUp = (event: PointerEvent) => {
     if (!outsidePointer || event.pointerId !== outsidePointer.id) return;
-    const travelled = Math.hypot(event.clientX - outsidePointer.x, event.clientY - outsidePointer.y);
+    const travelled = Math.hypot(
+      event.clientX - outsidePointer.x,
+      event.clientY - outsidePointer.y
+    );
     outsidePointer = null;
     if (openMenuId !== null && travelled <= tapSlop) closeMenu();
   };
@@ -326,24 +443,38 @@
   onMount(() => {
     // `opened=projects` is the public URL name for the internally named works tab.
     // Any missing or unsupported value deliberately retains history as the default.
-    if (new URLSearchParams(window.location.search).get('opened') === 'projects') activeTab = 'works';
+    if (new URLSearchParams(window.location.search).get('opened') === 'projects')
+      activeTab = 'works';
     onWindowScroll();
   });
   $effect(() => {
     activeTab = opened === 'projects' ? 'works' : 'history';
   });
-  const sortToggleGlyph = (state: SortToggleState) => (state === 'asc' ? '↑' : state === 'desc' ? '↓' : '•');
-  const formatCareerDate = (date?: CareerDate): string => (date ? `${date.year}.${String(date.month ?? 1).padStart(2, '0')}.${String(date.day ?? 1).padStart(2, '0')}` : '');
-  const conditionTags = (condition: Condition): CareerTag[] => (condition.kind && condition.kind !== 'period' ? (condition.tagIdentifiers ?? []).map((identifier) => careerTags.find((tag) => tag.identifier === identifier)).filter((tag): tag is CareerTag => Boolean(tag)) : []);
+  const sortToggleGlyph = (state: SortToggleState) =>
+    state === 'asc' ? '↑' : state === 'desc' ? '↓' : '•';
+  const formatCareerDate = (date?: CareerDate): string =>
+    date
+      ? `${date.year}.${String(date.month ?? 1).padStart(2, '0')}.${String(date.day ?? 1).padStart(2, '0')}`
+      : '';
+  const conditionTags = (condition: Condition): CareerTag[] =>
+    condition.kind && condition.kind !== 'period'
+      ? (condition.tagIdentifiers ?? [])
+          .map((identifier) => careerTags.find((tag) => tag.identifier === identifier))
+          .filter((tag): tag is CareerTag => Boolean(tag))
+      : [];
   /** The category name alone while no value is picked yet, then "<category>: <values>" once some are. */
   const conditionLabel = (condition: Condition): string => {
     if (!condition.kind) return '';
     const categoryLabel = categoryOf(condition.kind)?.label() ?? '';
     if (condition.kind === 'period') {
-      return condition.periodStart && condition.periodEnd ? `${categoryLabel}: ${formatCareerDate(condition.periodStart)} ~ ${formatCareerDate(condition.periodEnd)}` : categoryLabel;
+      return condition.periodStart && condition.periodEnd
+        ? `${categoryLabel}: ${formatCareerDate(condition.periodStart)} ~ ${formatCareerDate(condition.periodEnd)}`
+        : categoryLabel;
     }
     const tags = conditionTags(condition);
-    return tags.length ? `${categoryLabel}: ${tags.map((tag) => tag.displayName()).join(', ')}` : categoryLabel;
+    return tags.length
+      ? `${categoryLabel}: ${tags.map((tag) => tag.displayName()).join(', ')}`
+      : categoryLabel;
   };
 
   setContext('career-list-controls', {
@@ -351,7 +482,9 @@
       return selectedTagIdentifiers;
     },
     get periodFilter() {
-      return periodFilter ? { start: periodFilter.periodStart, end: periodFilter.periodEnd } : undefined;
+      return periodFilter
+        ? { start: periodFilter.periodStart, end: periodFilter.periodEnd }
+        : undefined;
     },
     get isFiltered() {
       return isFiltered;
@@ -387,12 +520,16 @@
     }
     const requested = to?.url.searchParams.get('opened');
     const tabs: Record<string, CareerTabIdentifier> = {
-      projects: 'works', history: 'history', stack: 'stack', timeline: 'timeline'
+      projects: 'works',
+      history: 'history',
+      stack: 'stack',
+      timeline: 'timeline'
     };
     if (!requested || !Object.hasOwn(tabs, requested)) return;
     activeTab = tabs[requested];
     await tick();
-    if (requested === 'stack') careersSectionElement?.scrollIntoView({ behavior: 'instant', block: 'start' });
+    if (requested === 'stack')
+      careersSectionElement?.scrollIntoView({ behavior: 'instant', block: 'start' });
   });
   setContext('career-popup-request', {
     get pendingId() {
@@ -412,6 +549,328 @@
     }
   });
 </script>
+
+<svelte:window
+  onpointerdown={onWindowPointerDown}
+  onpointerup={onWindowPointerUp}
+  onpointercancel={abandonOutsidePointer}
+  onscroll={onWindowScroll}
+  onkeydown={onWindowKeyDown}
+/>
+
+<section
+  bind:this={careersSectionElement}
+  class:list-view={isFiltered && activeTab !== 'timeline' && activeTab !== 'stack'}
+  class="careers"
+  style:margin-top={verticalSpacing.marginTop}
+  style:margin-bottom={verticalSpacing.marginBottom}
+  style:padding-top={verticalSpacing.paddingTop}
+  style:padding-bottom={verticalSpacing.paddingBottom}
+>
+  <div bind:this={careersHeaderElement} class:stuck={isHeaderStuck} class="careers-header">
+    <SectionHeader>{activeTabLabel}</SectionHeader>
+    <p class="last-update">{m.last_update({ date: '2026-09-30' })}</p>
+    <p class="career-detail-hint">
+      <span class="material-symbols-outlined" role="img" aria-label={m.see_more()}
+        >right_panel_close</span
+      >
+      <span>{m.career_detail_hint()}</span>
+    </p>
+    <div class="career-tab-row">
+      <div class="career-tabs" role="tablist" aria-label={m.careers()}>
+        {#each careerTabs as tab, index (tab.identifier)}
+          <button
+            class="career-tab"
+            type="button"
+            role="tab"
+            id={`career-tab-${tab.identifier}`}
+            aria-selected={activeTab === tab.identifier}
+            aria-controls="career-tab-panel"
+            tabindex={activeTab === tab.identifier ? 0 : -1}
+            onclick={() => (activeTab = tab.identifier)}
+            onkeydown={(event) => onTabKeyDown(event, index)}>{tab.label()}</button
+          >
+        {/each}
+      </div>
+      <details class="download-menu">
+        <summary
+          class="career-tab career-download"
+          aria-label={m.career_download_menu()}
+          title={m.career_download_menu()}
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5" />
+          </svg>
+        </summary>
+        <div class="download-options">
+          <a
+            href={`${base}/files/cv-${getLocale() === 'ko' ? 'ko' : 'en'}.pdf`}
+            target="_blank"
+            rel="noopener noreferrer">CV</a
+          >
+          <a href={`${base}/files/portfolio-ko.pdf`} target="_blank" rel="noopener noreferrer"
+            >{getLocale() === 'ko' ? '' : '[KO] '}{m.career_portfolio()}</a
+          >
+        </div>
+      </details>
+    </div>
+    {#if activeTab !== 'stack' && activeTab !== 'timeline'}
+      <div
+        class="career-controls"
+        bind:this={controlsElement}
+        aria-label={m.career_filter_controls()}
+      >
+        <div class="control-row">
+          <span class="control-label">{m.career_filter_label()}</span>
+          {#each conditions as condition (condition.id)}
+            {@const hasValue = isConditionComplete(condition)}
+            <span class="condition" class:pending={!hasValue} class:filled={hasValue}>
+              <button
+                class="condition-label"
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={openMenuId === condition.id}
+                aria-label={condition.kind ? undefined : m.career_filter_choose()}
+                title={condition.kind ? categoryOf(condition.kind)?.label() : undefined}
+                onclick={() => toggleMenu(condition.id)}>{conditionLabel(condition)}</button
+              >
+              {#if hasValue}
+                <button
+                  class="condition-remove"
+                  type="button"
+                  aria-label={m.career_filter_remove()}
+                  onclick={() => removeCondition(condition.id)}>×</button
+                >
+              {/if}
+              {#if openMenuId === condition.id}
+                <div
+                  class="condition-menu"
+                  role="menu"
+                  aria-label={m.career_filter_choose()}
+                  onscroll={hideMenuTooltip}
+                >
+                  {#if !condition.kind}
+                    <!-- Step 1: pick which dimension this tag screen filters by. -->
+                    <p class="menu-group-label">{m.career_filter_label()}</p>
+                    {#each availableCategoriesFor(condition.id) as category (category.kind)}
+                      <button
+                        class="menu-item"
+                        type="button"
+                        role="menuitem"
+                        onclick={() => pickCategory(condition.id, category.kind)}
+                      >
+                        {category.label()}
+                      </button>
+                    {/each}
+                  {:else}
+                    <!-- Step 2: the tag screen for the chosen dimension — its own sort toggle above a divider,
+                       then either a checkbox list of values (section/topic/era) or a date range (period). -->
+                    {@const category = categoryOf(condition.kind)}
+                    {@const sortState = sortDirections[condition.kind] ?? 'none'}
+                    {@const sortTooltip =
+                      sortState === 'asc'
+                        ? m.career_sort_ascending_tooltip()
+                        : sortState === 'desc'
+                          ? m.career_sort_descending_tooltip()
+                          : m.career_sort_default_tooltip()}
+                    <div
+                      class="menu-item menu-item-sort-toggle"
+                      role="group"
+                      aria-label={category?.label()}
+                    >
+                      <span class="menu-item-sort-toggle-label">{category?.label()}</span>
+                      <span class="sort-toggle-group">
+                        <span class="sort-toggle-hint">{m.career_sort()}:</span>
+                        <button
+                          class="sort-direction-toggle"
+                          type="button"
+                          aria-label={m.career_sort_flip_direction()}
+                          onmouseenter={(event) => showMenuTooltip(event, sortTooltip)}
+                          onmouseleave={hideMenuTooltip}
+                          onfocus={(event) => showMenuTooltip(event, sortTooltip)}
+                          onblur={hideMenuTooltip}
+                          onclick={() => cycleSortDirection(condition.kind ?? '')}
+                          >{sortToggleGlyph(sortState)}</button
+                        >
+                      </span>
+                    </div>
+                    {#if condition.kind === 'period'}
+                      <div class="menu-item menu-item-period">
+                        <label class="period-field">
+                          <span class="period-field-label">{m.career_period_start()}</span>
+                          <input
+                            type="date"
+                            value={formatDateInputValue(condition.periodStart)}
+                            onchange={(event) =>
+                              setPeriodBound(
+                                condition.id,
+                                'periodStart',
+                                event.currentTarget.value
+                              )}
+                          />
+                        </label>
+                        <label class="period-field">
+                          <span class="period-field-label">{m.career_period_end()}</span>
+                          <input
+                            type="date"
+                            value={formatDateInputValue(condition.periodEnd)}
+                            onchange={(event) =>
+                              setPeriodBound(condition.id, 'periodEnd', event.currentTarget.value)}
+                          />
+                        </label>
+                      </div>
+                    {:else}
+                      {#each category?.kind !== 'period' ? (category?.tags ?? []) : [] as tag (tag.identifier)}
+                        <label
+                          class="menu-item menu-item-checkbox"
+                          onmouseenter={(event) => showMenuTooltip(event, tag.description?.())}
+                          onmouseleave={hideMenuTooltip}
+                          onfocusin={(event) => showMenuTooltip(event, tag.description?.())}
+                          onfocusout={hideMenuTooltip}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={(condition.tagIdentifiers ?? []).includes(tag.identifier)}
+                            onchange={() => toggleTagValue(condition.id, tag.identifier)}
+                          />
+                          <span class="menu-swatch" style:background-color={tag.foregroundColor}
+                          ></span>
+                          {tag.displayName()}
+                        </label>
+                      {/each}
+                    {/if}
+                  {/if}
+                  <label class="menu-item menu-item-checkbox hidden-items-option">
+                    <input type="checkbox" bind:checked={excludeHiddenItems} />
+                    {excludeHiddenItems
+                      ? m.career_filter_exclude_hidden()
+                      : m.career_filter_include_hidden()}
+                  </label>
+                </div>
+              {/if}
+            </span>
+          {/each}
+          {#each activeSortCriteria as criterion (criterion.identifier)}
+            {@const direction = sortDirections[criterion.identifier] as SortDirection}
+            <span class="condition filled">
+              <span class="condition-label"
+                >{criterion.displayName()} {sortToggleGlyph(direction)}</span
+              >
+              <button
+                class="condition-remove"
+                type="button"
+                aria-label={m.career_filter_remove()}
+                onclick={() => clearSortDirection(criterion.identifier)}>×</button
+              >
+            </span>
+          {/each}
+          {#if includeHiddenItems}
+            <span class="condition filled">
+              <span class="condition-label">{m.career_filter_include_hidden()}</span>
+              <button
+                class="condition-remove"
+                type="button"
+                aria-label={m.career_filter_remove()}
+                onclick={() => (excludeHiddenItems = true)}>×</button
+              >
+            </span>
+          {/if}
+          <button
+            class="add-condition"
+            type="button"
+            aria-label={m.career_filter_add()}
+            title={m.career_filter_add()}
+            disabled={!canAddCondition}
+            onclick={addCondition}>+</button
+          >
+          {#if isFiltered}
+            <button class="reset-button" type="button" onclick={resetAll}
+              >{m.career_filter_reset()}</button
+            >
+          {/if}
+        </div>
+        {#if selectedTagIdentifiers.length || periodFilter}
+          <p class="result-count">
+            {m.career_filter_result_count({ shown: shownCount, total: allItemIds.length })}
+          </p>
+        {/if}
+      </div>
+    {/if}
+  </div>
+  <div
+    class="careers-panel"
+    id="career-tab-panel"
+    role="tabpanel"
+    aria-labelledby={`career-tab-${activeTab}`}
+  >
+    {#if activeTab === 'stack'}
+      <StackOverview />
+    {:else if activeTab === 'timeline'}
+      <CareerTimeline />
+    {:else}
+      {#each tabSections as section (section.identifier)}
+        <div class="careers-content" data-section={section.identifier}>
+          <h3>{section.title()}</h3>
+          {#each section.items as item (item.id)}
+            {#if !item.hidden || (isFiltered && includeHiddenItems)}
+              {@const CareerDefinition = careerComponents[item.id]}
+              <CareerDefinition />
+            {/if}
+          {/each}
+        </div>
+      {/each}
+      {#if hiddenItems.length > 0 && !isFiltered}
+        <button
+          class="section-toggle"
+          type="button"
+          aria-expanded={hiddenItemsExpanded}
+          onclick={toggleHiddenItems}
+          >{hiddenItemsExpanded
+            ? `− ${m.career_section_hide()}`
+            : `+ ${m.career_section_show_more({ count: hiddenItems.length })}`}</button
+        >
+        {#if hiddenItemsExpanded}
+          <div class="hidden-sections">
+            {#each hiddenSections as section (section.identifier)}
+              <div class="careers-content" data-section={section.identifier}>
+                <h3>{section.title()}</h3>
+                {#each section.items.filter((item) => item.hidden) as item (item.id)}
+                  {@const CareerDefinition = careerComponents[item.id]}
+                  <CareerDefinition />
+                {/each}
+              </div>
+            {/each}
+          </div>
+        {/if}
+      {/if}
+      <ul class="note github-projects-note">
+        <li>
+          {m.career_more_projects_github()}
+          <ExternalLink href="https://github.com/ShapeLayer?tab=repositories">GitHub</ExternalLink>
+        </li>
+      </ul>
+    {/if}
+  </div>
+  {#if menuTooltip}
+    <div
+      class="menu-tooltip"
+      class:above={menuTooltip.above}
+      role="tooltip"
+      style:left={`${menuTooltip.left}px`}
+      style:top={`${menuTooltip.top}px`}
+    >
+      {menuTooltip.text}
+    </div>
+  {/if}
+</section>
 
 <style>
   section.careers {
@@ -484,6 +943,41 @@
     gap: 0.2em;
     flex: 1;
     min-width: 0;
+  }
+  .download-menu {
+    position: relative;
+    flex-shrink: 0;
+  }
+  .download-menu summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  .download-menu summary::-webkit-details-marker {
+    display: none;
+  }
+  .download-options {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+    min-width: max-content;
+    padding: 0;
+    overflow: hidden;
+    background: var(--base-bg-color);
+    border: 1px solid var(--base-bg-color-darker);
+    border-radius: 0.25em;
+    box-shadow: 0 4px 12px #0002;
+    font-size: 0.7em;
+  }
+  .download-options a {
+    display: block;
+    padding: 0.35em 0.6em;
+    color: var(--base-fg-color-brighter);
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  .download-options a:hover,
+  .download-options a:focus-visible {
+    background: color-mix(in srgb, var(--base-fg-color-brighter) 6%, transparent);
   }
   .career-download {
     display: inline-flex;
@@ -873,162 +1367,3 @@
     }
   }
 </style>
-
-<svelte:window onpointerdown={onWindowPointerDown} onpointerup={onWindowPointerUp} onpointercancel={abandonOutsidePointer} onscroll={onWindowScroll} onkeydown={onWindowKeyDown} />
-
-<section bind:this={careersSectionElement} class:list-view={isFiltered && activeTab !== 'timeline' && activeTab !== 'stack'} class="careers" style:margin-top={verticalSpacing.marginTop} style:margin-bottom={verticalSpacing.marginBottom} style:padding-top={verticalSpacing.paddingTop} style:padding-bottom={verticalSpacing.paddingBottom}>
-  <div bind:this={careersHeaderElement} class:stuck={isHeaderStuck} class="careers-header">
-    <SectionHeader>{activeTabLabel}</SectionHeader>
-    <p class="last-update">{m.last_update({ date: '2026-09-30' })}</p>
-    <p class="career-detail-hint">
-      <span class="material-symbols-outlined" role="img" aria-label={m.see_more()}>right_panel_close</span>
-      <span>{m.career_detail_hint()}</span>
-    </p>
-    <div class="career-tab-row">
-      <div class="career-tabs" role="tablist" aria-label={m.careers()}>
-        {#each careerTabs as tab, index (tab.identifier)}
-          <button class="career-tab" type="button" role="tab" id={`career-tab-${tab.identifier}`} aria-selected={activeTab === tab.identifier} aria-controls="career-tab-panel" tabindex={activeTab === tab.identifier ? 0 : -1} onclick={() => (activeTab = tab.identifier)} onkeydown={(event) => onTabKeyDown(event, index)}>{tab.label()}</button>
-        {/each}
-      </div>
-      <button class="career-tab career-download" type="button" aria-label={m.career_download_cv()} title={m.career_download_cv()} onclick={() => window.open(`${base}/files/cv-${getLocale() === 'ko' ? 'ko' : 'en'}.pdf`, '_blank', 'noopener,noreferrer')}>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5" />
-        </svg>
-      </button>
-    </div>
-    {#if activeTab !== 'stack' && activeTab !== 'timeline'}
-    <div class="career-controls" bind:this={controlsElement} aria-label={m.career_filter_controls()}>
-      <div class="control-row">
-        <span class="control-label">{m.career_filter_label()}</span>
-        {#each conditions as condition (condition.id)}
-          {@const hasValue = isConditionComplete(condition)}
-          <span class="condition" class:pending={!hasValue} class:filled={hasValue}>
-            <button class="condition-label" type="button" aria-haspopup="menu" aria-expanded={openMenuId === condition.id} aria-label={condition.kind ? undefined : m.career_filter_choose()} title={condition.kind ? categoryOf(condition.kind)?.label() : undefined} onclick={() => toggleMenu(condition.id)}>{conditionLabel(condition)}</button>
-            {#if hasValue}
-              <button class="condition-remove" type="button" aria-label={m.career_filter_remove()} onclick={() => removeCondition(condition.id)}>×</button>
-            {/if}
-            {#if openMenuId === condition.id}
-              <div class="condition-menu" role="menu" aria-label={m.career_filter_choose()} onscroll={hideMenuTooltip}>
-                {#if !condition.kind}
-                  <!-- Step 1: pick which dimension this tag screen filters by. -->
-                  <p class="menu-group-label">{m.career_filter_label()}</p>
-                  {#each availableCategoriesFor(condition.id) as category (category.kind)}
-                    <button class="menu-item" type="button" role="menuitem" onclick={() => pickCategory(condition.id, category.kind)}>
-                      {category.label()}
-                    </button>
-                  {/each}
-                {:else}
-                  <!-- Step 2: the tag screen for the chosen dimension — its own sort toggle above a divider,
-                       then either a checkbox list of values (section/topic/era) or a date range (period). -->
-                  {@const category = categoryOf(condition.kind)}
-                  {@const sortState = sortDirections[condition.kind] ?? 'none'}
-                  {@const sortTooltip = sortState === 'asc' ? m.career_sort_ascending_tooltip() : sortState === 'desc' ? m.career_sort_descending_tooltip() : m.career_sort_default_tooltip()}
-                  <div class="menu-item menu-item-sort-toggle" role="group" aria-label={category?.label()}>
-                    <span class="menu-item-sort-toggle-label">{category?.label()}</span>
-                    <span class="sort-toggle-group">
-                      <span class="sort-toggle-hint">{m.career_sort()}:</span>
-                      <button class="sort-direction-toggle" type="button" aria-label={m.career_sort_flip_direction()} onmouseenter={(event) => showMenuTooltip(event, sortTooltip)} onmouseleave={hideMenuTooltip} onfocus={(event) => showMenuTooltip(event, sortTooltip)} onblur={hideMenuTooltip} onclick={() => cycleSortDirection(condition.kind ?? '')}>{sortToggleGlyph(sortState)}</button>
-                    </span>
-                  </div>
-                  {#if condition.kind === 'period'}
-                    <div class="menu-item menu-item-period">
-                      <label class="period-field">
-                        <span class="period-field-label">{m.career_period_start()}</span>
-                        <input type="date" value={formatDateInputValue(condition.periodStart)} onchange={(event) => setPeriodBound(condition.id, 'periodStart', event.currentTarget.value)} />
-                      </label>
-                      <label class="period-field">
-                        <span class="period-field-label">{m.career_period_end()}</span>
-                        <input type="date" value={formatDateInputValue(condition.periodEnd)} onchange={(event) => setPeriodBound(condition.id, 'periodEnd', event.currentTarget.value)} />
-                      </label>
-                    </div>
-                  {:else}
-                    {#each category?.kind !== 'period' ? (category?.tags ?? []) : [] as tag (tag.identifier)}
-                      <label class="menu-item menu-item-checkbox" onmouseenter={(event) => showMenuTooltip(event, tag.description?.())} onmouseleave={hideMenuTooltip} onfocusin={(event) => showMenuTooltip(event, tag.description?.())} onfocusout={hideMenuTooltip}>
-                        <input type="checkbox" checked={(condition.tagIdentifiers ?? []).includes(tag.identifier)} onchange={() => toggleTagValue(condition.id, tag.identifier)} />
-                        <span class="menu-swatch" style:background-color={tag.foregroundColor}></span>
-                        {tag.displayName()}
-                      </label>
-                    {/each}
-                  {/if}
-                {/if}
-                <label class="menu-item menu-item-checkbox hidden-items-option">
-                  <input type="checkbox" bind:checked={excludeHiddenItems} />
-                  {excludeHiddenItems ? m.career_filter_exclude_hidden() : m.career_filter_include_hidden()}
-                </label>
-              </div>
-            {/if}
-          </span>
-        {/each}
-        {#each activeSortCriteria as criterion (criterion.identifier)}
-          {@const direction = sortDirections[criterion.identifier] as SortDirection}
-          <span class="condition filled">
-            <span class="condition-label">{criterion.displayName()} {sortToggleGlyph(direction)}</span>
-            <button class="condition-remove" type="button" aria-label={m.career_filter_remove()} onclick={() => clearSortDirection(criterion.identifier)}>×</button>
-          </span>
-        {/each}
-        {#if includeHiddenItems}
-          <span class="condition filled">
-            <span class="condition-label">{m.career_filter_include_hidden()}</span>
-            <button class="condition-remove" type="button" aria-label={m.career_filter_remove()} onclick={() => (excludeHiddenItems = true)}>×</button>
-          </span>
-        {/if}
-        <button class="add-condition" type="button" aria-label={m.career_filter_add()} title={m.career_filter_add()} disabled={!canAddCondition} onclick={addCondition}>+</button>
-        {#if isFiltered}
-          <button class="reset-button" type="button" onclick={resetAll}>{m.career_filter_reset()}</button>
-        {/if}
-      </div>
-      {#if selectedTagIdentifiers.length || periodFilter}
-        <p class="result-count">
-          {m.career_filter_result_count({ shown: shownCount, total: allItemIds.length })}
-        </p>
-      {/if}
-    </div>
-    {/if}
-  </div>
-  <div class="careers-panel" id="career-tab-panel" role="tabpanel" aria-labelledby={`career-tab-${activeTab}`}>
-    {#if activeTab === 'stack'}
-      <StackOverview />
-    {:else if activeTab === 'timeline'}
-      <CareerTimeline />
-    {:else}
-    {#each tabSections as section (section.identifier)}
-      <div class="careers-content" data-section={section.identifier}>
-        <h3>{section.title()}</h3>
-        {#each section.items as item (item.id)}
-          {#if !item.hidden || (isFiltered && includeHiddenItems)}
-            {@const CareerDefinition = careerComponents[item.id]}
-            <CareerDefinition />
-          {/if}
-        {/each}
-      </div>
-    {/each}
-    {#if hiddenItems.length > 0 && !isFiltered}
-      <button class="section-toggle" type="button" aria-expanded={hiddenItemsExpanded} onclick={toggleHiddenItems}>{hiddenItemsExpanded ? `− ${m.career_section_hide()}` : `+ ${m.career_section_show_more({ count: hiddenItems.length })}`}</button>
-      {#if hiddenItemsExpanded}
-        <div class="hidden-sections">
-          {#each hiddenSections as section (section.identifier)}
-            <div class="careers-content" data-section={section.identifier}>
-              <h3>{section.title()}</h3>
-              {#each section.items.filter((item) => item.hidden) as item (item.id)}
-                {@const CareerDefinition = careerComponents[item.id]}
-                <CareerDefinition />
-              {/each}
-            </div>
-          {/each}
-        </div>
-      {/if}
-    {/if}
-    <ul class="note github-projects-note">
-      <li>
-        {m.career_more_projects_github()}
-        <ExternalLink href="https://github.com/ShapeLayer?tab=repositories">GitHub</ExternalLink>
-      </li>
-    </ul>
-    {/if}
-  </div>
-  {#if menuTooltip}
-    <div class="menu-tooltip" class:above={menuTooltip.above} role="tooltip" style:left={`${menuTooltip.left}px`} style:top={`${menuTooltip.top}px`}>
-      {menuTooltip.text}
-    </div>
-  {/if}
-</section>
