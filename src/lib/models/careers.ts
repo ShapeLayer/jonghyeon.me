@@ -116,8 +116,8 @@ export const careerSections: CareerSection[] = [
     title: () => m.career_section_current(),
     tagIdentifiers: ['current'],
     items: [
-      { id: 'edu-bachelor-chonnam-natl-univ-ce', startsAt: { year: 2021, month: 3 }, current: true, tagIdentifiers: ['education', 'era-university'] },
-      { id: 'edu-bachelor-chonnam-natl-univ-jp', startsAt: { year: 2026, month: 3 }, current: true, tagIdentifiers: ['education', 'language', 'era-university'] },
+      { id: 'edu-bachelor-chonnam-natl-univ-ce', startsAt: { year: 2021, month: 3 }, endsAt: { year: 2027, month: 2 }, tagIdentifiers: ['education', 'era-university'] },
+      { id: 'edu-bachelor-chonnam-natl-univ-jp', startsAt: { year: 2026, month: 3 }, endsAt: { year: 2027, month: 2 }, tagIdentifiers: ['education', 'language', 'era-university'] },
       { id: 'work-dedam-math-science-lecturer', startsAt: { year: 2026, month: 7 }, current: true, tagIdentifiers: ['work', 'era-university'], hidden: true },
     ]
   },
