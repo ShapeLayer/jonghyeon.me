@@ -148,12 +148,13 @@
     <CareerItemDetailContent title={m.career_title_project_ktas_trainer()}>
       <CareerItemDetailSubsection>
         <div class="paper-wrapper">
-          <p class="paper-status">{m.career_contents_project_ktas_trainer_paper_status()}</p>
+          <p class="paper-status"><ExternalLink href="https://nsri.cau.ac.kr/bbs/board.php?tbl=notice&mode=VIEW&num=28">{m.career_contents_project_ktas_trainer_paper_status()}</ExternalLink></p>
           <div class="paper-authors" lang="en">
             <p class="paper-title">Development and Evaluation of a Unity-Based Virtual Simulation Program for Hospital-Based Disaster Nursing</p>
             <p class="paper-names">
-              {#each [['Kang', '1'], ['Jonghyeon Park', '2'], ['Yoo', '3'], ['Kang', '4'], ['Lee', '3'], ['Cho', '5*']] as [name, affiliation], index}
-                <span class="paper-author">{#if index !== 1}<span class="paper-name-mask" role="img" aria-label="Given name redacted"></span>{/if}<span class:paper-self={index === 1}>{name}</span><sup>{affiliation}</sup></span>{index < 5 ? ', ' : ''}
+              {#each [['Jeonghun Kang', '1'], ['Jonghyeon Park', '2'], ['Hyun Seo Yoo', '3'], ['Hyeyeong Kang', '4'], ['Gaeun Lee', '3'], ['In Young Cho', '5*']] as [name, affiliation], index}
+                <span class="paper-author">
+                  <!--<span class="paper-name-mask" role="img" aria-label="Given name redacted"></span>--><span class:paper-self={index === 1}>{name}</span><sup>{affiliation}</sup></span>{index < 5 ? ', ' : ''}
               {/each}
             </p>
             <div class="paper-affiliations">
